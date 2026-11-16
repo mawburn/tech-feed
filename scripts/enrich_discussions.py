@@ -301,21 +301,35 @@ def reddit_match(story, issue_date):
 def safe_platforms(existing):
     return {str(item.get("platform","")).strip().lower() for item in existing if isinstance(item,dict)}
 
-def enrich_story(story):
+def enrich_story(issue_date, story):
     before=list(story.get("discussions") or [])
-    existing=safe_platforms(before)
+    kept=[]
+    removed=0
+    for link in before:
+        # Re-check only links automatically added by this script. Explicit
+        # editorial links are left intact.
+        if (isinstance(link,dict) and link.get("platform")=="Hacker News"
+                and link.get("label")=="HN discussion"
+                and not valid_prior_hn(story,link,issue_date)):
+            removed+=1
+            continue
+        kept.append(link)
+    existing=safe_platforms(kept)
     changes=[]
     if "hacker news" not in existing:
-        matched=hn_match(story)
+        matched=hn_match(story,issue_date)
         if matched:
             changes.append(matched)
     if "reddit" not in existing:
-        matched=reddit_match(story)
+        matched=reddit_match(story,issue_date)
         if matched:
             changes.append(matched)
-    if changes:
-        story["discussions"]=before+changes
-    return changes
+    if changes or removed:
+        if kept or changes:
+            story["discussions"]=kept+changes
+        else:
+            story.pop("discussions",None)
+    return {"added":changes,"removed":removed}
 
 def run():
     parser=argparse.ArgumentParser()
@@ -325,7 +339,11 @@ def run():
     if args.self_test:
         assert normalize_url("https://www.example.com/Blog/Article/?utm_source=reddit") == "example.com/blog/article"
         assert overlap("LangChain raises $300m valuation", "LangChain raises funding at new valuation") > .5
-        assert story_score({"title":"LangChain funding","sources":[{"url":"https://example.com/news"}]},"LangChain","https://www.example.com/news/") == 1.
+        assert story_score({"title":"LangChain funding","sources":[{"url":"https://example.com/news/2026/langchain-raises-funds"}]},"LangChain","https://www.example.com/news/2026/langchain-raises-funds/") == 1.
+        assert not article_specific("https://example.com/news")
+        assert near_date("2026-11-12T08:00:00Z","2026-11-15")
+        assert not near_date("2024-01-01T08:00:00Z","2026-11-15")
+        assert permalink_candidate("https://www.reddit.com/r/programming/comments/abc123/thread/")
         assert story_score({"title":"Nvidia CEO transition","sources":[]},"Nvidia earnings beat estimates",None) == 0.
         doc=b'<feed xmlns="http://www.w3.org/2005/Atom"><entry><title>LangChain funding</title><link href="https://www.reddit.com/r/programming/comments/abc123/news/"/></entry></feed>'
         assert len(parse_reddit_feed(doc))==1
@@ -337,22 +355,26 @@ def run():
     changed=0
     counts={"Hacker News":0,"Reddit":0}
     docs=[(file,json.loads(file.read_text(encoding="utf8"))) for file in files]
-    stories=[story for _,issue in docs for section in ("topStories","alsoWorthKnowing","newTools") for story in issue.get(section,[])]
+    stories=[(issue["date"],story) for _,issue in docs for section in ("topStories","alsoWorthKnowing","newTools") for story in issue.get(section,[])]
     # Bounded parallelism, with in-memory URL caches and endpoint circuit breakers.
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
-        matches=list(pool.map(enrich_story,stories))
-    by_id={id(story):matches[i] for i,story in enumerate(stories)}
+        matches=list(pool.map(lambda task: enrich_story(*task),stories))
+    by_id={id(story):matches[i] for i,(_,story) in enumerate(stories)}
+    removed_total=0
     for file,data in docs:
-        found=[match for section in ("topStories","alsoWorthKnowing","newTools") for story in data.get(section,[]) for match in by_id.get(id(story),[])]
-        if found:
+        outcome=[by_id[id(story)] for section in ("topStories","alsoWorthKnowing","newTools") for story in data.get(section,[]) if id(story) in by_id]
+        found=[link for item in outcome for link in item["added"]]
+        removed=sum(item["removed"] for item in outcome)
+        removed_total+=removed
+        if found or removed:
             file.write_text(json.dumps(data,indent=2,ensure_ascii=False)+"\n",encoding="utf8")
             changed+=1
         for item in found:
             counts[item["platform"]]+=1
-        print(f"{file.name}: {len(found)} verified community thread links")
-    print(f"Done. Updated {changed} edition files; HN={counts['Hacker News']}, Reddit={counts['Reddit']}; HTTP successes HN={SUCCESS['hn']}, Reddit={SUCCESS['reddit']}, failures HN={FAILED['hn']}, Reddit={FAILED['reddit']}")
-    if not SUCCESS["hn"] and not SUCCESS["reddit"]:
-        print("WARNING: Neither community search endpoint responded; no links were fabricated.",file=sys.stderr)
+        print(f"{file.name}: added {len(found)} and removed {removed} discussion links")
+    print(f"Done. Updated {changed} edition files; added HN={counts['Hacker News']}, Reddit={counts['Reddit']}; removed stale HN={removed_total}; HTTP successes HN={SUCCESS['hn']}, Reddit RSS={SUCCESS['reddit']}, Reddit archive={SUCCESS['reddit_archive']}; failures HN={FAILED['hn']}, Reddit RSS={FAILED['reddit']}, Reddit archive={FAILED['reddit_archive']}")
+    if not SUCCESS["hn"] and not SUCCESS["reddit"] and not SUCCESS["reddit_archive"]:
+        print("WARNING: No community search endpoint responded; no links were fabricated.",file=sys.stderr)
 
 if __name__ == "__main__":
     run()
