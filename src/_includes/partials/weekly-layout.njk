@@ -49,7 +49,7 @@
         {% set secondary = false %}
         <article class="weekly-theme">
           {% include "partials/story-image.njk" %}
-          <div class="weekly-theme-meta"><span class="story-rank">{{ "%02d" | format(loop.index) }}</span><span class="story-category">{{ theme.category or 'Technology' }}</span></div>
+          <div class="weekly-theme-meta"><span class="story-rank">{{ loop.index | pad2 }}</span><span class="story-category">{{ theme.category or 'Technology' }}</span></div>
           <h3 class="weekly-theme-title">{{ theme.title }}</h3>
           {% if theme.summary %}<p class="weekly-theme-summary">{{ theme.summary }}</p>{% endif %}
           {% if theme.impact %}<p class="story-insight"><strong>Why it matters: </strong>{{ theme.impact }}</p>{% endif %}
