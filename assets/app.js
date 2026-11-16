@@ -3,6 +3,8 @@
 
   const elements = {
     nav: document.getElementById('date-nav'),
+    topicNav: document.getElementById('topic-nav'),
+    topicSummary: document.getElementById('topic-summary'),
     content: document.getElementById('feed-content'),
     count: document.getElementById('results-count'),
     archive: document.getElementById('archive-count'),
@@ -142,6 +144,36 @@
     }
     return parent;
   }
+  function renderTopics() {
+    const issues = state.day === 'all' ? state.issues : state.issues.filter(issue => issue.date === state.day);
+    const counts = new Map();
+    let total = 0;
+    for (const issue of issues) {
+      for (const story of issueStories(issue)) {
+        const category = story.category || 'Other';
+        counts.set(category, (counts.get(category) || 0) + 1);
+        total++;
+      }
+    }
+    elements.topicNav.replaceChildren();
+    elements.topicSummary.textContent = `${counts.size} ${counts.size === 1 ? 'topic' : 'topics'} · ${total} stories`;
+    const options = [{name: 'All topics', value: 'all', count: total},
+      ...Array.from(counts, ([name, count]) => ({name, value: name, count}))
+        .sort((a,b) => b.count - a.count || a.name.localeCompare(b.name))];
+    for (const option of options) {
+      const button = el('button', 'topic-link');
+      button.type = 'button';
+      button.setAttribute('aria-pressed', String(state.category === option.value));
+      append(button, el('span','topic-name',option.name), el('span','topic-count',option.count));
+      button.addEventListener('click', () => {
+        state.category = option.value;
+        elements.category.value = state.category;
+        render();
+      });
+      elements.topicNav.append(button);
+    }
+  }
+
   function renderNav() {
     elements.nav.replaceChildren();
     const buttons = [{date:'all',label:'All editions',count:state.issues.length},...state.issues.map(issue=>({date:issue.date,label:shortDate.format(dateFromISO(issue.date)),count:issueStories(issue).length}))];
@@ -149,12 +181,13 @@
       const button = el('button','day-link');
       button.type='button'; button.setAttribute('aria-pressed',String(state.day === item.date));
       append(button,el('span','day-name',item.label),el('span','day-count',item.count));
-      button.addEventListener('click',()=>{state.day=item.date;render();});
+      button.addEventListener('click',()=>{state.day=item.date;state.category='all';elements.category.value='all';render();});
       elements.nav.append(button);
     }
   }
   function render() {
     renderNav();
+    renderTopics();
     const issues = state.day==='all' ? state.issues : state.issues.filter(i=>i.date===state.day);
     const matches = issues.flatMap(issue=>issueStories(issue).filter(textMatch));
     elements.count.textContent = `${matches.length} ${matches.length===1?'story':'stories'}`;
