@@ -247,3 +247,11 @@ strong { font-weight: 700; color: var(--text) }
   .secondary-image,.secondary-artwork { width: 72px }
 }
 @media(prefers-reduced-motion: reduce) { html { scroll-behavior: auto } }
+
+
+/* Optional native disclosure: discovery searches are never mislabeled comments. */
+.discussion-search { margin-top: 9px; color: var(--subtle); font-size: 12px; }
+.discussion-search summary { cursor: pointer; display: list-item; width: fit-content; padding: 3px 0; }
+.discussion-search summary:hover { color: var(--text); }
+.discussion-search-links { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 8px 0 2px 14px; }
+.discussion-search-links a { color: var(--link); font-size: 12.5px; }
