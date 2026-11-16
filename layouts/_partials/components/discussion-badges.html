@@ -1,0 +1,10 @@
+{{- /* Prominent pills for prefetched HN/Reddit threads, shown by the headline. Context: {discussions} */ -}}
+{{- $links := slice -}}
+{{- range .discussions }}{{ if and (reflect.IsMap .) (partial "data/is-http.html" .url) }}{{ $links = $links | append . }}{{ end }}{{ end -}}
+{{- if $links }}
+<div class="discussion-badges" aria-label="Community discussions">
+  {{- range $links }}
+  <a class="thread-pill" href="{{ .url }}" target="_blank" rel="noopener noreferrer" title="Open {{ .platform | default "community" }} discussion"><span class="thread-platform">{{ .platform | default "Discussion" }}</span> <span class="thread-action">comments ↗</span></a>
+  {{- end }}
+</div>
+{{- end -}}

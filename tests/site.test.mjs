@@ -79,7 +79,10 @@ test("daily pages contain every story and discussion link", () => {
     const html = decode(read(`daily/${issue.date}/index.html`));
     for (const story of stories(issue)) {
       assert.ok(html.includes(story.title), `${issue.date}: missing "${story.title}"`);
-      for (const d of story.discussions || []) assert.ok(html.includes(d.url), `${issue.date}: missing discussion ${d.url}`);
+      for (const d of story.discussions || []) {
+        assert.ok(html.includes(d.url), `${issue.date}: missing discussion ${d.url}`);
+        assert.ok(/class="?thread-pill/.test(html), `${issue.date}: missing visible discussion badge`);
+      }
       for (const s of story.sources) assert.ok(html.includes(s.url), `${issue.date}: missing source ${s.url}`);
     }
   }

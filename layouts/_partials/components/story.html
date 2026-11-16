@@ -14,6 +14,7 @@
       {{- if $s.isUpdate }} <span class="story__badge">Updated</span>{{ end -}}
     </p>
     {{ partial "components/heading.html" (dict "level" .level "text" $s.title "class" "story__title") }}
+    {{- partial "components/discussion-badges.html" (dict "discussions" $s.discussions) }}
     {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary") }}
     {{- with $s.whyItMatters }}
     <p class="story__note"><strong>Why it matters:</strong> {{ . }}</p>
@@ -21,6 +22,6 @@
     {{- with $s.limitations }}
     <p class="story__note story__note--caveat"><strong>Caveat:</strong> {{ . }}</p>
     {{- end }}
-    {{- partial "components/story-links.html" (dict "sources" $s.sources "discoveredVia" $s.discoveredVia "discussions" $s.discussions) }}
+    {{- partial "components/story-links.html" (dict "sources" $s.sources "discoveredVia" $s.discoveredVia) }}
   </div>
 </article>
