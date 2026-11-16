@@ -50,7 +50,13 @@
           "label": "Hugging Face model card",
           "url": "https://huggingface.co/meituan-longcat/LongCat-2.5"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/meituan-longcat/LongCat-2.5.png",
+        "alt": "Publisher-provided image for LongCat-2.5 weights available for large-scale agentic workflows",
+        "credit": "huggingface.co",
+        "sourceUrl": "https://huggingface.co/meituan-longcat/LongCat-2.5"
+      }
     },
     {
       "rank": 4,
@@ -69,7 +75,13 @@
           "label": "GitHub engineering coverage",
           "url": "https://github.blog/"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/893f328115f736f3c49f5add942cfc800c3703396d10d842b7c123745c633f32/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
+        "alt": "Publisher-provided image for Git patches high-severity recursive-clone remote-code-execution flaw",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr"
+      }
     },
     {
       "rank": 5,
@@ -145,7 +157,13 @@
           "label": "Business Insider",
           "url": "https://www.businessinsider.com/ai-engineering-jobs-changing-more-meetings-office-time-social-skills-2026-11"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://i.insider.com/6af77f050cc3ffba8779d016?width=1200&format=jpeg",
+        "alt": "Publisher-provided image for AI coding changes engineering collaboration expectations",
+        "credit": "businessinsider.com",
+        "sourceUrl": "https://www.businessinsider.com/ai-engineering-jobs-changing-more-meetings-office-time-social-skills-2026-11"
+      }
     },
     {
       "title": "GitHub Copilot models scheduled for December retirement",
@@ -156,7 +174,13 @@
           "label": "GitHub changelog",
           "url": "https://github.blog/changelog/month/11-2026/"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://github.blog/wp-content/uploads/2026/11/704888510-f6f002b4-825a-48c2-ad38-5256b8a3aafd.jpg",
+        "alt": "Publisher-provided image for GitHub Copilot models scheduled for December retirement",
+        "credit": "github.blog",
+        "sourceUrl": "https://github.blog/changelog/month/11-2026/"
+      }
     },
     {
       "title": "GitHub AI Scan gains REST API management",
@@ -167,7 +191,13 @@
           "label": "GitHub changelog",
           "url": "https://github.blog/changelog/month/11-2026/"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://github.blog/wp-content/uploads/2026/11/704888510-f6f002b4-825a-48c2-ad38-5256b8a3aafd.jpg",
+        "alt": "Publisher-provided image for GitHub AI Scan gains REST API management",
+        "credit": "github.blog",
+        "sourceUrl": "https://github.blog/changelog/month/11-2026/"
+      }
     },
     {
       "title": "Gemini 4 Hydrogen remains the newest confirmed Copilot model addition",
@@ -178,7 +208,13 @@
           "label": "GitHub changelog",
           "url": "https://github.blog/changelog/month/11-2026/"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://github.blog/wp-content/uploads/2026/11/704888510-f6f002b4-825a-48c2-ad38-5256b8a3aafd.jpg",
+        "alt": "Publisher-provided image for Gemini 4 Hydrogen remains the newest confirmed Copilot model addition",
+        "credit": "github.blog",
+        "sourceUrl": "https://github.blog/changelog/month/11-2026/"
+      }
     },
     {
       "title": "AI-agent workflow study finds prompt-injection defenses rarely specified",
@@ -202,7 +238,13 @@
           "label": "Hugging Face",
           "url": "https://huggingface.co/meituan-longcat/LongCat-2.5"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/meituan-longcat/LongCat-2.5.png",
+        "alt": "Publisher-provided image for LongCat-2.5",
+        "credit": "huggingface.co",
+        "sourceUrl": "https://huggingface.co/meituan-longcat/LongCat-2.5"
+      }
     },
     {
       "title": "Qwen4-Max",
@@ -224,7 +266,13 @@
           "label": "Git advisory",
           "url": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/893f328115f736f3c49f5add942cfc800c3703396d10d842b7c123745c633f32/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
+        "alt": "Publisher-provided image for Git security advisories",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr"
+      }
     }
   ],
   "marketPulse": "No new comprehensive software-engineering employment release was verified this morning. Employer interviews suggest increased value placed on collaboration and judgment, but cannot establish Staff+ demand or compensation trends. AI infrastructure funding, export controls and systemic risk remain material business signals; they do not by themselves prove a broad hiring recovery."
