@@ -4,6 +4,7 @@
   const elements = {
     nav: document.getElementById('date-nav'),
     topicNav: document.getElementById('topic-nav'),
+    topicTitle: document.getElementById('topic-panel-title'),
     topicSummary: document.getElementById('topic-summary'),
     content: document.getElementById('feed-content'),
     count: document.getElementById('results-count'),
@@ -155,6 +156,7 @@
       }
     }
     elements.topicNav.replaceChildren();
+    elements.topicTitle.textContent = state.day === 'all' ? 'TOPICS · ALL EDITIONS' : 'TOPICS IN THIS EDITION';
     elements.topicSummary.textContent = `${counts.size} ${counts.size === 1 ? 'topic' : 'topics'} · ${total} stories`;
     const options = [{name: 'All topics', value: 'all', count: total},
       ...Array.from(counts, ([name, count]) => ({name, value: name, count}))
