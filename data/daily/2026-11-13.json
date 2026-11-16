@@ -1,0 +1,273 @@
+{
+  "date": "2026-11-13",
+  "label": "Morning briefing · Reconstructed from original topics",
+  "overview": "The November 13 briefing combined Nvidia's leadership upheaval, strong semiconductor manufacturing earnings, a lawsuit targeting frontier AI, the labor implications of AI, Anthropic's enterprise platform push and AMD's deeper quantum-computing collaboration. The entries below retain all topics from the original report, with newly verified links where available.",
+  "topStories": [
+    {
+      "title": "Nvidia's leadership crisis continues after Jensen Huang departure",
+      "category": "Business & Markets",
+      "summary": "Nvidia's board and interim CEO Colette Kress faced investor questions after the company's November 12 confirmation of Huang's immediate resignation.",
+      "whyItMatters": "Chipmakers, cloud customers and investors depend on predictable roadmaps and executive continuity at Nvidia.",
+      "limitations": "The company confirmed the transition, but investigative and reputational claims need careful attribution.",
+      "sources": [
+        {
+          "label": "Nvidia announcement",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+        },
+        {
+          "label": "SEC filing",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000082/nvda-20261111.htm"
+        }
+      ],
+      "image": {
+        "url": "https://nvidianews.nvidia.com/media/sites/219/images/social-image.jpg",
+        "alt": "Publisher-provided image for Nvidia's leadership crisis continues after Jensen Huang departure",
+        "credit": "nvidianews.nvidia.com",
+        "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+      }
+    },
+    {
+      "title": "Applied Materials earnings point to sustained AI chip investment",
+      "category": "Hardware & Chips",
+      "summary": "Applied Materials reported record fiscal fourth-quarter revenue of $10.41 billion, up 53% year over year, with investment in semiconductor manufacturing a major driver.",
+      "whyItMatters": "Equipment orders signal spending across the chip-production supply chain, not just at accelerator vendors.",
+      "limitations": "Quarterly earnings reflect current demand; they do not guarantee that today's AI capacity plans will all become profitable.",
+      "sources": [
+        {
+          "label": "Earnings release",
+          "url": "https://www.appliedmaterials.com/us/en/newsroom/press-releases/111226-applied-materials-announces-fourth-qtr-fiscal-year-end-2026-results.html"
+        },
+        {
+          "label": "SEC exhibit",
+          "url": "https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/exhibit991q42026earningsre.htm"
+        }
+      ]
+    },
+    {
+      "title": "Lawsuit seeks a halt to frontier-model development",
+      "category": "Policy & Regulation",
+      "summary": "A coalition of nonprofits sued OpenAI, Google, Meta, Anthropic, and SpaceX's AI division in California, alleging that frontier-model development should be restrained.",
+      "whyItMatters": "The filing tests how consumer and unfair-competition law might affect future AI training and deployment.",
+      "limitations": "A lawsuit and allegations are not judicial findings; no injunction was established by filing the complaint.",
+      "sources": [
+        {
+          "label": "Reuters reporting",
+          "url": "https://www.reuters.com/business/openai-google-anthropic-hit-with-lawsuit-seeking-halt-frontier-ai-development-2026-11-12/"
+        }
+      ]
+    },
+    {
+      "title": "Federal Reserve governor warns AI could cause serious labor disruption",
+      "category": "Jobs & Labor",
+      "summary": "Governor Michael Barr argued that AI may be complementing workers today but could produce serious short-term job disruption if adoption accelerates.",
+      "whyItMatters": "This is a policy-level warning relevant to developer hiring, entry-level roles, re-skilling and long-term productivity.",
+      "limitations": "Barr acknowledged the extent of actual labor displacement remains limited and highly uncertain.",
+      "sources": [
+        {
+          "label": "Federal Reserve speech",
+          "url": "https://www.federalreserve.gov/newsevents/speech/barr20261112a.htm"
+        }
+      ],
+      "image": {
+        "url": "https://www.federalreserve.gov/images/social-media/social-default-image-opengraph.jpg",
+        "alt": "Publisher-provided image for Federal Reserve governor warns AI could cause serious labor disruption",
+        "credit": "federalreserve.gov",
+        "sourceUrl": "https://www.federalreserve.gov/newsevents/speech/barr20261112a.htm"
+      }
+    },
+    {
+      "title": "Anthropic expands its enterprise agent and productivity ambitions",
+      "category": "AI & Agents",
+      "summary": "Anthropic announced self-hosted Claude Managed Agents, allowing customers to host agent services, sessions and history on their own infrastructure rather than only using managed sandboxes.",
+      "whyItMatters": "Enterprise adoption depends on governance, data control, and operational reliability, not merely model scores.",
+      "limitations": "Self-hosted managed agents were announced with access through customer account teams; this is not general availability for every developer.",
+      "sources": [
+        {
+          "label": "Claude Platform release notes",
+          "url": "https://platform.claude.com/docs/en/release-notes/overview"
+        },
+        {
+          "label": "Anthropic news",
+          "url": "https://www.anthropic.com/news"
+        }
+      ],
+      "image": {
+        "url": "https://platform.claude.com/web-api/og/docs/en/release-notes/overview?design-rev=5",
+        "alt": "Publisher-provided image for Anthropic expands its enterprise agent and productivity ambitions",
+        "credit": "platform.claude.com",
+        "sourceUrl": "https://platform.claude.com/docs/en/release-notes/overview"
+      }
+    },
+    {
+      "title": "AMD and PsiQuantum broaden partnership on hybrid computing",
+      "category": "Hardware & Chips",
+      "summary": "AMD and PsiQuantum announced deeper co-design work for fault-tolerant quantum computing infrastructure combining AMD CPUs, GPUs, software and PsiQuantum's silicon-photonics platform.",
+      "whyItMatters": "Large-scale quantum systems will need tightly coupled classical compute for error correction and hybrid applications.",
+      "limitations": "Commercially useful quantum-scale deployments remain future-facing; planned cooperation is not a delivered machine.",
+      "sources": [
+        {
+          "label": "Partnership announcement",
+          "url": "https://www.nasdaq.com/press-release/psiquantum-and-amd-collaborate-build-computing-foundation-utility-scale-quantum"
+        },
+        {
+          "label": "Reuters",
+          "url": "https://www.reuters.com/business/amd-invest-psiquantum-advance-quantum-computing-infrastructure-2026-11-12/"
+        }
+      ]
+    }
+  ],
+  "alsoWorthKnowing": [
+    {
+      "title": "GitHub secret scanning adds Cloudflare service tokens",
+      "category": "Security",
+      "summary": "GitHub's secret scanning now detects Cloudflare Access service tokens to help flag inadvertently published credentials.",
+      "sources": [
+        {
+          "label": "GitHub changelog",
+          "url": "https://github.blog/changelog/2026-11-12-secret-scanning-adds-a-detector-for-cloudflare/"
+        }
+      ],
+      "image": {
+        "url": "https://github.blog/wp-content/uploads/2026/11/571554102-6349f5b6-b0b7-4130-9300-6d5d87e0b6e9_19d4ff.jpg",
+        "alt": "Publisher-provided image for GitHub secret scanning adds Cloudflare service tokens",
+        "credit": "github.blog",
+        "sourceUrl": "https://github.blog/changelog/2026-11-12-secret-scanning-adds-a-detector-for-cloudflare/"
+      }
+    },
+    {
+      "title": "GitHub Actions announces ARM32 runner retirement",
+      "category": "Developer Tools",
+      "summary": "GitHub announced that Windows and Linux ARM32 job execution support will end on December 8, 2026.",
+      "sources": [
+        {
+          "label": "November GitHub changelog",
+          "url": "https://github.blog/changelog/month/11-2026/"
+        }
+      ],
+      "image": {
+        "url": "https://github.blog/wp-content/uploads/2026/11/645867806-878ea927-48c9-4765-a896-4a5f3d7b8f2e.jpg",
+        "alt": "Publisher-provided image for GitHub Actions announces ARM32 runner retirement",
+        "credit": "github.blog",
+        "sourceUrl": "https://github.blog/changelog/month/11-2026/"
+      }
+    },
+    {
+      "title": "GitHub reviews October reliability incidents",
+      "category": "Developer Tools",
+      "summary": "The original briefing flagged a review of GitHub's October reliability and service incidents. The individual incident source was not retained.",
+      "sources": [
+        {
+          "label": "GitHub Status history",
+          "url": "https://www.githubstatus.com/history"
+        },
+        {
+          "label": "GitHub engineering",
+          "url": "https://github.blog/engineering/"
+        }
+      ],
+      "image": {
+        "url": "https://github.blog/wp-content/uploads/2019/03/engineering-social.png?fit=1201%2C630",
+        "alt": "Publisher-provided image for GitHub reviews October reliability incidents",
+        "credit": "github.blog",
+        "sourceUrl": "https://github.blog/engineering/"
+      }
+    },
+    {
+      "title": "Synchron pauses trials of its second-generation brain-computer interface",
+      "category": "Technology",
+      "summary": "Reporting says the device did not perform as expected in initial participants; the company is redesigning its hardware.",
+      "sources": [
+        {
+          "label": "WIRED reporting",
+          "url": "https://www.wired.com/story/synchron-pauses-trials-of-its-brain-implant-due-to-performance-issues/"
+        }
+      ],
+      "image": {
+        "url": "https://media.wired.com/photos/6ae951f7e1fce5fdf7878b36/191:100/w_1280,c_limit/SM_Science_Synchron_GettyImages-1610629090.jpg",
+        "alt": "Publisher-provided image for Synchron pauses trials of its second-generation brain-computer interface",
+        "credit": "wired.com",
+        "sourceUrl": "https://www.wired.com/story/synchron-pauses-trials-of-its-brain-implant-due-to-performance-issues/"
+      }
+    },
+    {
+      "title": "Specialized AI engineer pay remains a labor-market bright spot",
+      "category": "Jobs & Labor",
+      "summary": "The briefing discussed compensation premiums for certain AI-engineering specializations. This should not be generalized to all software roles without comparable market data.",
+      "sources": [
+        {
+          "label": "Indeed Hiring Lab context",
+          "url": "https://hiringlab.indeed.com/2026/11/12/2026-q3-us-tech-labor-market-update/"
+        }
+      ],
+      "image": {
+        "url": "https://d341ezm4iqaae0.cloudfront.net/hiringlaborg/2026/11/12162624/Tech_developersdiscussingcodeinofficegettyperp-scaled.jpg",
+        "alt": "Publisher-provided image for Specialized AI engineer pay remains a labor-market bright spot",
+        "credit": "hiringlab.indeed.com",
+        "sourceUrl": "https://hiringlab.indeed.com/2026/11/12/2026-q3-us-tech-labor-market-update/"
+      }
+    },
+    {
+      "title": "Business formation improves while hiring intent remains mixed",
+      "category": "Jobs & Labor",
+      "summary": "The report contrasted rising US business applications with softer hiring-intent applications; the former does not necessarily create immediate salaried roles.",
+      "sources": [
+        {
+          "label": "US Census business formation statistics",
+          "url": "https://www.census.gov/econ/bfs/index.html"
+        }
+      ]
+    }
+  ],
+  "newTools": [
+    {
+      "title": "Gemini 4 Carbon",
+      "category": "AI & Models",
+      "summary": "Google's frontier Gemini 4 model remains an important comparison point for reasoning-intensive agent tasks alongside the lower-cost Hydrogen.",
+      "sources": [
+        {
+          "label": "Google DeepMind Gemini models",
+          "url": "https://deepmind.google/models/gemini/"
+        }
+      ]
+    },
+    {
+      "title": "Nvidia Nemotron 3.5 Super VL",
+      "category": "AI & Models",
+      "summary": "A vision-language Nemotron model flagged in the original briefing for evaluation. The exact model-card identifier was not retained; check official Nvidia releases before installing.",
+      "sources": [
+        {
+          "label": "Nvidia Nemotron collection",
+          "url": "https://huggingface.co/nvidia"
+        },
+        {
+          "label": "Nvidia AI models",
+          "url": "https://build.nvidia.com/"
+        }
+      ],
+      "image": {
+        "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/nvidia.png",
+        "alt": "Publisher-provided image for Nvidia Nemotron 3.5 Super VL",
+        "credit": "huggingface.co",
+        "sourceUrl": "https://huggingface.co/nvidia"
+      }
+    },
+    {
+      "title": "GitHub Secret Scanning with Cloudflare token detection",
+      "category": "Security",
+      "summary": "Inspect the Cloudflare Access service-token detector in GitHub secret scanning if using Cloudflare Access service credentials.",
+      "sources": [
+        {
+          "label": "Detector release",
+          "url": "https://github.blog/changelog/2026-11-12-secret-scanning-adds-a-detector-for-cloudflare/"
+        }
+      ],
+      "image": {
+        "url": "https://github.blog/wp-content/uploads/2026/11/571554102-6349f5b6-b0b7-4130-9300-6d5d87e0b6e9_19d4ff.jpg",
+        "alt": "Publisher-provided image for GitHub Secret Scanning with Cloudflare token detection",
+        "credit": "github.blog",
+        "sourceUrl": "https://github.blog/changelog/2026-11-12-secret-scanning-adds-a-detector-for-cloudflare/"
+      }
+    }
+  ],
+  "marketPulse": "Applied Materials' earnings and AI infrastructure spending suggest continued demand for semiconductors, while Federal Reserve remarks highlight uncertainty about how quickly AI gains translate into job displacement. Distinguish sector-specific hiring resilience from the broader software labor market."
+}
