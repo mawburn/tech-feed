@@ -1,0 +1,334 @@
+{
+  "date": "2026-11-14",
+  "label": "November 14 briefing · Reconstructed",
+  "overview": "The Saturday briefing covered agent-led commerce, Nvidia's leadership fallout, a multi-service Microsoft 365 outage, Google Gemini 4 Hydrogen, AWS Emulator, Amazon's reported product graph effort, and the risks accompanying AI infrastructure spending. The eight shorter items and three tools below follow the original briefing's topic list.",
+  "topStories": [
+    {
+      "title": "AI agents are becoming actual customers, not just shopping assistants",
+      "category": "AI & Agents",
+      "summary": "The move from assisting shoppers toward directly acting on their behalf is increasing pressure for agent-compatible merchant discovery, identity, product data, permissions, and checkout infrastructure.",
+      "whyItMatters": "Developers building commerce systems may need to expose products and transaction policies to non-human clients.",
+      "limitations": "Agent purchases still require merchant support and secure user authorization; adoption remains uneven.",
+      "sources": [
+        {
+          "label": "Google agentic commerce resources",
+          "url": "https://blog.google/products/shopping/"
+        },
+        {
+          "label": "Amazon retail updates",
+          "url": "https://www.aboutamazon.com/news/retail"
+        }
+      ],
+      "image": {
+        "url": "https://blog.google/static/blogv2/images/google-1440x754.jpg?version=pr20261029-2131",
+        "alt": "Publisher-provided image for AI agents are becoming actual customers, not just shopping assistants",
+        "credit": "blog.google",
+        "sourceUrl": "https://blog.google/products/shopping/"
+      }
+    },
+    {
+      "title": "Nvidia's leadership crisis is now affecting the broader AI infrastructure trade",
+      "category": "Business & Markets",
+      "summary": "After Nvidia confirmed Jensen Huang's resignation, investors and suppliers evaluated the execution and governance risk facing its accelerator roadmap.",
+      "whyItMatters": "Nvidia's position in the AI compute supply chain magnifies the implications of uncertainty at the company.",
+      "limitations": "There is no basis to infer widespread project cancellations solely from leadership news.",
+      "sources": [
+        {
+          "label": "Company announcement",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+        },
+        {
+          "label": "SEC 8-K",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000082/nvda-20261111.htm"
+        }
+      ],
+      "image": {
+        "url": "https://nvidianews.nvidia.com/media/sites/219/images/social-image.jpg",
+        "alt": "Publisher-provided image for Nvidia's leadership crisis is now affecting the broader AI infrastructure trade",
+        "credit": "nvidianews.nvidia.com",
+        "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+      }
+    },
+    {
+      "title": "Microsoft 365 suffers a major global outage",
+      "category": "Cloud & Infrastructure",
+      "summary": "A Microsoft 365 incident affected enterprise communications and collaboration services including Outlook/Exchange, Teams and SharePoint, with recovery unfolding during Friday.",
+      "whyItMatters": "It demonstrates common failure modes of platforms built on shared identity, routing and control-plane dependencies.",
+      "limitations": "Scope and exact recovery times differ by region and tenant; consult Microsoft service health for tenant-specific impact.",
+      "sources": [
+        {
+          "label": "Service health (tenant-specific)",
+          "url": "https://admin.microsoft.com/Adminportal/Home#/servicehealth"
+        },
+        {
+          "label": "Third-party incident timeline",
+          "url": "https://status.bath.ac.uk/incident/1124080?mp=true"
+        }
+      ],
+      "image": {
+        "url": "https://status.bath.ac.uk/assets/status_pages/og_wl_operational-6028a588.png",
+        "alt": "Publisher-provided image for Microsoft 365 suffers a major global outage",
+        "credit": "status.bath.ac.uk",
+        "sourceUrl": "https://status.bath.ac.uk/incident/1124080?mp=true"
+      }
+    },
+    {
+      "title": "Google releases Gemini 4 Hydrogen for faster agentic coding",
+      "category": "AI & Models",
+      "summary": "Google introduced a fast Gemini 4 variant optimized for coding, agent workflows and larger orchestration systems.",
+      "whyItMatters": "Teams using multiple agents may trade some single-step capability for lower latency and cost.",
+      "limitations": "Vendor benchmark comparisons require independent tests on real tasks.",
+      "sources": [
+        {
+          "label": "Google announcement",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+        },
+        {
+          "label": "Model information",
+          "url": "https://deepmind.google/models/model-cards/gemini-4-hydrogen/"
+        }
+      ],
+      "image": {
+        "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-hydrogen__key-art__lockup__16-9.width-1300.jpg",
+        "alt": "Publisher-provided image for Google releases Gemini 4 Hydrogen for faster agentic coding",
+        "credit": "blog.google",
+        "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+      }
+    },
+    {
+      "title": "AWS Emulator offers local infrastructure testing for coding agents",
+      "category": "Developer Tools",
+      "summary": "AWS Emulator runs AWS-compatible API calls on a local machine, enabling agents and integration tests to iterate without cloud deployments.",
+      "whyItMatters": "The faster feedback loop is especially relevant to automated debugging, infrastructure tests and CI.",
+      "limitations": "It is not an IAM security test and has service-specific fidelity limits.",
+      "sources": [
+        {
+          "label": "AWS launch",
+          "url": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/"
+        },
+        {
+          "label": "AWS documentation",
+          "url": "https://docs.aws.amazon.com/emulator/latest/userguide/"
+        }
+      ],
+      "image": {
+        "url": "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/11/11/Header-A-dark-gradient-1-1260x630.png",
+        "alt": "Publisher-provided image for AWS Emulator offers local infrastructure testing for coding agents",
+        "credit": "aws.amazon.com",
+        "sourceUrl": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/"
+      }
+    },
+    {
+      "title": "Amazon is reportedly exploring a global product-data system to defend its shopping business",
+      "category": "Business & Markets",
+      "summary": "Reporting described internal Amazon work on a broad World Product Graph catalog concept to improve product discovery and agent shopping.",
+      "whyItMatters": "High-quality product identity, stock and seller metadata could be a powerful competitive asset in AI shopping.",
+      "limitations": "Amazon described the leaked document as outdated; no product launch is confirmed.",
+      "sources": [
+        {
+          "label": "Reuters report",
+          "url": "https://www.reuters.com/business/media-telecom/amazons-plan-own-worlds-product-data-fight-ai-shopping-agents-2026-11-13/"
+        }
+      ]
+    },
+    {
+      "title": "AI infrastructure investment continues despite financing concerns",
+      "category": "Business & Markets",
+      "summary": "Large AI compute, data-center and power commitments continued alongside increased concern about credit exposure and overbuilding.",
+      "whyItMatters": "Construction pipelines matter for semiconductor orders, cloud spending, electricity demand and future hiring.",
+      "limitations": "Announced projects and financing commitments are not the same as built capacity or earned returns.",
+      "sources": [
+        {
+          "label": "Federal Reserve report",
+          "url": "https://www.federalreserve.gov/publications/files/financial-stability-report-20261113.pdf"
+        },
+        {
+          "label": "Reuters analysis",
+          "url": "https://www.reuters.com/commentary/reuters-open-interest/metals-age-ai-game-changer-or-hyperscale-hype-2026-11-14/"
+        }
+      ]
+    }
+  ],
+  "alsoWorthKnowing": [
+    {
+      "title": "GitHub AI security",
+      "category": "Security",
+      "summary": "The briefing surveyed GitHub's work on security checks for AI-assisted development, including secret scanning and workflow safety.",
+      "sources": [
+        {
+          "label": "GitHub security changelog",
+          "url": "https://github.blog/changelog/label/security/"
+        }
+      ]
+    },
+    {
+      "title": "Copilot model lifecycle",
+      "category": "AI & Agents",
+      "summary": "Model choice, availability, and retirement rules for Copilot continue to change as new models launch.",
+      "sources": [
+        {
+          "label": "GitHub November changelog",
+          "url": "https://github.blog/changelog/month/11-2026/"
+        }
+      ],
+      "image": {
+        "url": "https://github.blog/wp-content/uploads/2026/11/645867806-878ea927-48c9-4765-a896-4a5f3d7b8f2e.jpg",
+        "alt": "Publisher-provided image for Copilot model lifecycle",
+        "credit": "github.blog",
+        "sourceUrl": "https://github.blog/changelog/month/11-2026/"
+      }
+    },
+    {
+      "title": "Enterprise development",
+      "category": "Developer Tools",
+      "summary": "Enterprise development updates addressed governance and the operational requirements for coding agents; the individual source citation was not preserved.",
+      "sources": [
+        {
+          "label": "GitHub enterprise changelog (background)",
+          "url": "https://github.blog/changelog/"
+        }
+      ],
+      "image": {
+        "url": "https://github.blog/wp-content/uploads/2026/11/645867806-878ea927-48c9-4765-a896-4a5f3d7b8f2e.jpg",
+        "alt": "Publisher-provided image for Enterprise development",
+        "credit": "github.blog",
+        "sourceUrl": "https://github.blog/changelog/"
+      }
+    },
+    {
+      "title": "Anthropic IPO",
+      "category": "Business & Markets",
+      "summary": "Anthropic's proposed public offering remained an important upcoming test of demand for frontier AI businesses.",
+      "sources": [
+        {
+          "label": "Anthropic announcements",
+          "url": "https://www.anthropic.com/news"
+        }
+      ],
+      "image": {
+        "url": "https://assets.claude.com/6d4a0d28992ade92d6fa63646fd9c9d318245c6c.jpg",
+        "alt": "Publisher-provided image for Anthropic IPO",
+        "credit": "anthropic.com",
+        "sourceUrl": "https://www.anthropic.com/news"
+      }
+    },
+    {
+      "title": "European AI policy",
+      "category": "Policy & Regulation",
+      "summary": "The report followed EU AI rules and obligations as they relate to technology companies and deployers.",
+      "sources": [
+        {
+          "label": "EU AI Act official information",
+          "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+        }
+      ]
+    },
+    {
+      "title": "Semiconductor supply chains",
+      "category": "Hardware & Chips",
+      "summary": "The economic exposure of AI infrastructure extends to manufacturing equipment, packaging, critical materials and grid connections.",
+      "sources": [
+        {
+          "label": "Applied Materials quarterly results",
+          "url": "https://www.appliedmaterials.com/us/en/newsroom/press-releases/111226-applied-materials-announces-fourth-qtr-fiscal-year-end-2026-results.html"
+        }
+      ]
+    },
+    {
+      "title": "DeepSeek API expansion",
+      "category": "AI & Models",
+      "summary": "The original report noted expanding developer access to DeepSeek APIs; the exact release document was not retained.",
+      "sources": [
+        {
+          "label": "DeepSeek API documentation (reference)",
+          "url": "https://api-docs.deepseek.com/"
+        }
+      ],
+      "image": {
+        "url": "https://api-docs.deepseek.com/img/deepseek-social-card.jpeg",
+        "alt": "Publisher-provided image for DeepSeek API expansion",
+        "credit": "api-docs.deepseek.com",
+        "sourceUrl": "https://api-docs.deepseek.com/"
+      }
+    },
+    {
+      "title": "Speech-model evaluation",
+      "category": "AI & Models",
+      "summary": "New speech-transcription claims raise the importance of tests on accents, code symbols, names, background noise, and real latency.",
+      "sources": [
+        {
+          "label": "SOV-Transcribe-1 benchmarks",
+          "url": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
+        }
+      ],
+      "image": {
+        "url": "https://cdn-uploads.huggingface.co/production/uploads/6962d3267513fcf314118d5f/e3kJpSjgR9Y4EX_hcR6iZ.png",
+        "alt": "Publisher-provided image for Speech-model evaluation",
+        "credit": "huggingface.co",
+        "sourceUrl": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
+      }
+    }
+  ],
+  "newTools": [
+    {
+      "title": "AWS Emulator",
+      "category": "Developer Tools",
+      "summary": "Local AWS API test runner for development and coding-agent feedback loops.",
+      "sources": [
+        {
+          "label": "AWS launch",
+          "url": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/"
+        },
+        {
+          "label": "Documentation",
+          "url": "https://docs.aws.amazon.com/emulator/latest/userguide/"
+        }
+      ],
+      "image": {
+        "url": "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/11/11/Header-A-dark-gradient-1-1260x630.png",
+        "alt": "Publisher-provided image for AWS Emulator",
+        "credit": "aws.amazon.com",
+        "sourceUrl": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/"
+      }
+    },
+    {
+      "title": "Gemini 4 Hydrogen",
+      "category": "AI & Models",
+      "summary": "Google's fast coding and agent model, potentially useful for multi-model workflows.",
+      "sources": [
+        {
+          "label": "Google launch",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+        },
+        {
+          "label": "Model card",
+          "url": "https://deepmind.google/models/model-cards/gemini-4-hydrogen/"
+        }
+      ],
+      "image": {
+        "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-hydrogen__key-art__lockup__16-9.width-1300.jpg",
+        "alt": "Publisher-provided image for Gemini 4 Hydrogen",
+        "credit": "blog.google",
+        "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+      }
+    },
+    {
+      "title": "Personal Agent Protocol 1.0",
+      "category": "AI & Agents",
+      "summary": "The briefing flagged an agent interoperability specification. Its originating source link was not preserved, so this is retained as an item to investigate rather than independently validated as a standard.",
+      "sources": [
+        {
+          "label": "Agent interoperability background",
+          "url": "https://modelcontextprotocol.io/"
+        }
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/modelcontextprotocol/docs/2eb6171ddbfeefde349dc3b8d5e2b87414c26250/images/og-image.png",
+        "alt": "Publisher-provided image for Personal Agent Protocol 1.0",
+        "credit": "modelcontextprotocol.io",
+        "sourceUrl": "https://modelcontextprotocol.io/"
+      }
+    }
+  ],
+  "marketPulse": "AI infrastructure capital spending remains substantial, but the Saturday briefing found no verified new broad software-engineering hiring report. Nvidia leadership and compute financing questions are material industry risks, not proof of a near-term change in senior hiring."
+}
