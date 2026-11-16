@@ -61,6 +61,14 @@
             {% endif %}{% endfor %}
           </div>
           {% endif %}
+          {% if theme.discussions and theme.discussions.length %}
+          <div class="community-meta discussion-links">
+            <span class="community-label">COMMENTS</span>
+            {% for discussion in theme.discussions %}
+              {% if discussion.url | isHttp %}<a class="community-link" href="{{ discussion.url }}" target="_blank" rel="noopener noreferrer">{{ discussion.platform or 'Discussion' }}{% if discussion.label %} · {{ discussion.label }}{% endif %} ↗</a>{% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
         </article>
         {% endfor %}
       </section>
