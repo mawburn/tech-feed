@@ -11,10 +11,12 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from html.parser import HTMLParser
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "briefings.json"
+DAILY_DIR = ROOT / "data" / "daily"
 MAX_HTML = 650_000
 TIMEOUT = 9
 HEADERS = {
@@ -68,23 +70,38 @@ def image_for_source(url):
     return None
 
 def run():
-    data = json.loads(DATA.read_text(encoding="utf8"))
-    stories = [story for issue in data.get("issues", []) for key in ("topStories", "alsoWorthKnowing", "newTools") for story in issue.get(key, [])]
+    today = datetime.now(ZoneInfo("America/Los_Angeles")).date()
+    oldest = (today - timedelta(days=6)).isoformat()
+    latest = today.isoformat()
+    files = sorted(p for p in DAILY_DIR.glob("*.json") if oldest <= p.stem <= latest)
+    documents = [(path, json.loads(path.read_text(encoding="utf8"))) for path in files]
+
+    # Only enrich the active seven-day archive; don't revisit years of history.
+    stories = []
+    story_file = {}
+    for path, issue in documents:
+        for key in ("topStories", "alsoWorthKnowing", "newTools"):
+            for story in issue.get(key, []):
+                stories.append(story)
+                story_file[id(story)] = path
+
     candidates = {}
     for story in stories:
         if isinstance(story.get("image"), dict) and public_url(story["image"].get("url")):
             continue
-        urls = [item.get("url") for item in story.get("sources", []) if public_url(item.get("url"))]
+        urls = [s.get("url") for s in story.get("sources", []) if public_url(s.get("url"))]
         if urls:
             candidates[id(story)] = urls[:2]
-    distinct = set(url for urls in candidates.values() for url in urls)
-    print(f"Checking publisher image metadata for {len(candidates)} entries ({len(distinct)} distinct source URLs)")
+
+    distinct = sorted(set(url for urls in candidates.values() for url in urls))
+    print(f"Checking publisher metadata for {len(candidates)} stories, {len(distinct)} distinct source URLs")
     with concurrent.futures.ThreadPoolExecutor(max_workers=7) as pool:
         answers = dict(zip(distinct, pool.map(image_for_source, distinct)))
+
+    changed_paths = set()
     count = 0
     for story in stories:
-        urls = candidates.get(id(story), [])
-        for url in urls:
+        for url in candidates.get(id(story), []):
             if answers.get(url):
                 domain = urllib.parse.urlsplit(url).hostname or "publisher"
                 story["image"] = {
@@ -93,11 +110,13 @@ def run():
                     "credit": domain.removeprefix("www."),
                     "sourceUrl": url,
                 }
+                changed_paths.add(story_file[id(story)])
                 count += 1
                 break
-    if count:
-        DATA.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf8")
-    print(f"Added {count} source images; entries without publisher image metadata remain text-only.")
-
+    for path, data in documents:
+        if path in changed_paths:
+            path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf8")
+    print(f"Added {count} publisher OG images to {len(changed_paths)} dated JSON files")
+ 
 if __name__ == "__main__":
     run()
