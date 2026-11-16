@@ -14,7 +14,19 @@
   {% include "partials/daily-sidebar.njk" %}
   <main id="feed" class="feed">
     {% set currentIssues = feed.issues | getIssues(currentDay) %}
-    <div class="toolbar"><div class="toolbar-copy"><span class="toolbar-kicker">{% if filterCategory %}TOPIC COVERAGE{% else %}LATEST COVERAGE{% endif %}</span><span class="toolbar-count">{{ (currentIssues | storyList) | countCategory(filterCategory) }} stories</span></div></div>
+    {% set visibleStories = (currentIssues | storyList) | matchesCategory(filterCategory) %}
+    {% set discussionTotal = visibleStories | threadCount %}
+    <div class="toolbar">
+      <div class="toolbar-copy">
+        <span class="toolbar-kicker">{% if filterCategory %}TOPIC COVERAGE{% else %}LATEST COVERAGE{% endif %}</span>
+        <span class="toolbar-count">{{ visibleStories.length }} stories</span>
+        {% if discussionTotal %}
+        <span class="discussion-summary">{{ discussionTotal }} HN/Reddit {% if discussionTotal == 1 %}link{% else %}links{% endif %} in this edition</span>
+        {% else %}
+        <span class="discussion-summary discussion-summary-empty">No matched discussion links yet</span>
+        {% endif %}
+      </div>
+    </div>
     {% if currentIssues.length %}
       {% for issue in currentIssues %}
         {% include "partials/edition.njk" %}
