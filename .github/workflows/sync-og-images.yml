@@ -8,6 +8,8 @@ on:
       - "scripts/sync_publisher_images.py"
       - "scripts/enrich_discussions.py"
       - ".github/workflows/sync-og-images.yml"
+  schedule:
+    - cron: "17 3 * * *" # evening Pacific refresh for discussions posted after morning publication
   workflow_dispatch:
 
 permissions:
@@ -35,8 +37,12 @@ jobs:
       - name: Verify discussion matcher behavior
         run: python scripts/enrich_discussions.py --self-test
 
-      - name: Find matching Hacker News and Reddit discussions
-        run: python scripts/enrich_discussions.py
+      - name: Prefetch Hacker News and authorized Reddit discussion threads
+        env:
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          REDDIT_USER_AGENT: ${{ secrets.REDDIT_USER_AGENT }}
+        run: python scripts/enrich_discussions.py --days 2
 
       - name: Retrieve Open Graph images from original sources
         run: python scripts/sync_publisher_images.py
