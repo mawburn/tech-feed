@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: topicPages
+  size: 1
+  alias: topic
+permalink: "{{ topic.permalink }}"
+eleventyComputed:
+  pageTitle: "{{ topic.category }} News — {{ topic.date }}"
+  pageDescription: "Browse all {{ topic.category }} news from the {{ topic.date }} briefing."
+activeTab: daily
+---
+{% set currentDay = topic.date %}
+{% set filterCategory = topic.category %}
+{% include "partials/daily-layout.njk" %}
