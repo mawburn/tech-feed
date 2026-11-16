@@ -1,0 +1,49 @@
+{{- /* A daily edition: overview, story sections and market pulse.
+  Context: {issue, level (heading level for section titles, default 2), headed (bool: render
+  the edition's own date heading), category (optional filter), topicScope ("daily"|"global")} */ -}}
+{{- $issue := .issue -}}
+{{- $filter := .category -}}
+{{- $level := .level | default 2 -}}
+{{- $sectionLevel := cond .headed (add $level 1) $level -}}
+{{- $scope := .topicScope | default "daily" -}}
+{{- $when := time.AsTime $issue.date -}}
+{{- $groups := slice -}}
+{{- range partialCached "data/sections.html" "sections" -}}
+  {{- $items := slice -}}
+  {{- range index $issue .key -}}
+    {{- if or (not $filter) (eq (partial "data/category.html" .) $filter) }}{{ $items = $items | append . }}{{ end -}}
+  {{- end -}}
+  {{- if $items }}{{ $groups = $groups | append (dict "section" . "items" $items) }}{{ end -}}
+{{- end -}}
+{{- if $groups -}}
+<section class="edition" id="edition-{{ $issue.date }}"{{ if .headed }} aria-labelledby="edition-{{ $issue.date }}-title"{{ end }}>
+  {{- if .headed }}
+  <header class="edition__header">
+    <p class="edition__label">{{ $issue.label | default "Daily briefing" }}</p>
+    {{- with site.GetPage (printf "/daily/%s" $issue.date) }}
+    {{ printf "<h%d class=\"edition__title\" id=\"edition-%s-title\"><a href=\"%s\"><time datetime=\"%s\">%s</time></a></h%d>" (int $level) $issue.date .RelPermalink $issue.date ($when | time.Format "Monday, January 2, 2006") (int $level) | safeHTML }}
+    {{- else }}
+    {{ printf "<h%d class=\"edition__title\" id=\"edition-%s-title\"><time datetime=\"%s\">%s</time></h%d>" (int $level) $issue.date $issue.date ($when | time.Format "Monday, January 2, 2006") (int $level) | safeHTML }}
+    {{- end }}
+  </header>
+  {{- end }}
+  {{- if and (not $filter) $issue.overview }}
+  {{ partial "components/text.html" (dict "text" $issue.overview "class" "edition__overview") }}
+  {{- end }}
+  {{- range $groups }}
+  <section class="edition__section edition__section--{{ .section.key }}">
+    {{ partial "components/heading.html" (dict "level" $sectionLevel "text" .section.label "class" "edition__section-title") }}
+    {{- $primary := .section.primary -}}
+    {{- range $i, $story := .items }}
+    {{ partial "components/story.html" (dict "story" $story "level" (add $sectionLevel 1) "primary" $primary "rank" (cond $primary ($story.rank | default (add $i 1)) false) "date" $issue.date "topicScope" $scope) }}
+    {{- end }}
+  </section>
+  {{- end }}
+  {{- if and (not $filter) $issue.marketPulse }}
+  <section class="edition__section edition__section--market">
+    {{ partial "components/heading.html" (dict "level" $sectionLevel "text" "Job market & business pulse" "class" "edition__section-title") }}
+    {{ partial "components/text.html" (dict "text" $issue.marketPulse "class" "edition__pulse") }}
+  </section>
+  {{- end }}
+</section>
+{{- end -}}

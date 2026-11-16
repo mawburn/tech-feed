@@ -1,0 +1,11 @@
+{{- /* /data/weekly.json — the latest 52 weekly reviews, newest first (schemaVersion 1). */ -}}
+{{- $weeks := slice -}}
+{{- range partialCached "data/weekly-window.html" . -}}
+  {{- $week := . -}}
+  {{- if isset $week "themes" -}}
+    {{- $themes := slice }}{{ range $week.themes }}{{ $themes = $themes | append (partial "data/with-local-image.html" .) }}{{ end -}}
+    {{- $week = merge $week (dict "themes" $themes) -}}
+  {{- end -}}
+  {{- $weeks = $weeks | append $week -}}
+{{- end -}}
+{{- dict "schemaVersion" 1 "updatedAt" (time.Now.UTC.Format "2006-01-02T15:04:05.000Z") "weeks" $weeks | jsonify (dict "indent" "  ") -}}

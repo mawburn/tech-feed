@@ -1,0 +1,17 @@
+{{- define "main" -}}
+{{- $issues := partialCached "data/window.html" . -}}
+{{ partial "components/page-header.html" (dict "kicker" "Last seven days" "title" "Seven-day news archive" "intro" (printf "%d editions · %d stories" (len $issues) (len (partial "data/stories.html" $issues)))) }}
+<div class="layout">
+  <div class="layout__main">
+    {{- range $issues }}
+    {{ partial "components/edition.html" (dict "issue" . "level" 2 "headed" true "topicScope" "global") }}
+    {{- else }}
+    {{ partial "components/empty-state.html" "No editions were published in the last seven days." }}
+    {{- end }}
+  </div>
+  <aside class="layout__aside" aria-label="Topics and recent editions">
+    {{ partial "components/topic-nav.html" (dict "issues" $issues "label" "Topics this week" "allHref" .RelPermalink) }}
+    {{ partial "components/date-nav.html" (dict "issues" $issues) }}
+  </aside>
+</div>
+{{- end -}}

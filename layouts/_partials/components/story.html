@@ -1,0 +1,26 @@
+{{- /* One daily story.
+  Context: {story, level (heading level), primary (bool), rank?, date?, topicScope ("daily"|"global")} */ -}}
+{{- $s := .story -}}
+{{- $category := partial "data/category.html" $s -}}
+{{- $slug := partial "data/slug.html" $category -}}
+{{- $topic := false -}}
+{{- if and (eq .topicScope "daily") .date }}{{ $topic = site.GetPage (printf "/daily/%s/topics/%s" .date $slug) }}{{ else }}{{ $topic = site.GetPage (printf "/topics/%s" $slug) }}{{ end -}}
+<article class="story{{ if .primary }} story--primary{{ end }}">
+  {{- partial "components/story-image.html" (dict "image" $s.image "alt" $s.title) }}
+  <div class="story__body">
+    <p class="story__meta">
+      {{- with .rank }}<span class="story__rank">{{ printf "%02d" (int .) }}</span> {{ end -}}
+      {{- with $topic }}<a class="story__category" href="{{ .RelPermalink }}">{{ $category }}</a>{{ else }}<span class="story__category">{{ $category }}</span>{{ end -}}
+      {{- if $s.isUpdate }} <span class="story__badge">Updated</span>{{ end -}}
+    </p>
+    {{ partial "components/heading.html" (dict "level" .level "text" $s.title "class" "story__title") }}
+    {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary") }}
+    {{- with $s.whyItMatters }}
+    <p class="story__note"><strong>Why it matters:</strong> {{ . }}</p>
+    {{- end }}
+    {{- with $s.limitations }}
+    <p class="story__note story__note--caveat"><strong>Caveat:</strong> {{ . }}</p>
+    {{- end }}
+    {{- partial "components/story-links.html" (dict "sources" $s.sources "discoveredVia" $s.discoveredVia "discussions" $s.discussions) }}
+  </div>
+</article>

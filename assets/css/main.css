@@ -1,0 +1,58 @@
+/* Minimal, replaceable base styles. The visual redesign replaces this file;
+   templates use plain BEM-ish class names and semantic elements. */
+:root {
+  --bg: #fff; --fg: #1b1d21; --muted: #5d6470; --line: #e3e5e8; --accent: #0b5fd0;
+  --measure: 46rem; --gap: 1.25rem;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #111317; --fg: #e8eaed; --muted: #9aa1ac; --line: #2a2e35; --accent: #7fb1ff; }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 1rem/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--accent); }
+img { max-width: 100%; height: auto; display: block; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.skip-link { position: absolute; left: -999px; }
+.skip-link:focus { left: 1rem; top: 1rem; background: var(--bg); padding: .5rem 1rem; z-index: 1; }
+
+.site-header, .site-main, .site-footer { max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+.site-header { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; align-items: center; padding-block: 1rem; border-bottom: 1px solid var(--line); }
+.site-brand { font-weight: 700; color: inherit; text-decoration: none; }
+.site-nav ul, .link-list ul, .topic-nav ul, .date-nav ul, .pager ul, .site-footer__links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
+.site-nav a[aria-current="page"], .topic-nav a[aria-current="page"], .date-nav a[aria-current="page"] { font-weight: 700; text-decoration: none; color: inherit; }
+.site-footer { border-top: 1px solid var(--line); margin-top: 3rem; padding-block: 1.5rem; color: var(--muted); font-size: .875rem; }
+
+.page-header { padding-block: 1.5rem 1rem; }
+.page-header__kicker, .edition__label, .weekly__label, .story__meta, .link-list__label { color: var(--muted); font-size: .8125rem; margin: 0; }
+.page-header__title { margin: .25rem 0; line-height: 1.2; }
+
+.layout { display: grid; gap: 2rem; }
+@media (min-width: 60rem) { .layout { grid-template-columns: minmax(0, 1fr) 16rem; } .layout__aside { position: sticky; top: 1rem; align-self: start; } }
+.layout__main { max-width: var(--measure); }
+.topic-nav ul, .date-nav ul { flex-direction: column; }
+.topic-nav__title, .date-nav__title { font-size: .875rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.count { color: var(--muted); font-size: .8125rem; }
+
+.edition + .edition { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+.edition__section, .weekly__section { margin-top: 2rem; }
+.edition__section-title, .weekly__section-title { font-size: 1.125rem; border-bottom: 1px solid var(--line); padding-bottom: .25rem; }
+
+.story { display: grid; gap: .75rem; padding-block: 1rem; border-bottom: 1px solid var(--line); }
+@media (min-width: 40rem) { .story:has(.story-image) { grid-template-columns: 10rem minmax(0, 1fr); } }
+.story__title { margin: .125rem 0 .5rem; font-size: 1.125rem; line-height: 1.3; }
+.story--primary .story__title { font-size: 1.25rem; }
+.story__body > p, .story__summary { margin: 0 0 .5rem; }
+.story__rank { font-variant-numeric: tabular-nums; }
+.story__badge { border: 1px solid currentColor; border-radius: .25rem; padding: 0 .25rem; font-size: .75rem; }
+.story-image { margin: 0; }
+.story-image img { border-radius: .375rem; aspect-ratio: 1.91 / 1; object-fit: cover; width: 100%; background: var(--line); }
+.story-image__credit { font-size: .75rem; color: var(--muted); }
+.link-list { display: flex; flex-wrap: wrap; gap: .25rem .75rem; align-items: baseline; font-size: .875rem; margin-top: .25rem; }
+.disclosure summary { cursor: pointer; color: var(--accent); }
+
+.archive__list, .topic-index { padding-left: 1.25rem; }
+.archive__list p { margin: .25rem 0 .75rem; color: var(--muted); }
+.empty-state { padding: 2rem; border: 1px dashed var(--line); border-radius: .5rem; color: var(--muted); }
+.pager ul { justify-content: space-between; margin-top: 2rem; }

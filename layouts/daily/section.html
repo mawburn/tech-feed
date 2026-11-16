@@ -1,0 +1,21 @@
+{{- define "main" -}}
+{{- $issues := partialCached "data/published-daily.html" . -}}
+{{ partial "components/page-header.html" (dict "kicker" "Archive" "title" "Daily briefings" "intro" (printf "%d editions, newest first." (len $issues))) }}
+{{- $month := "" -}}
+<div class="archive">
+{{- range $issues -}}
+  {{- $issue := . -}}
+  {{- $when := time.AsTime .date -}}
+  {{- $m := $when | time.Format "January 2006" -}}
+  {{- if ne $m $month }}{{ if $month }}</ul></section>{{ end }}
+  <section class="archive__group"><h2>{{ $m }}</h2><ul class="archive__list">
+  {{- $month = $m }}{{ end }}
+  {{- with site.GetPage (printf "/daily/%s" $issue.date) }}
+    <li><a href="{{ .RelPermalink }}"><time datetime="{{ $issue.date }}">{{ $when | time.Format "Monday, January 2" }}</time></a> · {{ len (partial "data/stories.html" (slice $issue)) }} stories{{ with $issue.overview }}<p>{{ . | truncate 220 }}</p>{{ end }}</li>
+  {{- end }}
+{{- else -}}
+  {{ partial "components/empty-state.html" "No daily briefings have been published yet." }}
+{{- end -}}
+{{- if $month }}</ul></section>{{ end }}
+</div>
+{{- end -}}

@@ -1,0 +1,10 @@
+<footer class="site-footer">
+  <p>© {{ site.Params.author }} · Summaries link to primary sources. Images are credited to their publishers.</p>
+  <ul class="site-footer__links">
+    {{- with site.Home.OutputFormats.Get "briefings" }}<li><a href="{{ .RelPermalink }}">Daily JSON</a></li>{{ end }}
+    {{- with site.Home.OutputFormats.Get "weeklyjson" }}<li><a href="{{ .RelPermalink }}">Weekly JSON</a></li>{{ end }}
+    {{- with site.Home.OutputFormats.Get "archive" }}<li><a href="{{ .RelPermalink }}">Daily archive (Markdown)</a></li>{{ end }}
+    {{- with site.Home.OutputFormats.Get "llms" }}<li><a href="{{ .RelPermalink }}">llms.txt</a></li>{{ end }}
+    <li><a href="{{ site.Params.repository }}">Source</a></li>
+  </ul>
+</footer>

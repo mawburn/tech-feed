@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mawburn.github.io/tech-feed/schemas/weekly.v1.schema.json",
+  "title": "Weekly review (data/weekly/YYYY-MM-DD.json, keyed by week-ending Sunday), v1",
+  "description": "Written by the scheduler. Required fields match the pre-Hugo validator; additional properties are allowed.",
+  "type": "object",
+  "required": [
+    "weekEnding",
+    "themes",
+    "toolsToWatch",
+    "sourceDays"
+  ],
+  "properties": {
+    "weekStart": {
+      "$ref": "common.v1.schema.json#/$defs/isoDate"
+    },
+    "weekEnding": {
+      "$ref": "common.v1.schema.json#/$defs/isoDate"
+    },
+    "coverageDays": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 7
+    },
+    "partial": {
+      "type": "boolean"
+    },
+    "title": {
+      "$ref": "common.v1.schema.json#/$defs/nonEmptyText"
+    },
+    "overview": {
+      "type": "string"
+    },
+    "marketPulse": {
+      "type": "string"
+    },
+    "nextWeekWatch": {
+      "type": "string"
+    },
+    "sourceDays": {
+      "type": "array",
+      "items": {
+        "$ref": "common.v1.schema.json#/$defs/isoDate"
+      }
+    },
+    "themes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "common.v1.schema.json#/$defs/nonEmptyText"
+          },
+          "category": {
+            "type": "string"
+          },
+          "summary": {
+            "$ref": "common.v1.schema.json#/$defs/nonEmptyText"
+          },
+          "impact": {
+            "type": "string"
+          },
+          "caveat": {
+            "type": "string"
+          },
+          "sourceDays": {
+            "type": "array",
+            "items": {
+              "$ref": "common.v1.schema.json#/$defs/isoDate"
+            }
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "discussions": {
+            "$ref": "common.v1.schema.json#/$defs/communityLinks"
+          },
+          "image": {
+            "$ref": "common.v1.schema.json#/$defs/image"
+          }
+        }
+      }
+    },
+    "toolsToWatch": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "common.v1.schema.json#/$defs/nonEmptyText"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  }
+}

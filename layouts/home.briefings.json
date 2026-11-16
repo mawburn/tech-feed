@@ -1,0 +1,4 @@
+{{- /* /data/briefings.json — the rolling seven-day window, newest first (schemaVersion 1). */ -}}
+{{- $issues := slice -}}
+{{- range partialCached "data/window.html" . }}{{ $issues = $issues | append (partial "data/feed-issue.html" .) }}{{ end -}}
+{{- dict "schemaVersion" 1 "updatedAt" (time.Now.UTC.Format "2006-01-02T15:04:05.000Z") "issues" $issues | jsonify (dict "indent" "  ") -}}

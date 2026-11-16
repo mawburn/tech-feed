@@ -1,0 +1,20 @@
+{{- define "main" -}}
+{{- $latest := partialCached "data/latest-daily.html" . -}}
+{{- with $latest -}}
+{{- $when := time.AsTime .date -}}
+{{ partial "components/page-header.html" (dict "kicker" (.label | default "Daily briefing") "title" "Technology & AI briefing" "intro" (printf "Latest edition: %s" ($when | time.Format "Monday, January 2, 2006"))) }}
+<div class="layout">
+  <div class="layout__main">
+    {{ partial "components/edition.html" (dict "issue" . "level" 2 "headed" false) }}
+    {{ partial "components/edition-pager.html" .date }}
+  </div>
+  <aside class="layout__aside" aria-label="Topics and recent editions">
+    {{ partial "components/topic-nav.html" (dict "issues" (slice .) "date" .date "label" "Topics in this edition") }}
+    {{ partial "components/date-nav.html" (dict "issues" (partialCached "data/window.html" $) "current" .date) }}
+  </aside>
+</div>
+{{- else -}}
+{{ partial "components/page-header.html" (dict "title" "Technology & AI briefing") }}
+{{ partial "components/empty-state.html" "No daily briefing has been published yet. The next edition will appear here." }}
+{{- end -}}
+{{- end -}}

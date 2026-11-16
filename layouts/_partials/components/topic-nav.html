@@ -1,0 +1,23 @@
+{{- /* Topic navigation with story counts.
+  Context: {issues (slice), date (for per-edition topic pages, optional), current (category, optional),
+  allHref (link for "All topics"), label} */ -}}
+{{- $counts := partial "data/topic-counts.html" .issues -}}
+{{- $date := .date -}}
+{{- $current := .current -}}
+{{- $total := 0 }}{{ range $counts }}{{ $total = add $total .count }}{{ end -}}
+{{- if $counts -}}
+<nav class="topic-nav" aria-label="{{ .label | default "Topics" }}">
+  <h2 class="topic-nav__title">{{ .label | default "Topics" }}</h2>
+  <ul>
+    {{- with .allHref }}
+    <li><a href="{{ . }}"{{ if not $current }} aria-current="page"{{ end }}>All topics <span class="count">{{ $total }}</span></a></li>
+    {{- end }}
+    {{- range $row := $counts }}
+    {{- $page := cond (ne ($date | default "") "") (site.GetPage (printf "/daily/%s/topics/%s" $date $row.slug)) (site.GetPage (printf "/topics/%s" $row.slug)) }}
+    {{- with $page }}
+    <li><a href="{{ .RelPermalink }}"{{ if eq .Params.category $current }} aria-current="page"{{ end }}>{{ .Params.category }} <span class="count">{{ $row.count }}</span></a></li>
+    {{- end }}
+    {{- end }}
+  </ul>
+</nav>
+{{- end -}}

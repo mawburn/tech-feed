@@ -74,7 +74,11 @@
         "url": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6af52a0047907d0f9587a24f_Social%20Announcement.png",
         "alt": "Publisher-provided image for LangChain doubles down on enterprise agent operations",
         "credit": "langchain.com",
-        "sourceUrl": "https://www.langchain.com/blog/series-c"
+        "sourceUrl": "https://www.langchain.com/blog/series-c",
+        "local": "img/64fb78232b38d671539e.webp",
+        "width": 600,
+        "height": 338,
+        "sha256": "64fb78232b38d671539efb0c9f0846e0393f1487570c14497a55722bec075482"
       }
     },
     {
@@ -106,7 +110,11 @@
         "url": "https://cdn-uploads.huggingface.co/production/uploads/6962d3267513fcf314118d5f/e3kJpSjgR9Y4EX_hcR6iZ.png",
         "alt": "Publisher-provided image for New specialized models emphasize speed and real-world tasks",
         "credit": "huggingface.co",
-        "sourceUrl": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
+        "sourceUrl": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1",
+        "local": "img/a1b8ac54c688c3e5e17f.webp",
+        "width": 600,
+        "height": 314,
+        "sha256": "a1b8ac54c688c3e5e17f5cc40b41a15d182bdca7ddd566bc11d4f61742eefd76"
       }
     },
     {
@@ -159,7 +167,11 @@
         "url": "https://d341ezm4iqaae0.cloudfront.net/hiringlaborg/2026/11/12162624/Tech_developersdiscussingcodeinofficegettyperp-scaled.jpg",
         "alt": "Publisher-provided image for Hiring signals improve unevenly, with displacement still uncertain",
         "credit": "hiringlab.indeed.com",
-        "sourceUrl": "https://hiringlab.indeed.com/2026/11/12/2026-q3-us-tech-labor-market-update/"
+        "sourceUrl": "https://hiringlab.indeed.com/2026/11/12/2026-q3-us-tech-labor-market-update/",
+        "local": "img/e9abb8eebe7a409765f5.webp",
+        "width": 600,
+        "height": 400,
+        "sha256": "e9abb8eebe7a409765f5fa8f27a648925907a7146b0052930e52f748daa51083"
       }
     }
   ],

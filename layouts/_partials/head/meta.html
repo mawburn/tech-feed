@@ -1,0 +1,38 @@
+{{- /* Title, description, canonical URL, Open Graph/Twitter and alternate links. */ -}}
+{{- $description := .Params.description | default .Description | default site.Params.description -}}
+{{- $title := cond .IsHome (printf "%s | %s" .Title site.Title) (printf "%s | %s" .Title site.Title) -}}
+{{- $image := partial "data/page-image.html" . -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+<meta name="author" content="{{ site.Params.author }}">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:type" content="{{ cond (in (slice "daily" "weekly") .Section) "article" "website" }}">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="en_US">
+{{- with $image }}
+<meta property="og:image" content="{{ .permalink }}">
+<meta property="og:image:width" content="{{ .width }}">
+<meta property="og:image:height" content="{{ .height }}">
+{{- with .alt }}<meta property="og:image:alt" content="{{ . }}">{{ end }}
+<meta name="twitter:card" content="summary_large_image">
+{{- else }}
+<meta name="twitter:card" content="summary">
+{{- end }}
+{{- if in (slice "daily" "weekly") .Section }}{{ if not .IsSection }}
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02" }}">
+{{- end }}{{ end }}
+{{- with site.Home.OutputFormats.Get "briefings" }}
+<link rel="alternate" type="application/json" href="{{ .RelPermalink }}" title="Structured daily briefings (last seven days)">
+{{- end }}
+{{- with site.Home.OutputFormats.Get "weeklyjson" }}
+<link rel="alternate" type="application/json" href="{{ .RelPermalink }}" title="Structured weekly reviews">
+{{- end }}
+{{- with site.Home.OutputFormats.Get "llms" }}
+<link rel="alternate" type="text/plain" href="{{ .RelPermalink }}" title="LLM-readable site index">
+{{- end }}

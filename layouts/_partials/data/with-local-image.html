@@ -1,0 +1,9 @@
+{{- /* Copy of a story/theme where a locally stored image gains an absolute "localUrl".
+  Everything else is passed through untouched. */ -}}
+{{- $item := . -}}
+{{- if reflect.IsMap $item -}}
+  {{- with partial "data/image.html" (dict "image" $item.image) -}}
+    {{- $item = merge $item (dict "image" (merge $item.image (dict "localUrl" .permalink))) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $item -}}

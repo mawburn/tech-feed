@@ -1,0 +1,3 @@
+{{- /* A story's category, defaulting to "Other". */ -}}
+{{- $name := trim (string (.category | default "")) " " -}}
+{{- return (or $name "Other") -}}

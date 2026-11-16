@@ -1,0 +1,17 @@
+{{- /* First locally stored image for the edition a page represents (for og:image). */ -}}
+{{- $out := false -}}
+{{- $items := slice -}}
+{{- if .IsHome -}}
+  {{- with partialCached "data/latest-daily.html" . }}{{ $items = partial "data/stories.html" (slice .) }}{{ end -}}
+{{- else if and (eq .Section "daily") .Params.date -}}
+  {{- with partial "data/find-daily.html" .Params.date }}{{ $items = partial "data/stories.html" (slice .) }}{{ end -}}
+{{- else if or (and (eq .Section "weekly") .Params.weekEnding) (eq .Layout "weekly-latest") -}}
+  {{- $week := false -}}
+  {{- if eq .Layout "weekly-latest" }}{{ $week = partialCached "data/latest-weekly.html" . }}{{ else }}{{ $week = partial "data/find-weekly.html" .Params.weekEnding }}{{ end -}}
+  {{- with $week }}{{ $items = .themes | default slice }}{{ end -}}
+{{- end -}}
+{{- range $items -}}
+  {{- /* Social networks do not accept SVG for og:image. */ -}}
+  {{- if not $out }}{{ with partial "data/image.html" . }}{{ if not .vector }}{{ $out = . }}{{ end }}{{ end }}{{ end -}}
+{{- end -}}
+{{- return $out -}}

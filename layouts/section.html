@@ -1,0 +1,4 @@
+{{- define "main" -}}
+{{ partial "components/page-header.html" (dict "title" .Title) }}
+<ul>{{ range .Pages }}<li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>{{ end }}</ul>
+{{- end -}}

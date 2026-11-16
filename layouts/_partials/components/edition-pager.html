@@ -1,0 +1,15 @@
+{{- /* Older/newer daily edition links. Context: date string. */ -}}
+{{- $date := . -}}
+{{- $newer := false }}{{ $older := false }}{{ $prev := false -}}
+{{- range partialCached "data/published-daily.html" . -}}
+  {{- if eq .date $date }}{{ $newer = $prev }}{{ else if and (lt .date $date) (not $older) }}{{ $older = . }}{{ end -}}
+  {{- if gt .date $date }}{{ $prev = . }}{{ end -}}
+{{- end -}}
+{{- if or $newer $older -}}
+<nav class="pager" aria-label="Edition navigation">
+  <ul>
+    {{- with $older }}{{ with site.GetPage (printf "/daily/%s" $older.date) }}<li class="pager__older"><a href="{{ .RelPermalink }}" rel="prev">← Previous edition ({{ $older.date }})</a></li>{{ end }}{{ end }}
+    {{- with $newer }}{{ with site.GetPage (printf "/daily/%s" $newer.date) }}<li class="pager__newer"><a href="{{ .RelPermalink }}" rel="next">Next edition ({{ $newer.date }}) →</a></li>{{ end }}{{ end }}
+  </ul>
+</nav>
+{{- end -}}

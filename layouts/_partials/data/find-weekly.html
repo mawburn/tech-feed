@@ -1,0 +1,4 @@
+{{- /* Look up one weekly review by weekEnding date string; returns nil when absent. */ -}}
+{{- $found := false -}}
+{{- with hugo.Data.weekly }}{{ $found = index . $ }}{{ end -}}
+{{- return $found -}}

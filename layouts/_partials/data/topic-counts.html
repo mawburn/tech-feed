@@ -1,0 +1,12 @@
+{{- /* Story counts per category for a slice of daily editions:
+  [{name, slug, count}], most stories first, then alphabetical. */ -}}
+{{- $counts := dict -}}
+{{- range partial "data/stories.html" . -}}
+  {{- $name := partial "data/category.html" . -}}
+  {{- $counts = merge $counts (dict $name (add 1 (index $counts $name | default 0))) -}}
+{{- end -}}
+{{- $rows := slice -}}
+{{- range $name, $count := $counts -}}
+  {{- $rows = $rows | append (dict "name" $name "count" $count "slug" (partial "data/slug.html" $name) "order" (printf "%06d|%s" (sub 999999 $count) (lower $name))) -}}
+{{- end -}}
+{{- return sort $rows "order" -}}

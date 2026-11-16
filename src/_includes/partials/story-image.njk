@@ -1,6 +1,0 @@
-{% if story.image and story.image.url and (story.image.url | isHttp) %}
-<figure class="{% if secondary %}secondary-image{% else %}story-image{% endif %}">
-  <img class="{% if secondary %}secondary-artwork{% else %}story-artwork{% endif %}" src="{{ story.image.url }}" alt="{{ story.image.alt or story.title }}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
-  {% if story.image.credit %}<figcaption class="image-credit">Image: {{ story.image.credit }}</figcaption>{% endif %}
-</figure>
-{% endif %}

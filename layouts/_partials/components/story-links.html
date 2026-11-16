@@ -1,0 +1,5 @@
+{{- /* Sources, discovery provenance and community discussion links for a story or theme.
+  Context: {sources, discoveredVia?, discussions?} */ -}}
+{{- partial "components/link-list.html" (dict "label" "Sources" "links" .sources "kind" "source") -}}
+{{- partial "components/link-list.html" (dict "label" "Found via" "links" .discoveredVia "kind" "community") -}}
+{{- partial "components/link-list.html" (dict "label" "Discussion" "links" .discussions "kind" "community") -}}

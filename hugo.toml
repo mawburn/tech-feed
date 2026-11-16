@@ -1,0 +1,83 @@
+# Tech Feed — Hugo configuration.
+# Content lives in data/daily/*.json and data/weekly/*.json (the scheduler's
+# contract). Pages are generated from it by content adapters under content/.
+baseURL = "https://mawburn.github.io/tech-feed/"
+locale = "en-US"
+title = "mawburn Feed"
+timeZone = "America/Los_Angeles"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "rss"]
+disableHugoGeneratorInject = true
+printPathWarnings = true
+# Which editions are published is decided from the data (Pacific "today"), not page dates.
+buildFuture = true
+# "Café" -> "cafe" in topic slugs, matching the previous site.
+removePathAccents = true
+
+[taxonomies]
+
+[params]
+  description = "Daily and weekly briefings covering AI, software engineering, security, technology markets and developer tools."
+  author = "mawburn"
+  repository = "https://github.com/mawburn/tech-feed"
+  dailyWindowDays = 7
+  weeklyWindow = 52
+  # Summaries longer than this many characters are collapsed in a <details>.
+  summaryCollapseChars = 600
+  # Responsive widths Hugo generates from each stored image (max 960px) for srcset.
+  imageWidths = [320, 480]
+
+[module.hugoVersion]
+  min = "0.170.0"
+
+[caches.images]
+  dir = ":cacheDir/images"
+  maxAge = -1
+
+[imaging]
+  resampleFilter = "Lanczos"
+  [imaging.webp]
+    quality = 80
+
+[minify]
+  minifyOutput = true
+
+[mediaTypes."text/markdown"]
+  suffixes = ["md"]
+
+[outputFormats.briefings]
+  mediaType = "application/json"
+  baseName = "briefings"
+  path = "data"
+  isPlainText = true
+  notAlternative = true
+[outputFormats.weeklyjson]
+  mediaType = "application/json"
+  baseName = "weekly"
+  path = "data"
+  isPlainText = true
+  notAlternative = true
+[outputFormats.archive]
+  mediaType = "text/markdown"
+  baseName = "archive"
+  isPlainText = true
+  notAlternative = true
+[outputFormats.weeklyarchive]
+  mediaType = "text/markdown"
+  baseName = "weekly-archive"
+  isPlainText = true
+  notAlternative = true
+[outputFormats.llms]
+  mediaType = "text/plain"
+  baseName = "llms"
+  isPlainText = true
+  notAlternative = true
+
+[outputs]
+  home = ["html", "briefings", "weeklyjson", "archive", "weeklyarchive", "llms"]
+  page = ["html"]
+  section = ["html"]
+
+[sitemap]
+  changeFreq = "daily"
+  filename = "sitemap.xml"

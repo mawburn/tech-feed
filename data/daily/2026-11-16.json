@@ -55,7 +55,11 @@
         "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/meituan-longcat/LongCat-2.5.png",
         "alt": "Publisher-provided image for LongCat-2.5 weights available for large-scale agentic workflows",
         "credit": "huggingface.co",
-        "sourceUrl": "https://huggingface.co/meituan-longcat/LongCat-2.5"
+        "sourceUrl": "https://huggingface.co/meituan-longcat/LongCat-2.5",
+        "local": "img/303197b28a8349d6f066.webp",
+        "width": 600,
+        "height": 324,
+        "sha256": "303197b28a8349d6f066422ebe3f9f2358072ecce837ddbb71966c5b23372e89"
       }
     },
     {
@@ -80,7 +84,11 @@
         "url": "https://opengraph.githubassets.com/893f328115f736f3c49f5add942cfc800c3703396d10d842b7c123745c633f32/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
         "alt": "Publisher-provided image for Git patches high-severity recursive-clone remote-code-execution flaw",
         "credit": "github.com",
-        "sourceUrl": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr"
+        "sourceUrl": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
+        "local": "img/6be759c56efb679125aa.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "6be759c56efb679125aa3c47a550426606cd092dfbd2e1c5c9bc2bcf18680a3d"
       }
     },
     {
@@ -169,7 +177,11 @@
         "url": "https://i.insider.com/6af77f050cc3ffba8779d016?width=1200&format=jpeg",
         "alt": "Publisher-provided image for AI coding changes engineering collaboration expectations",
         "credit": "businessinsider.com",
-        "sourceUrl": "https://www.businessinsider.com/ai-engineering-jobs-changing-more-meetings-office-time-social-skills-2026-11"
+        "sourceUrl": "https://www.businessinsider.com/ai-engineering-jobs-changing-more-meetings-office-time-social-skills-2026-11",
+        "local": "img/80fa1830ab558076fde7.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "80fa1830ab558076fde7f8876b6e6d75ec69af138d1210fdf4b37c508f2c27d0"
       }
     },
     {
@@ -186,7 +198,11 @@
         "url": "https://github.blog/wp-content/uploads/2026/11/704888510-f6f002b4-825a-48c2-ad38-5256b8a3aafd.jpg",
         "alt": "Publisher-provided image for GitHub Copilot models scheduled for December retirement",
         "credit": "github.blog",
-        "sourceUrl": "https://github.blog/changelog/month/11-2026/"
+        "sourceUrl": "https://github.blog/changelog/month/11-2026/",
+        "local": "img/8aef44ea048a178a5206.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "8aef44ea048a178a5206102c7f3b422844d2abf47c3adef150292cbeba50cfe7"
       }
     },
     {
@@ -203,7 +219,11 @@
         "url": "https://github.blog/wp-content/uploads/2026/11/704888510-f6f002b4-825a-48c2-ad38-5256b8a3aafd.jpg",
         "alt": "Publisher-provided image for GitHub AI Scan gains REST API management",
         "credit": "github.blog",
-        "sourceUrl": "https://github.blog/changelog/month/11-2026/"
+        "sourceUrl": "https://github.blog/changelog/month/11-2026/",
+        "local": "img/8aef44ea048a178a5206.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "8aef44ea048a178a5206102c7f3b422844d2abf47c3adef150292cbeba50cfe7"
       }
     },
     {
@@ -220,7 +240,11 @@
         "url": "https://github.blog/wp-content/uploads/2026/11/704888510-f6f002b4-825a-48c2-ad38-5256b8a3aafd.jpg",
         "alt": "Publisher-provided image for Gemini 4 Hydrogen remains the newest confirmed Copilot model addition",
         "credit": "github.blog",
-        "sourceUrl": "https://github.blog/changelog/month/11-2026/"
+        "sourceUrl": "https://github.blog/changelog/month/11-2026/",
+        "local": "img/8aef44ea048a178a5206.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "8aef44ea048a178a5206102c7f3b422844d2abf47c3adef150292cbeba50cfe7"
       }
     },
     {
@@ -250,7 +274,11 @@
         "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/meituan-longcat/LongCat-2.5.png",
         "alt": "Publisher-provided image for LongCat-2.5",
         "credit": "huggingface.co",
-        "sourceUrl": "https://huggingface.co/meituan-longcat/LongCat-2.5"
+        "sourceUrl": "https://huggingface.co/meituan-longcat/LongCat-2.5",
+        "local": "img/303197b28a8349d6f066.webp",
+        "width": 600,
+        "height": 324,
+        "sha256": "303197b28a8349d6f066422ebe3f9f2358072ecce837ddbb71966c5b23372e89"
       }
     },
     {
@@ -278,7 +306,11 @@
         "url": "https://opengraph.githubassets.com/893f328115f736f3c49f5add942cfc800c3703396d10d842b7c123745c633f32/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
         "alt": "Publisher-provided image for Git security advisories",
         "credit": "github.com",
-        "sourceUrl": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr"
+        "sourceUrl": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
+        "local": "img/6be759c56efb679125aa.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "6be759c56efb679125aa3c47a550426606cd092dfbd2e1c5c9bc2bcf18680a3d"
       }
     }
   ],

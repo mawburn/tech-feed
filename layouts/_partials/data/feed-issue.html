@@ -1,0 +1,8 @@
+{{- /* A daily issue as published in /data/briefings.json (source object + image.localUrl). */ -}}
+{{- $issue := . -}}
+{{- range partialCached "data/sections.html" "sections" -}}
+  {{- $items := slice -}}
+  {{- range index $issue .key }}{{ $items = $items | append (partial "data/with-local-image.html" .) }}{{ end -}}
+  {{- if isset $issue .key }}{{ $issue = merge $issue (dict .key $items) }}{{ end -}}
+{{- end -}}
+{{- return $issue -}}

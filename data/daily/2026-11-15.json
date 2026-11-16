@@ -42,7 +42,11 @@
         "url": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6af52a0047907d0f9587a24f_Social%20Announcement.png",
         "alt": "Publisher-provided image for LangChain raises $300 million at a $3 billion valuation",
         "credit": "langchain.com",
-        "sourceUrl": "https://www.langchain.com/blog/series-c"
+        "sourceUrl": "https://www.langchain.com/blog/series-c",
+        "local": "img/64fb78232b38d671539e.webp",
+        "width": 600,
+        "height": 338,
+        "sha256": "64fb78232b38d671539efb0c9f0846e0393f1487570c14497a55722bec075482"
       }
     },
     {
@@ -66,7 +70,11 @@
         "url": "https://cdn-uploads.huggingface.co/production/uploads/6962d3267513fcf314118d5f/e3kJpSjgR9Y4EX_hcR6iZ.png",
         "alt": "Publisher-provided image for Salesforce releases SOV-Transcribe-1, an Apache-2.0 open-weight speech model",
         "credit": "huggingface.co",
-        "sourceUrl": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
+        "sourceUrl": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1",
+        "local": "img/a1b8ac54c688c3e5e17f.webp",
+        "width": 600,
+        "height": 314,
+        "sha256": "a1b8ac54c688c3e5e17f5cc40b41a15d182bdca7ddd566bc11d4f61742eefd76"
       }
     },
     {
@@ -90,7 +98,11 @@
         "url": "https://nvidianews.nvidia.com/media/sites/219/images/social-image.jpg",
         "alt": "Publisher-provided image for Nvidia's crisis expands into export-control scrutiny",
         "credit": "nvidianews.nvidia.com",
-        "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+        "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition",
+        "local": "img/880d8614c5c5e8fcb5c8.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "880d8614c5c5e8fcb5c8b90c43a872d7bc00548114355c036bec6dadba410358"
       },
       "discussions": [
         {
@@ -117,7 +129,11 @@
         "url": "https://worldlabs.ai/opengraph-image.png?4b39e0cc40ca8b21",
         "alt": "Publisher-provided image for World Labs opens its next-generation spatial model to developers",
         "credit": "worldlabs.ai",
-        "sourceUrl": "https://worldlabs.ai/blog"
+        "sourceUrl": "https://worldlabs.ai/blog",
+        "local": "img/12e4db22aa54385a2ee1.webp",
+        "width": 600,
+        "height": 339,
+        "sha256": "12e4db22aa54385a2ee151681904e07c6475f6d7de30b94daccc92e680e2d49e"
       }
     },
     {
@@ -150,7 +166,11 @@
         "url": "https://opengraph.githubassets.com/942d1ba8d4f809fdba40368a2a4b6b67c74fce397f28406da0fc60370ceacf02/ggml-org/llama.cpp/discussions/30566",
         "alt": "Publisher-provided image for llama.cpp 1.0 milestone",
         "credit": "github.com",
-        "sourceUrl": "https://github.com/ggml-org/llama.cpp/discussions/30566"
+        "sourceUrl": "https://github.com/ggml-org/llama.cpp/discussions/30566",
+        "local": "img/becede1798461616b924.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "becede1798461616b924b6bafd5dc8780d5702e8dbd4557e82fcf3585103aba0"
       }
     },
     {
@@ -167,7 +187,11 @@
         "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/nativ-community/SOV-Transcribe-1-4bit.png",
         "alt": "Publisher-provided image for Local speech inference",
         "credit": "huggingface.co",
-        "sourceUrl": "https://huggingface.co/nativ-community/SOV-Transcribe-1-4bit"
+        "sourceUrl": "https://huggingface.co/nativ-community/SOV-Transcribe-1-4bit",
+        "local": "img/779e6bf2d5f2b9967827.webp",
+        "width": 600,
+        "height": 324,
+        "sha256": "779e6bf2d5f2b99678273d02c7abdc23cd2600fe02d24e3d0b3d525d292cf020"
       }
     },
     {
@@ -184,7 +208,11 @@
         "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/salesforce-sovereign-intelligence/SOV-Transcribe-1-DFlash.png",
         "alt": "Publisher-provided image for Speculative decoding",
         "credit": "huggingface.co",
-        "sourceUrl": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1-DFlash"
+        "sourceUrl": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1-DFlash",
+        "local": "img/4916d7b66a0cb8fb7833.webp",
+        "width": 600,
+        "height": 324,
+        "sha256": "4916d7b66a0cb8fb7833fed9597d0073820359ac8f5b645d3f30b2510aa5b6b3"
       }
     },
     {
@@ -201,7 +229,11 @@
         "url": "https://github.blog/wp-content/uploads/2026/11/645867806-878ea927-48c9-4765-a896-4a5f3d7b8f2e.jpg",
         "alt": "Publisher-provided image for GitHub Copilot",
         "credit": "github.blog",
-        "sourceUrl": "https://github.blog/changelog/month/11-2026/"
+        "sourceUrl": "https://github.blog/changelog/month/11-2026/",
+        "local": "img/8bc55225be89d7beb6ce.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "8bc55225be89d7beb6cedeb1988d03fab3e6bd06b8695c859a6fce63f1f5f7d2"
       }
     },
     {
@@ -218,7 +250,11 @@
         "url": "https://assets.claude.com/6d4a0d28992ade92d6fa63646fd9c9d318245c6c.jpg",
         "alt": "Publisher-provided image for Anthropic IPO",
         "credit": "anthropic.com",
-        "sourceUrl": "https://www.anthropic.com/news"
+        "sourceUrl": "https://www.anthropic.com/news",
+        "local": "img/18b3c70b6298faa3457d.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "18b3c70b6298faa3457d1d79c8cd03e7ab16342d5f857cd72079459793e5bd35"
       }
     },
     {
@@ -235,7 +271,11 @@
         "url": "https://www.faa.gov/themes/custom/dot_cms/images/seal_dot.png",
         "alt": "Publisher-provided image for FAA infrastructure failure",
         "credit": "faa.gov",
-        "sourceUrl": "https://www.faa.gov/newsroom"
+        "sourceUrl": "https://www.faa.gov/newsroom",
+        "local": "img/ba4920dcb38f76a802b0.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "ba4920dcb38f76a802b076e01586e9a1cc17abfb3cf5bc84ed35c898d9b34477"
       }
     },
     {
@@ -269,7 +309,11 @@
         "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/salesforce-sovereign-intelligence/SOV-Transcribe-1.png",
         "alt": "Publisher-provided image for SOV-Transcribe-1",
         "credit": "huggingface.co",
-        "sourceUrl": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1"
+        "sourceUrl": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1",
+        "local": "img/b8571e223db052089049.webp",
+        "width": 600,
+        "height": 324,
+        "sha256": "b8571e223db05208904927b5f80bedbab0a2a9c3f758b2fee322ddb86e140b36"
       }
     },
     {
@@ -286,7 +330,11 @@
         "url": "https://worldlabs.ai/opengraph-image.png?4b39e0cc40ca8b21",
         "alt": "Publisher-provided image for World Labs Atlas",
         "credit": "worldlabs.ai",
-        "sourceUrl": "https://worldlabs.ai/blog"
+        "sourceUrl": "https://worldlabs.ai/blog",
+        "local": "img/12e4db22aa54385a2ee1.webp",
+        "width": 600,
+        "height": 339,
+        "sha256": "12e4db22aa54385a2ee151681904e07c6475f6d7de30b94daccc92e680e2d49e"
       },
       "discussions": [
         {
@@ -314,7 +362,11 @@
         "url": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6af52a0047907d0f9587a24f_Social%20Announcement.png",
         "alt": "Publisher-provided image for LangSmith",
         "credit": "langchain.com",
-        "sourceUrl": "https://www.langchain.com/blog/series-c"
+        "sourceUrl": "https://www.langchain.com/blog/series-c",
+        "local": "img/64fb78232b38d671539e.webp",
+        "width": 600,
+        "height": 338,
+        "sha256": "64fb78232b38d671539efb0c9f0846e0393f1487570c14497a55722bec075482"
       }
     }
   ],

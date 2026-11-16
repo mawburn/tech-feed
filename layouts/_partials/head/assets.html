@@ -1,0 +1,7 @@
+{{- /* Stylesheet and icon. Replace main.css during the redesign; no JavaScript is loaded. */ -}}
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+{{- with resources.Get "css/main.css" }}
+  {{- $css := . | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{- end }}
