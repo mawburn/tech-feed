@@ -47,7 +47,14 @@
         "alt": "Publisher-provided image for Nvidia's leadership crisis is now affecting the broader AI infrastructure trade",
         "credit": "nvidianews.nvidia.com",
         "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50471829",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "Microsoft 365 suffers a major global outage",
@@ -93,7 +100,14 @@
         "alt": "Publisher-provided image for Google releases Gemini 4 Hydrogen for faster agentic coding",
         "credit": "blog.google",
         "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50471431",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "AWS Emulator offers local infrastructure testing for coding agents",
@@ -116,7 +130,14 @@
         "alt": "Publisher-provided image for AWS Emulator offers local infrastructure testing for coding agents",
         "credit": "aws.amazon.com",
         "sourceUrl": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50462073",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "Amazon is reportedly exploring a global product-data system to defend its shopping business",
@@ -128,6 +149,13 @@
         {
           "label": "Reuters report",
           "url": "https://www.reuters.com/business/media-telecom/amazons-plan-own-worlds-product-data-fight-ai-shopping-agents-2026-11-13/"
+        }
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50485419",
+          "label": "HN discussion"
         }
       ]
     },
@@ -158,6 +186,13 @@
         {
           "label": "GitHub security changelog",
           "url": "https://github.blog/changelog/label/security/"
+        }
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=38194102",
+          "label": "HN discussion"
         }
       ]
     },
@@ -249,7 +284,14 @@
         "alt": "Publisher-provided image for DeepSeek API expansion",
         "credit": "api-docs.deepseek.com",
         "sourceUrl": "https://api-docs.deepseek.com/"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=49274018",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "Speech-model evaluation",
@@ -289,7 +331,14 @@
         "alt": "Publisher-provided image for AWS Emulator",
         "credit": "aws.amazon.com",
         "sourceUrl": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50462073",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "Gemini 4 Hydrogen",
@@ -310,7 +359,14 @@
         "alt": "Publisher-provided image for Gemini 4 Hydrogen",
         "credit": "blog.google",
         "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50471431",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "Personal Agent Protocol 1.0",
@@ -327,7 +383,14 @@
         "alt": "Publisher-provided image for Personal Agent Protocol 1.0",
         "credit": "modelcontextprotocol.io",
         "sourceUrl": "https://modelcontextprotocol.io/"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=49981921",
+          "label": "HN discussion"
+        }
+      ]
     }
   ],
   "marketPulse": "AI infrastructure capital spending remains substantial, but the Saturday briefing found no verified new broad software-engineering hiring report. Nvidia leadership and compute financing questions are material industry risks, not proof of a near-term change in senior hiring."

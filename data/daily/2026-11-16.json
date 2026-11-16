@@ -124,6 +124,13 @@
           "label": "Wall Street Journal",
           "url": "https://www.wsj.com/tech/ai/trump-administration-to-name-nvidia-among-ai-national-champions-c9284344"
         }
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50516837",
+          "label": "HN discussion"
+        }
       ]
     },
     {

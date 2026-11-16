@@ -91,7 +91,14 @@
         "alt": "Publisher-provided image for Nvidia's crisis expands into export-control scrutiny",
         "credit": "nvidianews.nvidia.com",
         "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50471829",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "World Labs opens its next-generation spatial model to developers",
@@ -111,7 +118,14 @@
         "alt": "Publisher-provided image for World Labs opens its next-generation spatial model to developers",
         "credit": "worldlabs.ai",
         "sourceUrl": "https://worldlabs.ai/blog"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=42297644",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "AI infrastructure's physical resource requirements are becoming a more important constraint",
@@ -280,7 +294,14 @@
         "alt": "Publisher-provided image for World Labs Atlas",
         "credit": "worldlabs.ai",
         "sourceUrl": "https://worldlabs.ai/blog"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=42297644",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "LangSmith",

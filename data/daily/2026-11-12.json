@@ -24,7 +24,14 @@
         "alt": "Publisher-provided image for Nvidia announces Jensen Huang's resignation and an interim CEO",
         "credit": "nvidianews.nvidia.com",
         "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50471829",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "Google launches Gemini 4 Hydrogen for agentic work",
@@ -47,7 +54,14 @@
         "alt": "Publisher-provided image for Google launches Gemini 4 Hydrogen for agentic work",
         "credit": "blog.google",
         "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50471431",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "Gemini Decision 1 targets fast, bounded AI decisions",
@@ -66,7 +80,14 @@
         "alt": "Publisher-provided image for Gemini Decision 1 targets fast, bounded AI decisions",
         "credit": "blog.google",
         "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50456791",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "wfx-loot campaign compromises GitHub identities and CI pipelines",
@@ -112,7 +133,14 @@
         "alt": "Publisher-provided image for AWS introduces a local Emulator for development and agents",
         "credit": "aws.amazon.com",
         "sourceUrl": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50462073",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "Indeed data points to a partial software hiring rebound",
@@ -154,7 +182,14 @@
         "alt": "Publisher-provided image for Node.js releases security patches across active lines",
         "credit": "nodejs.org",
         "sourceUrl": "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases/"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50458759",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "Runway releases open-weight Praxis-1 robotics world-action model",
@@ -192,7 +227,14 @@
         "alt": "Publisher-provided image for Anthropic launches Claude Fable 5.2",
         "credit": "anthropic.com",
         "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50429068",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "Gemini 4 Carbon reaches broader availability",
@@ -209,7 +251,14 @@
         "alt": "Publisher-provided image for Gemini 4 Carbon reaches broader availability",
         "credit": "deepmind.google",
         "sourceUrl": "https://deepmind.google/models/gemini/"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50073879",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "Rust 1.100 is released",
@@ -265,7 +314,14 @@
         "alt": "Publisher-provided image for Fireworks AI incident affects some Notion AI transcripts",
         "credit": "notion.com",
         "sourceUrl": "https://www.notion.com/en-gb/security/advisories/security-incident-involving-a-third-party-ai-vendor"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50477479",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "Advocacy groups sue over frontier AI development",
@@ -293,7 +349,14 @@
         "alt": "Publisher-provided image for Anthropic begins IPO roadshow",
         "credit": "anthropic.com",
         "sourceUrl": "https://www.anthropic.com/news/roadshow-launch"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50438891",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "Fractile attracts major funding for inference hardware",
@@ -344,7 +407,14 @@
         "alt": "Publisher-provided image for Qwen Code and Qoder preview",
         "credit": "qwenlm.github.io",
         "sourceUrl": "https://qwenlm.github.io/"
-      }
+      },
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=41451644",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "Zig-based LLM inference engine",
