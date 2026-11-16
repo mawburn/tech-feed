@@ -80,8 +80,10 @@ def article_specific(url):
 def near_date(timestamp, issue_date):
     """Treat old community discussions as unrelated to this edition."""
     try:
-        stamp=int(timestamp)
-        posted=datetime.fromtimestamp(stamp,timezone.utc).date()
+        try:
+            posted=datetime.fromtimestamp(int(timestamp),timezone.utc).date()
+        except (ValueError,TypeError):
+            posted=datetime.fromisoformat(str(timestamp).replace("Z","+00:00")).date()
         day=date.fromisoformat(issue_date)
         return day - timedelta(days=21) <= posted <= day + timedelta(days=3)
     except (ValueError,TypeError,OverflowError):
@@ -191,7 +193,7 @@ def hn_match(story, issue_date):
     return {"platform":"Hacker News","url":"https://news.ycombinator.com/item?id="+key,"label":"HN discussion"}
 
 def valid_prior_hn(story, link, issue_date):
-    match=re.fullmatch(r"https://news\\.ycombinator\\.com/item\\?id=(\\d+)",str(link.get("url","")))
+    match=re.fullmatch(r"https://news\.ycombinator\.com/item\?id=(\d+)",str(link.get("url","")))
     if not match:
         return False
     hit=hn_item(match.group(1))
