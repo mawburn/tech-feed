@@ -48,10 +48,21 @@
     <div class="content-divider"><span>THE LAST SEVEN DAYS</span><span class="content-divider-right" id="archive-count">Seven-day rolling window</span></div>
 
     <div class="layout">
-      <aside class="sidebar" aria-label="Archive dates">
-        <p class="sidebar-kicker">EDITION ARCHIVE</p>
-        <nav id="date-nav" class="date-nav" aria-label="Choose briefing date"></nav>
-        <div class="sidebar-note"><span class="sidebar-note-line"></span>Ranked for relevance, not engagement. Primary reporting and independent sources when available.</div>
+      <aside class="sidebar" aria-label="Briefing navigation and topic summary">
+        <div class="sidebar-sticky">
+          <section class="topic-panel" aria-labelledby="topic-panel-title">
+            <div class="topic-panel-heading">
+              <h2 id="topic-panel-title" class="sidebar-kicker">TOPICS IN THIS EDITION</h2>
+              <span id="topic-summary" class="topic-summary">Loading…</span>
+            </div>
+            <nav id="topic-nav" class="topic-nav" aria-label="Filter by story topic"></nav>
+          </section>
+          <section class="archive-panel" aria-labelledby="archive-panel-title">
+            <h2 id="archive-panel-title" class="sidebar-kicker">EDITION ARCHIVE</h2>
+            <nav id="date-nav" class="date-nav" aria-label="Choose briefing date"></nav>
+          </section>
+          <p class="sidebar-note">Topics and counts reflect the selected day. Choose a date to see its complete briefing.</p>
+        </div>
       </aside>
 
       <main id="feed" class="feed" tabindex="-1">
