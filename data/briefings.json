@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-11-16T06:45:27Z",
+  "issues": [
+    {
+      "date": "2026-11-15",
+      "label": "Selected highlights · Initial edition",
+      "overview": "Three verified highlights from the November 15 morning briefing. This is an initial selection rather than a full reconstruction of previous daily reports. Future scheduled editions will replace and expand the rolling archive.",
+      "topStories": [
+        {
+          "id": "fed-ai-financial-stability",
+          "rank": 1,
+          "title": "Federal Reserve survey puts AI at the top of financial-stability concerns",
+          "category": "Business & Markets",
+          "summary": "In the Federal Reserve's November 13 Financial Stability Report, 87% of surveyed financial-system contacts identified AI-related risks, up from 50% in the prior survey. Respondents cited vulnerabilities around investment, financing, and potential market repricing.",
+          "whyItMatters": "AI infrastructure expansion increasingly intersects with credit risk, energy investment, and hiring expectations, not just software releases.",
+          "limitations": "Survey responses measure perceived risks; 87% is not a probability of a financial crisis.",
+          "sources": [
+            {
+              "label": "Federal Reserve report",
+              "url": "https://www.federalreserve.gov/publications/files/financial-stability-report-20261113.pdf"
+            },
+            {
+              "label": "Reuters reporting",
+              "url": "https://www.reuters.com/business/finance/ai-rockets-top-worries-about-financial-system-latest-fed-survey-2026-11-13/"
+            }
+          ]
+        },
+        {
+          "id": "langchain-series-c",
+          "rank": 2,
+          "title": "LangChain raises $300 million at a $3 billion valuation",
+          "category": "AI & Agents",
+          "summary": "LangChain announced a Series C round led by CapitalG, positioning its LangSmith suite around agent deployment, evaluation, observability, and governance.",
+          "whyItMatters": "The funding highlights demand for operational agent infrastructure beyond basic orchestration libraries.",
+          "limitations": "The valuation and customer counts do not establish profitability or technical superiority; customer numbers are company-reported.",
+          "sources": [
+            {
+              "label": "Company announcement",
+              "url": "https://www.langchain.com/blog/series-c"
+            },
+            {
+              "label": "TechCrunch",
+              "url": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/"
+            }
+          ]
+        },
+        {
+          "id": "sov-transcribe-1",
+          "rank": 3,
+          "title": "Salesforce releases SOV-Transcribe-1 as an open-weight speech model",
+          "category": "AI & Models",
+          "summary": "Salesforce released a non-streaming speech transcription model with 26.6 billion total parameters and roughly 4.6 billion active parameters, plus style control and context hints for difficult names and identifiers.",
+          "whyItMatters": "Entity-accurate transcription could make voice-driven software and developer workflows more dependable.",
+          "limitations": "Published benchmark performance is not a substitute for testing latency, accents, and actual deployment conditions. Open weights do not necessarily imply open training data.",
+          "sources": [
+            {
+              "label": "Technical announcement",
+              "url": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
+            },
+            {
+              "label": "Model repository",
+              "url": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1"
+            }
+          ]
+        }
+      ],
+      "alsoWorthKnowing": [],
+      "newTools": [],
+      "marketPulse": "The Federal Reserve survey suggests rising concern about the financing and macroeconomic exposure of AI infrastructure. The data describes perceived risks rather than demonstrating a hiring downturn."
+    }
+  ]
+}
