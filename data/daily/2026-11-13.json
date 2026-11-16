@@ -228,7 +228,13 @@
           "label": "Google DeepMind Gemini models",
           "url": "https://deepmind.google/models/gemini/"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://lh3.googleusercontent.com/ufe__EokQeN6itypUE9XmN6-HX9kqi1cNllSWZ688h8dXXOh8lDS_Ltc8c-hdbJSp86GcKcpbHmsXharkzaEaFzhOFLsbx7zFcoi20GqnwTREcto=w1200-h630-n-nu-rw",
+        "alt": "Publisher-provided image for Gemini 4 Carbon",
+        "credit": "deepmind.google",
+        "sourceUrl": "https://deepmind.google/models/gemini/"
+      }
     },
     {
       "title": "Nvidia Nemotron 3.5 Super VL",
