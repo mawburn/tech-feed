@@ -247,3 +247,44 @@ strong { font-weight: 700; color: var(--text) }
   .secondary-image,.secondary-artwork { width: 72px }
 }
 @media(prefers-reduced-motion: reduce) { html { scroll-behavior: auto } }
+
+
+/* Prefetched community conversations: visible, not a hidden footer detail. */
+.discussion-badges {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 2px 0 13px;
+}
+.thread-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: 100%;
+  padding: 5px 9px;
+  border-radius: 6px;
+  border: 1px solid #6a7077;
+  background: #2c3035;
+  color: #f1f3f5;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+.thread-pill:hover { background: #3a3e44; border-color: #969da6; color: #fff; }
+.thread-action { color: #c4ced7; font-size: 11.5px; font-weight: 500; }
+.secondary-copy .discussion-badges { margin: 5px 0 8px; }
+.discussion-summary {
+  color: #d9e0e6;
+  font-size: 12px;
+  border-left: 1px solid var(--border);
+  padding-left: 12px;
+  margin-left: 2px;
+}
+.discussion-summary-empty { color: var(--subtle); }
+@media(max-width: 620px) {
+  .toolbar-copy { flex-wrap: wrap; row-gap: 5px; }
+  .discussion-summary { width: 100%; margin: 0; padding-left: 0; border-left: 0; }
+  .thread-pill { min-height: 32px; }
+}
