@@ -6,8 +6,8 @@ discovery only; it NEVER fabricates a 'discoveredVia' provenance record.
 
 Inputs: data/daily/YYYY-MM-DD.json
 Outputs: optional story.discussions entries with verified thread permalinks.
-External sources: HN Algolia public search API, Reddit public RSS search.
-Reddit RSS access can be blocked or restricted; failures are non-fatal.
+External sources: HN Algolia public search API, approved Reddit OAuth Data API.
+No unauthenticated Reddit RSS or unofficial archive fallback.
 """
 from __future__ import annotations
 import argparse
@@ -19,6 +19,9 @@ from html import unescape
 import json
 import re
 import sys
+import os
+import base64
+import threading
 from pathlib import Path
 from urllib.parse import parse_qsl, quote, unquote, urlsplit, urlunsplit, urlencode
 from urllib.request import Request, urlopen
@@ -33,8 +36,10 @@ HEADERS = {
     "Accept": "application/json,application/atom+xml,application/rss+xml,text/xml;q=0.9,*/*;q=0.5",
 }
 HN_API = "https://hn.algolia.com/api/v1/search"
-REDDIT_RSS = "https://www.reddit.com/search.rss"
-REDDIT_ARCHIVE = "https://api.pullpush.io/reddit/search/submission/"
+REDDIT_OAUTH_TOKEN = None
+REDDIT_SEARCH_COUNT = 0
+REDDIT_SEARCH_LIMIT = 24
+REDDIT_LOCK = threading.Lock()
 STOP = {
     "a","an","the","and","of","for","on","in","to","with","its",
     "from","into","out","as","at","is","are","was","were","by",
@@ -42,8 +47,8 @@ STOP = {
     "company","announces","announced","launches","launched","introduces",
     "releases","released","report","reports","latest","more",
 }
-FAILED = {"hn": 0, "reddit": 0, "reddit_archive": 0}
-SUCCESS = {"hn": 0, "reddit": 0, "reddit_archive": 0}
+FAILED = {"hn": 0, "reddit_oauth": 0}
+SUCCESS = {"hn": 0, "reddit_oauth": 0}
 
 def normalize_url(value):
     try:
@@ -202,49 +207,55 @@ def valid_prior_hn(story, link, issue_date):
         return True  # Do not remove published data on an API outage.
     return bool(hn_eligible(story,hit,issue_date))
 
-def parse_reddit_feed(raw):
-    if not raw:
-        return []
+def reddit_token():
+    """Use only approved Reddit Data API credentials; never bypass rate limits."""
+    client_id=os.environ.get("REDDIT_CLIENT_ID","").strip()
+    secret=os.environ.get("REDDIT_CLIENT_SECRET","").strip()
+    agent=os.environ.get("REDDIT_USER_AGENT","").strip()
+    if not client_id or not secret or not agent:
+        print("Reddit API disabled: approved OAuth credentials and user agent not configured.")
+        return None
+    auth=base64.b64encode((client_id+":"+secret).encode()).decode()
+    req=Request(
+        "https://www.reddit.com/api/v1/access_token",
+        data=urlencode({"grant_type":"client_credentials"}).encode(),
+        headers={"Authorization":"Basic "+auth,"User-Agent":agent,
+                 "Content-Type":"application/x-www-form-urlencoded"},
+        method="POST")
     try:
-        root=ET.fromstring(raw)
-    except ET.ParseError:
-        return []
-    entries=[]
-    ns={"a":"http://www.w3.org/2005/Atom"}
-    for entry in root.findall("a:entry",ns):
-        title=entry.findtext("a:title","",ns)
-        link=entry.find("a:link",ns)
-        comments=link.attrib.get("href","") if link is not None else ""
-        content=entry.findtext("a:content","",ns)
-        if not content:
-            content=entry.findtext("a:summary","",ns)
-        # RSS may place an external article's URL in the escaped HTML content.
-        external=[unescape(h) for h in re.findall(r'href=["\']([^"\']+)["\']',unescape(content),re.I)]
-        published=entry.findtext("a:published","",ns) or entry.findtext("a:updated","",ns)
-        entries.append((title,comments,external,published))
-    return entries
+        with urlopen(req,timeout=10) as response:
+            data=json.loads(response.read(200_000))
+        if data.get("token_type","").lower()=="bearer" and data.get("access_token"):
+            print("Reddit OAuth token acquired for authorized discussion search.")
+            return data["access_token"]
+    except (HTTPError,URLError,TimeoutError,OSError,ValueError) as exc:
+        print("Reddit OAuth unavailable ("+type(exc).__name__+"); skipping Reddit.",file=sys.stderr)
+    return None
 
-@lru_cache(maxsize=300)
+@lru_cache(maxsize=80)
 def reddit_search(query):
-    if not query:
+    global REDDIT_SEARCH_COUNT
+    if not query or not REDDIT_OAUTH_TOKEN:
         return []
-    args=urlencode({"q":query,"sort":"relevance","t":"month","limit":25})
-    return parse_reddit_feed(get_bytes(REDDIT_RSS+"?"+args, "reddit",400_000))
-
-@lru_cache(maxsize=300)
-def reddit_archive_search(query):
-    # Public archive index fallback when Reddit blocks RSS (403/429).
-    # It may lag and can contain deleted posts, so only include strong matches.
-    if not query:
-        return []
-    url=REDDIT_ARCHIVE+"?"+urlencode({"q":query,"size":30,"sort":"desc"})
-    raw=get_bytes(url,"reddit_archive",550_000)
-    if not raw:
-        return []
+    with REDDIT_LOCK:
+        if REDDIT_SEARCH_COUNT >= REDDIT_SEARCH_LIMIT:
+            return []
+        REDDIT_SEARCH_COUNT+=1
+    params=urlencode({"q":query,"sort":"relevance","t":"month","limit":25,"type":"link"})
+    req=Request("https://oauth.reddit.com/search?"+params,
+                headers={"User-Agent":os.environ["REDDIT_USER_AGENT"],
+                         "Authorization":"bearer "+REDDIT_OAUTH_TOKEN,
+                         "Accept":"application/json"})
     try:
-        data=json.loads(raw).get("data",[])
-        return data if isinstance(data,list) else []
-    except (ValueError,TypeError):
+        with urlopen(req,timeout=9) as response:
+            data=json.loads(response.read(300_000))
+        SUCCESS["reddit_oauth"]+=1
+        return [c["data"] for c in data.get("data",{}).get("children",[])
+                if isinstance(c,dict) and isinstance(c.get("data"),dict)]
+    except (HTTPError,URLError,TimeoutError,OSError,ValueError,KeyError) as exc:
+        FAILED["reddit_oauth"]+=1
+        if FAILED["reddit_oauth"] <= 3:
+            print("Reddit OAuth search failed ("+type(exc).__name__+").",file=sys.stderr)
         return []
 
 def permalink_candidate(url):
@@ -259,45 +270,32 @@ def permalink_candidate(url):
     except (ValueError,TypeError):
         return None
 
-def reddit_match(story, issue_date):
+def reddit_match(story,issue_date):
+    if not REDDIT_OAUTH_TOKEN:
+        return None
     best=None
-    query=best_query(story.get("title",""))
-    for title,url,external,published in reddit_search(query):
-        if not near_date(published,issue_date):
+    query=" ".join(best_query(story.get("title","")).split()[:5])
+    for post in reddit_search(query):
+        if not near_date(post.get("created_utc"),issue_date):
             continue
-        match=permalink_candidate(url)
+        if int(post.get("num_comments") or 0) < 1:
+            continue
+        score=story_score(story,post.get("title",""),post.get("url",""))
+        if score < .68:
+            continue
+        raw=str(post.get("permalink",""))
+        if raw.startswith("/"):
+            raw="https://www.reddit.com"+raw
+        match=permalink_candidate(raw)
         if not match:
             continue
-        score=max([story_score(story,title,target) for target in external] + [story_score(story,title,None)])
-        if score < .65:
-            continue
         permalink,subreddit=match
-        candidate=(score,permalink,subreddit)
-        if best is None or candidate[0] > best[0]:
+        candidate=(score,int(post.get("num_comments") or 0),permalink,subreddit)
+        if best is None or candidate > best:
             best=candidate
-    if best is None:
-        for post in reddit_archive_search(query):
-            if not isinstance(post,dict) or not near_date(post.get("created_utc"),issue_date):
-                continue
-            external=post.get("url")
-            title=post.get("title","")
-            score=story_score(story,title,external)
-            if score < .65:
-                continue
-            raw=post.get("permalink","")
-            if raw.startswith("/"):
-                raw="https://www.reddit.com"+raw
-            match=permalink_candidate(raw)
-            if not match:
-                continue
-            permalink,subreddit=match
-            candidate=(score,permalink,subreddit)
-            if best is None or candidate[0] > best[0]:
-                best=candidate
     if not best:
         return None
-    _,permalink,subreddit=best
-    return {"platform":"Reddit","url":permalink,"label":"r/"+subreddit}
+    return {"platform":"Reddit","url":best[2],"label":"r/"+best[3]}
 
 def safe_platforms(existing):
     return {str(item.get("platform","")).strip().lower() for item in existing if isinstance(item,dict)}
@@ -335,7 +333,7 @@ def enrich_story(issue_date, story):
 def run():
     parser=argparse.ArgumentParser()
     parser.add_argument("--self-test",action="store_true")
-    parser.add_argument("--days",type=int,default=7)
+    parser.add_argument("--days",type=int,default=2)
     args=parser.parse_args()
     if args.self_test:
         assert normalize_url("https://www.example.com/Blog/Article/?utm_source=reddit") == "example.com/blog/article"
@@ -346,10 +344,10 @@ def run():
         assert not near_date("2024-01-01T08:00:00Z","2026-11-15")
         assert permalink_candidate("https://www.reddit.com/r/programming/comments/abc123/thread/")
         assert story_score({"title":"Nvidia CEO transition","sources":[]},"Nvidia earnings beat estimates",None) == 0.
-        doc=b'<feed xmlns="http://www.w3.org/2005/Atom"><entry><title>LangChain funding</title><link href="https://www.reddit.com/r/programming/comments/abc123/news/"/></entry></feed>'
-        assert len(parse_reddit_feed(doc))==1
         print("Discussion matcher self-tests passed")
         return
+    global REDDIT_OAUTH_TOKEN
+    REDDIT_OAUTH_TOKEN=reddit_token()
     current=datetime.now(ZoneInfo("America/Los_Angeles")).date()
     start=(current-timedelta(days=max(1,args.days)-1)).isoformat()
     files=sorted(p for p in FOLDER.glob("*.json") if start<=p.stem<=current.isoformat())
@@ -373,8 +371,8 @@ def run():
         for item in found:
             counts[item["platform"]]+=1
         print(f"{file.name}: added {len(found)} and removed {removed} discussion links")
-    print(f"Done. Updated {changed} edition files; added HN={counts['Hacker News']}, Reddit={counts['Reddit']}; removed stale HN={removed_total}; HTTP successes HN={SUCCESS['hn']}, Reddit RSS={SUCCESS['reddit']}, Reddit archive={SUCCESS['reddit_archive']}; failures HN={FAILED['hn']}, Reddit RSS={FAILED['reddit']}, Reddit archive={FAILED['reddit_archive']}")
-    if not SUCCESS["hn"] and not SUCCESS["reddit"] and not SUCCESS["reddit_archive"]:
+    print(f"Done. Updated {changed} edition files; added HN={counts['Hacker News']}, Reddit={counts['Reddit']}; removed stale HN={removed_total}; HTTP HN={SUCCESS['hn']}, Reddit OAuth={SUCCESS['reddit_oauth']}; failures HN={FAILED['hn']}, Reddit OAuth={FAILED['reddit_oauth']}")
+    if not SUCCESS["hn"] and not SUCCESS["reddit_oauth"]:
         print("WARNING: No community search endpoint responded; no links were fabricated.",file=sys.stderr)
 
 if __name__ == "__main__":
