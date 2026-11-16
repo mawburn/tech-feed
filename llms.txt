@@ -1,10 +1,13 @@
 # mawburn Feed
 
-> Daily technology and AI briefing with primary sources, context, caveats, and an explicitly dated rolling archive.
+> Daily and Sunday weekly technology and AI briefings with primary sources, context, caveats and dated archives.
 
 Canonical site: https://mawburn.github.io/tech-feed/
 Full human-readable archive: https://mawburn.github.io/tech-feed/archive.md
 Machine-readable structured briefing JSON: https://mawburn.github.io/tech-feed/data/briefings.json
+Weekly Sunday summaries: https://mawburn.github.io/tech-feed/weekly.html
+Weekly machine-readable JSON: https://mawburn.github.io/tech-feed/data/weekly.json
+Weekly human-readable archive: https://mawburn.github.io/tech-feed/weekly-archive.md
 Repository: https://github.com/mawburn/tech-feed
 
 ## How to read
@@ -17,3 +20,10 @@ Repository: https://github.com/mawburn/tech-feed
 
 ## Attribution and verification
 The summaries are independently authored and may not reflect later corrections. Link to original articles, research papers, repositories and statements whenever possible. A mention is not endorsement or independent verification of vendor claims.
+
+## Sunday weekly recap
+- Week periods start Monday and end Sunday in America/Los_Angeles.
+- data/weekly.json has schemaVersion, updatedAt and weeks[] newest-first. Each weekly item contains overview, themes, toolsToWatch, marketPulse, nextWeekWatch, sourceDays and coverageDays.
+- A partial week explicitly names the daily editions actually available rather than presenting missing days as covered.
+- Weekly recaps deduplicate related stories across daily editions and preserve independently readable source links.
+- Historical weekly recaps remain available after individual daily editions age out of the rolling seven-day archive.
