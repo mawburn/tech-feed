@@ -73,7 +73,13 @@
               "label": "TechCrunch",
               "url": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6af52a0047907d0f9587a24f_Social%20Announcement.png",
+            "alt": "Publisher-provided image for LangChain doubles down on enterprise agent operations",
+            "credit": "langchain.com",
+            "sourceUrl": "https://www.langchain.com/blog/series-c"
+          }
         },
         {
           "title": "New specialized models emphasize speed and real-world tasks",
@@ -99,7 +105,13 @@
               "label": "Speech model repository",
               "url": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://cdn-uploads.huggingface.co/production/uploads/6962d3267513fcf314118d5f/e3kJpSjgR9Y4EX_hcR6iZ.png",
+            "alt": "Publisher-provided image for New specialized models emphasize speed and real-world tasks",
+            "credit": "huggingface.co",
+            "sourceUrl": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
+          }
         },
         {
           "title": "CI security and cloud resilience remain practical engineering risks",
@@ -146,7 +158,13 @@
               "label": "Federal Reserve speech",
               "url": "https://www.federalreserve.gov/newsevents/speech/barr20261112a.htm"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://d341ezm4iqaae0.cloudfront.net/hiringlaborg/2026/11/12162624/Tech_developersdiscussingcodeinofficegettyperp-scaled.jpg",
+            "alt": "Publisher-provided image for Hiring signals improve unevenly, with displacement still uncertain",
+            "credit": "hiringlab.indeed.com",
+            "sourceUrl": "https://hiringlab.indeed.com/2026/11/12/2026-q3-us-tech-labor-market-update/"
+          }
         }
       ],
       "toolsToWatch": [
