@@ -53,6 +53,7 @@ export default function(eleventyConfig) {
   eleventyConfig.addFilter("absoluteUrl", path => "https://mawburn.github.io" + url(path));
   eleventyConfig.addFilter("isHttp", http);
   eleventyConfig.addFilter("slug", slug);
+  eleventyConfig.addFilter("queryEncode", value => encodeURIComponent(String(value || "").trim()));
   eleventyConfig.addFilter("pad2", value => String(value ?? "").padStart(2, "0"));
   eleventyConfig.addFilter("json", value => JSON.stringify(value, null, 2));
   eleventyConfig.addFilter("dayRoute", dayRoute);
