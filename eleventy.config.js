@@ -1,10 +1,9 @@
-import { readFileSync } from "node:fs";
+import { loadData } from "./scripts/data.mjs";
 
-const load = path => JSON.parse(readFileSync(new URL(path, import.meta.url), "utf8"));
-const dailyJSON = load("./data/briefings.json");
-const weeklyJSON = load("./data/weekly.json");
-const issues = [...(dailyJSON.issues || [])].sort((a,b) => b.date.localeCompare(a.date));
-const weeks = [...(weeklyJSON.weeks || [])].sort((a,b) => b.weekEnding.localeCompare(a.weekEnding));
+// Indexes are generated from dated JSON files, not edited on each new briefing.
+const {feed, weeklyFeed} = loadData();
+const issues = feed.issues;
+const weeks = weeklyFeed.weeks;
 const slug = text => String(text || "").toLowerCase().normalize("NFKD")
   .replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const stories = issue => [
@@ -43,8 +42,8 @@ const topicRoute = (day, category) => day === "all"
 
 export default function(eleventyConfig) {
   eleventyConfig.setNunjucksEnvironmentOptions({ autoescape: true });
-  eleventyConfig.addGlobalData("feed", { ...dailyJSON, issues });
-  eleventyConfig.addGlobalData("weeklyFeed", { ...weeklyJSON, weeks });
+  eleventyConfig.addGlobalData("feed", feed);
+  eleventyConfig.addGlobalData("weeklyFeed", weeklyFeed);
   eleventyConfig.addGlobalData("topicPages", topicPages);
   eleventyConfig.addGlobalData("projectSite", {
     base, baseUrl: "https://mawburn.github.io/tech-feed",
@@ -55,6 +54,7 @@ export default function(eleventyConfig) {
   eleventyConfig.addFilter("isHttp", http);
   eleventyConfig.addFilter("slug", slug);
   eleventyConfig.addFilter("pad2", value => String(value ?? "").padStart(2, "0"));
+  eleventyConfig.addFilter("json", value => JSON.stringify(value, null, 2));
   eleventyConfig.addFilter("dayRoute", dayRoute);
   eleventyConfig.addFilter("topicRoute", topicRoute);
   eleventyConfig.addFilter("dateShort", iso => shortDate.format(dateObj(iso)));
@@ -82,12 +82,10 @@ export default function(eleventyConfig) {
   eleventyConfig.addFilter("totalStories", issueList => (issueList || []).reduce((n,i) => n + stories(i).length,0));
   eleventyConfig.addFilter("sumTopicCounts", counts => (counts || []).reduce((n,c) => n + c.count,0));
 
-  // Scheduled tasks continue writing the existing paths, unchanged.
-  // Only those files are transformed into HTML at build time.
+  // Date-specific source files are read during the build. Generated feeds and
+  // Markdown indexes are rendered from templates in src/, not copied from main.
   [
-    "assets/styles.css", "assets/favicon.svg",
-    "data/briefings.json", "data/weekly.json",
-    "archive.md", "weekly-archive.md", "llms.txt", "robots.txt",
+    "assets/styles.css", "assets/favicon.svg", "llms.txt", "robots.txt",
   ].forEach(path => eleventyConfig.addPassthroughCopy(path));
 
   return {
