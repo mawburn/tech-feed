@@ -1,0 +1,231 @@
+{
+  "date": "2026-11-16",
+  "label": "Monday morning briefing",
+  "overview": "New US restrictions on remotely accessed AI compute and Alibaba's Qwen4-Max announcement lead the morning. A large open-weight LongCat model adds another entrant to agentic coding, while a Git remote-code-execution advisory warrants immediate attention. AI financial-stability concerns are receiving renewed official scrutiny, and hiring evidence remains mixed rather than showing a clear recovery.",
+  "topStories": [
+    {
+      "rank": 1,
+      "title": "US tightens controls on remotely accessed advanced AI chips",
+      "category": "Policy & Regulation",
+      "summary": "The Commerce Department issued an interim rule addressing advanced AI chips accessed through overseas data centers, including additional licensing requirements in Singapore, Thailand, Malaysia, Indonesia and Brazil.",
+      "whyItMatters": "Compute location and remote access become important compliance considerations for cloud providers and AI infrastructure operators.",
+      "limitations": "Implementation details and enforcement remain uncertain; the rule is not a blanket prohibition on all cloud compute.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "BIS announcement",
+          "url": "https://media.bis.gov/sites/default/files/documents/BIS%20Issues%20Rule%20Addressing%20Remote%20Access%20to%20American%20Super%20Intelligence%20Technology.pdf"
+        },
+        {
+          "label": "Reuters",
+          "url": "https://www.reuters.com/legal/litigation/us-issues-rule-protect-advanced-ai-chips-being-accessed-remotely-2026-11-16/"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "title": "Alibaba announces Qwen4-Max with new security safeguards",
+      "category": "AI Models & Research",
+      "summary": "Alibaba unveiled a 2.4-trillion-parameter flagship model, reporting improved secure-code results and lower task costs in its own tests; smaller open-weight Qwen4 variants are planned.",
+      "whyItMatters": "Security-aware coding capabilities and competition from Chinese model providers are strategically important.",
+      "limitations": "Benchmarks and safety claims are company-reported; planned open weights are not a released open-source training stack.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "Reuters",
+          "url": "https://www.reuters.com/business/retail-consumer/alibaba-unveils-new-flagship-ai-model-with-safety-upgrades-2026-11-16/"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "title": "LongCat-2.5 weights available for large-scale agentic workflows",
+      "category": "AI Models & Research",
+      "summary": "Meituan's 1.6-trillion-parameter multimodal MoE model activates roughly 48 billion parameters per token and targets coding, visual understanding and long-horizon agents.",
+      "whyItMatters": "A substantial openly downloadable model expands alternatives for specialized inference infrastructure.",
+      "limitations": "Extremely large memory and serving requirements limit local use; published performance claims require independent evaluation; weights are available but the full training pipeline is not established as open.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "Hugging Face model card",
+          "url": "https://huggingface.co/meituan-longcat/LongCat-2.5"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "title": "Git patches high-severity recursive-clone remote-code-execution flaw",
+      "category": "Security",
+      "summary": "Git maintainers published a high-severity advisory for recursive clones on November 10, among several security fixes highlighted by GitHub.",
+      "whyItMatters": "Repositories and automation that clone untrusted sources should prioritize patched Git versions.",
+      "limitations": "Risk depends on affected workflows and versions; review the advisory rather than assuming all clones are exploitable.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "Git advisory",
+          "url": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr"
+        },
+        {
+          "label": "GitHub engineering coverage",
+          "url": "https://github.blog/"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "title": "Federal Reserve warns of AI-driven financial instability",
+      "category": "Business & Markets",
+      "summary": "Fed Governor Michael Barr highlighted correlated AI trading behavior, cyber risks, authorization problems with financial agents, and complex AI infrastructure financing.",
+      "whyItMatters": "Financial-sector agent deployments need rigorous controls, and infrastructure funding risks could spill into tech investment.",
+      "limitations": "These are systemic risk scenarios, not evidence that a crash or mass job loss is imminent.",
+      "isUpdate": true,
+      "sources": [
+        {
+          "label": "Reuters",
+          "url": "https://www.reuters.com/world/feds-barr-warns-ai-risks-financial-system-2026-11-16/"
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "title": "US and nine allies announce AI supply-chain coordination",
+      "category": "Policy & Regulation",
+      "summary": "The United States and nine partners signed a declaration to protect AI technology and critical infrastructure supply chains.",
+      "whyItMatters": "Supply-chain security is becoming a coordinated international policy priority.",
+      "limitations": "The declaration is a framework announcement without verified detailed implementation or immediate technical requirements.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "Reuters",
+          "url": "https://www.reuters.com/world/china/us-allies-team-up-protect-ai-tech-infrastructure-amid-china-rivalry-2026-11-16/"
+        }
+      ]
+    }
+  ],
+  "alsoWorthKnowing": [
+    {
+      "title": "US reportedly preparing AI national champions designation",
+      "category": "Business & Markets",
+      "summary": "A reported initiative could offer export support and financing to selected US AI companies; no final designation was verified.",
+      "sources": [
+        {
+          "label": "Wall Street Journal",
+          "url": "https://www.wsj.com/tech/ai/trump-administration-to-name-nvidia-among-ai-national-champions-c9284344"
+        }
+      ]
+    },
+    {
+      "title": "Security startup Corma raises new funding",
+      "category": "Security",
+      "summary": "Corma reportedly raised $125 million for autonomous cyber-defense agents; product effectiveness remains unverified.",
+      "sources": [
+        {
+          "label": "Wall Street Journal",
+          "url": "https://www.wsj.com/pro/cybersecurity/startup-corma-builds-ai-agents-for-cyber-defense-7d296a0f"
+        }
+      ]
+    },
+    {
+      "title": "FBI warns about abuse of ARTEX penetration-testing tooling",
+      "category": "Security",
+      "summary": "A reported FBI warning underscores the need to distinguish legitimate agentic security testing from malicious deployment.",
+      "sources": [
+        {
+          "label": "Wall Street Journal",
+          "url": "https://www.wsj.com/pro/cybersecurity/startup-corma-builds-ai-agents-for-cyber-defense-7d296a0f"
+        }
+      ]
+    },
+    {
+      "title": "AI coding changes engineering collaboration expectations",
+      "category": "Jobs & Labor",
+      "summary": "Interviews with employers suggest greater emphasis on judgment, communication and customer context, but anecdotes do not establish an industry-wide hiring shift.",
+      "sources": [
+        {
+          "label": "Business Insider",
+          "url": "https://www.businessinsider.com/ai-engineering-jobs-changing-more-meetings-office-time-social-skills-2026-11"
+        }
+      ]
+    },
+    {
+      "title": "GitHub Copilot models scheduled for December retirement",
+      "category": "Developer Tools",
+      "summary": "GitHub will retire selected Copilot models on December 14; audit pinned model choices in coding workflows.",
+      "sources": [
+        {
+          "label": "GitHub changelog",
+          "url": "https://github.blog/changelog/month/11-2026/"
+        }
+      ]
+    },
+    {
+      "title": "GitHub AI Scan gains REST API management",
+      "category": "Security",
+      "summary": "Organizations can manage AI Scan settings through APIs, useful for repository security policy automation.",
+      "sources": [
+        {
+          "label": "GitHub changelog",
+          "url": "https://github.blog/changelog/month/11-2026/"
+        }
+      ]
+    },
+    {
+      "title": "Gemini 4 Hydrogen remains the newest confirmed Copilot model addition",
+      "category": "AI Coding Tools",
+      "summary": "The November 13 release targets fast agentic coding; no independently validated performance comparison was identified this morning.",
+      "sources": [
+        {
+          "label": "GitHub changelog",
+          "url": "https://github.blog/changelog/month/11-2026/"
+        }
+      ]
+    },
+    {
+      "title": "AI-agent workflow study finds prompt-injection defenses rarely specified",
+      "category": "Research",
+      "summary": "A September empirical paper analyzing 1,248 GitHub agentic-workflow files found explicit prompt-injection defenses in only 9.4% of labeled workflows; useful background, not a new release.",
+      "sources": [
+        {
+          "label": "Research paper",
+          "url": "https://arxiv.org/abs/2609.27263"
+        }
+      ]
+    }
+  ],
+  "newTools": [
+    {
+      "title": "LongCat-2.5",
+      "category": "AI Models & Research",
+      "summary": "Investigate its multimodal agentic architecture and model card; enormous hardware requirements make hosted evaluation more realistic than desktop deployment.",
+      "sources": [
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/meituan-longcat/LongCat-2.5"
+        }
+      ]
+    },
+    {
+      "title": "Qwen4-Max",
+      "category": "AI Models & Research",
+      "summary": "Monitor API availability and independently test secure coding rather than relying on Alibaba's internal benchmark claims.",
+      "sources": [
+        {
+          "label": "Reuters announcement",
+          "url": "https://www.reuters.com/business/retail-consumer/alibaba-unveils-new-flagship-ai-model-with-safety-upgrades-2026-11-16/"
+        }
+      ]
+    },
+    {
+      "title": "Git security advisories",
+      "category": "Security",
+      "summary": "Review the recursive-clone advisory and patch Git in CI, developer workstations and agent sandboxes where relevant.",
+      "sources": [
+        {
+          "label": "Git advisory",
+          "url": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr"
+        }
+      ]
+    }
+  ],
+  "marketPulse": "No new comprehensive software-engineering employment release was verified this morning. Employer interviews suggest increased value placed on collaboration and judgment, but cannot establish Staff+ demand or compensation trends. AI infrastructure funding, export controls and systemic risk remain material business signals; they do not by themselves prove a broad hiring recovery."
+}
