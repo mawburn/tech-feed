@@ -9,7 +9,6 @@
     count: document.getElementById('results-count'),
     archive: document.getElementById('archive-count'),
     updated: document.getElementById('latest-update'),
-    category: document.getElementById('category'),
     search: document.getElementById('search'),
   };
   const state = { issues: [], day: 'all', category: 'all', query: '' };
@@ -167,7 +166,6 @@
       append(button, el('span','topic-name',option.name), el('span','topic-count',option.count));
       button.addEventListener('click', () => {
         state.category = option.value;
-        elements.category.value = state.category;
         render();
       });
       elements.topicNav.append(button);
@@ -181,7 +179,7 @@
       const button = el('button','day-link');
       button.type='button'; button.setAttribute('aria-pressed',String(state.day === item.date));
       append(button,el('span','day-name',item.label),el('span','day-count',item.count));
-      button.addEventListener('click',()=>{state.day=item.date;state.category='all';elements.category.value='all';render();});
+      button.addEventListener('click',()=>{state.day=item.date;state.category='all';render();});
       elements.nav.append(button);
     }
   }
@@ -211,11 +209,8 @@
     state.day = state.issues[0]?.date || 'all';
     elements.archive.textContent = `${state.issues.length} of 7 possible editions`;
     elements.updated.textContent = state.issues.length ? `Latest edition · ${shortDate.format(dateFromISO(state.issues[0].date))}` : 'Awaiting first edition';
-    const categories = new Set(state.issues.flatMap(issue=>issueStories(issue).map(story=>story.category).filter(Boolean)));
-    for (const cat of Array.from(categories).sort()) {const option=el('option','',cat);option.value=cat;elements.category.append(option);}
     render();
   }
-  elements.category.addEventListener('change',e=>{state.category=e.target.value;render();});
   elements.search.addEventListener('input',e=>{state.query=e.target.value.trim().toLowerCase();render();});
   document.getElementById('copyright-year').textContent = new Date().getFullYear();
   fetch('./data/briefings.json',{cache:'no-store'})
