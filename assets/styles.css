@@ -309,3 +309,19 @@ body{background:var(--bg);line-height:1.65}
   .day-link[aria-current="page"]{border-left:0;border-bottom:2px solid #a8e3d4}
   .weekly-index .day-link[aria-current="page"]{border-left:3px solid #a8e3d4}
 }
+
+
+/* Provenance and community discussion, separate from reporting sources. */
+.community-meta{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:5px 12px;
+  margin:9px 0 0;font-size:11.5px;line-height:1.6;
+}
+.community-label{color:#99b2c1;font-size:10px;font-weight:750;letter-spacing:.08em;white-space:nowrap}
+.community-link{
+  color:#c4dff0;border-bottom:1px solid #4e7585;
+  text-decoration:none;overflow-wrap:anywhere;
+}
+.community-link:hover{color:#f3fcff;border-color:#9ce2dd}
+.story .community-meta:first-of-type{margin-top:12px}
+.secondary-copy .community-meta{font-size:11px}
+.weekly-theme .community-meta{margin-top:13px}
