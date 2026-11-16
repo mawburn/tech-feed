@@ -1,0 +1,51 @@
+name: Sync publisher Open Graph images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/briefings.json"
+      - "scripts/sync_publisher_images.py"
+      - ".github/workflows/sync-og-images.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publisher-images-main
+  cancel-in-progress: false
+
+jobs:
+  sync-og-images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out current feed
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Retrieve Open Graph images from original sources
+        run: python scripts/sync_publisher_images.py
+
+      - name: Validate updated feed
+        run: node scripts/validate-feed.mjs
+
+      - name: Publish image URLs to GitHub Pages feed
+        shell: bash
+        run: |
+          if git diff --quiet -- data/briefings.json; then
+            echo "No new publisher images found."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/briefings.json
+          git commit -m "Add verified publisher OG images to feed"
+          git push origin HEAD:main
