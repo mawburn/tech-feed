@@ -59,8 +59,32 @@
   function issueStories(issue) {
     return [...(issue.topStories || []), ...(issue.alsoWorthKnowing || []), ...(issue.newTools || [])];
   }
+  function storyArtwork(story, small = false) {
+    // Original, self-contained vector thumbnails, with a distinct design per story.
+    const category = String(story.category || 'Technology');
+    const title = String(story.title || 'Technology news');
+    const palette = category.includes('AI') ? ['#294f67','#93d9f5'] : category.includes('Security') ? ['#49364f','#dab5f4'] : category.includes('Market') || category.includes('Business') ? ['#3c4e45','#b6e4c2'] : category.includes('Developer') || category.includes('Engineering') ? ['#3a4368','#b5c3ff'] : category.includes('Hardware') || category.includes('Quantum') ? ['#625039','#ffdea1'] : ['#31465e','#acd2e9'];
+    const xml = s => String(s).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&apos;','"':'&quot;'}[c]));
+    const seed = Array.from(title).reduce((n,ch)=>(n*31+ch.charCodeAt(0))>>>0,17);
+    const label = xml(category.toUpperCase().slice(0,24));
+    const shapes = [
+      '<circle cx="304" cy="52" r="87" stroke-width="1"/><circle cx="304" cy="52" r="55" stroke-width="1.5"/><circle cx="304" cy="52" r="25" stroke-width="2"/>',
+      '<path d="M210 -20 380 160 M246 -20 416 160 M282 -20 452 160 M318 -20 488 160" stroke-width="2"/><circle cx="318" cy="75" r="36" stroke-width="2"/>',
+      '<path d="M220 155V96h22v59M255 155V62h22v93M290 155V36h22v119M325 155V73h22v82" stroke-width="2"/><path d="m214 98 49-42 42 9 45-48" stroke-width="3"/>',
+      '<rect x="232" y="17" width="122" height="122" rx="18" stroke-width="2"/><rect x="250" y="35" width="86" height="86" rx="7" stroke-width="2"/><path d="m274 63-16 15 16 14m36-29 16 15-16 14" stroke-width="3"/>'
+    ][seed % 4];
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 170"><defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#101926"/><stop offset="1" stop-color="'+palette[0]+'"/></linearGradient></defs><rect width="400" height="170" fill="url(#g)"/><path d="M0 124H400M0 82H400M0 40H400M80 0V170M160 0V170M240 0V170M320 0V170" fill="none" stroke="#ffffff" opacity=".055"/><g fill="none" stroke="'+palette[1]+'" opacity=".6">'+shapes+'</g><rect x="15" y="14" width="3" height="17" rx="1" fill="'+palette[1]+'"/><text x="28" y="26" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="'+palette[1]+'">'+label+'</text><text x="17" y="151" font-family="Arial,sans-serif" font-size="11" fill="#c2d6e2" opacity=".75">MAWBURN / FEED</text></svg>';
+    const img = document.createElement('img');
+    img.className = small ? 'secondary-artwork' : 'story-artwork';
+    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    img.alt = category + ' illustration for ' + title;
+    img.loading = 'lazy'; img.decoding = 'async';
+    return img;
+  }
+
   function storyCard(story, position) {
     const card = el('article','story');
+    card.append(storyArtwork(story));
     const header = el('div','story-header');
     append(header, el('span','story-rank',String(story.rank || position).padStart(2,'0')), el('span','story-category',story.category || 'Technology'));
     if (story.isUpdate) header.append(el('span','story-updated','UPDATED'));
@@ -79,12 +103,14 @@
   }
   function secondaryStory(story) {
     const row = el('article','secondary-story');
+    const body = el('div','secondary-copy');
     const header = el('div','secondary-header');
     append(header,el('h4','secondary-title',story.title || 'Untitled'),el('span','secondary-category',story.category || 'Technology'));
-    row.append(header);
-    if (story.summary) row.append(el('p','',story.summary));
+    body.append(header);
+    if (story.summary) body.append(el('p','',story.summary));
     const links = sourcesRow(story.sources,true);
-    if (links) row.append(links);
+    if (links) body.append(links);
+    row.append(storyArtwork(story,true),body);
     return row;
   }
   function section(title, items, renderItem) {
