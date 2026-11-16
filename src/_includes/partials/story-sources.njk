@@ -28,12 +28,3 @@
 </div>
 {% endif %}
 
-{% if not secondary %}
-<details class="discussion-search">
-  <summary>Find more discussion threads</summary>
-  <div class="discussion-search-links">
-    <a href="https://hn.algolia.com/?q={{ story.title | queryEncode }}" target="_blank" rel="noopener noreferrer">Search Hacker News ↗</a>
-    <a href="https://www.reddit.com/search/?q={{ story.title | queryEncode }}" target="_blank" rel="noopener noreferrer">Search Reddit ↗</a>
-  </div>
-</details>
-{% endif %}
