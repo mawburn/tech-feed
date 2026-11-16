@@ -17,14 +17,4 @@
   {% endfor %}
 </div>
 {% endif %}
-{% if story.discussions and story.discussions.length %}
-<div class="community-meta discussion-links">
-  <span class="community-label">COMMENTS</span>
-  {% for discussion in story.discussions %}
-    {% if discussion.url | isHttp %}
-    <a class="community-link" href="{{ discussion.url }}" rel="noopener noreferrer" target="_blank">{{ discussion.platform or 'Discussion' }}{% if discussion.label and discussion.label != discussion.platform %} · {{ discussion.label }}{% endif %} ↗</a>
-    {% endif %}
-  {% endfor %}
-</div>
-{% endif %}
 
