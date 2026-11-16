@@ -219,7 +219,8 @@ def parse_reddit_feed(raw):
             content=entry.findtext("a:summary","",ns)
         # RSS may place an external article's URL in the escaped HTML content.
         external=[unescape(h) for h in re.findall(r'href=["\']([^"\']+)["\']',unescape(content),re.I)]
-        entries.append((title,comments,external))
+        published=entry.findtext("a:published","",ns) or entry.findtext("a:updated","",ns)
+        entries.append((title,comments,external,published))
     return entries
 
 @lru_cache(maxsize=300)
@@ -229,23 +230,69 @@ def reddit_search(query):
     args=urlencode({"q":query,"sort":"relevance","t":"month","limit":25})
     return parse_reddit_feed(get_bytes(REDDIT_RSS+"?"+args, "reddit",400_000))
 
-def reddit_match(story):
-    best=None
-    # Prefer a distinctive article-title or product name query.
-    for title,url,external in reddit_search(best_query(story.get("title",""))):
+@lru_cache(maxsize=300)
+def reddit_archive_search(query):
+    # Public archive index fallback when Reddit blocks RSS (403/429).
+    # It may lag and can contain deleted posts, so only include strong matches.
+    if not query:
+        return []
+    url=REDDIT_ARCHIVE+"?"+urlencode({"q":query,"size":30,"sort":"desc"})
+    raw=get_bytes(url,"reddit_archive",550_000)
+    if not raw:
+        return []
+    try:
+        data=json.loads(raw).get("data",[])
+        return data if isinstance(data,list) else []
+    except (ValueError,TypeError):
+        return []
+
+def permalink_candidate(url):
+    try:
         parsed=urlsplit(url)
-        if parsed.hostname not in ("www.reddit.com","reddit.com","old.reddit.com"):
-            continue
+        if parsed.netloc.lower() not in ("www.reddit.com","reddit.com","old.reddit.com"):
+            return None
         match=re.search(r"^/r/([A-Za-z0-9_]+)/comments/([A-Za-z0-9]+)/",parsed.path,re.I)
+        if not match:
+            return None
+        return "https://www.reddit.com"+parsed.path,match.group(1)
+    except (ValueError,TypeError):
+        return None
+
+def reddit_match(story, issue_date):
+    best=None
+    query=best_query(story.get("title",""))
+    for title,url,external,published in reddit_search(query):
+        if not near_date(published,issue_date):
+            continue
+        match=permalink_candidate(url)
         if not match:
             continue
         score=max([story_score(story,title,target) for target in external] + [story_score(story,title,None)])
-        if score < .58:
+        if score < .65:
             continue
-        permalink="https://www.reddit.com"+parsed.path
-        candidate=(score,permalink,match.group(1))
+        permalink,subreddit=match
+        candidate=(score,permalink,subreddit)
         if best is None or candidate[0] > best[0]:
             best=candidate
+    if best is None:
+        for post in reddit_archive_search(query):
+            if not isinstance(post,dict) or not near_date(post.get("created_utc"),issue_date):
+                continue
+            external=post.get("url")
+            title=post.get("title","")
+            score=story_score(story,title,external)
+            if score < .65:
+                continue
+            raw=post.get("permalink","")
+            if raw.startswith("/"):
+                raw="https://www.reddit.com"+raw
+            match=permalink_candidate(raw)
+            if not match:
+                continue
+            permalink,subreddit=match
+            candidate=(score,permalink,subreddit)
+            if best is None or candidate[0] > best[0]:
+                best=candidate
     if not best:
         return None
     _,permalink,subreddit=best
