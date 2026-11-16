@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-16T06:45:27Z",
+  "updatedAt": "2026-11-16T07:15:24.624Z",
   "issues": [
     {
       "date": "2026-11-15",
@@ -68,6 +68,278 @@
       "alsoWorthKnowing": [],
       "newTools": [],
       "marketPulse": "The Federal Reserve survey suggests rising concern about the financing and macroeconomic exposure of AI infrastructure. The data describes perceived risks rather than demonstrating a hiring downturn."
+    },
+    {
+      "date": "2026-11-12",
+      "label": "Morning briefing · Reconstructed from original topics",
+      "overview": "The November 12 briefing centered on Nvidia's abrupt CEO transition, new Gemini models and decision APIs, a GitHub Actions credential-stealing campaign, local AWS simulation, software developer job postings, and significant runtime and robotics releases. Reconstructed summaries preserve the original story lineup; wording is not a verbatim transcript.",
+      "topStories": [
+        {
+          "title": "Nvidia announces Jensen Huang's resignation and an interim CEO",
+          "category": "Business & Markets",
+          "summary": "Nvidia confirmed Jensen Huang resigned as president, CEO and director, and named CFO Colette Kress interim CEO, with Harvey Jones newly chairing its board.",
+          "whyItMatters": "The transition introduces execution and governance uncertainty at the most important AI chip supplier.",
+          "limitations": "Reasons for the resignation involve allegations and investigations; avoid treating unadjudicated claims as proven.",
+          "sources": [
+            {
+              "label": "Nvidia statement",
+              "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+            },
+            {
+              "label": "SEC filing",
+              "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000082/nvda-20261111.htm"
+            }
+          ]
+        },
+        {
+          "title": "Google launches Gemini 4 Hydrogen for agentic work",
+          "category": "AI & Models",
+          "summary": "Google introduced Hydrogen as an efficient Gemini 4 model for coding and agent workflows, and described multi-model orchestration in Antigravity.",
+          "whyItMatters": "Faster lower-cost worker models can change the economics of large agent systems.",
+          "limitations": "Performance and speed comparisons in the announcement are vendor-reported.",
+          "sources": [
+            {
+              "label": "Google launch",
+              "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+            },
+            {
+              "label": "DeepMind model card",
+              "url": "https://deepmind.google/models/model-cards/gemini-4-hydrogen/"
+            }
+          ]
+        },
+        {
+          "title": "Gemini Decision 1 targets fast, bounded AI decisions",
+          "category": "AI & Models",
+          "summary": "Google introduced a Decisions API for classifying or scoring many closed-choice questions in a single multimodal pass, instead of generating lengthy text responses.",
+          "whyItMatters": "A specialized classifier can reduce cost and latency for tool routing, policy checks, and evaluation.",
+          "limitations": "The model addresses bounded choices, not general open-ended reasoning.",
+          "sources": [
+            {
+              "label": "Google announcement",
+              "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+            }
+          ]
+        },
+        {
+          "title": "wfx-loot campaign compromises GitHub identities and CI pipelines",
+          "category": "Security",
+          "summary": "Researchers described thousands of stolen GitHub credentials used to probe repositories and plant secret-stealing code in CI workflows.",
+          "whyItMatters": "Build pipelines can expose high-value tokens even when application source looks clean.",
+          "limitations": "Reported repository and execution counts are estimates from security researchers, not GitHub's own final audit.",
+          "sources": [
+            {
+              "label": "SecurityWeek analysis",
+              "url": "https://www.securityweek.com/attacker-targets-60000-github-repositories-in-credential-theft-campaign//"
+            },
+            {
+              "label": "SailPoint analysis",
+              "url": "https://www.sailpoint.com/blog/wfx-loot-github-actions-attack-nhi-detection"
+            }
+          ]
+        },
+        {
+          "title": "AWS introduces a local Emulator for development and agents",
+          "category": "Developer Tools",
+          "summary": "AWS Emulator runs many AWS-compatible APIs locally for testing SDK and CLI flows without deploying real cloud resources.",
+          "whyItMatters": "Fast local feedback loops can reduce CI cost and improve the iteration speed of coding agents.",
+          "limitations": "Not all services or IAM behaviors are emulated faithfully; AWS warns against using it for security validation.",
+          "sources": [
+            {
+              "label": "AWS launch",
+              "url": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/"
+            },
+            {
+              "label": "AWS product release",
+              "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-emulator-now-available/"
+            }
+          ]
+        },
+        {
+          "title": "Indeed data points to a partial software hiring rebound",
+          "category": "Jobs & Labor",
+          "summary": "Indeed Hiring Lab reported software development postings rose 23.8% year over year in its latest US tech-labor update, while remaining well below pre-pandemic levels.",
+          "whyItMatters": "A rebound from depressed levels is encouraging for experienced engineers, but does not imply a return to the 2021 hiring market.",
+          "limitations": "Job posting trends are not headcount, and the labor market remains heterogeneous across skills and regions.",
+          "sources": [
+            {
+              "label": "Indeed Hiring Lab",
+              "url": "https://hiringlab.indeed.com/2026/11/12/2026-q3-us-tech-labor-market-update/"
+            }
+          ]
+        },
+        {
+          "title": "Node.js releases security patches across active lines",
+          "category": "Security",
+          "summary": "Node.js issued November security releases for versions 22, 24, and 26, addressing multiple HTTP/2, HTTPS, TLS, and dependency vulnerabilities.",
+          "whyItMatters": "Teams running internet-facing Node services should prioritize reviewing release notes and updating affected deployed versions.",
+          "limitations": "Impact depends on application configuration and the specific version line.",
+          "sources": [
+            {
+              "label": "Node.js advisory",
+              "url": "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases/"
+            },
+            {
+              "label": "HKCERT bulletin",
+              "url": "https://www.hkcert.org/security-bulletin/node-js-multiple-vulnerabilities_20261112"
+            }
+          ]
+        },
+        {
+          "title": "Runway releases open-weight Praxis-1 robotics world-action model",
+          "category": "AI & Models",
+          "summary": "Runway opened the weights and adaptation code for Praxis-1, a 27B-parameter world-action model trained for robotic control and scene dynamics.",
+          "whyItMatters": "Open-weight robotics models can lower barriers for adapting vision-action systems to specialized hardware.",
+          "limitations": "Benchmark numbers come from release materials and real hardware success varies considerably.",
+          "sources": [
+            {
+              "label": "Runway release",
+              "url": "https://runway.com/news/company-news/praxis-1-is-now-available"
+            }
+          ]
+        }
+      ],
+      "alsoWorthKnowing": [
+        {
+          "title": "Anthropic launches Claude Fable 5.2",
+          "category": "AI & Models",
+          "summary": "A new demanding-work model was announced earlier in the week; the Nov 12 report revisited its coding and research claims, which require independent replication.",
+          "sources": [
+            {
+              "label": "Anthropic launch",
+              "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+            }
+          ]
+        },
+        {
+          "title": "Gemini 4 Carbon reaches broader availability",
+          "category": "AI & Models",
+          "summary": "Google's higher-capability Gemini 4 Carbon remained an important reference model for comparisons with the newer Hydrogen.",
+          "sources": [
+            {
+              "label": "Google Gemini family",
+              "url": "https://deepmind.google/models/gemini/"
+            }
+          ]
+        },
+        {
+          "title": "Rust 1.100 is released",
+          "category": "Developer Tools",
+          "summary": "The Rust release includes language and library enhancements plus Cargo improvements for unused dependencies.",
+          "sources": [
+            {
+              "label": "Rust release",
+              "url": "https://blog.rust-lang.org/releases/latest/"
+            }
+          ]
+        },
+        {
+          "title": "Qwen4-Max preview opens",
+          "category": "AI & Models",
+          "summary": "Alibaba's Qwen4-Max-Preview is accessible in a limited preview period with multimodal and reasoning capabilities; access conditions matter.",
+          "sources": [
+            {
+              "label": "Qwen model documentation",
+              "url": "https://docs.qwencloud.com/developer-guides/getting-started/latest-model"
+            }
+          ]
+        },
+        {
+          "title": "Dart 3.14 improves Wasm and migration workflows",
+          "category": "Developer Tools",
+          "summary": "Dart 3.14 introduces automated project migration and significant WebAssembly tooling improvements.",
+          "sources": [
+            {
+              "label": "Dart 3.14 announcement",
+              "url": "https://dart.dev/blog/announcing-dart-3-14"
+            }
+          ]
+        },
+        {
+          "title": "Fireworks AI incident affects some Notion AI transcripts",
+          "category": "Security",
+          "summary": "Notion published updates describing limited customer impact from a third-party Fireworks AI incident and recommended credential rotation where sensitive content was exposed.",
+          "sources": [
+            {
+              "label": "Notion security advisory",
+              "url": "https://www.notion.com/en-gb/security/advisories/security-incident-involving-a-third-party-ai-vendor"
+            }
+          ]
+        },
+        {
+          "title": "Advocacy groups sue over frontier AI development",
+          "category": "Policy & Regulation",
+          "summary": "Nonprofits asked a California court to halt frontier-model development; the allegations and requested remedy were not a court ruling.",
+          "sources": [
+            {
+              "label": "Reuters report",
+              "url": "https://www.reuters.com/business/openai-google-anthropic-hit-with-lawsuit-seeking-halt-frontier-ai-development-2026-11-12/"
+            }
+          ]
+        },
+        {
+          "title": "Anthropic begins IPO roadshow",
+          "category": "Business & Markets",
+          "summary": "Anthropic announced the roadshow for a proposed public offering, with valuation and investor scrutiny of AI compute spending in focus.",
+          "sources": [
+            {
+              "label": "Anthropic announcement",
+              "url": "https://www.anthropic.com/news/roadshow-launch"
+            }
+          ]
+        },
+        {
+          "title": "Fractile attracts major funding for inference hardware",
+          "category": "Hardware & Chips",
+          "summary": "The UK startup is developing memory-centric inference chips and reportedly raised a large funding round; volume production remained prospective.",
+          "sources": [
+            {
+              "label": "Financial Times coverage",
+              "url": "https://www.ft.com/content/f999a0c2-af52-499f-8008-accbdfd45a25"
+            }
+          ]
+        }
+      ],
+      "newTools": [
+        {
+          "title": "MIT-licensed Agent Skills collection",
+          "category": "Developer Tools",
+          "summary": "The original briefing highlighted a permissively licensed library of reusable agent instructions; the exact repo link was not retained. The linked overview explains the portable SKILL.md approach.",
+          "sources": [
+            {
+              "label": "Agent Skills overview (context)",
+              "url": "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills/"
+            }
+          ]
+        },
+        {
+          "title": "Qwen Code and Qoder preview",
+          "category": "AI & Agents",
+          "summary": "The briefing identified Alibaba's coding-agent ecosystem as worth testing. Specific preview URLs were not preserved in the archive.",
+          "sources": [
+            {
+              "label": "Qwen models and tools",
+              "url": "https://qwenlm.github.io/"
+            },
+            {
+              "label": "Qwen project repositories",
+              "url": "https://github.com/QwenLM"
+            }
+          ]
+        },
+        {
+          "title": "Zig-based LLM inference engine",
+          "category": "Developer Tools",
+          "summary": "The briefing flagged a Zig-language inference project; its original repository identifier was not preserved, so this is retained as an investigation item rather than a confirmed release.",
+          "sources": [
+            {
+              "label": "Repository discovery, not a release source",
+              "url": "https://github.com/search?q=zig+llm+inference&type=repositories"
+            }
+          ]
+        }
+      ],
+      "marketPulse": "Indeed's Nov 12 report showed a year-over-year rise in software job postings but a still-subdued market against the 2020 baseline. Major AI hardware investment and frontier-model funding remained strong even amid renewed governance and financing concerns."
     }
   ]
 }
