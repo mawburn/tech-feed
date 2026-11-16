@@ -80,6 +80,9 @@ export default function(eleventyConfig) {
       .map(([name,count]) => ({name,count,slug:slug(name)}));
   });
   eleventyConfig.addFilter("totalStories", issueList => (issueList || []).reduce((n,i) => n + stories(i).length,0));
+  eleventyConfig.addFilter("threadCount", items => (items || []).reduce((n,item) =>
+    n + (item.discussions || []).filter(link => http(link.url)).length, 0));
+
   eleventyConfig.addFilter("sumTopicCounts", counts => (counts || []).reduce((n,c) => n + c.count,0));
 
   // Date-specific source files are read during the build. Generated feeds and
