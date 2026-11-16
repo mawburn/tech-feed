@@ -22,6 +22,7 @@
           {% if story.isUpdate %}<span class="story-updated">UPDATED</span>{% endif %}
         </div>
         <h4 class="story-title">{{ story.title }}</h4>
+        {% include "partials/discussion-badges.njk" %}
         {% if story.summary %}<p class="story-summary">{{ story.summary }}</p>{% endif %}
         {% if story.whyItMatters %}<p class="story-insight"><strong>Why it matters: </strong>{{ story.whyItMatters }}</p>{% endif %}
         {% if story.limitations %}<p class="story-insight story-limit"><strong>Caveat: </strong>{{ story.limitations }}</p>{% endif %}
@@ -40,6 +41,7 @@
       {% include "partials/story-image.njk" %}
       <div class="secondary-copy">
         <div class="secondary-header"><h4 class="secondary-title">{{ story.title }}</h4><span class="secondary-category">{{ story.category or 'Technology' }}</span></div>
+        {% include "partials/discussion-badges.njk" %}
         {% if story.summary %}<p>{{ story.summary }}</p>{% endif %}
         {% include "partials/story-sources.njk" %}
       </div>
@@ -56,6 +58,7 @@
       {% include "partials/story-image.njk" %}
       <div class="secondary-copy">
         <div class="secondary-header"><h4 class="secondary-title">{{ story.title }}</h4><span class="secondary-category">{{ story.category or 'Technology' }}</span></div>
+        {% include "partials/discussion-badges.njk" %}
         {% if story.summary %}<p>{{ story.summary }}</p>{% endif %}
         {% include "partials/story-sources.njk" %}
       </div>
