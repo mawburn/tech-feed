@@ -54,6 +54,7 @@ export default function(eleventyConfig) {
   eleventyConfig.addFilter("absoluteUrl", path => "https://mawburn.github.io" + url(path));
   eleventyConfig.addFilter("isHttp", http);
   eleventyConfig.addFilter("slug", slug);
+  eleventyConfig.addFilter("pad2", value => String(value ?? "").padStart(2, "0"));
   eleventyConfig.addFilter("dayRoute", dayRoute);
   eleventyConfig.addFilter("topicRoute", topicRoute);
   eleventyConfig.addFilter("dateShort", iso => shortDate.format(dateObj(iso)));
