@@ -237,19 +237,20 @@ def run():
     files=sorted(p for p in FOLDER.glob("*.json") if start<=p.stem<=current.isoformat())
     changed=0
     counts={"Hacker News":0,"Reddit":0}
-    for file in files:
-        data=json.loads(file.read_text(encoding="utf8"))
-        edits=0
-        for key in ("topStories","alsoWorthKnowing","newTools"):
-            for story in data.get(key,[]):
-                found=enrich_story(story)
-                edits+=len(found)
-                for item in found:
-                    counts[item["platform"]]+=1
-        if edits:
+    docs=[(file,json.loads(file.read_text(encoding="utf8"))) for file in files]
+    stories=[story for _,issue in docs for section in ("topStories","alsoWorthKnowing","newTools") for story in issue.get(section,[])]
+    # Bounded parallelism, with in-memory URL caches and endpoint circuit breakers.
+    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+        matches=list(pool.map(enrich_story,stories))
+    by_id={id(story):matches[i] for i,story in enumerate(stories)}
+    for file,data in docs:
+        found=[match for section in ("topStories","alsoWorthKnowing","newTools") for story in data.get(section,[]) for match in by_id.get(id(story),[])]
+        if found:
             file.write_text(json.dumps(data,indent=2,ensure_ascii=False)+"\n",encoding="utf8")
             changed+=1
-        print(f"{file.name}: {edits} verified community thread links")
+        for item in found:
+            counts[item["platform"]]+=1
+        print(f"{file.name}: {len(found)} verified community thread links")
     print(f"Done. Updated {changed} edition files; HN={counts['Hacker News']}, Reddit={counts['Reddit']}; HTTP successes HN={SUCCESS['hn']}, Reddit={SUCCESS['reddit']}, failures HN={FAILED['hn']}, Reddit={FAILED['reddit']}")
     if not SUCCESS["hn"] and not SUCCESS["reddit"]:
         print("WARNING: Neither community search endpoint responded; no links were fabricated.",file=sys.stderr)
