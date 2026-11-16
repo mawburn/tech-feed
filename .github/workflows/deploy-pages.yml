@@ -1,0 +1,74 @@
+name: Build and deploy static news site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "data/**"
+      - "assets/styles.css"
+      - "assets/favicon.svg"
+      - "eleventy.config.js"
+      - "package.json"
+      - "package-lock.json"
+      - "archive.md"
+      - "weekly-archive.md"
+      - "llms.txt"
+      - "robots.txt"
+      - ".github/workflows/deploy-pages.yml"
+  # A GITHUB_TOKEN-driven image update does not trigger a new push workflow.
+  workflow_run:
+    workflows: ["Sync publisher Open Graph images"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tech-feed-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out latest source
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install Eleventy
+        run: npm install --no-audit --no-fund
+      - name: Validate daily and weekly JSON
+        run: npm run check
+      - name: Render static HTML
+        run: npm run build
+      - name: Verify generated output
+        run: node scripts/validate-output.mjs
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload static Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.pages.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: pages
+        uses: actions/deploy-pages@v4
