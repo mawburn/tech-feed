@@ -1,0 +1,103 @@
+<section class="page-intro weekly-intro">
+  <div class="page-intro-copy">
+    <p class="page-kicker">SUNDAY RECAP / THE BIG PICTURE</p>
+    <h1>The week in <span>technology</span></h1>
+    <p>Major developments, why they matter, the evidence, and what to watch next.</p>
+  </div>
+  <div class="page-intro-status"><span class="pulse-dot" aria-hidden="true"></span><span>Every Sunday</span></div>
+</section>
+<div class="content-divider"><span>WEEKLY EDITIONS</span><span class="content-divider-right">{{ weeklyFeed.weeks.length }} recaps · newest first</span></div>
+<div class="layout weekly-layout">
+  <aside class="sidebar" aria-label="Weekly archive">
+    <div class="sidebar-sticky">
+      <section class="topic-panel weekly-index">
+        <div class="topic-panel-heading">
+          <h2 class="sidebar-kicker">SUNDAY SUMMARIES</h2>
+          <span class="topic-summary">{{ weeklyFeed.weeks.length }} archived editions</span>
+        </div>
+        <nav class="date-nav" aria-label="Choose a Sunday recap">
+          <a class="day-link" href="{{ '/weekly.html' | siteUrl }}" {% if selectedWeek == 'latest' %}aria-current="page"{% endif %}><span class="day-name">Latest summary</span></a>
+          {% for item in weeklyFeed.weeks %}
+          <a class="day-link" href="{{ ( '/weekly/' + item.weekEnding + '/' ) | siteUrl }}" {% if item.weekEnding == selectedWeek %}aria-current="page"{% endif %}>
+            <span class="day-name">{{ item.weekEnding | dateShort }}</span>
+            <span class="day-count">{{ item.themes.length }}</span>
+          </a>
+          {% endfor %}
+        </nav>
+      </section>
+      <p class="sidebar-note">Sunday recaps remain available after the rolling daily editions expire.</p>
+      <a class="sidebar-back" href="{{ '/' | siteUrl }}">← Daily news feed</a>
+    </div>
+  </aside>
+  <main id="feed" class="feed weekly-feed">
+    {% if selectedWeek == 'latest' %}
+      {% set week = weeklyFeed.weeks | first %}
+    {% endif %}
+    {% if week %}
+    <article class="weekly-edition">
+      <header class="edition-header">
+        <p class="edition-kicker">{% if week.partial %}PARTIAL WEEK · {{ week.coverageDays }} EDITIONS{% else %}WEEKLY REVIEW{% endif %}</p>
+        <h2 class="edition-date">{{ week | weekLabel }}</h2>
+        <h3 class="weekly-headline">{{ week.title }}</h3>
+        {% if week.overview %}<p class="weekly-overview">{{ week.overview }}</p>{% endif %}
+      </header>
+      {% if week.themes.length %}
+      <section class="weekly-theme-section">
+        <h2 class="section-label">The developments that mattered</h2>
+        {% for theme in week.themes %}
+        {% set story = theme %}
+        {% set secondary = false %}
+        <article class="weekly-theme">
+          {% include "partials/story-image.njk" %}
+          <div class="weekly-theme-meta"><span class="story-rank">{{ "%02d" | format(loop.index) }}</span><span class="story-category">{{ theme.category or 'Technology' }}</span></div>
+          <h3 class="weekly-theme-title">{{ theme.title }}</h3>
+          {% if theme.summary %}<p class="weekly-theme-summary">{{ theme.summary }}</p>{% endif %}
+          {% if theme.impact %}<p class="story-insight"><strong>Why it matters: </strong>{{ theme.impact }}</p>{% endif %}
+          {% if theme.caveat %}<p class="story-insight story-limit"><strong>Caveat: </strong>{{ theme.caveat }}</p>{% endif %}
+          {% if theme.links.length %}
+          <div class="weekly-source-links">
+            {% for source in theme.links %}{% if source.url | isHttp %}
+            <a class="source-link" target="_blank" rel="noopener noreferrer" href="{{ source.url }}">{{ source.label }} ↗</a>
+            {% endif %}{% endfor %}
+          </div>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </section>
+      {% endif %}
+      {% if week.toolsToWatch.length %}
+      <section class="weekly-tools-section">
+        <h2 class="section-label">Tools worth investigating</h2>
+        {% for tool in week.toolsToWatch %}
+        <article class="weekly-tool">
+          <h3>{{ tool.title }}</h3>
+          <p>{{ tool.summary }}</p>
+          <div class="weekly-source-links">
+            {% for source in tool.links %}{% if source.url | isHttp %}
+              <a class="source-link" target="_blank" rel="noopener noreferrer" href="{{ source.url }}">{{ source.label }} ↗</a>
+            {% endif %}{% endfor %}
+          </div>
+        </article>
+        {% endfor %}
+      </section>
+      {% endif %}
+      {% if week.marketPulse %}
+      <section class="weekly-market-section"><h2 class="section-label">Industry &amp; job market</h2><p class="pulse">{{ week.marketPulse }}</p></section>
+      {% endif %}
+      {% if week.nextWeekWatch %}
+      <section class="weekly-next-section"><h2 class="section-label">What to watch next week</h2><p class="pulse">{{ week.nextWeekWatch }}</p></section>
+      {% endif %}
+      {% if week.sourceDays.length %}
+      <p class="weekly-coverage-note">Daily briefings included:
+        {% for date in week.sourceDays %}
+          {% set availableDay = feed.issues | getIssues(date) %}
+          {% if availableDay.length %}<a href="{{ date | dayRoute | siteUrl }}">{{ date }}</a>{% else %}{{ date }}{% endif %}{% if not loop.last %} · {% endif %}
+        {% endfor %}
+      </p>
+      {% endif %}
+    </article>
+    {% else %}
+    <div class="empty-state"><h3>No summary published</h3><p>The next recap will appear on Sunday.</p></div>
+    {% endif %}
+  </main>
+</div>
