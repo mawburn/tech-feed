@@ -25,11 +25,30 @@ for(const issue of feed.issues){
   for(const item of issue[key]||[]){
    assert(html.includes(safe(item.title)), "Missing story "+item.title+" on "+issue.date);
    for(const discussion of item.discussions||[]){
-    assert(html.includes(safe(discussion.url).replace(/&/g,"&amp;")),"Missing community link for "+item.title);
+    const url=safe(discussion.url);
+    assert(html.includes(url),"Missing community link for "+item.title);
+    assert(html.includes('class="thread-pill"'),"Missing visible discussion badge on "+issue.date);
    }
   }
  }
 }
+// The homepage must include the latest edition's actual discussion links,
+ // not only the dated deep-link pages.
+const latest=feed.issues[0];
+if(latest){
+  const homepage=read("index.html");
+  const latestStories=[...(latest.topStories||[]),...(latest.alsoWorthKnowing||[]),...(latest.newTools||[])];
+  const expected=latestStories.flatMap(story=>story.discussions||[]);
+  for(const thread of expected){
+    assert(homepage.includes(safe(thread.url)),"Homepage lost prefetched thread "+thread.url);
+  }
+  if(expected.length){
+    assert(homepage.includes('class="thread-pill"'),"Homepage lacks visible discussion badges");
+    assert(homepage.includes("HN/Reddit"),"Homepage lacks discussion count");
+  }
+  console.log("Latest homepage includes "+expected.length+" prefetched discussion links");
+}
+
 for(const week of weeklyFeed.weeks){
  const path="weekly/"+week.weekEnding+"/index.html";
  verify(path);
