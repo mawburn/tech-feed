@@ -1,0 +1,308 @@
+{
+  "date": "2026-11-15",
+  "label": "Sunday morning briefing",
+  "overview": "The day's strongest developments focused on AI financial risk, the economics of agent infrastructure, and open-weight speech models rather than a major new frontier coding model. Federal Reserve survey responses highlighted exposure to AI investment, LangChain disclosed a major financing round, Salesforce released SOV-Transcribe-1, and World Labs introduced spatial-model development tools. The Sunday edition also revisited material Friday news rather than padding a quieter weekend.",
+  "topStories": [
+    {
+      "title": "Federal Reserve identifies AI as the leading perceived financial-stability risk",
+      "category": "Business & Markets",
+      "summary": "The Federal Reserve's November 13 Financial Stability Report showed AI-related risks as the most frequently cited concern among surveyed financial-system contacts. Respondents raised concerns about infrastructure investment, cyberattacks, interconnected financing and disappointment in AI earnings.",
+      "whyItMatters": "AI investment increasingly carries credit-market and infrastructure implications that extend into startup financing and hiring.",
+      "limitations": "The reported 87% share indicates respondents identifying a risk, not a calculated probability of collapse.",
+      "sources": [
+        {
+          "label": "Federal Reserve report",
+          "url": "https://www.federalreserve.gov/publications/files/financial-stability-report-20261113.pdf"
+        },
+        {
+          "label": "Reuters",
+          "url": "https://www.reuters.com/business/finance/ai-rockets-top-worries-about-financial-system-latest-fed-survey-2026-11-13/"
+        }
+      ],
+      "isUpdate": false
+    },
+    {
+      "title": "LangChain raises $300 million at a $3 billion valuation",
+      "category": "AI & Agents",
+      "summary": "CapitalG led LangChain's latest financing, with GIC, DFJ Growth, IVP, Sapphire Ventures and other investors participating. Its core proposition is model-agnostic agent operations, evaluation, governance and deployment.",
+      "whyItMatters": "As labs ship capable agent frameworks, independent platforms compete on observability, control and reliability.",
+      "limitations": "Customer counts come from the company and the fundraising valuation does not establish profitability.",
+      "sources": [
+        {
+          "label": "LangChain announcement",
+          "url": "https://www.langchain.com/blog/series-c"
+        },
+        {
+          "label": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/"
+        }
+      ],
+      "isUpdate": false,
+      "image": {
+        "url": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6af52a0047907d0f9587a24f_Social%20Announcement.png",
+        "alt": "Publisher-provided image for LangChain raises $300 million at a $3 billion valuation",
+        "credit": "langchain.com",
+        "sourceUrl": "https://www.langchain.com/blog/series-c"
+      }
+    },
+    {
+      "title": "Salesforce releases SOV-Transcribe-1, an Apache-2.0 open-weight speech model",
+      "category": "AI & Models",
+      "summary": "The mixture-of-experts model has 26.6 billion total and approximately 4.6 billion active parameters. It supports transcription style instructions, context hints, multilingual ASR and recognition of challenging entities such as addresses and code symbols.",
+      "whyItMatters": "More accurate entity transcription could improve voice-driven agents and developer tools.",
+      "limitations": "It is non-streaming, substantial to host, and public benchmark claims require real-world validation.",
+      "sources": [
+        {
+          "label": "Salesforce technical post",
+          "url": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
+        },
+        {
+          "label": "Model card",
+          "url": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1"
+        }
+      ],
+      "isUpdate": false,
+      "image": {
+        "url": "https://cdn-uploads.huggingface.co/production/uploads/6962d3267513fcf314118d5f/e3kJpSjgR9Y4EX_hcR6iZ.png",
+        "alt": "Publisher-provided image for Salesforce releases SOV-Transcribe-1, an Apache-2.0 open-weight speech model",
+        "credit": "huggingface.co",
+        "sourceUrl": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
+      }
+    },
+    {
+      "title": "Nvidia's crisis expands into export-control scrutiny",
+      "category": "Hardware & Chips",
+      "summary": "Following Nvidia's confirmed CEO transition, renewed reporting examined alleged chip diversion through intermediaries and overseas compute access.",
+      "whyItMatters": "Future restrictions could involve cloud access and hardware location verification as well as direct sales.",
+      "limitations": "Reports of investigations are not judicial findings; allegations against intermediaries must remain attributed.",
+      "sources": [
+        {
+          "label": "Washington Post reporting",
+          "url": "https://www.washingtonpost.com/technology/2026/11/15/jensen-huang-nvidia-face-questions-over-knowledge-chip-smuggling/"
+        },
+        {
+          "label": "Nvidia statement",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+        }
+      ],
+      "isUpdate": true,
+      "image": {
+        "url": "https://nvidianews.nvidia.com/media/sites/219/images/social-image.jpg",
+        "alt": "Publisher-provided image for Nvidia's crisis expands into export-control scrutiny",
+        "credit": "nvidianews.nvidia.com",
+        "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+      }
+    },
+    {
+      "title": "World Labs opens its next-generation spatial model to developers",
+      "category": "AI & Models",
+      "summary": "World Labs announced Atlas tools and APIs for generating and reconstructing spatial environments.",
+      "whyItMatters": "Interactive spatial models could shorten development cycles for 3D game scenes, simulation, robotics and design.",
+      "limitations": "Visually convincing scenes are not automatically production-ready editable meshes with good topology or physics.",
+      "sources": [
+        {
+          "label": "World Labs release index",
+          "url": "https://worldlabs.ai/blog"
+        }
+      ],
+      "isUpdate": false,
+      "image": {
+        "url": "https://worldlabs.ai/opengraph-image.png?4b39e0cc40ca8b21",
+        "alt": "Publisher-provided image for World Labs opens its next-generation spatial model to developers",
+        "credit": "worldlabs.ai",
+        "sourceUrl": "https://worldlabs.ai/blog"
+      }
+    },
+    {
+      "title": "AI infrastructure's physical resource requirements are becoming a more important constraint",
+      "category": "Business & Markets",
+      "summary": "A Reuters analysis explored data center demand for copper, aluminum, steel and associated electrical equipment, emphasizing grid work and substations.",
+      "whyItMatters": "Power and industrial supply constraints may limit compute expansion independently of GPU availability.",
+      "limitations": "Material requirements are estimates sensitive to energy capacity, project completion and engineering choices.",
+      "sources": [
+        {
+          "label": "Reuters analysis",
+          "url": "https://www.reuters.com/commentary/reuters-open-interest/metals-age-ai-game-changer-or-hyperscale-hype-2026-11-14/"
+        }
+      ],
+      "isUpdate": false
+    }
+  ],
+  "alsoWorthKnowing": [
+    {
+      "title": "llama.cpp 1.0 milestone",
+      "category": "Developer Tools",
+      "summary": "Maintainers targeted November 13 for API cleanup and a milestone release. The original report could not verify that the final 1.0 tag shipped, so treat it as a target rather than a confirmed published release.",
+      "sources": [
+        {
+          "label": "Maintainer discussion",
+          "url": "https://github.com/ggml-org/llama.cpp/discussions/30566"
+        }
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/942d1ba8d4f809fdba40368a2a4b6b67c74fce397f28406da0fc60370ceacf02/ggml-org/llama.cpp/discussions/30566",
+        "alt": "Publisher-provided image for llama.cpp 1.0 milestone",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/ggml-org/llama.cpp/discussions/30566"
+      }
+    },
+    {
+      "title": "Local speech inference",
+      "category": "AI & Models",
+      "summary": "A community MLX 4-bit conversion of SOV-Transcribe-1 enables experimentation on sufficiently equipped Apple Silicon Macs; its documented validation is narrow.",
+      "sources": [
+        {
+          "label": "MLX model",
+          "url": "https://huggingface.co/nativ-community/SOV-Transcribe-1-4bit"
+        }
+      ],
+      "image": {
+        "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/nativ-community/SOV-Transcribe-1-4bit.png",
+        "alt": "Publisher-provided image for Local speech inference",
+        "credit": "huggingface.co",
+        "sourceUrl": "https://huggingface.co/nativ-community/SOV-Transcribe-1-4bit"
+      }
+    },
+    {
+      "title": "Speculative decoding",
+      "category": "AI & Models",
+      "summary": "Salesforce's DFlash draft model claims around 2–3× acceleration for some single-request speech workloads, subject to model, hardware and recording length.",
+      "sources": [
+        {
+          "label": "DFlash model",
+          "url": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1-DFlash"
+        }
+      ],
+      "image": {
+        "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/salesforce-sovereign-intelligence/SOV-Transcribe-1-DFlash.png",
+        "alt": "Publisher-provided image for Speculative decoding",
+        "credit": "huggingface.co",
+        "sourceUrl": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1-DFlash"
+      }
+    },
+    {
+      "title": "GitHub Copilot",
+      "category": "AI & Agents",
+      "summary": "Gemini 4 Hydrogen's addition to Copilot was a notable model option, but the report found no independent weekend coding-agent comparison.",
+      "sources": [
+        {
+          "label": "GitHub November changelog",
+          "url": "https://github.blog/changelog/month/11-2026/"
+        }
+      ],
+      "image": {
+        "url": "https://github.blog/wp-content/uploads/2026/11/645867806-878ea927-48c9-4765-a896-4a5f3d7b8f2e.jpg",
+        "alt": "Publisher-provided image for GitHub Copilot",
+        "credit": "github.blog",
+        "sourceUrl": "https://github.blog/changelog/month/11-2026/"
+      }
+    },
+    {
+      "title": "Anthropic IPO",
+      "category": "Business & Markets",
+      "summary": "Anthropic's announced IPO roadshow remained a prospective test of public-market demand, with no confirmed pricing outcome in this briefing window.",
+      "sources": [
+        {
+          "label": "Anthropic announcements",
+          "url": "https://www.anthropic.com/news"
+        }
+      ],
+      "image": {
+        "url": "https://assets.claude.com/6d4a0d28992ade92d6fa63646fd9c9d318245c6c.jpg",
+        "alt": "Publisher-provided image for Anthropic IPO",
+        "credit": "anthropic.com",
+        "sourceUrl": "https://www.anthropic.com/news"
+      }
+    },
+    {
+      "title": "FAA infrastructure failure",
+      "category": "Cloud & Infrastructure",
+      "summary": "A reported router installation fault disrupted communications, contributing to a nationwide ground stop. The report treated this as infrastructure reliability news rather than an AI story.",
+      "sources": [
+        {
+          "label": "FAA official updates",
+          "url": "https://www.faa.gov/newsroom"
+        }
+      ],
+      "image": {
+        "url": "https://www.faa.gov/themes/custom/dot_cms/images/seal_dot.png",
+        "alt": "Publisher-provided image for FAA infrastructure failure",
+        "credit": "faa.gov",
+        "sourceUrl": "https://www.faa.gov/newsroom"
+      }
+    },
+    {
+      "title": "Australian AI policy",
+      "category": "Policy & Regulation",
+      "summary": "Australia's AI governance discussions included preference for national and coordinated standards alongside opposition to data-center resource demands.",
+      "sources": [
+        {
+          "label": "Australian government AI policy",
+          "url": "https://www.industry.gov.au/policies-and-initiatives/ai"
+        }
+      ]
+    }
+  ],
+  "newTools": [
+    {
+      "title": "SOV-Transcribe-1",
+      "category": "AI & Models",
+      "summary": "Best new model to test for transcription accuracy with technical terms and named entities; examine memory and latency needs.",
+      "sources": [
+        {
+          "label": "Model and documentation",
+          "url": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1"
+        },
+        {
+          "label": "Technical release",
+          "url": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
+        }
+      ],
+      "image": {
+        "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/salesforce-sovereign-intelligence/SOV-Transcribe-1.png",
+        "alt": "Publisher-provided image for SOV-Transcribe-1",
+        "credit": "huggingface.co",
+        "sourceUrl": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1"
+      }
+    },
+    {
+      "title": "World Labs Atlas",
+      "category": "AI & Models",
+      "summary": "Spatial environment generation and reconstruction tools, worth evaluating on 3D scene export and geometry quality.",
+      "sources": [
+        {
+          "label": "World Labs updates",
+          "url": "https://worldlabs.ai/blog"
+        }
+      ],
+      "image": {
+        "url": "https://worldlabs.ai/opengraph-image.png?4b39e0cc40ca8b21",
+        "alt": "Publisher-provided image for World Labs Atlas",
+        "credit": "worldlabs.ai",
+        "sourceUrl": "https://worldlabs.ai/blog"
+      }
+    },
+    {
+      "title": "LangSmith",
+      "category": "AI & Agents",
+      "summary": "Model-independent agent tracing, evaluation and production governance; examine deployment workflows rather than only LangChain orchestration.",
+      "sources": [
+        {
+          "label": "LangChain funding and product announcement",
+          "url": "https://www.langchain.com/blog/series-c"
+        },
+        {
+          "label": "LangSmith product",
+          "url": "https://www.langchain.com/langsmith"
+        }
+      ],
+      "image": {
+        "url": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6af52a0047907d0f9587a24f_Social%20Announcement.png",
+        "alt": "Publisher-provided image for LangSmith",
+        "credit": "langchain.com",
+        "sourceUrl": "https://www.langchain.com/blog/series-c"
+      }
+    }
+  ],
+  "marketPulse": "No material weekend release established a shift in nationwide software-engineering hiring, senior or Staff+ pay, remote-work patterns or layoffs. LangChain's funding illustrates continued investor interest in agent infrastructure while the Federal Reserve survey highlights financing risks."
+}
