@@ -41,7 +41,13 @@
               "url": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/"
             }
           ],
-          "isUpdate": false
+          "isUpdate": false,
+          "image": {
+            "url": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6af52a0047907d0f9587a24f_Social%20Announcement.png",
+            "alt": "Publisher-provided image for LangChain raises $300 million at a $3 billion valuation",
+            "credit": "langchain.com",
+            "sourceUrl": "https://www.langchain.com/blog/series-c"
+          }
         },
         {
           "title": "Salesforce releases SOV-Transcribe-1, an Apache-2.0 open-weight speech model",
@@ -59,7 +65,13 @@
               "url": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1"
             }
           ],
-          "isUpdate": false
+          "isUpdate": false,
+          "image": {
+            "url": "https://cdn-uploads.huggingface.co/production/uploads/6962d3267513fcf314118d5f/e3kJpSjgR9Y4EX_hcR6iZ.png",
+            "alt": "Publisher-provided image for Salesforce releases SOV-Transcribe-1, an Apache-2.0 open-weight speech model",
+            "credit": "huggingface.co",
+            "sourceUrl": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
+          }
         },
         {
           "title": "Nvidia's crisis expands into export-control scrutiny",
@@ -77,7 +89,13 @@
               "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
             }
           ],
-          "isUpdate": true
+          "isUpdate": true,
+          "image": {
+            "url": "https://nvidianews.nvidia.com/media/sites/219/images/social-image.jpg",
+            "alt": "Publisher-provided image for Nvidia's crisis expands into export-control scrutiny",
+            "credit": "nvidianews.nvidia.com",
+            "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+          }
         },
         {
           "title": "World Labs opens its next-generation spatial model to developers",
@@ -91,7 +109,13 @@
               "url": "https://worldlabs.ai/blog"
             }
           ],
-          "isUpdate": false
+          "isUpdate": false,
+          "image": {
+            "url": "https://worldlabs.ai/opengraph-image.png?4b39e0cc40ca8b21",
+            "alt": "Publisher-provided image for World Labs opens its next-generation spatial model to developers",
+            "credit": "worldlabs.ai",
+            "sourceUrl": "https://worldlabs.ai/blog"
+          }
         },
         {
           "title": "AI infrastructure's physical resource requirements are becoming a more important constraint",
@@ -118,7 +142,13 @@
               "label": "Maintainer discussion",
               "url": "https://github.com/ggml-org/llama.cpp/discussions/30566"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://opengraph.githubassets.com/942d1ba8d4f809fdba40368a2a4b6b67c74fce397f28406da0fc60370ceacf02/ggml-org/llama.cpp/discussions/30566",
+            "alt": "Publisher-provided image for llama.cpp 1.0 milestone",
+            "credit": "github.com",
+            "sourceUrl": "https://github.com/ggml-org/llama.cpp/discussions/30566"
+          }
         },
         {
           "title": "Local speech inference",
@@ -129,7 +159,13 @@
               "label": "MLX model",
               "url": "https://huggingface.co/nativ-community/SOV-Transcribe-1-4bit"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/nativ-community/SOV-Transcribe-1-4bit.png",
+            "alt": "Publisher-provided image for Local speech inference",
+            "credit": "huggingface.co",
+            "sourceUrl": "https://huggingface.co/nativ-community/SOV-Transcribe-1-4bit"
+          }
         },
         {
           "title": "Speculative decoding",
@@ -140,7 +176,13 @@
               "label": "DFlash model",
               "url": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1-DFlash"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/salesforce-sovereign-intelligence/SOV-Transcribe-1-DFlash.png",
+            "alt": "Publisher-provided image for Speculative decoding",
+            "credit": "huggingface.co",
+            "sourceUrl": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1-DFlash"
+          }
         },
         {
           "title": "GitHub Copilot",
@@ -151,7 +193,13 @@
               "label": "GitHub November changelog",
               "url": "https://github.blog/changelog/month/11-2026/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://github.blog/wp-content/uploads/2026/11/645867806-878ea927-48c9-4765-a896-4a5f3d7b8f2e.jpg",
+            "alt": "Publisher-provided image for GitHub Copilot",
+            "credit": "github.blog",
+            "sourceUrl": "https://github.blog/changelog/month/11-2026/"
+          }
         },
         {
           "title": "Anthropic IPO",
@@ -162,7 +210,13 @@
               "label": "Anthropic announcements",
               "url": "https://www.anthropic.com/news"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://assets.claude.com/6d4a0d28992ade92d6fa63646fd9c9d318245c6c.jpg",
+            "alt": "Publisher-provided image for Anthropic IPO",
+            "credit": "anthropic.com",
+            "sourceUrl": "https://www.anthropic.com/news"
+          }
         },
         {
           "title": "FAA infrastructure failure",
@@ -173,7 +227,13 @@
               "label": "FAA official updates",
               "url": "https://www.faa.gov/newsroom"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://www.faa.gov/themes/custom/dot_cms/images/seal_dot.png",
+            "alt": "Publisher-provided image for FAA infrastructure failure",
+            "credit": "faa.gov",
+            "sourceUrl": "https://www.faa.gov/newsroom"
+          }
         },
         {
           "title": "Australian AI policy",
@@ -201,7 +261,13 @@
               "label": "Technical release",
               "url": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/salesforce-sovereign-intelligence/SOV-Transcribe-1.png",
+            "alt": "Publisher-provided image for SOV-Transcribe-1",
+            "credit": "huggingface.co",
+            "sourceUrl": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1"
+          }
         },
         {
           "title": "World Labs Atlas",
@@ -212,7 +278,13 @@
               "label": "World Labs updates",
               "url": "https://worldlabs.ai/blog"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://worldlabs.ai/opengraph-image.png?4b39e0cc40ca8b21",
+            "alt": "Publisher-provided image for World Labs Atlas",
+            "credit": "worldlabs.ai",
+            "sourceUrl": "https://worldlabs.ai/blog"
+          }
         },
         {
           "title": "LangSmith",
@@ -227,7 +299,13 @@
               "label": "LangSmith product",
               "url": "https://www.langchain.com/langsmith"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6af52a0047907d0f9587a24f_Social%20Announcement.png",
+            "alt": "Publisher-provided image for LangSmith",
+            "credit": "langchain.com",
+            "sourceUrl": "https://www.langchain.com/blog/series-c"
+          }
         }
       ],
       "marketPulse": "No material weekend release established a shift in nationwide software-engineering hiring, senior or Staff+ pay, remote-work patterns or layoffs. LangChain's funding illustrates continued investor interest in agent infrastructure while the Federal Reserve survey highlights financing risks."
@@ -252,7 +330,13 @@
               "label": "Amazon retail updates",
               "url": "https://www.aboutamazon.com/news/retail"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://blog.google/static/blogv2/images/google-1440x754.jpg?version=pr20261029-2131",
+            "alt": "Publisher-provided image for AI agents are becoming actual customers, not just shopping assistants",
+            "credit": "blog.google",
+            "sourceUrl": "https://blog.google/products/shopping/"
+          }
         },
         {
           "title": "Nvidia's leadership crisis is now affecting the broader AI infrastructure trade",
@@ -269,7 +353,13 @@
               "label": "SEC 8-K",
               "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000082/nvda-20261111.htm"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://nvidianews.nvidia.com/media/sites/219/images/social-image.jpg",
+            "alt": "Publisher-provided image for Nvidia's leadership crisis is now affecting the broader AI infrastructure trade",
+            "credit": "nvidianews.nvidia.com",
+            "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+          }
         },
         {
           "title": "Microsoft 365 suffers a major global outage",
@@ -286,7 +376,13 @@
               "label": "Third-party incident timeline",
               "url": "https://status.bath.ac.uk/incident/1124080?mp=true"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://status.bath.ac.uk/assets/status_pages/og_wl_operational-6028a588.png",
+            "alt": "Publisher-provided image for Microsoft 365 suffers a major global outage",
+            "credit": "status.bath.ac.uk",
+            "sourceUrl": "https://status.bath.ac.uk/incident/1124080?mp=true"
+          }
         },
         {
           "title": "Google releases Gemini 4 Hydrogen for faster agentic coding",
@@ -303,7 +399,13 @@
               "label": "Model information",
               "url": "https://deepmind.google/models/model-cards/gemini-4-hydrogen/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-hydrogen__key-art__lockup__16-9.width-1300.jpg",
+            "alt": "Publisher-provided image for Google releases Gemini 4 Hydrogen for faster agentic coding",
+            "credit": "blog.google",
+            "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+          }
         },
         {
           "title": "AWS Emulator offers local infrastructure testing for coding agents",
@@ -320,7 +422,13 @@
               "label": "AWS documentation",
               "url": "https://docs.aws.amazon.com/emulator/latest/userguide/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/11/11/Header-A-dark-gradient-1-1260x630.png",
+            "alt": "Publisher-provided image for AWS Emulator offers local infrastructure testing for coding agents",
+            "credit": "aws.amazon.com",
+            "sourceUrl": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/"
+          }
         },
         {
           "title": "Amazon is reportedly exploring a global product-data system to defend its shopping business",
@@ -374,7 +482,13 @@
               "label": "GitHub November changelog",
               "url": "https://github.blog/changelog/month/11-2026/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://github.blog/wp-content/uploads/2026/11/645867806-878ea927-48c9-4765-a896-4a5f3d7b8f2e.jpg",
+            "alt": "Publisher-provided image for Copilot model lifecycle",
+            "credit": "github.blog",
+            "sourceUrl": "https://github.blog/changelog/month/11-2026/"
+          }
         },
         {
           "title": "Enterprise development",
@@ -385,7 +499,13 @@
               "label": "GitHub enterprise changelog (background)",
               "url": "https://github.blog/changelog/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://github.blog/wp-content/uploads/2026/11/645867806-878ea927-48c9-4765-a896-4a5f3d7b8f2e.jpg",
+            "alt": "Publisher-provided image for Enterprise development",
+            "credit": "github.blog",
+            "sourceUrl": "https://github.blog/changelog/"
+          }
         },
         {
           "title": "Anthropic IPO",
@@ -396,7 +516,13 @@
               "label": "Anthropic announcements",
               "url": "https://www.anthropic.com/news"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://assets.claude.com/6d4a0d28992ade92d6fa63646fd9c9d318245c6c.jpg",
+            "alt": "Publisher-provided image for Anthropic IPO",
+            "credit": "anthropic.com",
+            "sourceUrl": "https://www.anthropic.com/news"
+          }
         },
         {
           "title": "European AI policy",
@@ -429,7 +555,13 @@
               "label": "DeepSeek API documentation (reference)",
               "url": "https://api-docs.deepseek.com/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://api-docs.deepseek.com/img/deepseek-social-card.jpeg",
+            "alt": "Publisher-provided image for DeepSeek API expansion",
+            "credit": "api-docs.deepseek.com",
+            "sourceUrl": "https://api-docs.deepseek.com/"
+          }
         },
         {
           "title": "Speech-model evaluation",
@@ -440,7 +572,13 @@
               "label": "SOV-Transcribe-1 benchmarks",
               "url": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://cdn-uploads.huggingface.co/production/uploads/6962d3267513fcf314118d5f/e3kJpSjgR9Y4EX_hcR6iZ.png",
+            "alt": "Publisher-provided image for Speech-model evaluation",
+            "credit": "huggingface.co",
+            "sourceUrl": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
+          }
         }
       ],
       "newTools": [
@@ -457,7 +595,13 @@
               "label": "Documentation",
               "url": "https://docs.aws.amazon.com/emulator/latest/userguide/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/11/11/Header-A-dark-gradient-1-1260x630.png",
+            "alt": "Publisher-provided image for AWS Emulator",
+            "credit": "aws.amazon.com",
+            "sourceUrl": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/"
+          }
         },
         {
           "title": "Gemini 4 Hydrogen",
@@ -472,7 +616,13 @@
               "label": "Model card",
               "url": "https://deepmind.google/models/model-cards/gemini-4-hydrogen/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-hydrogen__key-art__lockup__16-9.width-1300.jpg",
+            "alt": "Publisher-provided image for Gemini 4 Hydrogen",
+            "credit": "blog.google",
+            "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+          }
         },
         {
           "title": "Personal Agent Protocol 1.0",
@@ -483,7 +633,13 @@
               "label": "Agent interoperability background",
               "url": "https://modelcontextprotocol.io/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://raw.githubusercontent.com/modelcontextprotocol/docs/2eb6171ddbfeefde349dc3b8d5e2b87414c26250/images/og-image.png",
+            "alt": "Publisher-provided image for Personal Agent Protocol 1.0",
+            "credit": "modelcontextprotocol.io",
+            "sourceUrl": "https://modelcontextprotocol.io/"
+          }
         }
       ],
       "marketPulse": "AI infrastructure capital spending remains substantial, but the Saturday briefing found no verified new broad software-engineering hiring report. Nvidia leadership and compute financing questions are material industry risks, not proof of a near-term change in senior hiring."
@@ -508,7 +664,13 @@
               "label": "SEC filing",
               "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000082/nvda-20261111.htm"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://nvidianews.nvidia.com/media/sites/219/images/social-image.jpg",
+            "alt": "Publisher-provided image for Nvidia's leadership crisis continues after Jensen Huang departure",
+            "credit": "nvidianews.nvidia.com",
+            "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+          }
         },
         {
           "title": "Applied Materials earnings point to sustained AI chip investment",
@@ -551,7 +713,13 @@
               "label": "Federal Reserve speech",
               "url": "https://www.federalreserve.gov/newsevents/speech/barr20261112a.htm"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://www.federalreserve.gov/images/social-media/social-default-image-opengraph.jpg",
+            "alt": "Publisher-provided image for Federal Reserve governor warns AI could cause serious labor disruption",
+            "credit": "federalreserve.gov",
+            "sourceUrl": "https://www.federalreserve.gov/newsevents/speech/barr20261112a.htm"
+          }
         },
         {
           "title": "Anthropic expands its enterprise agent and productivity ambitions",
@@ -568,7 +736,13 @@
               "label": "Anthropic news",
               "url": "https://www.anthropic.com/news"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://platform.claude.com/web-api/og/docs/en/release-notes/overview?design-rev=5",
+            "alt": "Publisher-provided image for Anthropic expands its enterprise agent and productivity ambitions",
+            "credit": "platform.claude.com",
+            "sourceUrl": "https://platform.claude.com/docs/en/release-notes/overview"
+          }
         },
         {
           "title": "AMD and PsiQuantum broaden partnership on hybrid computing",
@@ -598,7 +772,13 @@
               "label": "GitHub changelog",
               "url": "https://github.blog/changelog/2026-11-12-secret-scanning-adds-a-detector-for-cloudflare/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://github.blog/wp-content/uploads/2026/11/571554102-6349f5b6-b0b7-4130-9300-6d5d87e0b6e9_19d4ff.jpg",
+            "alt": "Publisher-provided image for GitHub secret scanning adds Cloudflare service tokens",
+            "credit": "github.blog",
+            "sourceUrl": "https://github.blog/changelog/2026-11-12-secret-scanning-adds-a-detector-for-cloudflare/"
+          }
         },
         {
           "title": "GitHub Actions announces ARM32 runner retirement",
@@ -609,7 +789,13 @@
               "label": "November GitHub changelog",
               "url": "https://github.blog/changelog/month/11-2026/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://github.blog/wp-content/uploads/2026/11/645867806-878ea927-48c9-4765-a896-4a5f3d7b8f2e.jpg",
+            "alt": "Publisher-provided image for GitHub Actions announces ARM32 runner retirement",
+            "credit": "github.blog",
+            "sourceUrl": "https://github.blog/changelog/month/11-2026/"
+          }
         },
         {
           "title": "GitHub reviews October reliability incidents",
@@ -624,7 +810,13 @@
               "label": "GitHub engineering",
               "url": "https://github.blog/engineering/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://github.blog/wp-content/uploads/2019/03/engineering-social.png?fit=1201%2C630",
+            "alt": "Publisher-provided image for GitHub reviews October reliability incidents",
+            "credit": "github.blog",
+            "sourceUrl": "https://github.blog/engineering/"
+          }
         },
         {
           "title": "Synchron pauses trials of its second-generation brain-computer interface",
@@ -635,7 +827,13 @@
               "label": "WIRED reporting",
               "url": "https://www.wired.com/story/synchron-pauses-trials-of-its-brain-implant-due-to-performance-issues/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://media.wired.com/photos/6ae951f7e1fce5fdf7878b36/191:100/w_1280,c_limit/SM_Science_Synchron_GettyImages-1610629090.jpg",
+            "alt": "Publisher-provided image for Synchron pauses trials of its second-generation brain-computer interface",
+            "credit": "wired.com",
+            "sourceUrl": "https://www.wired.com/story/synchron-pauses-trials-of-its-brain-implant-due-to-performance-issues/"
+          }
         },
         {
           "title": "Specialized AI engineer pay remains a labor-market bright spot",
@@ -646,7 +844,13 @@
               "label": "Indeed Hiring Lab context",
               "url": "https://hiringlab.indeed.com/2026/11/12/2026-q3-us-tech-labor-market-update/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://d341ezm4iqaae0.cloudfront.net/hiringlaborg/2026/11/12162624/Tech_developersdiscussingcodeinofficegettyperp-scaled.jpg",
+            "alt": "Publisher-provided image for Specialized AI engineer pay remains a labor-market bright spot",
+            "credit": "hiringlab.indeed.com",
+            "sourceUrl": "https://hiringlab.indeed.com/2026/11/12/2026-q3-us-tech-labor-market-update/"
+          }
         },
         {
           "title": "Business formation improves while hiring intent remains mixed",
@@ -685,7 +889,13 @@
               "label": "Nvidia AI models",
               "url": "https://build.nvidia.com/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/nvidia.png",
+            "alt": "Publisher-provided image for Nvidia Nemotron 3.5 Super VL",
+            "credit": "huggingface.co",
+            "sourceUrl": "https://huggingface.co/nvidia"
+          }
         },
         {
           "title": "GitHub Secret Scanning with Cloudflare token detection",
@@ -696,7 +906,13 @@
               "label": "Detector release",
               "url": "https://github.blog/changelog/2026-11-12-secret-scanning-adds-a-detector-for-cloudflare/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://github.blog/wp-content/uploads/2026/11/571554102-6349f5b6-b0b7-4130-9300-6d5d87e0b6e9_19d4ff.jpg",
+            "alt": "Publisher-provided image for GitHub Secret Scanning with Cloudflare token detection",
+            "credit": "github.blog",
+            "sourceUrl": "https://github.blog/changelog/2026-11-12-secret-scanning-adds-a-detector-for-cloudflare/"
+          }
         }
       ],
       "marketPulse": "Applied Materials' earnings and AI infrastructure spending suggest continued demand for semiconductors, while Federal Reserve remarks highlight uncertainty about how quickly AI gains translate into job displacement. Distinguish sector-specific hiring resilience from the broader software labor market."
@@ -721,7 +937,13 @@
               "label": "SEC filing",
               "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000082/nvda-20261111.htm"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://nvidianews.nvidia.com/media/sites/219/images/social-image.jpg",
+            "alt": "Publisher-provided image for Nvidia announces Jensen Huang's resignation and an interim CEO",
+            "credit": "nvidianews.nvidia.com",
+            "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+          }
         },
         {
           "title": "Google launches Gemini 4 Hydrogen for agentic work",
@@ -738,7 +960,13 @@
               "label": "DeepMind model card",
               "url": "https://deepmind.google/models/model-cards/gemini-4-hydrogen/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-hydrogen__key-art__lockup__16-9.width-1300.jpg",
+            "alt": "Publisher-provided image for Google launches Gemini 4 Hydrogen for agentic work",
+            "credit": "blog.google",
+            "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+          }
         },
         {
           "title": "Gemini Decision 1 targets fast, bounded AI decisions",
@@ -751,7 +979,13 @@
               "label": "Google announcement",
               "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini__decisions__blog-header_2784x1566.width-1300.png",
+            "alt": "Publisher-provided image for Gemini Decision 1 targets fast, bounded AI decisions",
+            "credit": "blog.google",
+            "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+          }
         },
         {
           "title": "wfx-loot campaign compromises GitHub identities and CI pipelines",
@@ -768,7 +1002,13 @@
               "label": "SailPoint analysis",
               "url": "https://www.sailpoint.com/blog/wfx-loot-github-actions-attack-nhi-detection"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg",
+            "alt": "Publisher-provided image for wfx-loot campaign compromises GitHub identities and CI pipelines",
+            "credit": "securityweek.com",
+            "sourceUrl": "https://www.securityweek.com/attacker-targets-60000-github-repositories-in-credential-theft-campaign//"
+          }
         },
         {
           "title": "AWS introduces a local Emulator for development and agents",
@@ -785,7 +1025,13 @@
               "label": "AWS product release",
               "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-emulator-now-available/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/11/11/Header-A-dark-gradient-1-1260x630.png",
+            "alt": "Publisher-provided image for AWS introduces a local Emulator for development and agents",
+            "credit": "aws.amazon.com",
+            "sourceUrl": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/"
+          }
         },
         {
           "title": "Indeed data points to a partial software hiring rebound",
@@ -798,7 +1044,13 @@
               "label": "Indeed Hiring Lab",
               "url": "https://hiringlab.indeed.com/2026/11/12/2026-q3-us-tech-labor-market-update/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://d341ezm4iqaae0.cloudfront.net/hiringlaborg/2026/11/12162624/Tech_developersdiscussingcodeinofficegettyperp-scaled.jpg",
+            "alt": "Publisher-provided image for Indeed data points to a partial software hiring rebound",
+            "credit": "hiringlab.indeed.com",
+            "sourceUrl": "https://hiringlab.indeed.com/2026/11/12/2026-q3-us-tech-labor-market-update/"
+          }
         },
         {
           "title": "Node.js releases security patches across active lines",
@@ -815,7 +1067,13 @@
               "label": "HKCERT bulletin",
               "url": "https://www.hkcert.org/security-bulletin/node-js-multiple-vulnerabilities_20261112"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://nodejs.org/en/next-data/og/vulnerability/Node.js%20%E2%80%94%20Wednesday,%20November%2011,%202026%20Security%20Releases",
+            "alt": "Publisher-provided image for Node.js releases security patches across active lines",
+            "credit": "nodejs.org",
+            "sourceUrl": "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases/"
+          }
         },
         {
           "title": "Runway releases open-weight Praxis-1 robotics world-action model",
@@ -828,7 +1086,13 @@
               "label": "Runway release",
               "url": "https://runway.com/news/company-news/praxis-1-is-now-available"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://d3phaj0sisr2ct.cloudfront.net/site/images/sanity/2026/11/frame-8-bddb7fbc-4647-44e5-bf65-1fbb7e559b24-af3f1b60-26e7-4a91-afda-ee27b0a4674b.webp",
+            "alt": "Publisher-provided image for Runway releases open-weight Praxis-1 robotics world-action model",
+            "credit": "runway.com",
+            "sourceUrl": "https://runway.com/news/company-news/praxis-1-is-now-available"
+          }
         }
       ],
       "alsoWorthKnowing": [
@@ -841,7 +1105,13 @@
               "label": "Anthropic launch",
               "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://assets.claude.com/21b3240f9264f8e4c8ab1390e2702cf1401b2367.jpg",
+            "alt": "Publisher-provided image for Anthropic launches Claude Fable 5.2",
+            "credit": "anthropic.com",
+            "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+          }
         },
         {
           "title": "Gemini 4 Carbon reaches broader availability",
@@ -885,7 +1155,13 @@
               "label": "Dart 3.14 announcement",
               "url": "https://dart.dev/blog/announcing-dart-3-14"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://dart.dev/images/dart3-14-cover.3079441d48d27e634bcebd64eff41b26.webp",
+            "alt": "Publisher-provided image for Dart 3.14 improves Wasm and migration workflows",
+            "credit": "dart.dev",
+            "sourceUrl": "https://dart.dev/blog/announcing-dart-3-14"
+          }
         },
         {
           "title": "Fireworks AI incident affects some Notion AI transcripts",
@@ -896,7 +1172,13 @@
               "label": "Notion security advisory",
               "url": "https://www.notion.com/en-gb/security/advisories/security-incident-involving-a-third-party-ai-vendor"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://www.notion.com/front-static/meta/global-evergreen-03.png",
+            "alt": "Publisher-provided image for Fireworks AI incident affects some Notion AI transcripts",
+            "credit": "notion.com",
+            "sourceUrl": "https://www.notion.com/en-gb/security/advisories/security-incident-involving-a-third-party-ai-vendor"
+          }
         },
         {
           "title": "Advocacy groups sue over frontier AI development",
@@ -918,7 +1200,13 @@
               "label": "Anthropic announcement",
               "url": "https://www.anthropic.com/news/roadshow-launch"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://assets.claude.com/6d4a0d28992ade92d6fa63646fd9c9d318245c6c.jpg",
+            "alt": "Publisher-provided image for Anthropic begins IPO roadshow",
+            "credit": "anthropic.com",
+            "sourceUrl": "https://www.anthropic.com/news/roadshow-launch"
+          }
         },
         {
           "title": "Fractile attracts major funding for inference hardware",
@@ -942,7 +1230,13 @@
               "label": "Agent Skills overview (context)",
               "url": "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills/"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://github.blog/wp-content/uploads/2026/11/5b5fed0ce69f241f469053d4f178383688adb2fb7ef44dff82c1a2dd6a626fa1-1920x1080-1.png",
+            "alt": "Publisher-provided image for MIT-licensed Agent Skills collection",
+            "credit": "github.blog",
+            "sourceUrl": "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills/"
+          }
         },
         {
           "title": "Qwen Code and Qoder preview",
@@ -957,7 +1251,13 @@
               "label": "Qwen project repositories",
               "url": "https://github.com/QwenLM"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://qwenlm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E",
+            "alt": "Publisher-provided image for Qwen Code and Qoder preview",
+            "credit": "qwenlm.github.io",
+            "sourceUrl": "https://qwenlm.github.io/"
+          }
         },
         {
           "title": "Zig-based LLM inference engine",
@@ -968,7 +1268,13 @@
               "label": "Repository discovery, not a release source",
               "url": "https://github.com/search?q=zig+llm+inference&type=repositories"
             }
-          ]
+          ],
+          "image": {
+            "url": "https://github.githubassets.com/assets/github-mark-57519b92ca4e.png",
+            "alt": "Publisher-provided image for Zig-based LLM inference engine",
+            "credit": "github.com",
+            "sourceUrl": "https://github.com/search?q=zig+llm+inference&type=repositories"
+          }
         }
       ],
       "marketPulse": "Indeed's Nov 12 report showed a year-over-year rise in software job postings but a still-subdued market against the 2020 baseline. Major AI hardware investment and frontier-model funding remained strong even amid renewed governance and financing concerns."
