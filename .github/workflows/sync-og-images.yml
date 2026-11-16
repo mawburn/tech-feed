@@ -48,4 +48,10 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/daily/
           git commit -m "Add verified publisher OG images to feed"
-          git push origin HEAD:main
+          # Scheduled briefings may publish while metadata is being fetched.
+          # Rebase a metadata-only commit safely rather than force-pushing.
+          if ! git push origin HEAD:main; then
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
