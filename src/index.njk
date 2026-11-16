@@ -1,0 +1,11 @@
+---
+layout: layouts/base.njk
+permalink: /index.html
+pageTitle: Daily Technology and AI News
+pageDescription: The latest technology and AI briefing, with every story, original sources, technical context and a seven-day archive.
+activeTab: daily
+---
+{% set firstIssue = feed.issues | first %}
+{% set currentDay = firstIssue.date or 'all' %}
+{% set filterCategory = null %}
+{% include "partials/daily-layout.njk" %}
