@@ -108,7 +108,8 @@ def best_query(title):
     return " ".join(words[:7])
 
 def get_bytes(url, kind, max_size=250_000):
-    if FAILED[kind] >= 5 and SUCCESS[kind] == 0:
+    # Respect provider rate limits even after some earlier successful calls.
+    if FAILED[kind] >= 6:
         return b""
     try:
         req = Request(url, headers=HEADERS)
