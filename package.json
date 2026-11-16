@@ -1,0 +1,19 @@
+{
+  "name": "mawburn-tech-feed",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Statically generated daily and weekly AI and technology news feed",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "check": "node scripts/validate-feed.mjs && node scripts/validate-static.mjs",
+    "build:check": "npm run check && npm run build"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.8"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
