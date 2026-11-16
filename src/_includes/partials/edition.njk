@@ -16,7 +16,7 @@
     <article class="story">
       {% include "partials/story-image.njk" %}
       <div class="story-header">
-        <span class="story-rank">{{ "%02d" | format(story.rank or loop.index) }}</span>
+        <span class="story-rank">{{ (story.rank or loop.index) | pad2 }}</span>
         <span class="story-category">{{ story.category or 'Technology' }}</span>
         {% if story.isUpdate %}<span class="story-updated">UPDATED</span>{% endif %}
       </div>
