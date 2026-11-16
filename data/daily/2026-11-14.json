@@ -187,13 +187,6 @@
           "label": "GitHub security changelog",
           "url": "https://github.blog/changelog/label/security/"
         }
-      ],
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=38194102",
-          "label": "HN discussion"
-        }
       ]
     },
     {
@@ -284,14 +277,7 @@
         "alt": "Publisher-provided image for DeepSeek API expansion",
         "credit": "api-docs.deepseek.com",
         "sourceUrl": "https://api-docs.deepseek.com/"
-      },
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=49274018",
-          "label": "HN discussion"
-        }
-      ]
+      }
     },
     {
       "title": "Speech-model evaluation",
@@ -383,14 +369,7 @@
         "alt": "Publisher-provided image for Personal Agent Protocol 1.0",
         "credit": "modelcontextprotocol.io",
         "sourceUrl": "https://modelcontextprotocol.io/"
-      },
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=49981921",
-          "label": "HN discussion"
-        }
-      ]
+      }
     }
   ],
   "marketPulse": "AI infrastructure capital spending remains substantial, but the Saturday briefing found no verified new broad software-engineering hiring report. Nvidia leadership and compute financing questions are material industry risks, not proof of a near-term change in senior hiring."

@@ -118,14 +118,7 @@
         "alt": "Publisher-provided image for World Labs opens its next-generation spatial model to developers",
         "credit": "worldlabs.ai",
         "sourceUrl": "https://worldlabs.ai/blog"
-      },
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=42297644",
-          "label": "HN discussion"
-        }
-      ]
+      }
     },
     {
       "title": "AI infrastructure's physical resource requirements are becoming a more important constraint",
@@ -298,7 +291,7 @@
       "discussions": [
         {
           "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=42297644",
+          "url": "https://news.ycombinator.com/item?id=50471921",
           "label": "HN discussion"
         }
       ]

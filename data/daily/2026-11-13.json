@@ -103,14 +103,7 @@
         "alt": "Publisher-provided image for Anthropic expands its enterprise agent and productivity ambitions",
         "credit": "platform.claude.com",
         "sourceUrl": "https://platform.claude.com/docs/en/release-notes/overview"
-      },
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=47793649",
-          "label": "HN discussion"
-        }
-      ]
+      }
     },
     {
       "title": "AMD and PsiQuantum broaden partnership on hybrid computing",
@@ -184,14 +177,7 @@
         "alt": "Publisher-provided image for GitHub reviews October reliability incidents",
         "credit": "github.blog",
         "sourceUrl": "https://github.blog/engineering/"
-      },
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=35358217",
-          "label": "HN discussion"
-        }
-      ]
+      }
     },
     {
       "title": "Synchron pauses trials of its second-generation brain-computer interface",
@@ -283,14 +269,7 @@
         "alt": "Publisher-provided image for Nvidia Nemotron 3.5 Super VL",
         "credit": "huggingface.co",
         "sourceUrl": "https://huggingface.co/nvidia"
-      },
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=47349022",
-          "label": "HN discussion"
-        }
-      ]
+      }
     },
     {
       "title": "GitHub Secret Scanning with Cloudflare token detection",

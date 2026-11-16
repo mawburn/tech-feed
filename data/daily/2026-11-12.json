@@ -407,14 +407,7 @@
         "alt": "Publisher-provided image for Qwen Code and Qoder preview",
         "credit": "qwenlm.github.io",
         "sourceUrl": "https://qwenlm.github.io/"
-      },
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=41451644",
-          "label": "HN discussion"
-        }
-      ]
+      }
     },
     {
       "title": "Zig-based LLM inference engine",
