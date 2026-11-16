@@ -12,7 +12,7 @@ Reddit RSS access can be blocked or restricted; failures are non-fatal.
 from __future__ import annotations
 import argparse
 import concurrent.futures
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from difflib import SequenceMatcher
 from functools import lru_cache
 from html import unescape
@@ -34,6 +34,7 @@ HEADERS = {
 }
 HN_API = "https://hn.algolia.com/api/v1/search"
 REDDIT_RSS = "https://www.reddit.com/search.rss"
+REDDIT_ARCHIVE = "https://api.pullpush.io/reddit/search/submission/"
 STOP = {
     "a","an","the","and","of","for","on","in","to","with","its",
     "from","into","out","as","at","is","are","was","were","by",
@@ -41,8 +42,8 @@ STOP = {
     "company","announces","announced","launches","launched","introduces",
     "releases","released","report","reports","latest","more",
 }
-FAILED = {"hn": 0, "reddit": 0}
-SUCCESS = {"hn": 0, "reddit": 0}
+FAILED = {"hn": 0, "reddit": 0, "reddit_archive": 0}
+SUCCESS = {"hn": 0, "reddit": 0, "reddit_archive": 0}
 
 def normalize_url(value):
     try:
@@ -54,6 +55,37 @@ def normalize_url(value):
         return host + path
     except ValueError:
         return ""
+
+def article_specific(url):
+    """Exclude generic news indexes that are reused across unrelated stories."""
+    try:
+        parsed = urlsplit(url)
+        path = unquote(parsed.path).strip("/").lower()
+        parts = path.split("/") if path else []
+        if not parts:
+            return False
+        if path in {"blog","news","newsroom","changelog","releases","models",
+                    "products","announcements","ai","docs","press","research"}:
+            return False
+        if "month" in parts or "search" in parts or "tags" in parts:
+            return False
+        if len(parts) == 1 and not (len(parts[0]) >= 22 and "-" in parts[0]):
+            return False
+        if len(parts) == 2 and parts[-1] in {"blog","news","changelog","announcements"}:
+            return False
+        return True
+    except (ValueError,TypeError):
+        return False
+
+def near_date(timestamp, issue_date):
+    """Treat old community discussions as unrelated to this edition."""
+    try:
+        stamp=int(timestamp)
+        posted=datetime.fromtimestamp(stamp,timezone.utc).date()
+        day=date.fromisoformat(issue_date)
+        return day - timedelta(days=21) <= posted <= day + timedelta(days=3)
+    except (ValueError,TypeError,OverflowError):
+        return False
 
 def tokens(value):
     words = re.findall(r"[a-z0-9]{2,}", unescape(str(value or "")).lower())
@@ -110,7 +142,7 @@ def source_urls(story):
     return [s.get("url") for s in story.get("sources", []) if isinstance(s,dict) and normalize_url(s.get("url"))][:3]
 
 def story_score(story, candidate_title, external_url):
-    wanted=set(map(normalize_url, source_urls(story)))
+    wanted=set(normalize_url(u) for u in source_urls(story) if article_specific(u))
     incoming=normalize_url(external_url)
     if incoming and incoming in wanted:
         return 1.0
@@ -121,15 +153,27 @@ def story_score(story, candidate_title, external_url):
     # same-word stories (e.g. Nvidia earnings) link to unrelated events.
     return .80 * title_match if title_match >= .78 else 0.0
 
-def hn_match(story):
+@lru_cache(maxsize=300)
+def hn_item(item_id):
+    raw=get_bytes("https://hn.algolia.com/api/v1/items/"+item_id,"hn")
+    try:
+        return json.loads(raw) if raw else None
+    except (ValueError,TypeError):
+        return None
+
+def hn_eligible(story, hit, issue_date):
+    if not near_date(hit.get("created_at_i") or hit.get("created_at"),issue_date):
+        return 0
+    if int(hit.get("num_comments") or 0) < 1 and not hit.get("children"):
+        return 0
+    return story_score(story,hit.get("title") or "",hit.get("url"))
+
+def hn_match(story, issue_date):
     hits=[]
     for url in source_urls(story)[:2]:
-        hits+=hn_search(url,True)
-    if not hits:
-        hits+=hn_search(best_query(story.get("title","")))
-    else:
-        # Also allow an independently posted HN link if its title matches.
-        hits+=hn_search(best_query(story.get("title","")))
+        if article_specific(url):
+            hits+=hn_search(url,True)
+    hits+=hn_search(best_query(story.get("title","")))
     options=[]
     seen=set()
     for hit in hits:
@@ -137,17 +181,23 @@ def hn_match(story):
         if not key.isdecimal() or key in seen:
             continue
         seen.add(key)
-        count=int(hit.get("num_comments") or 0)
-        if count < 1:
-            continue
-        rating=story_score(story,hit.get("title") or "",hit.get("url"))
+        rating=hn_eligible(story,hit,issue_date)
         if rating:
-            options.append((rating, min(count,300), key, hit))
+            options.append((rating, min(int(hit.get("num_comments") or 0),300), key))
     if not options:
         return None
     options.sort(reverse=True)
-    _, count, key, hit=options[0]
+    _, count, key=options[0]
     return {"platform":"Hacker News","url":"https://news.ycombinator.com/item?id="+key,"label":"HN discussion"}
+
+def valid_prior_hn(story, link, issue_date):
+    match=re.fullmatch(r"https://news\\.ycombinator\\.com/item\\?id=(\\d+)",str(link.get("url","")))
+    if not match:
+        return False
+    hit=hn_item(match.group(1))
+    if hit is None:
+        return True  # Do not remove published data on an API outage.
+    return bool(hn_eligible(story,hit,issue_date))
 
 def parse_reddit_feed(raw):
     if not raw:
