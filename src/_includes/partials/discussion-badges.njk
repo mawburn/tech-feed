@@ -1,0 +1,12 @@
+{% if story.discussions and story.discussions.length %}
+<div class="discussion-badges" aria-label="Community discussions">
+  {% for thread in story.discussions %}
+    {% if thread.url | isHttp %}
+      <a class="thread-pill" href="{{ thread.url }}" target="_blank" rel="noopener noreferrer" title="Open {{ thread.platform or 'community' }} discussion">
+        <span class="thread-platform">{{ thread.platform or 'Discussion' }}</span>
+        <span class="thread-action">comments ↗</span>
+      </a>
+    {% endif %}
+  {% endfor %}
+</div>
+{% endif %}
