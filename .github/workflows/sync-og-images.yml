@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "data/briefings.json"
+      - "data/daily/**"
       - "scripts/sync_publisher_images.py"
       - ".github/workflows/sync-og-images.yml"
   workflow_dispatch:
@@ -40,12 +40,12 @@ jobs:
       - name: Publish image URLs to GitHub Pages feed
         shell: bash
         run: |
-          if git diff --quiet -- data/briefings.json; then
+          if git diff --quiet -- data/daily/; then
             echo "No new publisher images found."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/briefings.json
+          git add data/daily/
           git commit -m "Add verified publisher OG images to feed"
           git push origin HEAD:main
