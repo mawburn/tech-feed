@@ -13,18 +13,20 @@
     <h3 class="section-label">Top stories</h3>
     {% for story in top %}
     {% set secondary = false %}
-    <article class="story">
+    <article class="story{% if not story.image %} no-image{% endif %}">
       {% include "partials/story-image.njk" %}
-      <div class="story-header">
-        <span class="story-rank">{{ (story.rank or loop.index) | pad2 }}</span>
-        <span class="story-category">{{ story.category or 'Technology' }}</span>
-        {% if story.isUpdate %}<span class="story-updated">UPDATED</span>{% endif %}
+      <div class="story-content">
+        <div class="story-header">
+          <span class="story-rank">{{ (story.rank or loop.index) | pad2 }}</span>
+          <span class="story-category">{{ story.category or 'Technology' }}</span>
+          {% if story.isUpdate %}<span class="story-updated">UPDATED</span>{% endif %}
+        </div>
+        <h4 class="story-title">{{ story.title }}</h4>
+        {% if story.summary %}<p class="story-summary">{{ story.summary }}</p>{% endif %}
+        {% if story.whyItMatters %}<p class="story-insight"><strong>Why it matters: </strong>{{ story.whyItMatters }}</p>{% endif %}
+        {% if story.limitations %}<p class="story-insight story-limit"><strong>Caveat: </strong>{{ story.limitations }}</p>{% endif %}
       </div>
-      <h4 class="story-title">{{ story.title }}</h4>
-      {% if story.summary %}<p class="story-summary">{{ story.summary }}</p>{% endif %}
-      {% if story.whyItMatters %}<p class="story-insight"><strong>Why it matters: </strong>{{ story.whyItMatters }}</p>{% endif %}
-      {% if story.limitations %}<p class="story-insight story-limit"><strong>Caveat: </strong>{{ story.limitations }}</p>{% endif %}
-      {% include "partials/story-sources.njk" %}
+      <div class="story-links">{% include "partials/story-sources.njk" %}</div>
     </article>
     {% endfor %}
   </section>
