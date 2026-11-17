@@ -591,145 +591,151 @@
   ],
   "newTools": [
     {
-      "title": "Jiff 1.0",
+      "title": "tamserve: serving live multi-camera object tracking with shared GPU inference",
       "category": "Developer Tools",
-      "summary": "Rust datetime library with stable APIs and timezone-aware calendar arithmetic. The project is worth a targeted evaluation against an actual engineering use case rather than assuming maturity or superiority from its announcement.",
-      "sources": [
-        {
-          "label": "Repository",
-          "url": "https://github.com/BurntSushi/jiff"
-        }
-      ],
-      "image": {
-        "url": "https://opengraph.githubassets.com/5f1ce159986c391b4e50625977dde84db7b3f9d095f401c93455484a1b23810e/BurntSushi/jiff",
-        "alt": "Publisher-provided image for Jiff 1.0",
-        "credit": "github.com",
-        "sourceUrl": "https://github.com/BurntSushi/jiff",
-        "local": "img/ad343428ad33f629eb3c.webp",
-        "width": 600,
-        "height": 300,
-        "sha256": "ad343428ad33f629eb3c9e506bdefd4af10b3a5305443f6acd24d03d388ed581"
-      },
+      "format": "Source code",
+      "summary": "A developer published tamserve, an Apache-2.0 Python serving layer for SAM 2 and EdgeTAM that shares one model instance across live camera feeds instead of allocating a separate model for every stream. The repository contains executable camera-loop examples, tests, benchmarks, and recorded demonstrations. On the author's RTX 4090 tests, eight-camera EdgeTAM tracking consumed 2.2 GB of GPU memory versus 8.6 GB for the baseline, with similar segmentation accuracy. This is a practical architecture example for video analytics, robotics and streaming computer vision; the measurements have not been independently reproduced.",
       "briefing": [
         {
-          "heading": "Purpose and scope",
-          "body": "Rust datetime library with stable APIs and timezone-aware calendar arithmetic."
+          "heading": "What the demonstration shows",
+          "body": "The author documents live object masks across multiple camera streams and supplies a short recorded six-camera demonstration. An engine accepts frames from each stream and returns per-object segmentation masks, maintaining tracking state across calls. It supports box, click and mask prompts, with additional named-object tracking through a detector."
         },
         {
-          "heading": "Practical evaluation",
-          "body": "Review the project's documentation, deployment requirements, limitations and release maturity. Test a small representative workflow before integrating it into production systems."
+          "heading": "The serving architecture",
+          "body": "The important idea is separating model serving from camera capture. Multiple streams share one GPU-resident model, and work can be batched rather than spawning a separate model per camera. The project includes code, tests and a benchmark directory; its comparison uses EdgeTAM on an RTX 4090 and reports substantial GPU memory savings. These are author-reported measurements, not independently reproduced results."
+        },
+        {
+          "heading": "Reproduction and constraints",
+          "body": "The documented Python API uses pip install tamserve and a frame-processing loop that passes the newest frame from each camera to engine.step(). The author recommends an NVIDIA GPU for live performance, though CPU experimentation is possible. Real-world results will depend on resolution, object count, camera count, decoding, GPU and tracking conditions."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Source, examples and benchmarks",
+          "url": "https://github.com/aryamandarda/tamserve"
+        }
+      ],
+      "discoveredVia": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/show",
+          "label": "Show HN listing"
         }
       ]
     },
     {
-      "title": "Aristotle for Rust",
+      "title": "lend: local approval for remote coding agents without sharing credentials",
       "category": "Developer Tools",
-      "summary": "Experiment with formal verification of specified Rust properties and deliberate edge-case bugs. The project is worth a targeted evaluation against an actual engineering use case rather than assuming maturity or superiority from its announcement.",
-      "sources": [
-        {
-          "label": "Harmonic",
-          "url": "https://www.harmonic.fun/news/aristotle-rust-verification/"
-        }
-      ],
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50520270",
-          "label": "HN discussion"
-        }
-      ],
-      "image": {
-        "url": "https://www.harmonic.fun/images/share/news-aristotle-rust-verification-fedcd5adc7.jpg",
-        "alt": "Publisher-provided image for Aristotle for Rust",
-        "credit": "harmonic.fun",
-        "sourceUrl": "https://www.harmonic.fun/news/aristotle-rust-verification/",
-        "local": "img/fedcd5adc71603a5c789.webp",
-        "width": 600,
-        "height": 315,
-        "sha256": "fedcd5adc71603a5c789e43d933d2cc2770e5220431b41dfbfccdfbe843b5f12"
-      },
+      "format": "Technical writeup",
+      "summary": "A November 13 technical writeup documents a remote-agent workflow using herdr, Ovis and lend. Claude Code and Codex run on remote virtual machines, while the developer keeps authenticated GitHub and cloud CLIs, SSH keys and 1Password credentials on a local laptop. A forwarded SSH-agent socket carries restricted command requests back to the laptop, where policy and biometric approval govern execution. The post includes concrete configuration, MCP integration, connection-recovery handling and a security analysis. It reduces credential copying but is not a sandbox for approved local commands.",
       "briefing": [
         {
-          "heading": "Purpose and scope",
-          "body": "Experiment with formal verification of specified Rust properties and deliberate edge-case bugs."
+          "heading": "The workflow",
+          "body": "The author runs coding agents in disposable remote VMs and manages them through a terminal multiplexer and a browser or phone interface. Rather than copying credentials to the remote machines, lend forwards restricted requests through a proxy SSH-agent socket. The agent can request an authenticated GitHub CLI operation and receive the output after local approval."
         },
         {
-          "heading": "Practical evaluation",
-          "body": "Review the project's documentation, deployment requirements, limitations and release maturity. Test a small representative workflow before integrating it into production systems."
+          "heading": "Policies, MCP and reconnects",
+          "body": "The writeup includes policy rules for executable paths, argument prefixes, SSH key fingerprints and approval requirements. Claude Code can call a local-command tool through lend's MCP server. A stable socket symlink is used so long-running agent sessions can recover after SSH reconnects. The author also documents leases, logs and hooks for remote permission prompts."
+        },
+        {
+          "heading": "Threat model and caveats",
+          "body": "Credentials remain on the laptop, but approved commands execute with the laptop user's permissions. Allowing a shell, interpreter or secret-printing command can defeat the intended boundary. Caller descriptions from the VM are untrusted, and anyone with access to the forwarded socket can submit requests subject to policy and approval. The tool is early-stage and its described security properties have not been independently audited here."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Hands-on technical walkthrough",
+          "url": "https://blog.antonio.cx/running-agents-with-lend"
+        },
+        {
+          "label": "Source repository",
+          "url": "https://github.com/antoniomika/lend"
+        }
+      ],
+      "discoveredVia": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/news",
+          "label": "Front-page technical writeup"
         }
       ]
     },
     {
-      "title": "db-branch",
+      "title": "ThingStudio: visual flows and AI-generated MicroPython for microcontrollers",
       "category": "Developer Tools",
-      "summary": "Early-stage Apache-2.0 MySQL branching with ZFS clones and ProxySQL for CI and agent environments. The project is worth a targeted evaluation against an actual engineering use case rather than assuming maturity or superiority from its announcement.",
-      "sources": [
-        {
-          "label": "Repository",
-          "url": "https://github.com/db-branch/db-branch"
-        }
-      ],
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50506940",
-          "label": "Show HN"
-        }
-      ],
-      "image": {
-        "url": "https://opengraph.githubassets.com/ad4bb48c001af28ff04d9efd654c1bc22ae963665271e33fbc674fa5ad573682/db-branch/db-branch",
-        "alt": "Publisher-provided image for db-branch",
-        "credit": "github.com",
-        "sourceUrl": "https://github.com/db-branch/db-branch",
-        "local": "img/2f59111d86dd1eab7c35.webp",
-        "width": 600,
-        "height": 300,
-        "sha256": "2f59111d86dd1eab7c35dd5a0b80d0d9c14d9a9a8a7b89284e01ea7c8842e9f2"
-      },
+      "format": "Interactive demo",
+      "summary": "Mike Karliner demonstrated ThingStudio, an Apache-2.0 beta project that lets developers assemble event-driven microcontroller workflows visually and compile them into MicroPython. The site includes a browser demo, hardware examples and an AI-authoring approach: an assistant writes a structured flow, runs the compiler, corrects pin or node errors, and leaves a visual program a human can inspect. Supported targets include ESP32 and Raspberry Pi Pico families. Unlike a remote dashboard, the compiled flow runs on the board after deployment. Hardware coverage and usability are primarily maintainer-tested.",
       "briefing": [
         {
-          "heading": "Purpose and scope",
-          "body": "Early-stage Apache-2.0 MySQL branching with ZFS clones and ProxySQL for CI and agent environments."
+          "heading": "What the demonstration contains",
+          "body": "The site demonstrates a blinking LED flow and lets readers try the visual editor in a browser without installing hardware tools. It also documents practical chains involving buttons, timers, sensors, MQTT and LEDs. Flow files are plain JSON, and the editor can compile them into MicroPython for deployment over USB or WiFi."
         },
         {
-          "heading": "Practical evaluation",
-          "body": "Review the project's documentation, deployment requirements, limitations and release maturity. Test a small representative workflow before integrating it into production systems."
+          "heading": "Why the AI workflow is different",
+          "body": "Instead of asking an assistant for a monolithic script, the documented workflow asks it to produce a flow file using predefined nodes and connections. The compiler checks board definitions and pin conflicts, returning errors that can be corrected before deployment. The human can inspect the generated flow visually, which provides a reviewable intermediate representation between a natural-language request and device code."
+        },
+        {
+          "heading": "Reproduction and limitations",
+          "body": "The browser demo is available without an account; deploying to hardware requires a compatible MicroPython board and local setup. The author reports testing several ESP32, RP2040, RP2350, nRF52840 and STM32 boards. The project is explicitly beta, with incomplete independent hardware testing and potential rough edges in setup and documentation."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Interactive demo and technical overview",
+          "url": "https://thingstudio.net/"
+        },
+        {
+          "label": "Browser editor demo",
+          "url": "https://demo.thingstudio.net/"
+        }
+      ],
+      "discoveredVia": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/show",
+          "label": "Show HN listing"
         }
       ]
     }
   ],
   "marketPulse": "No new comprehensive US software-engineering employment release establishes a change in senior or Staff+ hiring. AMD's World Labs acquisition signals strategic AI investment, while chip restrictions and financial stability risks complicate the business outlook. The day's supply-chain and banking incidents emphasize operational security and reliability, not a measured hiring trend.",
   "discoveryAudit": {
-    "checkedAt": "2026-11-16T21:01:00-08:00",
-    "windowStart": "2026-11-15T21:01:00-08:00",
-    "windowEnd": "2026-11-16T21:01:00-08:00",
+    "checkedAt": "2026-11-16T23:00:00-08:00",
+    "windowStart": "2026-11-15T23:00:00-08:00",
+    "windowEnd": "2026-11-16T23:00:00-08:00",
     "sources": [
       {
-        "name": "Incident reporting and Optimizely status",
+        "name": "Breaking incident reporting",
         "status": "partial",
-        "notes": "Reviewed Reuters/AP banking reports and Optimizely incident history; some full technical sources inaccessible."
+        "notes": "Reviewed current Reuters, AP and independent banking reporting. No verified new active outage displaced the existing lead."
       },
       {
-        "name": "HN Algolia rolling 24h",
+        "name": "Hacker News Algolia rolling 24 hours",
         "status": "unavailable",
         "url": "https://hn.algolia.com/api/v1/search",
-        "notes": "Timestamp-filtered API inaccessible; no complete candidate count."
+        "notes": "API inaccessible; 40-60 timestamp-filtered items not examined."
       },
       {
-        "name": "HN front page, Best, Show and New",
+        "name": "Hacker News front page, Best, Show and New",
         "status": "partial",
         "url": "https://news.ycombinator.com/news",
-        "notes": "Four lists inspected; not 40-60 distinct original items."
+        "notes": "Reviewed accessible listings and selected technical source material; not a complete 24-hour API scan."
       },
       {
-        "name": "Reddit",
+        "name": "GitHub Trending and hands-on repositories",
+        "status": "partial",
+        "url": "https://github.com/trending",
+        "notes": "Reviewed trending index and tamserve source/examples; no independent reproduction."
+      },
+      {
+        "name": "Technical walkthroughs and interactive demos",
+        "status": "partial",
+        "notes": "Read lend workflow and ThingStudio technical demo documentation; did not independently execute tools."
+      },
+      {
+        "name": "Reddit technical communities",
         "status": "unavailable",
-        "notes": "No verified matching direct threads retrieved."
-      },
-      {
-        "name": "GitHub repository and editorial files",
-        "status": "checked",
-        "notes": "Read four editorial files, README, schema, current and previous edition."
+        "notes": "No verified matching Reddit thread retrieved in this run."
       }
     ],
     "majorIncidentsConsidered": [
@@ -755,6 +761,6 @@
         "sourceUrl": "https://www.reuters.com/world/us/united-airlines-says-technology-issue-affecting-departing-flights-2026-11-16/"
       }
     ],
-    "rankingNotes": "Optimizely leads on multi-organization malicious-script exposure; resolved JPMorgan outage follows. Other operational incidents were not verified as sharing a cause. Research and API access limitations constrain expanded detail."
+    "rankingNotes": "Existing incident-led top-story ranking retained; practical-tooling section replaced product announcements with three inspected hands-on workflows. Partial research access and no independently reproduced performance results."
   }
 }
