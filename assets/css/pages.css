@@ -25,7 +25,7 @@
 }
 
 .themes { display: grid; gap: var(--sp-2xl); margin-bottom: var(--sp-2xl); }
-.theme { background: var(--surface-lowest); border-radius: var(--r-lg); padding: var(--sp-xl); display: grid; gap: var(--sp-lg); }
+.theme { background: var(--surface-lowest); border-radius: var(--r-lg); padding: var(--sp-xl); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-lg); }
 .theme__top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-size: 11px; line-height: 14px; letter-spacing: .06em; }
 .theme__kind { display: inline-flex; align-items: center; gap: .375rem; text-transform: uppercase; font-weight: 600; color: var(--topic); }
 .theme__kind .icon { width: 14px; height: 14px; }
@@ -40,7 +40,8 @@
 .banner--caveat { background: var(--surface-low); }
 .banner--caveat .banner__label { color: var(--on-variant); }
 .banner--caveat p { color: var(--on-variant); }
-.theme .story-image { aspect-ratio: 16 / 7; }
+.theme .story-image { width: 100%; height: auto; aspect-ratio: 16 / 9; }
+@media (min-width: 40rem) { .theme .story-image { aspect-ratio: 16 / 7; } }
 .theme > .briefing { width: 100%; }
 .theme > .briefing .briefing__panel { margin-top: .5rem; }
 .tool-card > .briefing { margin-top: .25rem; }
