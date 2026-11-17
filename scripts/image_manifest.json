@@ -473,6 +473,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://prose.sh/card.png": {
+      "attempts": 1,
+      "bytes": 706,
+      "encoding": "lossless",
+      "file": "img/5178e7278090104b10a1.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-17T07:01:42Z",
+      "sha256": "5178e7278090104b10a195a5aeb39431a26a300a297709ac23715af9e6f1ba45",
+      "sourceBytes": 2702,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 300
+    },
     "https://qwenlm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E": {
       "attempts": 1,
       "lastAttempt": "2026-11-16T21:33:10Z",
@@ -488,6 +501,19 @@
       "lastAttempt": "2026-11-16T22:31:11Z",
       "sha256": "2e34e915dff849a6966163e6900610528d93c053635d7052d331526ec5b246ea",
       "sourceBytes": 20976,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://repository-images.githubusercontent.com/1453712334/2654889e-5808-485c-a426-4ec795152ca2": {
+      "attempts": 1,
+      "bytes": 36044,
+      "encoding": "q90",
+      "file": "img/095025ea3e628d4ba6d5.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-17T07:01:42Z",
+      "sha256": "095025ea3e628d4ba6d5cd6f03f5f162d690740c875b1ea40c408076badd157a",
+      "sourceBytes": 500420,
       "sourceFormat": "PNG",
       "status": "ok",
       "width": 600
@@ -540,6 +566,19 @@
       "lastAttempt": "2026-11-16T22:31:11Z",
       "sha256": "8c81ad5ac18fcaaa0aaa6d1f5de3e96d80f9ff486dc3d20415137f33e7a84fda",
       "sourceBytes": 1010365,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://thingstudio.net/og.png": {
+      "attempts": 1,
+      "bytes": 13260,
+      "encoding": "q85",
+      "file": "img/6bbc2f24283b4235e9a0.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-17T07:01:42Z",
+      "sha256": "6bbc2f24283b4235e9a0059fc80f116861a034efd46c1af83ac4ddbb61c3fa14",
+      "sourceBytes": 155305,
       "sourceFormat": "PNG",
       "status": "ok",
       "width": 600
@@ -683,6 +722,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://blog.antonio.cx/running-agents-with-lend": {
+      "attempts": 1,
+      "image": "https://prose.sh/card.png",
+      "lastAttempt": "2026-11-17T07:01:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/": {
       "attempts": 1,
       "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-hydrogen__key-art__lockup__16-9.width-1300.jpg",
@@ -736,6 +782,13 @@
       "attempts": 1,
       "image": null,
       "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://demo.thingstudio.net/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-17T07:01:42Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -805,6 +858,20 @@
       "attempts": 1,
       "image": "https://opengraph.githubassets.com/5f1ce159986c391b4e50625977dde84db7b3f9d095f401c93455484a1b23810e/BurntSushi/jiff",
       "lastAttempt": "2026-11-17T04:09:37Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.com/antoniomika/lend": {
+      "attempts": 1,
+      "image": "https://opengraph.githubassets.com/bcb8f20384225ac30557c3ad384ff0455572aa28f919651c06a75a36b74c196d/antoniomika/lend",
+      "lastAttempt": "2026-11-17T07:01:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.com/aryamandarda/tamserve": {
+      "attempts": 1,
+      "image": "https://repository-images.githubusercontent.com/1453712334/2654889e-5808-485c-a426-4ec795152ca2",
+      "lastAttempt": "2026-11-17T07:01:42Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -986,6 +1053,13 @@
       "attempts": 1,
       "image": "https://status.bath.ac.uk/assets/status_pages/og_wl_operational-6028a588.png",
       "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://thingstudio.net/": {
+      "attempts": 1,
+      "image": "https://thingstudio.net/og.png",
+      "lastAttempt": "2026-11-17T07:01:42Z",
       "noimageindex": false,
       "status": "ok"
     },

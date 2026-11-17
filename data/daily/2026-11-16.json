@@ -621,7 +621,24 @@
           "url": "https://news.ycombinator.com/show",
           "label": "Show HN listing"
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50523377",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://repository-images.githubusercontent.com/1453712334/2654889e-5808-485c-a426-4ec795152ca2",
+        "alt": "Publisher-provided image for tamserve: serving live multi-camera object tracking with shared GPU inference",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/aryamandarda/tamserve",
+        "local": "img/095025ea3e628d4ba6d5.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "095025ea3e628d4ba6d5cd6f03f5f162d690740c875b1ea40c408076badd157a"
+      }
     },
     {
       "title": "lend: local approval for remote coding agents without sharing credentials",
@@ -658,7 +675,24 @@
           "url": "https://news.ycombinator.com/news",
           "label": "Front-page technical writeup"
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50526152",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://prose.sh/card.png",
+        "alt": "Publisher-provided image for lend: local approval for remote coding agents without sharing credentials",
+        "credit": "blog.antonio.cx",
+        "sourceUrl": "https://blog.antonio.cx/running-agents-with-lend",
+        "local": "img/5178e7278090104b10a1.webp",
+        "width": 300,
+        "height": 300,
+        "sha256": "5178e7278090104b10a195a5aeb39431a26a300a297709ac23715af9e6f1ba45"
+      }
     },
     {
       "title": "ThingStudio: visual flows and AI-generated MicroPython for microcontrollers",
@@ -695,7 +729,17 @@
           "url": "https://news.ycombinator.com/show",
           "label": "Show HN listing"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://thingstudio.net/og.png",
+        "alt": "Publisher-provided image for ThingStudio: visual flows and AI-generated MicroPython for microcontrollers",
+        "credit": "thingstudio.net",
+        "sourceUrl": "https://thingstudio.net/",
+        "local": "img/6bbc2f24283b4235e9a0.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "6bbc2f24283b4235e9a0059fc80f116861a034efd46c1af83ac4ddbb61c3fa14"
+      }
     }
   ],
   "marketPulse": "No new comprehensive US software-engineering employment release establishes a change in senior or Staff+ hiring. AMD's World Labs acquisition signals strategic AI investment, while chip restrictions and financial stability risks complicate the business outlook. The day's supply-chain and banking incidents emphasize operational security and reliability, not a measured hiring trend.",
