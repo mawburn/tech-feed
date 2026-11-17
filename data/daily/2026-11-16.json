@@ -1,10 +1,59 @@
 {
   "date": "2026-11-16",
-  "label": "Monday morning briefing",
-  "overview": "New US restrictions on remotely accessed AI compute and Alibaba's Qwen4-Max announcement lead the morning. A large open-weight LongCat model adds another entrant to agentic coding, while a Git remote-code-execution advisory warrants immediate attention. AI financial-stability concerns are receiving renewed official scrutiny, and hiring evidence remains mixed rather than showing a clear recovery.",
+  "label": "Monday evening incident and developer briefing",
+  "overview": "A malicious Optimizely third-party JavaScript supply-chain attack exposed visitors to sites operated by at least 178 organizations; most observed scripts were removed, but total impact is unknown. JPMorgan restored transaction processing after interbank delays, and United resolved a separate departure-system outage. US AI chip controls, AMD's World Labs acquisition, Alibaba's model announcement and developer security research remain significant. No comprehensive new US software hiring data establishes a change in senior demand.",
   "topStories": [
     {
-      "rank": 1,
+      "title": "Optimizely supply-chain attack delivers malware across 178 organizations",
+      "category": "Security",
+      "summary": "Scott Helme identified 188 infected Optimizely Web snippets at 178 organizations on November 16, distributing cryptocurrency address substitution, payment-card skimming, cookie theft and iOS exploit payloads. Most observed scripts were cleaned by the final sweep; the full impact is unknown.",
+      "whyItMatters": "Trusted third-party scripts can create cross-organization security exposure without direct compromises of each customer website.",
+      "limitations": "Initial access and total affected visitors remain unknown. A separate Optimizely service incident is not proven related.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "Primary investigation",
+          "url": "https://report-uri.ghost.io/worlds-largest-brands-infected-with-malware-via-optimizely/"
+        },
+        {
+          "label": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware/"
+        }
+      ],
+      "discoveredVia": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/news",
+          "label": "Front page discovery"
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "title": "JPMorgan transaction delays affect other banks before restoration",
+      "category": "Cloud & Infrastructure",
+      "summary": "JPMorgan's on-premises software bug delayed some transactions and interbank Zelle transfers on November 16. Chase reported normal processing Monday evening; other banks and Zelle said their systems remained operational.",
+      "whyItMatters": "Cross-institution dependencies propagate a single provider's failure into customers' payment workflows.",
+      "limitations": "Exact root cause and affected population remain unclear; no shared cause with other outages is established.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "Associated Press",
+          "url": "https://apnews.com/article/50fee2693c22f597fa6ca51a97ef2cda"
+        },
+        {
+          "label": "Reuters",
+          "url": "https://www.reuters.com/legal/transactional/downdetector-reports-outages-major-us-banks-2026-11-16/"
+        },
+        {
+          "label": "Restoration reporting",
+          "url": "https://www.fox32chicago.com/news/chase-bank-america-wells-fargo-outage"
+        }
+      ],
+      "rank": 2
+    },
+    {
+      "rank": 3,
       "title": "US tightens controls on remotely accessed advanced AI chips",
       "category": "Policy & Regulation",
       "summary": "The Commerce Department issued an interim rule addressing advanced AI chips accessed through overseas data centers, including additional licensing requirements in Singapore, Thailand, Malaysia, Indonesia and Brazil.",
@@ -23,7 +72,67 @@
       ]
     },
     {
-      "rank": 2,
+      "title": "AMD completes acquisition of World Labs",
+      "category": "Business & Markets",
+      "summary": "AMD confirmed the World Labs acquisition on November 16; its SEC filing reports a November 13 closing. Fei-Fei Li joins as executive vice president and chief scientist.",
+      "whyItMatters": "Spatial AI research could inform AMD accelerator and systems design beyond text generation.",
+      "limitations": "Commercial impact and spatial inference performance are not yet established.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "AMD announcement",
+          "url": "https://newsroom.amd.com/news/amd-completes-acquisition-world-labs/"
+        },
+        {
+          "label": "SEC filing",
+          "url": "https://ir.amd.com/financial-information/sec-filings/content/0001193125-26-462340/d105780d8ka.htm"
+        }
+      ],
+      "rank": 4
+    },
+    {
+      "title": "Patched uBlock Origin universal XSS exposes extension trust boundary",
+      "category": "Security",
+      "summary": "A Firefox Manifest V2 uBlock Origin element-picker vulnerability allowed malicious websites to trick users into adding trusted filters with script execution on other websites. It was patched.",
+      "whyItMatters": "Browser extension UI must isolate untrusted website content from privileged configuration.",
+      "limitations": "Requires user interaction; no widespread exploitation established.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "Research write-up",
+          "url": "https://iter.ca/post/ubo-uxss/"
+        },
+        {
+          "label": "Security advisory",
+          "url": "https://github.com/gorhill/uBlock/security/advisories/GHSA-cmqw-9r2w-6wv2"
+        }
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50513160",
+          "label": "Technical discussion"
+        }
+      ],
+      "rank": 5
+    },
+    {
+      "title": "Windows 11 diagnostic events reveal coding-agent usage telemetry",
+      "category": "Security",
+      "summary": "Reverse engineering found Windows diagnostics recording the presence of developer tools including Claude, Codex and Cursor. Optional diagnostics in tested configurations queued usage metadata for upload, without observed prompts or source code.",
+      "whyItMatters": "Usage metadata may expose professional development workflows even when code content is not collected.",
+      "limitations": "Findings apply to specific tested builds and settings, not all Windows installations.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "Independent investigation",
+          "url": "https://xusheng.dev/posts/windows-coding-agent-telemetry/"
+        }
+      ],
+      "rank": 6
+    },
+    {
+      "rank": 7,
       "title": "Alibaba announces Qwen4-Max with new security safeguards",
       "category": "AI Models & Research",
       "summary": "Alibaba unveiled a 2.4-trillion-parameter flagship model, reporting improved secure-code results and lower task costs in its own tests; smaller open-weight Qwen4 variants are planned.",
@@ -38,91 +147,73 @@
       ]
     },
     {
-      "rank": 3,
-      "title": "LongCat-2.5 weights available for large-scale agentic workflows",
-      "category": "AI Models & Research",
-      "summary": "Meituan's 1.6-trillion-parameter multimodal MoE model activates roughly 48 billion parameters per token and targets coding, visual understanding and long-horizon agents.",
-      "whyItMatters": "A substantial openly downloadable model expands alternatives for specialized inference infrastructure.",
-      "limitations": "Extremely large memory and serving requirements limit local use; published performance claims require independent evaluation; weights are available but the full training pipeline is not established as open.",
+      "title": "Jiff 1.0 stabilizes Rust timezone-aware datetime library",
+      "category": "Developer Tools",
+      "summary": "Andrew Gallant released Jiff 1.0 November 15, with civil/zoned time representations and DST-safe calendar operations; it already has adoption in Cargo, uv and Nushell.",
+      "whyItMatters": "Mature timezone handling reduces persistent production correctness risks.",
+      "limitations": "Migration and timezone-data compatibility need assessment.",
       "isUpdate": false,
       "sources": [
         {
-          "label": "Hugging Face model card",
-          "url": "https://huggingface.co/meituan-longcat/LongCat-2.5"
-        }
-      ],
-      "image": {
-        "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/meituan-longcat/LongCat-2.5.png",
-        "alt": "Publisher-provided image for LongCat-2.5 weights available for large-scale agentic workflows",
-        "credit": "huggingface.co",
-        "sourceUrl": "https://huggingface.co/meituan-longcat/LongCat-2.5",
-        "local": "img/303197b28a8349d6f066.webp",
-        "width": 600,
-        "height": 324,
-        "sha256": "303197b28a8349d6f066422ebe3f9f2358072ecce837ddbb71966c5b23372e89"
-      }
-    },
-    {
-      "rank": 4,
-      "title": "Git patches high-severity recursive-clone remote-code-execution flaw",
-      "category": "Security",
-      "summary": "Git maintainers published a high-severity advisory for recursive clones on November 10, among several security fixes highlighted by GitHub.",
-      "whyItMatters": "Repositories and automation that clone untrusted sources should prioritize patched Git versions.",
-      "limitations": "Risk depends on affected workflows and versions; review the advisory rather than assuming all clones are exploitable.",
-      "isUpdate": false,
-      "sources": [
-        {
-          "label": "Git advisory",
-          "url": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr"
+          "label": "Author's release essay",
+          "url": "https://burntsushi.net/jiff/"
         },
         {
-          "label": "GitHub engineering coverage",
-          "url": "https://github.blog/"
+          "label": "Repository",
+          "url": "https://github.com/BurntSushi/jiff"
         }
       ],
-      "image": {
-        "url": "https://opengraph.githubassets.com/893f328115f736f3c49f5add942cfc800c3703396d10d842b7c123745c633f32/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
-        "alt": "Publisher-provided image for Git patches high-severity recursive-clone remote-code-execution flaw",
-        "credit": "github.com",
-        "sourceUrl": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
-        "local": "img/6be759c56efb679125aa.webp",
-        "width": 600,
-        "height": 300,
-        "sha256": "6be759c56efb679125aa3c47a550426606cd092dfbd2e1c5c9bc2bcf18680a3d"
-      }
-    },
-    {
-      "rank": 5,
-      "title": "Federal Reserve warns of AI-driven financial instability",
-      "category": "Business & Markets",
-      "summary": "Fed Governor Michael Barr highlighted correlated AI trading behavior, cyber risks, authorization problems with financial agents, and complex AI infrastructure financing.",
-      "whyItMatters": "Financial-sector agent deployments need rigorous controls, and infrastructure funding risks could spill into tech investment.",
-      "limitations": "These are systemic risk scenarios, not evidence that a crash or mass job loss is imminent.",
-      "isUpdate": true,
-      "sources": [
+      "discussions": [
         {
-          "label": "Reuters",
-          "url": "https://www.reuters.com/world/feds-barr-warns-ai-risks-financial-system-2026-11-16/"
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50519744",
+          "label": "Technical discussion"
         }
-      ]
-    },
-    {
-      "rank": 6,
-      "title": "US and nine allies announce AI supply-chain coordination",
-      "category": "Policy & Regulation",
-      "summary": "The United States and nine partners signed a declaration to protect AI technology and critical infrastructure supply chains.",
-      "whyItMatters": "Supply-chain security is becoming a coordinated international policy priority.",
-      "limitations": "The declaration is a framework announcement without verified detailed implementation or immediate technical requirements.",
-      "isUpdate": false,
-      "sources": [
-        {
-          "label": "Reuters",
-          "url": "https://www.reuters.com/world/china/us-allies-team-up-protect-ai-tech-infrastructure-amid-china-rivalry-2026-11-16/"
-        }
-      ]
+      ],
+      "rank": 8
     }
   ],
   "alsoWorthKnowing": [
+    {
+      "title": "United Airlines resolves separate departure-systems outage",
+      "category": "Cloud & Infrastructure",
+      "summary": "A technology failure delayed departing United flights for about an hour on November 16; the airline confirmed resolution, with no impact on airborne or United Express flights and no established link to the FAA incident.",
+      "sources": [
+        {
+          "label": "Reuters",
+          "url": "https://www.reuters.com/world/us/united-airlines-says-technology-issue-affecting-departing-flights-2026-11-16/"
+        }
+      ]
+    },
+    {
+      "title": "Aristotle introduces AI-assisted Rust formal verification",
+      "category": "Developer Tools",
+      "summary": "Harmonic announced Rust support for formal verification against specified properties, with vendor-reported examples that require independent assessment.",
+      "sources": [
+        {
+          "label": "Harmonic announcement",
+          "url": "https://www.harmonic.fun/news/aristotle-rust-verification/"
+        }
+      ]
+    },
+    {
+      "title": "OpenCode Browse draws developer attention",
+      "category": "Developer Tools",
+      "summary": "OpenCode Browse appeared in the HN front-page listings; evaluate its security boundaries and capabilities before production use.",
+      "sources": [
+        {
+          "label": "OpenCode",
+          "url": "https://opencode.ai/"
+        }
+      ],
+      "discoveredVia": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/news",
+          "label": "Front page"
+        }
+      ]
+    },
     {
       "title": "US reportedly preparing AI national champions designation",
       "category": "Business & Markets",
@@ -138,28 +229,6 @@
           "platform": "Hacker News",
           "url": "https://news.ycombinator.com/item?id=50516837",
           "label": "HN discussion"
-        }
-      ]
-    },
-    {
-      "title": "Security startup Corma raises new funding",
-      "category": "Security",
-      "summary": "Corma reportedly raised $125 million for autonomous cyber-defense agents; product effectiveness remains unverified.",
-      "sources": [
-        {
-          "label": "Wall Street Journal",
-          "url": "https://www.wsj.com/pro/cybersecurity/startup-corma-builds-ai-agents-for-cyber-defense-7d296a0f"
-        }
-      ]
-    },
-    {
-      "title": "FBI warns about abuse of ARTEX penetration-testing tooling",
-      "category": "Security",
-      "summary": "A reported FBI warning underscores the need to distinguish legitimate agentic security testing from malicious deployment.",
-      "sources": [
-        {
-          "label": "Wall Street Journal",
-          "url": "https://www.wsj.com/pro/cybersecurity/startup-corma-builds-ai-agents-for-cyber-defense-7d296a0f"
         }
       ]
     },
@@ -261,58 +330,109 @@
   ],
   "newTools": [
     {
-      "title": "LongCat-2.5",
-      "category": "AI Models & Research",
-      "summary": "Investigate its multimodal agentic architecture and model card; enormous hardware requirements make hosted evaluation more realistic than desktop deployment.",
+      "title": "Jiff 1.0",
+      "category": "Developer Tools",
+      "summary": "Rust datetime library with stable APIs and timezone-aware calendar arithmetic.",
       "sources": [
         {
-          "label": "Hugging Face",
-          "url": "https://huggingface.co/meituan-longcat/LongCat-2.5"
-        }
-      ],
-      "image": {
-        "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/meituan-longcat/LongCat-2.5.png",
-        "alt": "Publisher-provided image for LongCat-2.5",
-        "credit": "huggingface.co",
-        "sourceUrl": "https://huggingface.co/meituan-longcat/LongCat-2.5",
-        "local": "img/303197b28a8349d6f066.webp",
-        "width": 600,
-        "height": 324,
-        "sha256": "303197b28a8349d6f066422ebe3f9f2358072ecce837ddbb71966c5b23372e89"
-      }
-    },
-    {
-      "title": "Qwen4-Max",
-      "category": "AI Models & Research",
-      "summary": "Monitor API availability and independently test secure coding rather than relying on Alibaba's internal benchmark claims.",
-      "sources": [
-        {
-          "label": "Reuters announcement",
-          "url": "https://www.reuters.com/business/retail-consumer/alibaba-unveils-new-flagship-ai-model-with-safety-upgrades-2026-11-16/"
+          "label": "Repository",
+          "url": "https://github.com/BurntSushi/jiff"
         }
       ]
     },
     {
-      "title": "Git security advisories",
-      "category": "Security",
-      "summary": "Review the recursive-clone advisory and patch Git in CI, developer workstations and agent sandboxes where relevant.",
+      "title": "Aristotle for Rust",
+      "category": "Developer Tools",
+      "summary": "Experiment with formal verification of specified Rust properties and deliberate edge-case bugs.",
       "sources": [
         {
-          "label": "Git advisory",
-          "url": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr"
+          "label": "Harmonic",
+          "url": "https://www.harmonic.fun/news/aristotle-rust-verification/"
+        }
+      ]
+    },
+    {
+      "title": "db-branch",
+      "category": "Developer Tools",
+      "summary": "Early-stage Apache-2.0 MySQL branching with ZFS clones and ProxySQL for CI and agent environments.",
+      "sources": [
+        {
+          "label": "Repository",
+          "url": "https://github.com/db-branch/db-branch"
         }
       ],
-      "image": {
-        "url": "https://opengraph.githubassets.com/893f328115f736f3c49f5add942cfc800c3703396d10d842b7c123745c633f32/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
-        "alt": "Publisher-provided image for Git security advisories",
-        "credit": "github.com",
-        "sourceUrl": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
-        "local": "img/6be759c56efb679125aa.webp",
-        "width": 600,
-        "height": 300,
-        "sha256": "6be759c56efb679125aa3c47a550426606cd092dfbd2e1c5c9bc2bcf18680a3d"
-      }
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50506940",
+          "label": "Show HN"
+        }
+      ]
     }
   ],
-  "marketPulse": "No new comprehensive software-engineering employment release was verified this morning. Employer interviews suggest increased value placed on collaboration and judgment, but cannot establish Staff+ demand or compensation trends. AI infrastructure funding, export controls and systemic risk remain material business signals; they do not by themselves prove a broad hiring recovery."
+  "marketPulse": "No new comprehensive US software-engineering employment release establishes a change in senior or Staff+ hiring. AMD's World Labs acquisition signals strategic AI investment, while chip restrictions and financial stability risks complicate the business outlook. The day's supply-chain and banking incidents emphasize operational security and reliability, not a measured hiring trend.",
+  "discoveryAudit": {
+    "checkedAt": "2026-11-16T20:10:52-08:00",
+    "windowStart": "2026-11-15T20:10:52-08:00",
+    "windowEnd": "2026-11-16T20:10:52-08:00",
+    "sources": [
+      {
+        "name": "Current incidents",
+        "status": "partial",
+        "notes": "Searched and corroborated Optimizely, JPMorgan and United incidents; not exhaustive across all vendors."
+      },
+      {
+        "name": "HN Algolia rolling 24h",
+        "status": "unavailable",
+        "url": "https://hn.algolia.com/api/v1/search",
+        "notes": "Timestamp-filtered API inaccessible; no rolling-window candidate count verified."
+      },
+      {
+        "name": "Official HN Top, Best, Show and New pages",
+        "status": "partial",
+        "url": "https://news.ycombinator.com/news",
+        "notes": "Reviewed listings and selected items; did not examine 40-60 distinct time-filtered submissions."
+      },
+      {
+        "name": "GitHub and primary engineering sources",
+        "status": "partial",
+        "url": "https://github.com/",
+        "notes": "Selected releases, advisories and technical posts checked."
+      },
+      {
+        "name": "Reddit technical communities",
+        "status": "partial",
+        "notes": "No direct matching Reddit discussion permalink verified."
+      },
+      {
+        "name": "Business and labor reporting",
+        "status": "partial",
+        "notes": "Reviewed Reuters, AP and company reports; no new comprehensive labor dataset."
+      }
+    ],
+    "majorIncidentsConsidered": [
+      {
+        "title": "Optimizely malicious third-party JavaScript",
+        "decision": "top-story",
+        "reason": "Confirmed large cross-site malicious script distribution and uncertain full impact.",
+        "status": "uncertain",
+        "sourceUrl": "https://report-uri.ghost.io/worlds-largest-brands-infected-with-malware-via-optimizely/"
+      },
+      {
+        "title": "JPMorgan banking transaction delays",
+        "decision": "top-story",
+        "reason": "Verified cross-bank payment disruption; Chase reported restoration.",
+        "status": "resolved",
+        "sourceUrl": "https://www.reuters.com/legal/transactional/downdetector-reports-outages-major-us-banks-2026-11-16/"
+      },
+      {
+        "title": "United Airlines departure outage",
+        "decision": "also-worth",
+        "reason": "Shorter, resolved disruption with no verified link to the FAA incident.",
+        "status": "resolved",
+        "sourceUrl": "https://www.reuters.com/world/us/united-airlines-says-technology-issue-affecting-departing-flights-2026-11-16/"
+      }
+    ],
+    "rankingNotes": "Optimizely leads for verified multi-organization malicious code exposure. Resolved cross-bank JPMorgan disruption is second; United's shorter resolved incident is additional news. Algolia was unavailable, so HN coverage is partial."
+  }
 }
