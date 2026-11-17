@@ -48,7 +48,7 @@ If live JSON APIs are inaccessible, use accessible HN web pages and reputable in
 
 ### Practical applications ("AI & tooling in practice")
 
-Run a separate discovery pass for hands-on material: YouTube tutorials and demonstrations, GitHub examples, Show HN projects, technical writeups and case studies, following `editorial/APPLICATIONS.md`. Prefer evidence, originality and reproducibility over announcements. Verify by actually reading or watching the material. There is no quota or cap: include every entry that meets the bar and none that do not.
+Run a **separate** discovery pass for hands-on material, guided by `editorial/APPLICATIONS.md` and the **specific venues, direct URLs and rotating query patterns** in `editorial/SOURCES.md`. Try YouTube, Show HN, GitHub examples and working demo/independent experiments each day; rotate niche technical communities and makers over the week. Check the actual release/upload dates, distinguish old tutorials from fresh developments, verify by reading or watching accessible material, and note any inaccessible venue in the audit. Prefer evidence, originality and reproducibility over announcements. There is no item quota or cap: include every entry that meets the bar and none that do not.
 
 ## 5. Candidate shortlist and editorial selection
 

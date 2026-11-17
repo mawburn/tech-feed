@@ -11,7 +11,7 @@ The ChatGPT daily and Sunday scheduled tasks read the version-controlled editori
 
 - [Discovery protocol](editorial/DISCOVERY.md): rolling 24-hour Hacker News scan, cross-category breaking-incident sweep, source checks and research audit.
 - [Ranking rules](editorial/RANKING.md): operational-impact priority and final missing-story check.
-- [Source guide](editorial/SOURCES.md): primary sources, independent confirmation and community-link rules.
+- [Source guide](editorial/SOURCES.md): concrete discovery venues (YouTube, Show HN, GitHub, Hugging Face, niche technical communities), rotating searches, primary sources and verification rules. This is where to update the watchlist and places to look.
 - [AI & tooling in practice](editorial/APPLICATIONS.md): discovery, selection, verification and writing standards for hands-on applications, tutorials, demos and experiments (daily `newTools`, weekly `toolsToWatch`).
 - [Writing standards](editorial/WRITING.md): substantive visible summaries and source-grounded expandable explanations for daily stories and weekly themes.
 

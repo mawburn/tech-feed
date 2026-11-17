@@ -29,7 +29,7 @@ A launch may appear here only when an independent party built something notable 
 
 ## Discovery
 
-Look broadly and independently of the news sections. Starting points are listed in `SOURCES.md` (practical applications and tutorials). Use time-filtered searches for the daily window, and Show HN and GitHub activity from the same window. HN, Reddit and similar are discovery leads: record a genuine lead in `discoveredVia` and a matching thread in `discussions`. Do not set a quota. If nothing meets the bar, publish fewer entries, or none.
+Look broadly and independently of the news sections. **Use the concrete discovery venues and rotating search examples in `editorial/SOURCES.md`**. The daily pass should try YouTube, Show HN, GitHub examples and working demo/independent experiment sources; rotate the other venues and seek smaller creators, technical hobbyists and niche communities. The Sunday review should search across the full week and catch missed examples. Use time-filtered searches where supported; do not treat a year-old tutorial as newly published merely because it was found today. HN, Reddit and similar are discovery leads: record a genuine lead in `discoveredVia` and a matching thread in `discussions`. If a discovery path is unavailable, log it accurately in the audit and use another. Do not set a quota. If nothing meets the bar, publish fewer entries, or none.
 
 ## Selection
 

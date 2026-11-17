@@ -41,15 +41,65 @@ Review relevant technical Reddit communities, Lobsters, developer forums and dir
 
 `sources` contains evidence for the factual story. `discoveredVia` is its genuine discovery origin. `discussions` is a matching community conversation. One link can serve multiple roles only if those roles are actually true.
 
-## Practical applications and tutorials
+## Practical applications and tutorials — specific discovery venues
 
-Used for the "AI & tooling in practice" section; see `editorial/APPLICATIONS.md` for selection and verification rules.
+Used for **AI & tooling in practice**, not to determine the day's breaking-news lead. See `editorial/APPLICATIONS.md` for selection and verification rules. These are **leads**, not approved articles, trusted vendors, or instructions to reproduce their claims. Link the original project/video/code after examining it.
 
-- YouTube: search recent tutorials, demos and build logs by topic; link the specific video. Independent creators and conference talks are preferred over vendor marketing. Review the video itself, not only the title or description.
-- GitHub: new and recently updated example repositories, trending projects, awesome-lists and linked demos. Verify the code, license, commit history and instructions.
-- Show HN (`https://hacker-news.firebaseio.com/v0/showstories.json`, or Algolia with `tags=show_hn`): projects with working demos or source.
-- Technical blogs, engineering writeups, Lobsters, relevant Reddit communities and developer forums for case studies and workflows.
-- Treat aggregators and social posts as leads. The evidence is the underlying video, repository or writeup.
+### Core searches for each daily edition
+
+Try these **four distinct discovery paths**, then follow promising material to the original source:
+
+1. **YouTube videos, not just articles**: [YouTube](https://www.youtube.com/). Search by topic, filter or check actual publication dates, inspect real demonstrations, chapters/transcripts where accessible, linked repositories, requirements and results. Search independent makers and small channels, not just high-subscriber creators.
+2. **Show HN / small projects**: [Show HN](https://news.ycombinator.com/show), [HN official show feed](https://hacker-news.firebaseio.com/v0/showstories.json), and [HN Algolia](https://hn.algolia.com/api) for time-filtered `show_hn` submissions. Inspect the working demo and source behind each interesting post.
+3. **GitHub projects and examples**: [Trending](https://github.com/trending), [AI agents topic](https://github.com/topics/ai-agents), and recently updated code repositories, examples and discussions. Prioritize code actually present, demo/test instructions, license and commit activity over stars.
+4. **Working demo ecosystems / independent experiments**: [Hugging Face Spaces](https://huggingface.co/spaces?sort=trending), [Simon Willison's coding-agent experiments](https://simonwillison.net/tags/coding-agents/) and [AI-assisted programming](https://simonwillison.net/tags/ai-assisted-programming/), plus relevant independents. Inspect the actual app, blog entry or implementation.
+
+If one venue is inaccessible, use a reasonable alternative and record `partial`/`unavailable` accurately in `discoveryAudit.sources`. Do **not** claim to have searched YouTube or watched a video merely because a search result shows a title. These paths are separate from the required outage and general-news sweeps.
+
+### Rotating discovery venues (mix across days, deepen on Sundays)
+
+| Place | What to look for | How to evaluate |
+| --- | --- | --- |
+| [The Coding Train](https://thecodingtrain.com/) | Creative-coding challenges, generative art, simulations, learning projects and linked videos | Concrete technique, runnable examples, originality; not every lesson is new |
+| [Sebastian Lague](https://www.youtube.com/channel/UCmtyQOKKmrMVaKuRXz02jbQ) and [project code](https://github.com/SebLague) | Hands-on graphics, simulations, tools and coding adventures | Source availability, engineering tradeoffs, publish date |
+| [Hackaday AI](https://hackaday.com/category/artificial-intelligence/) | Odd hardware/software integrations, local models, small experiments | Follow the article to original maker writeup, code and demonstration |
+| [Kaggle Notebooks](https://www.kaggle.com/code/) | Runnable ML/data experiments and tutorials | Reproducible notebooks, data and runtime requirements; be wary of leaderboard-only work |
+| [ComfyUI workflow examples](https://github.com/comfyanonymous/ComfyUI_examples) | Reproducible image/video workflows, node graphs and techniques | Workflow files, model/license dependencies, hardware requirements |
+| [r/LocalLLaMA](https://www.reddit.com/r/LocalLLaMA/) | Locally run models, unusual installations, performance tests, maker showcases | Firsthand artifacts, disclosed hardware, reproducible method; treat anecdotes as anecdotes |
+| [Lobsters](https://lobste.rs/) | Technical writeups, hobby projects, developer tooling and deep-dive discussions | Go beyond the submission title to original work |
+| [GitHub Show-and-Tell / discussions](https://github.com/topics/creative-coding) | Experimental repos, techniques, novel combinations and linked demo videos | Prefer a runnable demo or useful documentation |
+
+Do not let a watchlist become a whitelist. Every run should also search outside the known venues, including non-English creators or niche maker communities when a credible, relevant project appears. Rotate themes (coding agents, software architecture, 3D/Blender, game engines, simulation, creative coding, local inference, data visualization, automation, robotics/hardware, video/audio workflows), and avoid covering the same category or popular creator repeatedly without a material new technique.
+
+### Reusable search patterns
+
+Use different queries and date filters as supported by each platform. Examples; substitute the current topic rather than searching only these exact strings:
+
+- `AI coding agent real project build demo walkthrough source code`
+- `local LLM actual workflow benchmark hardware config experiment`
+- `Claude Code / Codex / MCP automating Blender or CAD hands-on demonstration`
+- `creative coding simulation coding adventure source code tutorial`
+- `ComfyUI reproducible workflow video example files`
+- `small open-source tool how I built it technical writeup`
+- `AI automation engineering workflow what worked what failed`
+- `YouTube developer tool experiment build log GitHub repository`
+
+For video results, prefer videos that show input, setup, implementation and output. Search within the **actual daily/weekly time window** where possible; a discovery about an older video should only be presented as fresh when a new build, update, or application occurred during that window. Publish a direct `youtube.com/watch?v=...` or `youtu.be/...` link only after verifying the exact video.
+
+### Distinguish source types
+
+- **Discovery**: HN, Reddit, YouTube search, an aggregator, trending list or a watchlist channel.
+- **Primary evidence**: original working demo, creator's video/build log, source code, notebook or detailed engineering writeup.
+- **Independent check**: reproducible evaluation, second technical implementation, issue report, knowledgeable criticism or credible third-party review.
+
+Use `discoveredVia` for actual community discovery provenance, `discussions` for relevant matching community threads and `sources[]` / `links[]` for the material supporting the writeup. A useful YouTube video is a source link; do not fabricate a `discoveredVia` community object for YouTube if its provenance structure would misrepresent the data.
+
+### Quality and effort limits
+
+- Prefer surprising **uses** of tools over announcements of the tools themselves. Reject sponsored funnels, repackaged press releases, affiliate "best of" roundups, benchmark claims without methodology and projects without inspectable implementation.
+- Investigate promising independent or unfamiliar creators as seriously as known ones. Do not confuse follower counts, stars or upvotes with technical merit.
+- Check source accessibility and what was actually read/viewed. When a YouTube video cannot be watched, the title and metadata alone cannot support a detailed technical briefing; use a creator-provided transcript, code, tutorial or another source and describe the limitation.
+- No item cap or mandatory number of applications. Attempt the daily discovery paths without inventing check results; publish only genuinely worthwhile entries. Sunday should independently look for missed, substantial week-long use cases, not only repeat daily picks.
 
 ## Jobs, business and policy
 
