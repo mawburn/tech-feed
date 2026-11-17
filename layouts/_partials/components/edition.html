@@ -28,7 +28,7 @@
     {{ printf "<h%d class=\"edition__title\" id=\"edition-%s-title\"><time datetime=\"%s\">%s</time></h%d>" (int $level) $issue.date $issue.date ($when | time.Format "Monday, January 2, 2006") (int $level) | safeHTML }}
     {{- end }}
     {{- if and (not $filter) $issue.overview }}
-    {{ partial "components/text.html" (dict "text" $issue.overview "class" "edition__overview") }}
+    {{ partial "components/text.html" (dict "text" $issue.overview "class" "edition__overview" "full" true) }}
     {{- end }}
   </header>
   {{- end }}
