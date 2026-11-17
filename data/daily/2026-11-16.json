@@ -109,6 +109,13 @@
           "heading": "Operational implications",
           "body": "Cloud providers may need to examine customer access, licensing and compute location. The specific exemptions and enforcement obligations depend on the rule text; it should not be interpreted as a universal ban on foreign GPU rentals."
         }
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50527329",
+          "label": "HN discussion"
+        }
       ]
     },
     {
