@@ -5,7 +5,10 @@
 {{- range partialCached "data/published-daily.html" "published" }}{{ if le .date $issue.date }}{{ $n = add $n 1 }}{{ end }}{{ end -}}
 {{- $stories := partial "data/stories.html" (slice $issue) -}}
 {{- $chars := add (len ($issue.overview | default "")) (len ($issue.marketPulse | default "")) -}}
-{{- range $stories }}{{ $chars = add $chars (len (.summary | default "")) (len (.whyItMatters | default "")) (len (.limitations | default "")) }}{{ end -}}
+{{- range $stories }}
+  {{- $chars = add $chars (len (.summary | default "")) (len (.whyItMatters | default "")) (len (.limitations | default "")) }}
+  {{- range .briefing }}{{ $chars = add $chars (len .body) }}{{ end }}
+{{- end -}}
 {{- $mins := int (math.Max 1 (math.Ceil (div (float $chars) 1100))) -}}
 {{- $title := $when | time.Format "Monday, January 2, 2006" -}}
 {{- $lede := "" -}}
