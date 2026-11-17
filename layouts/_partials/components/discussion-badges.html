@@ -4,7 +4,9 @@
 {{- if $links }}
 <div class="discussion-badges" aria-label="Community discussions">
   {{- range $links }}
-  <a class="thread-pill" href="{{ .url }}" target="_blank" rel="noopener noreferrer" title="Open {{ .platform | default "community" }} discussion"><span class="thread-platform">{{ .platform | default "Discussion" }}</span> <span class="thread-action">comments ↗</span></a>
+  {{- $p := lower (.platform | default "") }}
+  {{- $kind := cond (findRE `hacker|^hn` $p) "hn" (cond (findRE `reddit` $p) "reddit" "chat") }}
+  <a class="thread-pill thread-pill--{{ $kind }}" href="{{ .url }}" target="_blank" rel="noopener noreferrer" title="Open {{ .platform | default "community" }} discussion{{ with .label }} ({{ . }}){{ end }}">{{ partial "components/icon.html" $kind }}<span class="thread-platform">{{ .platform | default "Discussion" }}</span> <span class="thread-action">comments ↗</span></a>
   {{- end }}
 </div>
 {{- end -}}

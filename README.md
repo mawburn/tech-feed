@@ -79,15 +79,22 @@ layouts/
   _partials/data/           data access only: editions, windows, slugs, images (no markup)
   _partials/components/     reusable markup: edition, story, story-image, link lists, navs
   _partials/head/           <head> metadata, SEO, JSON-LD
-assets/css/main.css         minimal placeholder styles (fingerprinted)
+assets/css/                 tokens, base, layout, components, pages (concatenated + fingerprinted)
 assets/img/                 optimized publisher images only (committed)
-static/                     favicon, .nojekyll
+static/                     favicon, logo SVGs (img/), self-hosted Inter (fonts/), .nojekyll
 schemas/                    versioned JSON Schemas
 scripts/                    validator (Node), enrichment (Python), image policy and manifest
 tests/                      site, validator and image-pipeline tests
 ```
 
-**Redesign:** a new design should only need changes to `layouts/` (mostly `_partials/components/` and the page templates), `assets/css/` and `static/`. The data partials, content adapters, data files and workflows can stay as they are. The image partial (`components/story-image.html`) already renders `srcset`, `sizes`, `width`/`height`, lazy loading and attribution, and handles SVGs. It renders nothing when a story has no local image. Adjust `sizes` there and `params.imageWidths` in `hugo.toml` to match the new layout. Long summaries collapse into a native `<details>` element, set by `params.summaryCollapseChars`.
+**Design:** the *mawburn dispatch* design (Stitch export, navy "Editorial Charcoal" palette) lives entirely in `layouts/`, `assets/css/` and `static/`.
+
+- **Tokens and CSS:** `assets/css/tokens.css` holds the palette, type, spacing and the six topic accents. The files are concatenated in `head/assets.html`. There is no JavaScript. The "Read briefing" expander is a native `<details>`.
+- **Topic accents:** `_partials/data/topic-style.html` maps any category name to an accent and icon by keyword (security, jobs, business, developer tools, infrastructure, AI, else neutral). Templates only emit `topic--{key}`.
+- **Components:** `story.html` has `lead`, `brief` and `tool` variants. `edition-hero`, `section-index`, `coverage-bars` and `weekly-edition` build the page bodies, and `icon.html` holds the inline SVG icons. Keep `class="story__title"` on story headings and `thread-pill` on discussion links, because the site tests match them.
+- **Brand:** the logo SVGs in `static/img/` were generated from the outlined artwork (wordmark, full lockup, mountain mark). The favicon uses the same crescent and mountain.
+- **Fonts:** Inter variable (latin, SIL OFL) is self-hosted in `static/fonts/`. Mono text uses the system monospace stack.
+- **Images:** the image partial (`components/story-image.html`) renders `srcset`, `sizes`, `width`/`height`, lazy loading and attribution (as an overlay credit), and handles SVGs. It renders nothing when a story has no local image. Adjust `sizes` there and `params.imageWidths` in `hugo.toml` to match a layout change. Long summaries collapse into a native `<details>` element, set by `params.summaryCollapseChars`.
 
 ## Local development
 
@@ -217,4 +224,4 @@ To run a backfill locally:
 - **Feed format.** In `data/briefings.json` and `data/weekly.json`, object keys are now alphabetical (a side effect of Hugo's JSON encoding), and stored images gain an absolute `image.localUrl`.
 - **Validation.** It now uses versioned JSON Schemas. Invalid files are quarantined from the build instead of failing the whole deploy.
 - **Tooling.** pnpm replaces npm. Eleventy and the old client-side scripts (`assets/app.js`, `assets/weekly.js`, the root `index.html`/`weekly.html`) are gone.
-- **Design.** The visual design is a minimal placeholder until the Stitch redesign.
+- **Design.** The site uses the mawburn dispatch redesign (see Project layout).

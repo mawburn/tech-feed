@@ -5,7 +5,8 @@
 {{ partial "components/page-header.html" (dict "kicker" "Browse" "title" "Topics" "intro" "Every topic covered by the daily briefings.") }}
 <ul class="topic-index">
   {{- range sort .Pages "LinkTitle" }}
-  <li><a href="{{ .RelPermalink }}">{{ .Params.category }}</a> · {{ index $recentCounts .Params.slug | default 0 }} this week · {{ index $allCounts .Params.slug | default 0 }} all time</li>
+  {{- $style := partial "data/topic-style.html" .Params.category }}
+  <li class="topic topic--{{ $style.key }}"><a href="{{ .RelPermalink }}"><span class="dot" aria-hidden="true"></span>{{ .Params.category }}</a> {{ index $recentCounts .Params.slug | default 0 }} this week · {{ index $allCounts .Params.slug | default 0 }} all time</li>
   {{- else }}
   <li>No topics yet.</li>
   {{- end }}

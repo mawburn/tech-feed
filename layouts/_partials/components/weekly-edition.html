@@ -1,59 +1,98 @@
-{{- /* A weekly review. Context: {week, level (heading level of the week's subsections, default 2)} */ -}}
+{{- /* A weekly review, including its h1. Context: {week, level (heading level of the subsections, default 2)} */ -}}
 {{- $w := .week -}}
 {{- $level := .level | default 2 -}}
 {{- $end := time.AsTime $w.weekEnding -}}
 {{- $start := cond (ne (string ($w.weekStart | default "")) "") (time.AsTime ($w.weekStart | default $w.weekEnding)) ($end.AddDate 0 0 -6) -}}
+{{- $previous := false -}}
+{{- range partialCached "data/weekly.html" "weekly" }}{{ if and (not $previous) (lt .weekEnding $w.weekEnding) }}{{ $previous = . }}{{ end }}{{ end -}}
+{{- $chars := add (len ($w.overview | default "")) (len ($w.marketPulse | default "")) (len ($w.nextWeekWatch | default "")) -}}
+{{- range $w.themes }}{{ $chars = add $chars (len (.summary | default "")) (len (.impact | default "")) (len (.caveat | default "")) }}{{ end -}}
+{{- $mins := int (math.Max 1 (math.Ceil (div (float $chars) 1100))) -}}
 <article class="weekly">
+  <div class="ticker">
+    <p class="ticker__lead"><span class="dot" aria-hidden="true"></span><strong>{{ if $w.partial }}Partial week · {{ $w.coverageDays }} editions{{ else }}Weekly review{{ end }}</strong><span class="ticker__muted">·</span><span><time datetime="{{ $start.Format "2006-01-02" }}">{{ $start | time.Format "Jan 2" }}</time> – <time datetime="{{ $w.weekEnding }}">{{ $end | time.Format "January 2, 2006" }}</time></span></p>
+    <p class="ticker__stats"><span>{{ partial "components/icon.html" "clock" }} ~{{ $mins }} min read</span>{{ with $w.themes }}<span class="ticker__muted">|</span><span>{{ len . }} themes</span>{{ end }}</p>
+  </div>
   <header class="weekly__header">
-    <p class="weekly__label">
-      {{- if $w.partial }}Partial week · {{ $w.coverageDays }} editions{{ else }}Weekly review{{ end }} ·
-      <time datetime="{{ $start.Format "2006-01-02" }}">{{ $start | time.Format "Jan 2" }}</time> – <time datetime="{{ $w.weekEnding }}">{{ $end | time.Format "January 2, 2006" }}</time>
-    </p>
-    {{ partial "components/heading.html" (dict "level" $level "text" ($w.title | default (printf "Week ending %s" ($end | time.Format "January 2, 2006"))) "class" "weekly__title") }}
+    <p class="weekly__kicker">mawburn dispatch · weekly synthesis</p>
+    <h1 class="weekly__title">{{ $w.title | default (printf "Week ending %s" ($end | time.Format "January 2, 2006")) }}</h1>
     {{- with $w.overview }}{{ partial "components/text.html" (dict "text" . "class" "weekly__overview") }}{{ end }}
+    {{- if or $w.themes $w.toolsToWatch }}
+    <nav class="pillbar" aria-label="Sections in this review">
+      {{- range $i, $t := $w.themes }}<a href="#theme-{{ add $i 1 }}">{{ add $i 1 }}. {{ $t.title | truncate 30 }}</a>{{ end }}
+      {{- if $w.toolsToWatch }}<a class="is-accent" href="#tools">Tools to watch</a>{{ end }}
+      {{- if $w.marketPulse }}<a class="is-accent" href="#market">Job market</a>{{ end }}
+    </nav>
+    {{- end }}
   </header>
   {{- with $w.themes }}
-  <section class="weekly__section">
-    {{ partial "components/heading.html" (dict "level" $level "text" "The developments that mattered" "class" "weekly__section-title") }}
+  <section class="themes" aria-label="The developments that mattered">
     {{- range $i, $t := . }}
-    <article class="story story--primary">
-      {{- partial "components/story-image.html" (dict "image" $t.image "alt" $t.title) }}
-      <div class="story__body">
-        <p class="story__meta"><span class="story__rank">{{ printf "%02d" (add $i 1) }}</span> <span class="story__category">{{ partial "data/category.html" $t }}</span></p>
-        {{ partial "components/heading.html" (dict "level" (add $level 1) "text" $t.title "class" "story__title") }}
-        {{- partial "components/text.html" (dict "text" $t.summary "class" "story__summary") }}
-        {{- with $t.impact }}<p class="story__note"><strong>Why it matters:</strong> {{ . }}</p>{{ end }}
-        {{- with $t.caveat }}<p class="story__note story__note--caveat"><strong>Caveat:</strong> {{ . }}</p>{{ end }}
-        {{- partial "components/story-links.html" (dict "sources" $t.links "discussions" $t.discussions) }}
+    {{- $category := partial "data/category.html" $t }}
+    {{- $style := partial "data/topic-style.html" $category }}
+    {{- $days := sort ($t.sourceDays | default slice) }}
+    <article class="theme topic topic--{{ $style.key }}" id="theme-{{ add $i 1 }}">
+      <div class="theme__top">
+        <span class="theme__kind">{{ partial "components/icon.html" $style.icon }}Theme {{ printf "%02d" (add $i 1) }} // {{ $category }}</span>
+        {{- with $days }}<span class="theme__days">{{ if gt (len .) 1 }}{{ time.AsTime (index . 0) | time.Format "Jan 2" }} – {{ time.AsTime (index . (sub (len .) 1)) | time.Format "Jan 2" }}{{ else }}{{ time.AsTime (index . 0) | time.Format "Jan 2" }}{{ end }}</span>{{ end }}
+      </div>
+      <div class="theme__head">
+        {{ partial "components/heading.html" (dict "level" $level "text" $t.title "class" "theme__title") }}
+        {{- partial "components/text.html" (dict "text" $t.summary "class" "theme__summary") }}
+      </div>
+      {{- with $t.impact }}
+      <div class="banner"><span class="banner__label">{{ partial "components/icon.html" "alert" }}Why it matters</span><p>{{ . }}</p></div>
+      {{- end }}
+      {{- partial "components/story-image.html" (dict "image" $t.image "alt" $t.title "sizes" "(min-width: 64rem) 60rem, calc(100vw - 4rem)") }}
+      {{- with $t.caveat }}
+      <div class="banner banner--caveat"><span class="banner__label">Caveat</span><p>{{ . }}</p></div>
+      {{- end }}
+      <div class="theme__links">
+        {{- partial "components/link-list.html" (dict "label" "Sources" "links" $t.links "kind" "source") }}
+        {{- partial "components/discussion-badges.html" (dict "discussions" $t.discussions) }}
       </div>
     </article>
     {{- end }}
   </section>
   {{- end }}
   {{- with $w.toolsToWatch }}
-  <section class="weekly__section">
-    {{ partial "components/heading.html" (dict "level" $level "text" "Tools worth investigating" "class" "weekly__section-title") }}
-    {{- range . }}
-    <article class="story">
-      <div class="story__body">
-        {{ partial "components/heading.html" (dict "level" (add $level 1) "text" .title "class" "story__title") }}
-        {{- partial "components/text.html" (dict "text" .summary "class" "story__summary") }}
-        {{- partial "components/story-links.html" (dict "sources" .links) }}
-      </div>
-    </article>
-    {{- end }}
+  <section class="panel panel--low" id="tools">
+    <p class="panel__kicker">Curated roundup</p>
+    {{ partial "components/heading.html" (dict "level" $level "text" "Tools worth investigating" "class" "panel__title") }}
+    <div class="tool-grid">
+      {{- range . }}
+      <article class="tool-card">
+        {{ partial "components/heading.html" (dict "level" (add $level 1) "text" .title "class" "tool-card__title") }}
+        {{- partial "components/text.html" (dict "text" .summary "class" "tool-card__summary") }}
+        {{- partial "components/link-list.html" (dict "label" "Sources" "links" .links "kind" "source") }}
+      </article>
+      {{- end }}
+    </div>
   </section>
   {{- end }}
   {{- with $w.marketPulse }}
-  <section class="weekly__section">
-    {{ partial "components/heading.html" (dict "level" $level "text" "Industry & job market" "class" "weekly__section-title") }}
-    {{ partial "components/text.html" (dict "text" . "class" "weekly__pulse") }}
+  <section class="panel panel--lowest" id="market">
+    <p class="panel__kicker"><span class="dot" aria-hidden="true"></span>Macro data analysis</p>
+    {{ partial "components/heading.html" (dict "level" $level "text" "Industry & job market" "class" "panel__title") }}
+    <div class="weekly-pulse">
+      <div class="weekly-pulse__text">{{ partial "components/text.html" (dict "text" . "class" "weekly__pulse") }}</div>
+      <aside class="glance" aria-label="Week at a glance">
+        <span class="label">Week at a glance</span>
+        <dl class="glance__rows">
+          <div class="glance__row"><dt>Period</dt><dd>{{ $start | time.Format "Jan 2" }} – {{ $end | time.Format "Jan 2" }}</dd></div>
+          {{- with $w.coverageDays }}<div class="glance__row"><dt>Editions covered</dt><dd>{{ . }}{{ if $w.partial }} (partial week){{ end }}</dd></div>{{ end }}
+          {{- with $w.themes }}<div class="glance__row"><dt>Themes</dt><dd>{{ len . }}</dd></div>{{ end }}
+          {{- with $w.toolsToWatch }}<div class="glance__row"><dt>Tools to watch</dt><dd>{{ len . }}</dd></div>{{ end }}
+        </dl>
+      </aside>
+    </div>
   </section>
   {{- end }}
   {{- with $w.nextWeekWatch }}
-  <section class="weekly__section">
-    {{ partial "components/heading.html" (dict "level" $level "text" "What to watch next week" "class" "weekly__section-title") }}
-    {{ partial "components/text.html" (dict "text" . "class" "weekly__next") }}
+  <section class="panel panel--low">
+    <p class="panel__kicker">{{ partial "components/icon.html" "calendar" }}Forward horizon</p>
+    {{ partial "components/heading.html" (dict "level" $level "text" "What to watch next week" "class" "panel__title") }}
+    <div class="watch">{{ partial "components/text.html" (dict "text" . "class" "weekly__next") }}</div>
   </section>
   {{- end }}
   {{- with $w.sourceDays }}
@@ -63,4 +102,11 @@
     {{- end }}
   </p>
   {{- end }}
+  <div class="cta-band">
+    <p><strong>Synthesized every Sunday.</strong><span>Each review draws on that week's daily briefings.</span></p>
+    <div class="cta-band__actions">
+      <a class="btn btn--primary" href="{{ (site.GetPage "/weekly").RelPermalink }}">All weekly reviews</a>
+      {{- with $previous }}{{ with site.GetPage (printf "/weekly/%s" .weekEnding) }}<a class="btn" href="{{ .RelPermalink }}">Previous week</a>{{ end }}{{ end }}
+    </div>
+  </div>
 </article>

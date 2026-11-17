@@ -1,0 +1,30 @@
+{{- /* Daily edition hero: generated line, issue meta, headline (the h1) and lede. Context: issue. */ -}}
+{{- $issue := . -}}
+{{- $when := time.AsTime $issue.date -}}
+{{- $n := 0 -}}
+{{- range partialCached "data/published-daily.html" "published" }}{{ if le .date $issue.date }}{{ $n = add $n 1 }}{{ end }}{{ end -}}
+{{- $stories := partial "data/stories.html" (slice $issue) -}}
+{{- $chars := add (len ($issue.overview | default "")) (len ($issue.marketPulse | default "")) -}}
+{{- range $stories }}{{ $chars = add $chars (len (.summary | default "")) (len (.whyItMatters | default "")) (len (.limitations | default "")) }}{{ end -}}
+{{- $mins := int (math.Max 1 (math.Ceil (div (float $chars) 1100))) -}}
+{{- $title := $when | time.Format "Monday, January 2, 2006" -}}
+{{- $lede := "" -}}
+{{- with trim ($issue.overview | default "") " \n\t" -}}
+  {{- $m := findRESubmatch `(?s)^(.+?[a-z0-9)"'%][.!?])\s+([A-Z].+)$` . -}}
+  {{- if $m }}{{ $title = index (index $m 0) 1 }}{{ $lede = index (index $m 0) 2 }}{{ else }}{{ $title = . }}{{ end -}}
+{{- end -}}
+<section class="hero" aria-label="Edition summary">
+  {{- with $issue.label }}
+  <p class="hero__generated">{{ partial "components/icon.html" "clock" }}<span>{{ . }}</span></p>
+  {{- end }}
+  <div class="hero__card">
+    <div class="hero__meta">
+      <p class="hero__issue"><span class="dot" aria-hidden="true"></span><strong>Issue No. {{ $n }}</strong><span class="hero__sep">/</span><time datetime="{{ $issue.date }}">{{ $when | time.Format "Monday, January 2, 2006" }}</time></p>
+      <p class="hero__read">{{ partial "components/icon.html" "clock" }}<span>~{{ $mins }} min read · {{ len $stories }} stories</span></p>
+    </div>
+    <div class="hero__body">
+      <h1 class="hero__title">{{ $title }}</h1>
+      {{- with $lede }}<p class="hero__lede">{{ . }}</p>{{ end }}
+    </div>
+  </div>
+</section>

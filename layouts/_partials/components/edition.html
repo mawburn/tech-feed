@@ -1,12 +1,14 @@
-{{- /* A daily edition: overview, story sections and market pulse.
+{{- /* A daily edition: story sections and market pulse.
   Context: {issue, level (heading level for section titles, default 2), headed (bool: render
-  the edition's own date heading), category (optional filter), topicScope ("daily"|"global")} */ -}}
+  the edition's own date heading and overview), category (optional filter), topicScope ("daily"|"global")} */ -}}
 {{- $issue := .issue -}}
 {{- $filter := .category -}}
 {{- $level := .level | default 2 -}}
 {{- $sectionLevel := cond .headed (add $level 1) $level -}}
 {{- $scope := .topicScope | default "daily" -}}
 {{- $when := time.AsTime $issue.date -}}
+{{- $variants := dict "topStories" "lead" "alsoWorthKnowing" "brief" "newTools" "tool" -}}
+{{- $kickers := dict "topStories" "Primary intelligence" "alsoWorthKnowing" "Rapid scan briefs" "newTools" "Engineering curations" -}}
 {{- $groups := slice -}}
 {{- range partialCached "data/sections.html" "sections" -}}
   {{- $items := slice -}}
@@ -25,24 +27,34 @@
     {{- else }}
     {{ printf "<h%d class=\"edition__title\" id=\"edition-%s-title\"><time datetime=\"%s\">%s</time></h%d>" (int $level) $issue.date $issue.date ($when | time.Format "Monday, January 2, 2006") (int $level) | safeHTML }}
     {{- end }}
+    {{- if and (not $filter) $issue.overview }}
+    {{ partial "components/text.html" (dict "text" $issue.overview "class" "edition__overview") }}
+    {{- end }}
   </header>
   {{- end }}
-  {{- if and (not $filter) $issue.overview }}
-  {{ partial "components/text.html" (dict "text" $issue.overview "class" "edition__overview") }}
-  {{- end }}
+  {{- $num := 0 }}
   {{- range $groups }}
-  <section class="edition__section edition__section--{{ .section.key }}">
-    {{ partial "components/heading.html" (dict "level" $sectionLevel "text" .section.label "class" "edition__section-title") }}
-    {{- $primary := .section.primary -}}
-    {{- range $i, $story := .items }}
-    {{ partial "components/story.html" (dict "story" $story "level" (add $sectionLevel 1) "primary" $primary "rank" (cond $primary ($story.rank | default (add $i 1)) false) "date" $issue.date "topicScope" $scope) }}
-    {{- end }}
+  {{- $num = add $num 1 }}
+  {{- $key := .section.key }}
+  {{- $total := len .items }}
+  {{- $primary := .section.primary }}
+  <section class="edition__section edition__section--{{ $key }}" id="{{ $issue.date }}-{{ $key }}">
+    {{ partial "components/section-heading.html" (dict "level" $sectionLevel "num" $num "text" .section.label "kicker" (index $kickers $key)) }}
+    <div class="stories stories--{{ $key }}">
+      {{- range $i, $story := .items }}
+      {{ partial "components/story.html" (dict "story" $story "level" (add $sectionLevel 1) "variant" (index $variants $key) "rank" (cond $primary ($story.rank | default (add $i 1)) false) "total" $total "date" $issue.date "topicScope" $scope) }}
+      {{- end }}
+    </div>
   </section>
   {{- end }}
   {{- if and (not $filter) $issue.marketPulse }}
-  <section class="edition__section edition__section--market">
-    {{ partial "components/heading.html" (dict "level" $sectionLevel "text" "Job market & business pulse" "class" "edition__section-title") }}
-    {{ partial "components/text.html" (dict "text" $issue.marketPulse "class" "edition__pulse") }}
+  {{- $num = add $num 1 }}
+  <section class="edition__section edition__section--market" id="{{ $issue.date }}-market-pulse">
+    {{ partial "components/section-heading.html" (dict "level" $sectionLevel "num" $num "text" "Job market & business pulse" "kicker" "Macro observations") }}
+    <div class="pulse">
+      <div class="pulse__text">{{ partial "components/text.html" (dict "text" $issue.marketPulse "class" "edition__pulse") }}</div>
+      {{ partial "components/coverage-bars.html" (dict "issue" $issue "scope" $scope) }}
+    </div>
   </section>
   {{- end }}
 </section>

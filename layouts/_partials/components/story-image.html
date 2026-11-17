@@ -2,8 +2,8 @@
   Context: {image (story.image object), alt (fallback), sizes?}. Renders nothing when
   the image has not been stored locally, so layouts never depend on it. */ -}}
 {{- with partial "data/image.html" (dict "image" .image) -}}
-<figure class="story-image">
-  <img src="{{ .src }}"{{ with .srcset }} srcset="{{ . }}" sizes="{{ $.sizes | default "(min-width: 40rem) 10rem, 100vw" }}"{{ end }}{{ with .width }} width="{{ . }}"{{ end }}{{ with .height }} height="{{ . }}"{{ end }} alt="{{ .alt | default $.alt }}" loading="lazy" decoding="async">
+<figure class="story-image"{{ with .credit }} title="Image: {{ . }}"{{ end }}>
+  <img src="{{ .src }}"{{ with .srcset }} srcset="{{ . }}" sizes="{{ $.sizes | default "(min-width: 40rem) 14rem, calc(100vw - 2rem)" }}"{{ end }}{{ with .width }} width="{{ . }}"{{ end }}{{ with .height }} height="{{ . }}"{{ end }} alt="{{ .alt | default $.alt }}" loading="lazy" decoding="async">
   {{- if .credit }}
   <figcaption class="story-image__credit">Image: {{ if partial "data/is-http.html" .sourceUrl }}<a href="{{ .sourceUrl }}" rel="noopener">{{ .credit }}</a>{{ else }}{{ .credit }}{{ end }}</figcaption>
   {{- end }}

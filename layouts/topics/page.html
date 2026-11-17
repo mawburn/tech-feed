@@ -10,9 +10,7 @@
   {{- if $n }}{{ if in $windowDates $issue.date }}{{ $recent = $recent | append $issue }}{{ else }}{{ $earlier = $earlier | append (dict "issue" $issue "count" $n) }}{{ end }}{{ end -}}
 {{- end -}}
 {{ partial "components/page-header.html" (dict "kicker" "Topic" "title" $category "intro" "Stories from the last seven days, with links to earlier coverage.") }}
-<div class="layout">
-  <div class="layout__main">
-    {{- range $recent }}
+{{- range $recent }}
     {{ partial "components/edition.html" (dict "issue" . "level" 2 "headed" true "category" $category "topicScope" "global") }}
     {{- else }}
     {{ partial "components/empty-state.html" (printf "No %s stories in the last seven days." $category) }}
@@ -30,9 +28,7 @@
       </ul>
     </section>
     {{- end }}
-  </div>
-  <aside class="layout__aside" aria-label="Topics">
-    {{ partial "components/topic-nav.html" (dict "issues" $window "current" $category "label" "Topics this week" "allHref" (site.GetPage "/all").RelPermalink) }}
-  </aside>
+<div class="browse">
+  {{ partial "components/topic-nav.html" (dict "issues" $window "current" $category "label" "Topics this week" "allHref" (site.GetPage "/all").RelPermalink) }}
 </div>
 {{- end -}}

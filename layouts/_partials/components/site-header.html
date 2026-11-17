@@ -1,18 +1,22 @@
 {{- $current := .RelPermalink -}}
+{{- $section := .Section -}}
 <header class="site-header">
-  <a class="site-brand" href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
-  <nav class="site-nav" aria-label="Main">
-    <ul>
-      {{- range $item := slice
-        (dict "label" "Today" "path" "/")
-        (dict "label" "Last 7 days" "path" "/all")
-        (dict "label" "Weekly" "path" "/weekly-latest")
-        (dict "label" "Archive" "path" "/daily")
-        (dict "label" "Topics" "path" "/topics") }}
-        {{- with site.GetPage $item.path }}
-      <li><a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $current }} aria-current="page"{{ end }}>{{ $item.label }}</a></li>
+  <div class="site-header__inner">
+    <a class="site-brand" href="{{ site.Home.RelPermalink }}"><img src="{{ "img/mawburn-dispatch-wordmark.svg" | relURL }}" alt="{{ site.Title }}" width="125" height="36"></a>
+    <p class="site-header__kicker label"><span class="dot" aria-hidden="true"></span><span>Global tech dispatch</span></p>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        {{- range $item := slice
+          (dict "label" "Daily Brief" "short" "Daily" "path" "/" "section" "")
+          (dict "label" "Last 7 Days" "short" "7 Days" "path" "/all" "section" "")
+          (dict "label" "Weekly Review" "short" "Weekly" "path" "/weekly-latest" "section" "weekly")
+          (dict "label" "Topics" "path" "/topics" "section" "topics")
+          (dict "label" "Archive" "path" "/daily" "section" "daily") }}
+          {{- with site.GetPage $item.path }}
+        <li><a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $current }} aria-current="page"{{ else if and $item.section (eq $section $item.section) }} class="is-active"{{ end }}>{{ with $item.short }}<span class="nav-short">{{ . }}</span><span class="nav-long">{{ $item.label }}</span>{{ else }}{{ $item.label }}{{ end }}</a></li>
+          {{- end }}
         {{- end }}
-      {{- end }}
-    </ul>
-  </nav>
+      </ul>
+    </nav>
+  </div>
 </header>

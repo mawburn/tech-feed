@@ -1,0 +1,12 @@
+{{- /* Map a category name to its accent key and icon. Keyword match, first hit wins:
+  returns {key, icon}. key drives the .topic--{key} CSS class (accent colour). */ -}}
+{{- $c := lower (string .) -}}
+{{- $key := "neutral" -}}{{- $icon := "dot" -}}
+{{- if findRE `secur|privacy|vulnerab|cyber` $c }}{{ $key = "security" }}{{ $icon = "shield" }}
+{{- else if findRE `job|labor|employ|hiring|career` $c }}{{ $key = "jobs" }}{{ $icon = "briefcase" }}
+{{- else if findRE `business|market|financ|fund|econom` $c }}{{ $key = "business" }}{{ $icon = "trend" }}
+{{- else if findRE `develop|coding|tool|engineer` $c }}{{ $key = "devtools" }}{{ $icon = "terminal" }}
+{{- else if findRE `cloud|infra|software|hardware|chip` $c }}{{ $key = "infra" }}{{ $icon = "server" }}
+{{- else if findRE `\bai\b|model|agent|research` $c }}{{ $key = "ai" }}{{ $icon = "sparkle" }}
+{{- end -}}
+{{- return dict "key" $key "icon" $icon -}}
