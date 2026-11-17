@@ -195,6 +195,25 @@
       "status": "ok",
       "width": 600
     },
+    "https://forum.torproject.org/uploads/default/original/2X/d/d3424bed34f4ec18b2e99178c2801ba6dfb655d6.png": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "reason": "too small (120x120)",
+      "status": "skipped"
+    },
+    "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-changelog.jpg": {
+      "attempts": 1,
+      "bytes": 8874,
+      "encoding": "q80",
+      "file": "img/7e1d0422865d3f824d66.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "sha256": "7e1d0422865d3f824d66541c3b094a47a24e9400b66a4bae3f7ade725c690ed2",
+      "sourceBytes": 36018,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    },
     "https://github.blog/wp-content/uploads/2019/03/engineering-social.png?fit=1201%2C630": {
       "attempts": 1,
       "bytes": 11344,
@@ -292,6 +311,25 @@
       "reason": "publisher policy (ft.com)",
       "status": "skipped"
     },
+    "https://img.alicdn.com/imgextra/i4/O1CN01OXv3EM1FN8t9W4P79_!!6000000000474-2-tps-80-80.png": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "reason": "too small (80x80)",
+      "status": "skipped"
+    },
+    "https://iter.ca//ubo-epicker.png": {
+      "attempts": 1,
+      "bytes": 15938,
+      "encoding": "q80",
+      "file": "img/ceedb16d2fc53f90ad95.webp",
+      "height": 320,
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "sha256": "ceedb16d2fc53f90ad95413b73d4202594a06af8e120900ad8f3fb192ef4bf76",
+      "sourceBytes": 26461,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://lh3.googleusercontent.com/ufe__EokQeN6itypUE9XmN6-HX9kqi1cNllSWZ688h8dXXOh8lDS_Ltc8c-hdbJSp86GcKcpbHmsXharkzaEaFzhOFLsbx7zFcoi20GqnwTREcto=w1200-h630-n-nu-rw": {
       "attempts": 1,
       "bytes": 6982,
@@ -315,6 +353,19 @@
       "sha256": "bc6b9b56e46b0d7d1040b95d619626946e4bbe3ff6681d75c8164b3c56674102",
       "sourceBytes": 65006,
       "sourceFormat": "WEBP",
+      "status": "ok",
+      "width": 600
+    },
+    "https://newsroom.amd.com/images/2026/09/063180c6-5b1a-4200-b238-99d7083699ae.jpg": {
+      "attempts": 1,
+      "bytes": 29558,
+      "encoding": "q80",
+      "file": "img/cb2d834cf1a850ef514f.webp",
+      "height": 338,
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "sha256": "cb2d834cf1a850ef514fd7f23f573e969dd24fa0d826cd058f6eabc920fb218e",
+      "sourceBytes": 356893,
+      "sourceFormat": "JPEG",
       "status": "ok",
       "width": 600
     },
@@ -344,6 +395,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://opengraph.githubassets.com/5f1ce159986c391b4e50625977dde84db7b3f9d095f401c93455484a1b23810e/BurntSushi/jiff": {
+      "attempts": 1,
+      "bytes": 12388,
+      "encoding": "q85",
+      "file": "img/ad343428ad33f629eb3c.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "sha256": "ad343428ad33f629eb3c9e506bdefd4af10b3a5305443f6acd24d03d388ed581",
+      "sourceBytes": 119591,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://opengraph.githubassets.com/893f328115f736f3c49f5add942cfc800c3703396d10d842b7c123745c633f32/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr": {
       "attempts": 1,
       "bytes": 12890,
@@ -366,6 +430,19 @@
       "lastAttempt": "2026-11-16T22:31:11Z",
       "sha256": "becede1798461616b924b6bafd5dc8780d5702e8dbd4557e82fcf3585103aba0",
       "sourceBytes": 79856,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://opengraph.githubassets.com/ad4bb48c001af28ff04d9efd654c1bc22ae963665271e33fbc674fa5ad573682/db-branch/db-branch": {
+      "attempts": 1,
+      "bytes": 10982,
+      "encoding": "q85",
+      "file": "img/2f59111d86dd1eab7c35.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "sha256": "2f59111d86dd1eab7c35dd5a0b80d0d9c14d9a9a8a7b89284e01ea7c8842e9f2",
+      "sourceBytes": 51204,
       "sourceFormat": "PNG",
       "status": "ok",
       "width": 600
@@ -454,6 +531,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://wplginc-wplg-prod.web.arc-cdn.net/resizer/v2/https%3A%2F%2Fd2p7h58ldpiqzj.cloudfront.net%2F11-17-2026%2Ft_98c98a1d64b748a5977d262a1bd0d2da_name_49684015873_hdtv.jpg?auth=69dcb79560cf834a2b133601f34aa0e3edb84a61d687605c7e4e11fe1d89ec4c&width=700": {
+      "attempts": 1,
+      "bytes": 14756,
+      "encoding": "q80",
+      "file": "img/713861d7b2912bef1e9e.webp",
+      "height": 338,
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "sha256": "713861d7b2912bef1e9edc2ab0d6863dcb433aafd0555cd073f487235357e554",
+      "sourceBytes": 12558,
+      "sourceFormat": "AVIF",
+      "status": "ok",
+      "width": 600
+    },
     "https://www.faa.gov/themes/custom/dot_cms/images/seal_dot.png": {
       "attempts": 1,
       "bytes": 9578,
@@ -476,6 +566,19 @@
       "lastAttempt": "2026-11-16T22:31:11Z",
       "sha256": "a4a79ead4dff5b95b66e1469906858aa214d8f1a4ebc66d27e6cb8aac8d7e27d",
       "sourceBytes": 218055,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://www.harmonic.fun/images/share/news-aristotle-rust-verification-fedcd5adc7.jpg": {
+      "attempts": 1,
+      "bytes": 10012,
+      "encoding": "q70",
+      "file": "img/fedcd5adc71603a5c789.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "sha256": "fedcd5adc71603a5c789e43d933d2cc2770e5220431b41dfbfccdfbe843b5f12",
+      "sourceBytes": 51609,
       "sourceFormat": "JPEG",
       "status": "ok",
       "width": 600
@@ -505,6 +608,19 @@
       "sourceFormat": "JPEG",
       "status": "ok",
       "width": 600
+    },
+    "https://xusheng.dev/posts/windows-coding-agent-telemetry/agent-names.jpeg": {
+      "attempts": 1,
+      "bytes": 39376,
+      "encoding": "q80",
+      "file": "img/63c0cd24e92790a0b917.webp",
+      "height": 430,
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "sha256": "63c0cd24e92790a0b9173edcbee3d979539929977b0247a2f04ad107815b90a3",
+      "sourceBytes": 471139,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
     }
   },
   "pages": {
@@ -514,6 +630,12 @@
       "lastAttempt": "2026-11-16T21:33:10Z",
       "noimageindex": false,
       "status": "ok"
+    },
+    "https://apnews.com/article/60f868d3bb430b85a8657b27d421096e": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "reason": "HTTP 403 from https://apnews.com/article/60f868d3bb430b85a8657b27d421096e",
+      "status": "failed"
     },
     "https://arxiv.org/abs/2609.27263": {
       "attempts": 1,
@@ -557,6 +679,20 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://bruceroettgers.eu/blog/protomaps/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://burntsushi.net/jiff/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://dart.dev/blog/announcing-dart-3-14": {
       "attempts": 1,
       "image": "https://dart.dev/images/dart3-14-cover.3079441d48d27e634bcebd64eff41b26.webp",
@@ -582,6 +718,13 @@
       "attempts": 1,
       "image": null,
       "lastAttempt": "2026-11-16T21:34:20Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://forum.torproject.org/t/security-release-0-4-9-17/22454": {
+      "attempts": 1,
+      "image": "https://forum.torproject.org/uploads/default/original/2X/d/d3424bed34f4ec18b2e99178c2801ba6dfb655d6.png",
+      "lastAttempt": "2026-11-17T04:09:37Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -626,6 +769,20 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://github.com/BurntSushi/jiff": {
+      "attempts": 1,
+      "image": "https://opengraph.githubassets.com/5f1ce159986c391b4e50625977dde84db7b3f9d095f401c93455484a1b23810e/BurntSushi/jiff",
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.com/db-branch/db-branch": {
+      "attempts": 1,
+      "image": "https://opengraph.githubassets.com/ad4bb48c001af28ff04d9efd654c1bc22ae963665271e33fbc674fa5ad573682/db-branch/db-branch",
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://github.com/ggml-org/llama.cpp/discussions/30566": {
       "attempts": 1,
       "image": "https://opengraph.githubassets.com/942d1ba8d4f809fdba40368a2a4b6b67c74fce397f28406da0fc60370ceacf02/ggml-org/llama.cpp/discussions/30566",
@@ -637,6 +794,13 @@
       "attempts": 1,
       "image": "https://opengraph.githubassets.com/893f328115f736f3c49f5add942cfc800c3703396d10d842b7c123745c633f32/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
       "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.com/gorhill/uBlock/security/advisories/GHSA-cmqw-9r2w-6wv2": {
+      "attempts": 1,
+      "image": "https://opengraph.githubassets.com/598378a501370951bf4519d69c31b514b1565f522eb48e24dfabab2b9c2588fd/gorhill/uBlock/security/advisories/GHSA-cmqw-9r2w-6wv2",
+      "lastAttempt": "2026-11-17T04:09:37Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -696,6 +860,20 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://ir.amd.com/financial-information/sec-filings/content/0001193125-26-462340/d105780d8ka.htm": {
+      "attempts": 1,
+      "image": "https://d1io3yog0oux5.cloudfront.net/_27296cf9746bb74ff21730fd63fbe792/amd/db/834/7308/social_image_resized.jpg",
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://iter.ca/post/ubo-uxss/": {
+      "attempts": 1,
+      "image": "https://iter.ca//ubo-epicker.png",
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://media.bis.gov/sites/default/files/documents/BIS%20Issues%20Rule%20Addressing%20Remote%20Access%20to%20American%20Super%20Intelligence%20Technology.pdf": {
       "attempts": 1,
       "lastAttempt": "2026-11-16T21:33:10Z",
@@ -706,6 +884,13 @@
       "attempts": 1,
       "image": "https://raw.githubusercontent.com/modelcontextprotocol/docs/2eb6171ddbfeefde349dc3b8d5e2b87414c26250/images/og-image.png",
       "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://newsroom.amd.com/news/amd-completes-acquisition-world-labs/": {
+      "attempts": 1,
+      "image": "https://newsroom.amd.com/images/2026/09/063180c6-5b1a-4200-b238-99d7083699ae.jpg",
+      "lastAttempt": "2026-11-17T04:09:37Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -727,6 +912,13 @@
       "attempts": 1,
       "image": "https://platform.claude.com/web-api/og/docs/en/release-notes/overview?design-rev=5",
       "lastAttempt": "2026-11-16T22:16:07Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://qwen.ai/": {
+      "attempts": 1,
+      "image": "https://img.alicdn.com/imgextra/i4/O1CN01OXv3EM1FN8t9W4P79_!!6000000000474-2-tps-80-80.png",
+      "lastAttempt": "2026-11-17T04:09:37Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -819,10 +1011,24 @@
       "reason": "not an HTML article URL",
       "status": "skipped"
     },
+    "https://www.federalreserve.gov/publications/financial-stability-report.htm": {
+      "attempts": 1,
+      "image": "https://www.federalreserve.gov/images/social-media/social-default-image-opengraph.jpg",
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://www.ft.com/content/f999a0c2-af52-499f-8008-accbdfd45a25": {
       "attempts": 1,
       "image": "https://images.ft.com/v3/image/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F6613ccdf-6f45-453d-b4c2-5ca8c027ae84.jpg?source=next-barrier-page&fit=scale-down&quality=highest&width=700&dpr=1",
       "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.harmonic.fun/news/aristotle-rust-verification/": {
+      "attempts": 1,
+      "image": "https://www.harmonic.fun/images/share/news-aristotle-rust-verification-fedcd5adc7.jpg",
+      "lastAttempt": "2026-11-17T04:09:37Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -836,6 +1042,13 @@
       "attempts": 1,
       "image": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6af52a0047907d0f9587a24f_Social%20Announcement.png",
       "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.local10.com/business/2026/11/16/a-technical-issue-at-jpmorgan-chase-triggers-online-banking-delays-for-major-us-banks/": {
+      "attempts": 1,
+      "image": "https://wplginc-wplg-prod.web.arc-cdn.net/resizer/v2/https%3A%2F%2Fd2p7h58ldpiqzj.cloudfront.net%2F11-17-2026%2Ft_98c98a1d64b748a5977d262a1bd0d2da_name_49684015873_hdtv.jpg?auth=69dcb79560cf834a2b133601f34aa0e3edb84a61d687605c7e4e11fe1d89ec4c&width=700",
+      "lastAttempt": "2026-11-17T04:09:37Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -894,6 +1107,12 @@
       "reason": "HTTP 401 from https://www.reuters.com/legal/litigation/us-issues-rule-protect-advanced-ai-chips-being-accessed-remotely-2026-11-16/",
       "status": "failed"
     },
+    "https://www.reuters.com/legal/transactional/downdetector-reports-outages-major-us-banks-2026-11-16/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "reason": "HTTP 401 from https://www.reuters.com/legal/transactional/downdetector-reports-outages-major-us-banks-2026-11-16/",
+      "status": "failed"
+    },
     "https://www.reuters.com/world/china/us-allies-team-up-protect-ai-tech-infrastructure-amid-china-rivalry-2026-11-16/": {
       "attempts": 1,
       "lastAttempt": "2026-11-16T21:33:10Z",
@@ -919,6 +1138,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://www.theregister.com/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://www.wired.com/story/synchron-pauses-trials-of-its-brain-implant-due-to-performance-issues/": {
       "attempts": 1,
       "image": "https://media.wired.com/photos/6ae951f7e1fce5fdf7878b36/191:100/w_1280,c_limit/SM_Science_Synchron_GettyImages-1610629090.jpg",
@@ -937,6 +1163,13 @@
       "lastAttempt": "2026-11-16T21:33:10Z",
       "reason": "HTTP 401 from https://www.wsj.com/tech/ai/trump-administration-to-name-nvidia-among-ai-national-champions-c9284344",
       "status": "failed"
+    },
+    "https://xusheng.dev/posts/windows-coding-agent-telemetry/": {
+      "attempts": 1,
+      "image": "https://xusheng.dev/posts/windows-coding-agent-telemetry/agent-names.jpeg",
+      "lastAttempt": "2026-11-17T04:09:37Z",
+      "noimageindex": false,
+      "status": "ok"
     }
   },
   "version": 1

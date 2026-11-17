@@ -27,7 +27,17 @@
           "url": "https://newsroom.amd.com/news/amd-completes-acquisition-world-labs/",
           "label": "AMD Newsroom"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://newsroom.amd.com/images/2026/09/063180c6-5b1a-4200-b238-99d7083699ae.jpg",
+        "alt": "Publisher-provided image for AMD completes $8.2 billion acquisition of World Labs",
+        "credit": "newsroom.amd.com",
+        "sourceUrl": "https://newsroom.amd.com/news/amd-completes-acquisition-world-labs/",
+        "local": "img/cb2d834cf1a850ef514f.webp",
+        "width": 600,
+        "height": 338,
+        "sha256": "cb2d834cf1a850ef514fd7f23f573e969dd24fa0d826cd058f6eabc920fb218e"
+      }
     },
     {
       "rank": 2,
@@ -79,7 +89,17 @@
           "url": "https://news.ycombinator.com/item?id=50513160",
           "label": "Technical discussion"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://iter.ca//ubo-epicker.png",
+        "alt": "Publisher-provided image for Patched uBlock Origin universal XSS exposed extension UI trust boundary",
+        "credit": "iter.ca",
+        "sourceUrl": "https://iter.ca/post/ubo-uxss/",
+        "local": "img/ceedb16d2fc53f90ad95.webp",
+        "width": 600,
+        "height": 320,
+        "sha256": "ceedb16d2fc53f90ad95413b73d4202594a06af8e120900ad8f3fb192ef4bf76"
+      }
     },
     {
       "rank": 4,
@@ -105,7 +125,13 @@
           "url": "https://news.ycombinator.com/item?id=50513215",
           "label": "Technical discussion"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://img.alicdn.com/imgextra/i4/O1CN01OXv3EM1FN8t9W4P79_!!6000000000474-2-tps-80-80.png",
+        "alt": "Publisher-provided image for Alibaba releases Qwen4-Max with security and cost claims",
+        "credit": "qwen.ai",
+        "sourceUrl": "https://qwen.ai/"
+      }
     },
     {
       "rank": 5,
@@ -127,7 +153,24 @@
           "url": "https://news.ycombinator.com/best",
           "label": "Best stories discovery"
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50524736",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://xusheng.dev/posts/windows-coding-agent-telemetry/agent-names.jpeg",
+        "alt": "Publisher-provided image for Windows 11 diagnostic telemetry records coding-agent usage",
+        "credit": "xusheng.dev",
+        "sourceUrl": "https://xusheng.dev/posts/windows-coding-agent-telemetry/",
+        "local": "img/63c0cd24e92790a0b917.webp",
+        "width": 600,
+        "height": 430,
+        "sha256": "63c0cd24e92790a0b9173edcbee3d979539929977b0247a2f04ad107815b90a3"
+      }
     },
     {
       "rank": 6,
@@ -146,7 +189,17 @@
           "label": "Associated Press",
           "url": "https://www.local10.com/business/2026/11/16/a-technical-issue-at-jpmorgan-chase-triggers-online-banking-delays-for-major-us-banks/"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://wplginc-wplg-prod.web.arc-cdn.net/resizer/v2/https%3A%2F%2Fd2p7h58ldpiqzj.cloudfront.net%2F11-17-2026%2Ft_98c98a1d64b748a5977d262a1bd0d2da_name_49684015873_hdtv.jpg?auth=69dcb79560cf834a2b133601f34aa0e3edb84a61d687605c7e4e11fe1d89ec4c&width=700",
+        "alt": "Publisher-provided image for JPMorgan software bug causes cross-bank transaction delays",
+        "credit": "local10.com",
+        "sourceUrl": "https://www.local10.com/business/2026/11/16/a-technical-issue-at-jpmorgan-chase-triggers-online-banking-delays-for-major-us-banks/",
+        "local": "img/713861d7b2912bef1e9e.webp",
+        "width": 600,
+        "height": 338,
+        "sha256": "713861d7b2912bef1e9edc2ab0d6863dcb433aafd0555cd073f487235357e554"
+      }
     },
     {
       "rank": 7,
@@ -179,7 +232,17 @@
           "url": "https://news.ycombinator.com/item?id=50519744",
           "label": "Technical discussion"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/5f1ce159986c391b4e50625977dde84db7b3f9d095f401c93455484a1b23810e/BurntSushi/jiff",
+        "alt": "Publisher-provided image for Jiff 1.0 brings stable timezone-aware datetime APIs to Rust",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/BurntSushi/jiff",
+        "local": "img/ad343428ad33f629eb3c.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "ad343428ad33f629eb3c9e506bdefd4af10b3a5305443f6acd24d03d388ed581"
+      }
     },
     {
       "rank": 8,
@@ -208,7 +271,17 @@
           "url": "https://news.ycombinator.com/item?id=50520270",
           "label": "Technical discussion"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://www.harmonic.fun/images/share/news-aristotle-rust-verification-fedcd5adc7.jpg",
+        "alt": "Publisher-provided image for Harmonic Aristotle expands AI-assisted formal verification to Rust",
+        "credit": "harmonic.fun",
+        "sourceUrl": "https://www.harmonic.fun/news/aristotle-rust-verification/",
+        "local": "img/fedcd5adc71603a5c789.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "fedcd5adc71603a5c789e43d933d2cc2770e5220431b41dfbfccdfbe843b5f12"
+      }
     }
   ],
   "alsoWorthKnowing": [
@@ -221,7 +294,17 @@
           "label": "GitHub changelog",
           "url": "https://github.blog/changelog/month/11-2026/"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-changelog.jpg",
+        "alt": "Publisher-provided image for GitHub adds bulk starts for AI Scan",
+        "credit": "github.blog",
+        "sourceUrl": "https://github.blog/changelog/month/11-2026/",
+        "local": "img/7e1d0422865d3f824d66.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "7e1d0422865d3f824d66541c3b094a47a24e9400b66a4bae3f7ade725c690ed2"
+      }
     },
     {
       "title": "GitHub Copilot model retirements take effect",
@@ -232,7 +315,17 @@
           "label": "GitHub changelog",
           "url": "https://github.blog/changelog/month/11-2026/"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-changelog.jpg",
+        "alt": "Publisher-provided image for GitHub Copilot model retirements take effect",
+        "credit": "github.blog",
+        "sourceUrl": "https://github.blog/changelog/month/11-2026/",
+        "local": "img/7e1d0422865d3f824d66.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "7e1d0422865d3f824d66541c3b094a47a24e9400b66a4bae3f7ade725c690ed2"
+      }
     },
     {
       "title": "Tor issues urgent DoS-defense security release",
@@ -243,7 +336,20 @@
           "label": "Tor Project release",
           "url": "https://forum.torproject.org/t/security-release-0-4-9-17/22454"
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50512441",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://forum.torproject.org/uploads/default/original/2X/d/d3424bed34f4ec18b2e99178c2801ba6dfb655d6.png",
+        "alt": "Publisher-provided image for Tor issues urgent DoS-defense security release",
+        "credit": "forum.torproject.org",
+        "sourceUrl": "https://forum.torproject.org/t/security-release-0-4-9-17/22454"
+      }
     },
     {
       "title": "LongCat-2.5 offers a massive open-weight MoE model",
@@ -254,7 +360,17 @@
           "label": "Hugging Face model card",
           "url": "https://huggingface.co/meituan-longcat/LongCat-2.5"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/meituan-longcat/LongCat-2.5.png",
+        "alt": "Publisher-provided image for LongCat-2.5 offers a massive open-weight MoE model",
+        "credit": "huggingface.co",
+        "sourceUrl": "https://huggingface.co/meituan-longcat/LongCat-2.5",
+        "local": "img/303197b28a8349d6f066.webp",
+        "width": 600,
+        "height": 324,
+        "sha256": "303197b28a8349d6f066422ebe3f9f2358072ecce837ddbb71966c5b23372e89"
+      }
     },
     {
       "title": "Protomaps self-hosting tutorial revisits map infrastructure costs",
@@ -272,6 +388,13 @@
           "url": "https://news.ycombinator.com/best",
           "label": "Best stories discovery"
         }
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50509837",
+          "label": "HN discussion"
+        }
       ]
     },
     {
@@ -283,7 +406,17 @@
           "label": "Git security advisory",
           "url": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/893f328115f736f3c49f5add942cfc800c3703396d10d842b7c123745c633f32/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
+        "alt": "Publisher-provided image for Git recursive-clone security advisory remains relevant to agents",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
+        "local": "img/6be759c56efb679125aa.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "6be759c56efb679125aa3c47a550426606cd092dfbd2e1c5c9bc2bcf18680a3d"
+      }
     },
     {
       "title": "Microsoft 365 outage root-cause reporting continues",
@@ -307,7 +440,17 @@
           "url": "https://www.federalreserve.gov/publications/financial-stability-report.htm"
         }
       ],
-      "isUpdate": true
+      "isUpdate": true,
+      "image": {
+        "url": "https://www.federalreserve.gov/images/social-media/social-default-image-opengraph.jpg",
+        "alt": "Publisher-provided image for Federal Reserve continues to flag AI financial-system risks",
+        "credit": "federalreserve.gov",
+        "sourceUrl": "https://www.federalreserve.gov/publications/financial-stability-report.htm",
+        "local": "img/a4a79ead4dff5b95b66e.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "a4a79ead4dff5b95b66e1469906858aa214d8f1a4ebc66d27e6cb8aac8d7e27d"
+      }
     }
   ],
   "newTools": [
@@ -331,7 +474,17 @@
           "url": "https://news.ycombinator.com/item?id=50519744",
           "label": "Technical discussion"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/5f1ce159986c391b4e50625977dde84db7b3f9d095f401c93455484a1b23810e/BurntSushi/jiff",
+        "alt": "Publisher-provided image for Jiff 1.0",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/BurntSushi/jiff",
+        "local": "img/ad343428ad33f629eb3c.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "ad343428ad33f629eb3c9e506bdefd4af10b3a5305443f6acd24d03d388ed581"
+      }
     },
     {
       "title": "Aristotle for Rust",
@@ -349,7 +502,17 @@
           "url": "https://news.ycombinator.com/item?id=50520270",
           "label": "Technical discussion"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://www.harmonic.fun/images/share/news-aristotle-rust-verification-fedcd5adc7.jpg",
+        "alt": "Publisher-provided image for Aristotle for Rust",
+        "credit": "harmonic.fun",
+        "sourceUrl": "https://www.harmonic.fun/news/aristotle-rust-verification/",
+        "local": "img/fedcd5adc71603a5c789.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "fedcd5adc71603a5c789e43d933d2cc2770e5220431b41dfbfccdfbe843b5f12"
+      }
     },
     {
       "title": "db-branch",
@@ -374,7 +537,17 @@
           "url": "https://news.ycombinator.com/item?id=50506940",
           "label": "Technical discussion"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/ad4bb48c001af28ff04d9efd654c1bc22ae963665271e33fbc674fa5ad573682/db-branch/db-branch",
+        "alt": "Publisher-provided image for db-branch",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/db-branch/db-branch",
+        "local": "img/2f59111d86dd1eab7c35.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "2f59111d86dd1eab7c35dd5a0b80d0d9c14d9a9a8a7b89284e01ea7c8842e9f2"
+      }
     }
   ],
   "marketPulse": "No new comprehensive US software-engineering labor-market release establishes a material change in senior or Staff+ hiring or compensation today. AMD's $8.2 billion World Labs acquisition demonstrates strategic AI research investment while chip controls and financial-stability concerns illustrate regulatory and financing risks. Security boundaries, formal verification and operational reliability are technically important but do not by themselves prove increased hiring."
