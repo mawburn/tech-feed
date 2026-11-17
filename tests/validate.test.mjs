@@ -48,6 +48,42 @@ test("unknown extra fields from the scheduler are allowed", () => {
   rmSync(dir, { recursive: true });
 });
 
+test("daily and weekly discovery audits accept verified checks and reject invalid metadata", () => {
+  const dir = sandbox();
+  const audit = {
+    checkedAt: "2026-11-17T17:00:00-08:00",
+    windowStart: "2026-11-16T17:00:00-08:00",
+    windowEnd: "2026-11-17T17:00:00-08:00",
+    sources: [
+      { name: "Hacker News rolling 24h", status: "checked", candidateCount: 42, url: "https://hn.algolia.com/api/v1/search" },
+      { name: "Reddit", status: "partial", notes: "Direct API access unavailable" },
+    ],
+    majorIncidentsConsidered: [{
+      title: "Verified service interruption",
+      decision: "top-story",
+      reason: "Documented widespread operational impact",
+      status: "resolved",
+      sourceUrl: "https://example.org/incident-report",
+    }],
+    rankingNotes: "Critical operational impact considered before ordinary releases.",
+  };
+  for (const [kind, fixture, key] of [
+    ["daily", schedulerDaily, "date"],
+    ["weekly", schedulerWeekly, "weekEnding"],
+  ]) {
+    const doc = clone(fixture);
+    doc.discoveryAudit = clone(audit);
+    const path = put(dir, kind, `${doc[key]}.json`, doc);
+    assert.deepEqual(check(dir, path), [], kind + " accepts a valid audit");
+    doc.discoveryAudit.sources[0].status = "completed"; // must be checked, partial, or unavailable
+    assert.notDeepEqual(check(dir, put(dir, kind, `${doc[key]}.json`, doc)), [], kind + " rejects unknown status");
+    doc.discoveryAudit.sources[0].status = "checked";
+    doc.discoveryAudit.sources[0].candidateCount = -1;
+    assert.notDeepEqual(check(dir, put(dir, kind, `${doc[key]}.json`, doc)), [], kind + " rejects invented negative counts");
+  }
+  rmSync(dir, { recursive: true });
+});
+
 test("malformed publications are rejected", () => {
   const dir = sandbox();
   const date = schedulerDaily.date;
