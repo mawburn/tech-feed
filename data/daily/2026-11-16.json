@@ -27,7 +27,17 @@
           "label": "Front page discovery"
         }
       ],
-      "rank": 1
+      "rank": 1,
+      "image": {
+        "url": "https://storage.ghost.io/c/2d/aa/2daa4f7f-a71b-47d2-a54c-06b8c60222ef/content/images/size/w1200/2026/11/Cybersecurity-Alert_-Malicious-Code-Injection.png",
+        "alt": "Publisher-provided image for Optimizely supply-chain attack delivers malware across 178 organizations",
+        "credit": "report-uri.ghost.io",
+        "sourceUrl": "https://report-uri.ghost.io/worlds-largest-brands-infected-with-malware-via-optimizely/",
+        "local": "img/3464c3db74247a757505.webp",
+        "width": 600,
+        "height": 307,
+        "sha256": "3464c3db74247a757505a76b4649bd16763d306712f3aaf24fb0fe8ef938e1fa"
+      }
     },
     {
       "title": "JPMorgan transaction delays affect other banks before restoration",
@@ -88,7 +98,17 @@
           "url": "https://ir.amd.com/financial-information/sec-filings/content/0001193125-26-462340/d105780d8ka.htm"
         }
       ],
-      "rank": 4
+      "rank": 4,
+      "image": {
+        "url": "https://newsroom.amd.com/images/2026/09/063180c6-5b1a-4200-b238-99d7083699ae.jpg",
+        "alt": "Publisher-provided image for AMD completes acquisition of World Labs",
+        "credit": "newsroom.amd.com",
+        "sourceUrl": "https://newsroom.amd.com/news/amd-completes-acquisition-world-labs/",
+        "local": "img/cb2d834cf1a850ef514f.webp",
+        "width": 600,
+        "height": 338,
+        "sha256": "cb2d834cf1a850ef514fd7f23f573e969dd24fa0d826cd058f6eabc920fb218e"
+      }
     },
     {
       "title": "Patched uBlock Origin universal XSS exposes extension trust boundary",
@@ -114,7 +134,17 @@
           "label": "Technical discussion"
         }
       ],
-      "rank": 5
+      "rank": 5,
+      "image": {
+        "url": "https://iter.ca//ubo-epicker.png",
+        "alt": "Publisher-provided image for Patched uBlock Origin universal XSS exposes extension trust boundary",
+        "credit": "iter.ca",
+        "sourceUrl": "https://iter.ca/post/ubo-uxss/",
+        "local": "img/ceedb16d2fc53f90ad95.webp",
+        "width": 600,
+        "height": 320,
+        "sha256": "ceedb16d2fc53f90ad95413b73d4202594a06af8e120900ad8f3fb192ef4bf76"
+      }
     },
     {
       "title": "Windows 11 diagnostic events reveal coding-agent usage telemetry",
@@ -129,7 +159,24 @@
           "url": "https://xusheng.dev/posts/windows-coding-agent-telemetry/"
         }
       ],
-      "rank": 6
+      "rank": 6,
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50524736",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://xusheng.dev/posts/windows-coding-agent-telemetry/agent-names.jpeg",
+        "alt": "Publisher-provided image for Windows 11 diagnostic events reveal coding-agent usage telemetry",
+        "credit": "xusheng.dev",
+        "sourceUrl": "https://xusheng.dev/posts/windows-coding-agent-telemetry/",
+        "local": "img/63c0cd24e92790a0b917.webp",
+        "width": 600,
+        "height": 430,
+        "sha256": "63c0cd24e92790a0b9173edcbee3d979539929977b0247a2f04ad107815b90a3"
+      }
     },
     {
       "rank": 7,
@@ -170,7 +217,17 @@
           "label": "Technical discussion"
         }
       ],
-      "rank": 8
+      "rank": 8,
+      "image": {
+        "url": "https://opengraph.githubassets.com/5f1ce159986c391b4e50625977dde84db7b3f9d095f401c93455484a1b23810e/BurntSushi/jiff",
+        "alt": "Publisher-provided image for Jiff 1.0 stabilizes Rust timezone-aware datetime library",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/BurntSushi/jiff",
+        "local": "img/ad343428ad33f629eb3c.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "ad343428ad33f629eb3c9e506bdefd4af10b3a5305443f6acd24d03d388ed581"
+      }
     }
   ],
   "alsoWorthKnowing": [
@@ -194,7 +251,24 @@
           "label": "Harmonic announcement",
           "url": "https://www.harmonic.fun/news/aristotle-rust-verification/"
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50520270",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://www.harmonic.fun/images/share/news-aristotle-rust-verification-fedcd5adc7.jpg",
+        "alt": "Publisher-provided image for Aristotle introduces AI-assisted Rust formal verification",
+        "credit": "harmonic.fun",
+        "sourceUrl": "https://www.harmonic.fun/news/aristotle-rust-verification/",
+        "local": "img/fedcd5adc71603a5c789.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "fedcd5adc71603a5c789e43d933d2cc2770e5220431b41dfbfccdfbe843b5f12"
+      }
     },
     {
       "title": "OpenCode Browse draws developer attention",
@@ -212,7 +286,17 @@
           "url": "https://news.ycombinator.com/news",
           "label": "Front page"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://opencode.ai/files/site/og/home-98637499f6.png",
+        "alt": "Publisher-provided image for OpenCode Browse draws developer attention",
+        "credit": "opencode.ai",
+        "sourceUrl": "https://opencode.ai/",
+        "local": "img/98637499f654c3db9b54.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "98637499f654c3db9b542e5283f1a98eb9dffc602e32d80789b5f6a9bee4058b"
+      }
     },
     {
       "title": "US reportedly preparing AI national champions designation",
@@ -338,7 +422,17 @@
           "label": "Repository",
           "url": "https://github.com/BurntSushi/jiff"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/5f1ce159986c391b4e50625977dde84db7b3f9d095f401c93455484a1b23810e/BurntSushi/jiff",
+        "alt": "Publisher-provided image for Jiff 1.0",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/BurntSushi/jiff",
+        "local": "img/ad343428ad33f629eb3c.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "ad343428ad33f629eb3c9e506bdefd4af10b3a5305443f6acd24d03d388ed581"
+      }
     },
     {
       "title": "Aristotle for Rust",
@@ -349,7 +443,24 @@
           "label": "Harmonic",
           "url": "https://www.harmonic.fun/news/aristotle-rust-verification/"
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50520270",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://www.harmonic.fun/images/share/news-aristotle-rust-verification-fedcd5adc7.jpg",
+        "alt": "Publisher-provided image for Aristotle for Rust",
+        "credit": "harmonic.fun",
+        "sourceUrl": "https://www.harmonic.fun/news/aristotle-rust-verification/",
+        "local": "img/fedcd5adc71603a5c789.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "fedcd5adc71603a5c789e43d933d2cc2770e5220431b41dfbfccdfbe843b5f12"
+      }
     },
     {
       "title": "db-branch",
@@ -367,7 +478,17 @@
           "url": "https://news.ycombinator.com/item?id=50506940",
           "label": "Show HN"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/ad4bb48c001af28ff04d9efd654c1bc22ae963665271e33fbc674fa5ad573682/db-branch/db-branch",
+        "alt": "Publisher-provided image for db-branch",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/db-branch/db-branch",
+        "local": "img/2f59111d86dd1eab7c35.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "2f59111d86dd1eab7c35dd5a0b80d0d9c14d9a9a8a7b89284e01ea7c8842e9f2"
+      }
     }
   ],
   "marketPulse": "No new comprehensive US software-engineering employment release establishes a change in senior or Staff+ hiring. AMD's World Labs acquisition signals strategic AI investment, while chip restrictions and financial stability risks complicate the business outlook. The day's supply-chain and banking incidents emphasize operational security and reliability, not a measured hiring trend.",

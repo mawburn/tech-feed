@@ -395,6 +395,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://opencode.ai/files/site/og/home-98637499f6.png": {
+      "attempts": 1,
+      "bytes": 3988,
+      "encoding": "q85",
+      "file": "img/98637499f654c3db9b54.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-17T04:12:25Z",
+      "sha256": "98637499f654c3db9b542e5283f1a98eb9dffc602e32d80789b5f6a9bee4058b",
+      "sourceBytes": 29091,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://opengraph.githubassets.com/5f1ce159986c391b4e50625977dde84db7b3f9d095f401c93455484a1b23810e/BurntSushi/jiff": {
       "attempts": 1,
       "bytes": 12388,
@@ -488,6 +501,19 @@
       "lastAttempt": "2026-11-16T22:31:11Z",
       "sha256": "845d3fc7a2f3993d428835f3045c51251b2f3e07bfdb39516ffeec2efef0a1ee",
       "sourceBytes": 17172,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://storage.ghost.io/c/2d/aa/2daa4f7f-a71b-47d2-a54c-06b8c60222ef/content/images/size/w1200/2026/11/Cybersecurity-Alert_-Malicious-Code-Injection.png": {
+      "attempts": 1,
+      "bytes": 33800,
+      "encoding": "q90",
+      "file": "img/3464c3db74247a757505.webp",
+      "height": 307,
+      "lastAttempt": "2026-11-17T04:12:25Z",
+      "sha256": "3464c3db74247a757505a76b4649bd16763d306712f3aaf24fb0fe8ef938e1fa",
+      "sourceBytes": 871515,
       "sourceFormat": "PNG",
       "status": "ok",
       "width": 600
@@ -630,6 +656,12 @@
       "lastAttempt": "2026-11-16T21:33:10Z",
       "noimageindex": false,
       "status": "ok"
+    },
+    "https://apnews.com/article/50fee2693c22f597fa6ca51a97ef2cda": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-17T04:12:25Z",
+      "reason": "HTTP 403 from https://apnews.com/article/50fee2693c22f597fa6ca51a97ef2cda",
+      "status": "failed"
     },
     "https://apnews.com/article/60f868d3bb430b85a8657b27d421096e": {
       "attempts": 1,
@@ -908,6 +940,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://opencode.ai/": {
+      "attempts": 1,
+      "image": "https://opencode.ai/files/site/og/home-98637499f6.png",
+      "lastAttempt": "2026-11-17T04:12:25Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://platform.claude.com/docs/en/release-notes/overview": {
       "attempts": 1,
       "image": "https://platform.claude.com/web-api/og/docs/en/release-notes/overview?design-rev=5",
@@ -926,6 +965,13 @@
       "attempts": 1,
       "image": "https://qwenlm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E",
       "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://report-uri.ghost.io/worlds-largest-brands-infected-with-malware-via-optimizely/": {
+      "attempts": 1,
+      "image": "https://storage.ghost.io/c/2d/aa/2daa4f7f-a71b-47d2-a54c-06b8c60222ef/content/images/size/w1200/2026/11/Cybersecurity-Alert_-Malicious-Code-Injection.png",
+      "lastAttempt": "2026-11-17T04:12:25Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -976,6 +1022,13 @@
       "lastAttempt": "2026-11-16T21:33:10Z",
       "reason": "HTTP 403 from https://www.appliedmaterials.com/us/en/newsroom/press-releases/111226-applied-materials-announces-fourth-qtr-fiscal-year-end-2026-results.html",
       "status": "failed"
+    },
+    "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware/": {
+      "attempts": 1,
+      "image": "https://www.bleepstatic.com/content/posts/2026/11/16/supply-chain-attack.jpg",
+      "lastAttempt": "2026-11-17T04:12:25Z",
+      "noimageindex": false,
+      "status": "ok"
     },
     "https://www.businessinsider.com/ai-engineering-jobs-changing-more-meetings-office-time-social-skills-2026-11": {
       "attempts": 1,
@@ -1123,6 +1176,12 @@
       "attempts": 1,
       "lastAttempt": "2026-11-16T21:33:10Z",
       "reason": "HTTP 401 from https://www.reuters.com/world/feds-barr-warns-ai-risks-financial-system-2026-11-16/",
+      "status": "failed"
+    },
+    "https://www.reuters.com/world/us/united-airlines-says-technology-issue-affecting-departing-flights-2026-11-16/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-17T04:12:25Z",
+      "reason": "HTTP 401 from https://www.reuters.com/world/us/united-airlines-says-technology-issue-affecting-departing-flights-2026-11-16/",
       "status": "failed"
     },
     "https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/exhibit991q42026earningsre.htm": {
