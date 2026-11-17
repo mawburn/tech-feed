@@ -1,56 +1,20 @@
 {
   "date": "2026-11-16",
-  "label": "Monday evening research update",
-  "overview": "AMD's completed World Labs acquisition leads a consequential day for spatial AI and chip strategy. New US controls on remote access to advanced AI compute and Alibaba's Qwen4-Max underscore model competition and regulatory risk. Independent technical research disclosed a patched uBlock Origin universal XSS issue and Windows coding-agent usage telemetry. JPMorgan's transaction delays, Jiff 1.0 and Rust formal-verification support broaden the day's engineering picture.",
+  "label": "Monday morning briefing",
+  "overview": "New US restrictions on remotely accessed AI compute and Alibaba's Qwen4-Max announcement lead the morning. A large open-weight LongCat model adds another entrant to agentic coding, while a Git remote-code-execution advisory warrants immediate attention. AI financial-stability concerns are receiving renewed official scrutiny, and hiring evidence remains mixed rather than showing a clear recovery.",
   "topStories": [
     {
       "rank": 1,
-      "title": "AMD completes $8.2 billion acquisition of World Labs",
-      "category": "Business & Markets",
-      "summary": "AMD confirmed completion of its World Labs acquisition on November 16; the SEC filing says it closed November 13. Fei-Fei Li joins as executive vice president and chief scientist. World Labs develops spatial AI models for interactive 3D worlds, simulation and robotics.",
-      "whyItMatters": "AMD is integrating frontier spatial-model research into hardware, software and accelerator design, potentially broadening competition beyond text-centric AI workloads.",
-      "limitations": "The $8.2 billion figure reflects the previously disclosed stock consideration. Integration outcomes, commercial performance and inference improvements are unproven.",
+      "title": "US tightens controls on remotely accessed advanced AI chips",
+      "category": "Policy & Regulation",
+      "summary": "The Commerce Department issued an interim rule addressing advanced AI chips accessed through overseas data centers, including additional licensing requirements in Singapore, Thailand, Malaysia, Indonesia and Brazil.",
+      "whyItMatters": "Compute location and remote access become important compliance considerations for cloud providers and AI infrastructure operators.",
+      "limitations": "Implementation details and enforcement remain uncertain; the rule is not a blanket prohibition on all cloud compute.",
       "isUpdate": false,
       "sources": [
         {
-          "label": "AMD announcement",
-          "url": "https://newsroom.amd.com/news/amd-completes-acquisition-world-labs/"
-        },
-        {
-          "label": "AMD SEC filing",
-          "url": "https://ir.amd.com/financial-information/sec-filings/content/0001193125-26-462340/d105780d8ka.htm"
-        }
-      ],
-      "discoveredVia": [
-        {
-          "platform": "Official blog",
-          "url": "https://newsroom.amd.com/news/amd-completes-acquisition-world-labs/",
-          "label": "AMD Newsroom"
-        }
-      ],
-      "image": {
-        "url": "https://newsroom.amd.com/images/2026/09/063180c6-5b1a-4200-b238-99d7083699ae.jpg",
-        "alt": "Publisher-provided image for AMD completes $8.2 billion acquisition of World Labs",
-        "credit": "newsroom.amd.com",
-        "sourceUrl": "https://newsroom.amd.com/news/amd-completes-acquisition-world-labs/",
-        "local": "img/cb2d834cf1a850ef514f.webp",
-        "width": 600,
-        "height": 338,
-        "sha256": "cb2d834cf1a850ef514fd7f23f573e969dd24fa0d826cd058f6eabc920fb218e"
-      }
-    },
-    {
-      "rank": 2,
-      "title": "US expands AI chip controls to remote overseas cloud access",
-      "category": "Policy & Regulation",
-      "summary": "The US announced rules addressing remote use of advanced AI chips hosted in third countries, with end-user identification requirements and additional licensing for sales to several countries.",
-      "whyItMatters": "Cloud GPU providers and model developers must consider compute access, deployment location and compliance, not just physical chip exports.",
-      "limitations": "The restrictions are not a universal ban on overseas computing, and implementation and licensing outcomes remain uncertain.",
-      "isUpdate": true,
-      "sources": [
-        {
-          "label": "Associated Press",
-          "url": "https://apnews.com/article/60f868d3bb430b85a8657b27d421096e"
+          "label": "BIS announcement",
+          "url": "https://media.bis.gov/sites/default/files/documents/BIS%20Issues%20Rule%20Addressing%20Remote%20Access%20to%20American%20Super%20Intelligence%20Technology.pdf"
         },
         {
           "label": "Reuters",
@@ -59,302 +23,28 @@
       ]
     },
     {
-      "rank": 3,
-      "title": "Patched uBlock Origin universal XSS exposed extension UI trust boundary",
-      "category": "Security",
-      "summary": "Researcher Smitty van Bodegom disclosed a Firefox Manifest V2 uBlock Origin element-picker issue allowing a malicious page to trick users into adding trusted filters capable of executing script on unrelated websites. The issue is patched.",
-      "whyItMatters": "Browser extensions have elevated privileges; website-driven configuration interfaces require strict isolation and message validation.",
-      "limitations": "The attack requires user interaction. The related Manifest V3 issue differs in severity; this disclosure is not evidence of exploitation in the wild.",
+      "rank": 2,
+      "title": "Alibaba announces Qwen4-Max with new security safeguards",
+      "category": "AI Models & Research",
+      "summary": "Alibaba unveiled a 2.4-trillion-parameter flagship model, reporting improved secure-code results and lower task costs in its own tests; smaller open-weight Qwen4 variants are planned.",
+      "whyItMatters": "Security-aware coding capabilities and competition from Chinese model providers are strategically important.",
+      "limitations": "Benchmarks and safety claims are company-reported; planned open weights are not a released open-source training stack.",
       "isUpdate": false,
       "sources": [
-        {
-          "label": "Researcher's technical write-up",
-          "url": "https://iter.ca/post/ubo-uxss/"
-        },
-        {
-          "label": "Maintainer security advisory",
-          "url": "https://github.com/gorhill/uBlock/security/advisories/GHSA-cmqw-9r2w-6wv2"
-        }
-      ],
-      "discoveredVia": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50513160",
-          "label": "Security research submission"
-        }
-      ],
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50513160",
-          "label": "Technical discussion"
-        }
-      ],
-      "image": {
-        "url": "https://iter.ca//ubo-epicker.png",
-        "alt": "Publisher-provided image for Patched uBlock Origin universal XSS exposed extension UI trust boundary",
-        "credit": "iter.ca",
-        "sourceUrl": "https://iter.ca/post/ubo-uxss/",
-        "local": "img/ceedb16d2fc53f90ad95.webp",
-        "width": 600,
-        "height": 320,
-        "sha256": "ceedb16d2fc53f90ad95413b73d4202594a06af8e120900ad8f3fb192ef4bf76"
-      }
-    },
-    {
-      "rank": 4,
-      "title": "Alibaba releases Qwen4-Max with security and cost claims",
-      "category": "AI & Models",
-      "summary": "Alibaba introduced its 2.4-trillion-parameter Qwen4-Max, reporting improved secure-code-generation results and lower average task costs in internal tests. Smaller Qwen4 open-weight releases are planned.",
-      "whyItMatters": "Model competition increasingly includes secure coding, inference economics and safety reporting.",
-      "limitations": "Results are vendor-reported, not independently validated; the flagship model is not a confirmed open-source release.",
-      "isUpdate": false,
-      "sources": [
-        {
-          "label": "Qwen",
-          "url": "https://qwen.ai/"
-        },
         {
           "label": "Reuters",
           "url": "https://www.reuters.com/business/retail-consumer/alibaba-unveils-new-flagship-ai-model-with-safety-upgrades-2026-11-16/"
         }
-      ],
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50513215",
-          "label": "Technical discussion"
-        }
-      ],
-      "image": {
-        "url": "https://img.alicdn.com/imgextra/i4/O1CN01OXv3EM1FN8t9W4P79_!!6000000000474-2-tps-80-80.png",
-        "alt": "Publisher-provided image for Alibaba releases Qwen4-Max with security and cost claims",
-        "credit": "qwen.ai",
-        "sourceUrl": "https://qwen.ai/"
-      }
+      ]
     },
     {
-      "rank": 5,
-      "title": "Windows 11 diagnostic telemetry records coding-agent usage",
-      "category": "Security",
-      "summary": "Independent reverse engineering found Windows 11 MissionControlAggregator tracking whether tools such as Claude, Codex and Cursor ran. A tested configuration queued usage-bit reports when optional diagnostics were enabled; no prompts or source code were found in the report.",
-      "whyItMatters": "Developers and organizations may want to review optional telemetry policies for sensitive workflow metadata.",
-      "limitations": "Demonstrated on specific Windows 11 configurations, not proven enabled on every installation; the researcher traced upload queuing, not all downstream data use.",
+      "rank": 3,
+      "title": "LongCat-2.5 weights available for large-scale agentic workflows",
+      "category": "AI Models & Research",
+      "summary": "Meituan's 1.6-trillion-parameter multimodal MoE model activates roughly 48 billion parameters per token and targets coding, visual understanding and long-horizon agents.",
+      "whyItMatters": "A substantial openly downloadable model expands alternatives for specialized inference infrastructure.",
+      "limitations": "Extremely large memory and serving requirements limit local use; published performance claims require independent evaluation; weights are available but the full training pipeline is not established as open.",
       "isUpdate": false,
-      "sources": [
-        {
-          "label": "Xusheng Li technical investigation",
-          "url": "https://xusheng.dev/posts/windows-coding-agent-telemetry/"
-        }
-      ],
-      "discoveredVia": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/best",
-          "label": "Best stories discovery"
-        }
-      ],
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50524736",
-          "label": "HN discussion"
-        }
-      ],
-      "image": {
-        "url": "https://xusheng.dev/posts/windows-coding-agent-telemetry/agent-names.jpeg",
-        "alt": "Publisher-provided image for Windows 11 diagnostic telemetry records coding-agent usage",
-        "credit": "xusheng.dev",
-        "sourceUrl": "https://xusheng.dev/posts/windows-coding-agent-telemetry/",
-        "local": "img/63c0cd24e92790a0b917.webp",
-        "width": 600,
-        "height": 430,
-        "sha256": "63c0cd24e92790a0b9173edcbee3d979539929977b0247a2f04ad107815b90a3"
-      }
-    },
-    {
-      "rank": 6,
-      "title": "JPMorgan software bug causes cross-bank transaction delays",
-      "category": "Cloud & Infrastructure",
-      "summary": "JPMorgan said an on-premises software issue slowed transactions, with knock-on delays for customers transferring money between banks, including some Zelle transactions. The bank said it was not a cyberattack.",
-      "whyItMatters": "A localized operational failure at a large institution can propagate into other institutions' customer experience through transaction dependencies.",
-      "limitations": "Precise root cause and remediation were not independently established; other banks and the Zelle network were not necessarily themselves down.",
-      "isUpdate": false,
-      "sources": [
-        {
-          "label": "Reuters",
-          "url": "https://www.reuters.com/legal/transactional/downdetector-reports-outages-major-us-banks-2026-11-16/"
-        },
-        {
-          "label": "Associated Press",
-          "url": "https://www.local10.com/business/2026/11/16/a-technical-issue-at-jpmorgan-chase-triggers-online-banking-delays-for-major-us-banks/"
-        }
-      ],
-      "image": {
-        "url": "https://wplginc-wplg-prod.web.arc-cdn.net/resizer/v2/https%3A%2F%2Fd2p7h58ldpiqzj.cloudfront.net%2F11-17-2026%2Ft_98c98a1d64b748a5977d262a1bd0d2da_name_49684015873_hdtv.jpg?auth=69dcb79560cf834a2b133601f34aa0e3edb84a61d687605c7e4e11fe1d89ec4c&width=700",
-        "alt": "Publisher-provided image for JPMorgan software bug causes cross-bank transaction delays",
-        "credit": "local10.com",
-        "sourceUrl": "https://www.local10.com/business/2026/11/16/a-technical-issue-at-jpmorgan-chase-triggers-online-banking-delays-for-major-us-banks/",
-        "local": "img/713861d7b2912bef1e9e.webp",
-        "width": 600,
-        "height": 338,
-        "sha256": "713861d7b2912bef1e9edc2ab0d6863dcb433aafd0555cd073f487235357e554"
-      }
-    },
-    {
-      "rank": 7,
-      "title": "Jiff 1.0 brings stable timezone-aware datetime APIs to Rust",
-      "category": "Developer Tools",
-      "summary": "Andrew Gallant released Jiff 1.0 on November 15, with explicit civil and zoned time representations, DST handling, parsing and calendar arithmetic. The library already has production adoption in Cargo, uv, Nushell and other tools.",
-      "whyItMatters": "A stable, widely adopted date-time abstraction can reduce recurring production bugs and serve as a dependable public dependency.",
-      "limitations": "Migration requires evaluating compatibility and timezone-data behavior; this is a mature library milestone rather than a new language feature.",
-      "isUpdate": false,
-      "sources": [
-        {
-          "label": "Andrew Gallant release essay",
-          "url": "https://burntsushi.net/jiff/"
-        },
-        {
-          "label": "Jiff repository",
-          "url": "https://github.com/BurntSushi/jiff"
-        }
-      ],
-      "discoveredVia": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50519744",
-          "label": "Jiff 1.0 submission"
-        }
-      ],
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50519744",
-          "label": "Technical discussion"
-        }
-      ],
-      "image": {
-        "url": "https://opengraph.githubassets.com/5f1ce159986c391b4e50625977dde84db7b3f9d095f401c93455484a1b23810e/BurntSushi/jiff",
-        "alt": "Publisher-provided image for Jiff 1.0 brings stable timezone-aware datetime APIs to Rust",
-        "credit": "github.com",
-        "sourceUrl": "https://github.com/BurntSushi/jiff",
-        "local": "img/ad343428ad33f629eb3c.webp",
-        "width": 600,
-        "height": 300,
-        "sha256": "ad343428ad33f629eb3c9e506bdefd4af10b3a5305443f6acd24d03d388ed581"
-      }
-    },
-    {
-      "rank": 8,
-      "title": "Harmonic Aristotle expands AI-assisted formal verification to Rust",
-      "category": "Developer Tools",
-      "summary": "Harmonic announced Rust support for Aristotle, claiming proofs against specifications including selected unsafe-code properties, and reporting a discovered rounding bug in a Solana order book.",
-      "whyItMatters": "Verification against explicit properties could complement AI-generated code and tests in high-assurance software.",
-      "limitations": "Vendor-reported examples are not independent benchmarks; correctness depends on the specification, supported semantics and verification coverage.",
-      "isUpdate": false,
-      "sources": [
-        {
-          "label": "Harmonic release",
-          "url": "https://www.harmonic.fun/news/aristotle-rust-verification/"
-        }
-      ],
-      "discoveredVia": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50520270",
-          "label": "Rust verification submission"
-        }
-      ],
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50520270",
-          "label": "Technical discussion"
-        }
-      ],
-      "image": {
-        "url": "https://www.harmonic.fun/images/share/news-aristotle-rust-verification-fedcd5adc7.jpg",
-        "alt": "Publisher-provided image for Harmonic Aristotle expands AI-assisted formal verification to Rust",
-        "credit": "harmonic.fun",
-        "sourceUrl": "https://www.harmonic.fun/news/aristotle-rust-verification/",
-        "local": "img/fedcd5adc71603a5c789.webp",
-        "width": 600,
-        "height": 315,
-        "sha256": "fedcd5adc71603a5c789e43d933d2cc2770e5220431b41dfbfccdfbe843b5f12"
-      }
-    }
-  ],
-  "alsoWorthKnowing": [
-    {
-      "title": "GitHub adds bulk starts for AI Scan",
-      "category": "Security",
-      "summary": "Organization administrators can launch scans for up to 20 repositories at once in public preview; teams still need triage and validation.",
-      "sources": [
-        {
-          "label": "GitHub changelog",
-          "url": "https://github.blog/changelog/month/11-2026/"
-        }
-      ],
-      "image": {
-        "url": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-changelog.jpg",
-        "alt": "Publisher-provided image for GitHub adds bulk starts for AI Scan",
-        "credit": "github.blog",
-        "sourceUrl": "https://github.blog/changelog/month/11-2026/",
-        "local": "img/7e1d0422865d3f824d66.webp",
-        "width": 600,
-        "height": 315,
-        "sha256": "7e1d0422865d3f824d66541c3b094a47a24e9400b66a4bae3f7ade725c690ed2"
-      }
-    },
-    {
-      "title": "GitHub Copilot model retirements take effect",
-      "category": "AI & Agents",
-      "summary": "Some Copilot models were deprecated November 16, with further retirements planned for December 14; pinned-model workflows should be reviewed.",
-      "sources": [
-        {
-          "label": "GitHub changelog",
-          "url": "https://github.blog/changelog/month/11-2026/"
-        }
-      ],
-      "image": {
-        "url": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-changelog.jpg",
-        "alt": "Publisher-provided image for GitHub Copilot model retirements take effect",
-        "credit": "github.blog",
-        "sourceUrl": "https://github.blog/changelog/month/11-2026/",
-        "local": "img/7e1d0422865d3f824d66.webp",
-        "width": 600,
-        "height": 315,
-        "sha256": "7e1d0422865d3f824d66541c3b094a47a24e9400b66a4bae3f7ade725c690ed2"
-      }
-    },
-    {
-      "title": "Tor issues urgent DoS-defense security release",
-      "category": "Security",
-      "summary": "Tor 0.4.9.17 addresses several security issues, including IPv6 handling in relay DoS defenses, amid sustained attacks on relay operators.",
-      "sources": [
-        {
-          "label": "Tor Project release",
-          "url": "https://forum.torproject.org/t/security-release-0-4-9-17/22454"
-        }
-      ],
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50512441",
-          "label": "HN discussion"
-        }
-      ],
-      "image": {
-        "url": "https://forum.torproject.org/uploads/default/original/2X/d/d3424bed34f4ec18b2e99178c2801ba6dfb655d6.png",
-        "alt": "Publisher-provided image for Tor issues urgent DoS-defense security release",
-        "credit": "forum.torproject.org",
-        "sourceUrl": "https://forum.torproject.org/t/security-release-0-4-9-17/22454"
-      }
-    },
-    {
-      "title": "LongCat-2.5 offers a massive open-weight MoE model",
-      "category": "AI & Models",
-      "summary": "Meituan's 1.6T-parameter mixture-of-experts model with approximately 48B active parameters is available for inspection and download, though deployment is infrastructure-intensive.",
       "sources": [
         {
           "label": "Hugging Face model card",
@@ -363,7 +53,7 @@
       ],
       "image": {
         "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/meituan-longcat/LongCat-2.5.png",
-        "alt": "Publisher-provided image for LongCat-2.5 offers a massive open-weight MoE model",
+        "alt": "Publisher-provided image for LongCat-2.5 weights available for large-scale agentic workflows",
         "credit": "huggingface.co",
         "sourceUrl": "https://huggingface.co/meituan-longcat/LongCat-2.5",
         "local": "img/303197b28a8349d6f066.webp",
@@ -373,43 +63,26 @@
       }
     },
     {
-      "title": "Protomaps self-hosting tutorial revisits map infrastructure costs",
-      "category": "Developer Tools",
-      "summary": "An independent technical walkthrough explains why self-hosting map tiles has become more accessible and cost-effective for some applications.",
-      "sources": [
-        {
-          "label": "Bruce Röttgers technical article",
-          "url": "https://bruceroettgers.eu/blog/protomaps/"
-        }
-      ],
-      "discoveredVia": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/best",
-          "label": "Best stories discovery"
-        }
-      ],
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50509837",
-          "label": "HN discussion"
-        }
-      ]
-    },
-    {
-      "title": "Git recursive-clone security advisory remains relevant to agents",
+      "rank": 4,
+      "title": "Git patches high-severity recursive-clone remote-code-execution flaw",
       "category": "Security",
-      "summary": "A Git advisory describes a recursive-clone remote-code-execution issue; untrusted repository ingestion in coding agents and CI warrants patching and sandboxing.",
+      "summary": "Git maintainers published a high-severity advisory for recursive clones on November 10, among several security fixes highlighted by GitHub.",
+      "whyItMatters": "Repositories and automation that clone untrusted sources should prioritize patched Git versions.",
+      "limitations": "Risk depends on affected workflows and versions; review the advisory rather than assuming all clones are exploitable.",
+      "isUpdate": false,
       "sources": [
         {
-          "label": "Git security advisory",
+          "label": "Git advisory",
           "url": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr"
+        },
+        {
+          "label": "GitHub engineering coverage",
+          "url": "https://github.blog/"
         }
       ],
       "image": {
         "url": "https://opengraph.githubassets.com/893f328115f736f3c49f5add942cfc800c3703396d10d842b7c123745c633f32/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
-        "alt": "Publisher-provided image for Git recursive-clone security advisory remains relevant to agents",
+        "alt": "Publisher-provided image for Git patches high-severity recursive-clone remote-code-execution flaw",
         "credit": "github.com",
         "sourceUrl": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
         "local": "img/6be759c56efb679125aa.webp",
@@ -419,136 +92,227 @@
       }
     },
     {
-      "title": "Microsoft 365 outage root-cause reporting continues",
-      "category": "Cloud & Infrastructure",
-      "summary": "Follow-up reporting attributes last week's widespread Microsoft email outage to a software defect, reinforcing multi-service dependency risks.",
+      "rank": 5,
+      "title": "Federal Reserve warns of AI-driven financial instability",
+      "category": "Business & Markets",
+      "summary": "Fed Governor Michael Barr highlighted correlated AI trading behavior, cyber risks, authorization problems with financial agents, and complex AI infrastructure financing.",
+      "whyItMatters": "Financial-sector agent deployments need rigorous controls, and infrastructure funding risks could spill into tech investment.",
+      "limitations": "These are systemic risk scenarios, not evidence that a crash or mass job loss is imminent.",
+      "isUpdate": true,
       "sources": [
         {
-          "label": "The Register coverage",
-          "url": "https://www.theregister.com/"
+          "label": "Reuters",
+          "url": "https://www.reuters.com/world/feds-barr-warns-ai-risks-financial-system-2026-11-16/"
         }
-      ],
-      "isUpdate": true
+      ]
     },
     {
-      "title": "Federal Reserve continues to flag AI financial-system risks",
-      "category": "Business & Markets",
-      "summary": "Recent Fed reporting and remarks focus on correlated automated behavior, cyber risk and interconnected AI infrastructure financing; this is risk analysis, not a forecast of a crash.",
+      "rank": 6,
+      "title": "US and nine allies announce AI supply-chain coordination",
+      "category": "Policy & Regulation",
+      "summary": "The United States and nine partners signed a declaration to protect AI technology and critical infrastructure supply chains.",
+      "whyItMatters": "Supply-chain security is becoming a coordinated international policy priority.",
+      "limitations": "The declaration is a framework announcement without verified detailed implementation or immediate technical requirements.",
+      "isUpdate": false,
       "sources": [
         {
-          "label": "Federal Reserve financial stability reports",
-          "url": "https://www.federalreserve.gov/publications/financial-stability-report.htm"
+          "label": "Reuters",
+          "url": "https://www.reuters.com/world/china/us-allies-team-up-protect-ai-tech-infrastructure-amid-china-rivalry-2026-11-16/"
+        }
+      ]
+    }
+  ],
+  "alsoWorthKnowing": [
+    {
+      "title": "US reportedly preparing AI national champions designation",
+      "category": "Business & Markets",
+      "summary": "A reported initiative could offer export support and financing to selected US AI companies; no final designation was verified.",
+      "sources": [
+        {
+          "label": "Wall Street Journal",
+          "url": "https://www.wsj.com/tech/ai/trump-administration-to-name-nvidia-among-ai-national-champions-c9284344"
         }
       ],
-      "isUpdate": true,
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50516837",
+          "label": "HN discussion"
+        }
+      ]
+    },
+    {
+      "title": "Security startup Corma raises new funding",
+      "category": "Security",
+      "summary": "Corma reportedly raised $125 million for autonomous cyber-defense agents; product effectiveness remains unverified.",
+      "sources": [
+        {
+          "label": "Wall Street Journal",
+          "url": "https://www.wsj.com/pro/cybersecurity/startup-corma-builds-ai-agents-for-cyber-defense-7d296a0f"
+        }
+      ]
+    },
+    {
+      "title": "FBI warns about abuse of ARTEX penetration-testing tooling",
+      "category": "Security",
+      "summary": "A reported FBI warning underscores the need to distinguish legitimate agentic security testing from malicious deployment.",
+      "sources": [
+        {
+          "label": "Wall Street Journal",
+          "url": "https://www.wsj.com/pro/cybersecurity/startup-corma-builds-ai-agents-for-cyber-defense-7d296a0f"
+        }
+      ]
+    },
+    {
+      "title": "AI coding changes engineering collaboration expectations",
+      "category": "Jobs & Labor",
+      "summary": "Interviews with employers suggest greater emphasis on judgment, communication and customer context, but anecdotes do not establish an industry-wide hiring shift.",
+      "sources": [
+        {
+          "label": "Business Insider",
+          "url": "https://www.businessinsider.com/ai-engineering-jobs-changing-more-meetings-office-time-social-skills-2026-11"
+        }
+      ],
       "image": {
-        "url": "https://www.federalreserve.gov/images/social-media/social-default-image-opengraph.jpg",
-        "alt": "Publisher-provided image for Federal Reserve continues to flag AI financial-system risks",
-        "credit": "federalreserve.gov",
-        "sourceUrl": "https://www.federalreserve.gov/publications/financial-stability-report.htm",
-        "local": "img/a4a79ead4dff5b95b66e.webp",
+        "url": "https://i.insider.com/6af77f050cc3ffba8779d016?width=1200&format=jpeg",
+        "alt": "Publisher-provided image for AI coding changes engineering collaboration expectations",
+        "credit": "businessinsider.com",
+        "sourceUrl": "https://www.businessinsider.com/ai-engineering-jobs-changing-more-meetings-office-time-social-skills-2026-11",
+        "local": "img/80fa1830ab558076fde7.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "80fa1830ab558076fde7f8876b6e6d75ec69af138d1210fdf4b37c508f2c27d0"
+      }
+    },
+    {
+      "title": "GitHub Copilot models scheduled for December retirement",
+      "category": "Developer Tools",
+      "summary": "GitHub will retire selected Copilot models on December 14; audit pinned model choices in coding workflows.",
+      "sources": [
+        {
+          "label": "GitHub changelog",
+          "url": "https://github.blog/changelog/month/11-2026/"
+        }
+      ],
+      "image": {
+        "url": "https://github.blog/wp-content/uploads/2026/11/704888510-f6f002b4-825a-48c2-ad38-5256b8a3aafd.jpg",
+        "alt": "Publisher-provided image for GitHub Copilot models scheduled for December retirement",
+        "credit": "github.blog",
+        "sourceUrl": "https://github.blog/changelog/month/11-2026/",
+        "local": "img/8aef44ea048a178a5206.webp",
         "width": 600,
         "height": 315,
-        "sha256": "a4a79ead4dff5b95b66e1469906858aa214d8f1a4ebc66d27e6cb8aac8d7e27d"
+        "sha256": "8aef44ea048a178a5206102c7f3b422844d2abf47c3adef150292cbeba50cfe7"
       }
+    },
+    {
+      "title": "GitHub AI Scan gains REST API management",
+      "category": "Security",
+      "summary": "Organizations can manage AI Scan settings through APIs, useful for repository security policy automation.",
+      "sources": [
+        {
+          "label": "GitHub changelog",
+          "url": "https://github.blog/changelog/month/11-2026/"
+        }
+      ],
+      "image": {
+        "url": "https://github.blog/wp-content/uploads/2026/11/704888510-f6f002b4-825a-48c2-ad38-5256b8a3aafd.jpg",
+        "alt": "Publisher-provided image for GitHub AI Scan gains REST API management",
+        "credit": "github.blog",
+        "sourceUrl": "https://github.blog/changelog/month/11-2026/",
+        "local": "img/8aef44ea048a178a5206.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "8aef44ea048a178a5206102c7f3b422844d2abf47c3adef150292cbeba50cfe7"
+      }
+    },
+    {
+      "title": "Gemini 4 Hydrogen remains the newest confirmed Copilot model addition",
+      "category": "AI Coding Tools",
+      "summary": "The November 13 release targets fast agentic coding; no independently validated performance comparison was identified this morning.",
+      "sources": [
+        {
+          "label": "GitHub changelog",
+          "url": "https://github.blog/changelog/month/11-2026/"
+        }
+      ],
+      "image": {
+        "url": "https://github.blog/wp-content/uploads/2026/11/704888510-f6f002b4-825a-48c2-ad38-5256b8a3aafd.jpg",
+        "alt": "Publisher-provided image for Gemini 4 Hydrogen remains the newest confirmed Copilot model addition",
+        "credit": "github.blog",
+        "sourceUrl": "https://github.blog/changelog/month/11-2026/",
+        "local": "img/8aef44ea048a178a5206.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "8aef44ea048a178a5206102c7f3b422844d2abf47c3adef150292cbeba50cfe7"
+      }
+    },
+    {
+      "title": "AI-agent workflow study finds prompt-injection defenses rarely specified",
+      "category": "Research",
+      "summary": "A September empirical paper analyzing 1,248 GitHub agentic-workflow files found explicit prompt-injection defenses in only 9.4% of labeled workflows; useful background, not a new release.",
+      "sources": [
+        {
+          "label": "Research paper",
+          "url": "https://arxiv.org/abs/2609.27263"
+        }
+      ]
     }
   ],
   "newTools": [
     {
-      "title": "Jiff 1.0",
-      "category": "Developer Tools",
-      "summary": "Evaluate timezone-aware scheduling and calendar arithmetic for Rust services; compare API ergonomics and DST edge-case handling.",
+      "title": "LongCat-2.5",
+      "category": "AI Models & Research",
+      "summary": "Investigate its multimodal agentic architecture and model card; enormous hardware requirements make hosted evaluation more realistic than desktop deployment.",
       "sources": [
         {
-          "label": "Repository",
-          "url": "https://github.com/BurntSushi/jiff"
-        },
-        {
-          "label": "Release essay",
-          "url": "https://burntsushi.net/jiff/"
-        }
-      ],
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50519744",
-          "label": "Technical discussion"
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/meituan-longcat/LongCat-2.5"
         }
       ],
       "image": {
-        "url": "https://opengraph.githubassets.com/5f1ce159986c391b4e50625977dde84db7b3f9d095f401c93455484a1b23810e/BurntSushi/jiff",
-        "alt": "Publisher-provided image for Jiff 1.0",
-        "credit": "github.com",
-        "sourceUrl": "https://github.com/BurntSushi/jiff",
-        "local": "img/ad343428ad33f629eb3c.webp",
+        "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/meituan-longcat/LongCat-2.5.png",
+        "alt": "Publisher-provided image for LongCat-2.5",
+        "credit": "huggingface.co",
+        "sourceUrl": "https://huggingface.co/meituan-longcat/LongCat-2.5",
+        "local": "img/303197b28a8349d6f066.webp",
         "width": 600,
-        "height": 300,
-        "sha256": "ad343428ad33f629eb3c9e506bdefd4af10b3a5305443f6acd24d03d388ed581"
+        "height": 324,
+        "sha256": "303197b28a8349d6f066422ebe3f9f2358072ecce837ddbb71966c5b23372e89"
       }
     },
     {
-      "title": "Aristotle for Rust",
-      "category": "Developer Tools",
-      "summary": "Try proving a small function with explicit invariants and deliberate edge-case defects; assess specification effort and actual verification coverage.",
+      "title": "Qwen4-Max",
+      "category": "AI Models & Research",
+      "summary": "Monitor API availability and independently test secure coding rather than relying on Alibaba's internal benchmark claims.",
       "sources": [
         {
-          "label": "Harmonic announcement",
-          "url": "https://www.harmonic.fun/news/aristotle-rust-verification/"
+          "label": "Reuters announcement",
+          "url": "https://www.reuters.com/business/retail-consumer/alibaba-unveils-new-flagship-ai-model-with-safety-upgrades-2026-11-16/"
         }
-      ],
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50520270",
-          "label": "Technical discussion"
-        }
-      ],
-      "image": {
-        "url": "https://www.harmonic.fun/images/share/news-aristotle-rust-verification-fedcd5adc7.jpg",
-        "alt": "Publisher-provided image for Aristotle for Rust",
-        "credit": "harmonic.fun",
-        "sourceUrl": "https://www.harmonic.fun/news/aristotle-rust-verification/",
-        "local": "img/fedcd5adc71603a5c789.webp",
-        "width": 600,
-        "height": 315,
-        "sha256": "fedcd5adc71603a5c789e43d933d2cc2770e5220431b41dfbfccdfbe843b5f12"
-      }
+      ]
     },
     {
-      "title": "db-branch",
-      "category": "Developer Tools",
-      "summary": "Apache-2.0 MySQL branching using ZFS clones and ProxySQL routing for isolated CI and coding-agent databases; early-stage operational tradeoffs remain.",
+      "title": "Git security advisories",
+      "category": "Security",
+      "summary": "Review the recursive-clone advisory and patch Git in CI, developer workstations and agent sandboxes where relevant.",
       "sources": [
         {
-          "label": "Source repository",
-          "url": "https://github.com/db-branch/db-branch"
-        }
-      ],
-      "discoveredVia": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50506940",
-          "label": "Show HN"
-        }
-      ],
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50506940",
-          "label": "Technical discussion"
+          "label": "Git advisory",
+          "url": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr"
         }
       ],
       "image": {
-        "url": "https://opengraph.githubassets.com/ad4bb48c001af28ff04d9efd654c1bc22ae963665271e33fbc674fa5ad573682/db-branch/db-branch",
-        "alt": "Publisher-provided image for db-branch",
+        "url": "https://opengraph.githubassets.com/893f328115f736f3c49f5add942cfc800c3703396d10d842b7c123745c633f32/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
+        "alt": "Publisher-provided image for Git security advisories",
         "credit": "github.com",
-        "sourceUrl": "https://github.com/db-branch/db-branch",
-        "local": "img/2f59111d86dd1eab7c35.webp",
+        "sourceUrl": "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
+        "local": "img/6be759c56efb679125aa.webp",
         "width": 600,
         "height": 300,
-        "sha256": "2f59111d86dd1eab7c35dd5a0b80d0d9c14d9a9a8a7b89284e01ea7c8842e9f2"
+        "sha256": "6be759c56efb679125aa3c47a550426606cd092dfbd2e1c5c9bc2bcf18680a3d"
       }
     }
   ],
-  "marketPulse": "No new comprehensive US software-engineering labor-market release establishes a material change in senior or Staff+ hiring or compensation today. AMD's $8.2 billion World Labs acquisition demonstrates strategic AI research investment while chip controls and financial-stability concerns illustrate regulatory and financing risks. Security boundaries, formal verification and operational reliability are technically important but do not by themselves prove increased hiring."
+  "marketPulse": "No new comprehensive software-engineering employment release was verified this morning. Employer interviews suggest increased value placed on collaboration and judgment, but cannot establish Staff+ demand or compensation trends. AI infrastructure funding, export controls and systemic risk remain material business signals; they do not by themselves prove a broad hiring recovery."
 }
