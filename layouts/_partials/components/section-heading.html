@@ -1,0 +1,6 @@
+{{- /* Numbered section heading. Context: {level, num, text, kicker?} */ -}}
+{{- $level := math.Min 6 (math.Max 2 (int .level)) | int -}}
+<div class="section-heading">
+  {{ printf `<h%d class="section-heading__title"><span class="section-heading__num">%02d</span>%s</h%d>` $level (int .num) (.text | htmlEscape) $level | safeHTML }}
+  {{- with .kicker }}<span class="section-heading__kicker">{{ . }}</span>{{ end }}
+</div>

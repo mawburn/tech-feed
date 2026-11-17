@@ -1,0 +1,66 @@
+/* mawburn dispatch design tokens (Stitch "Editorial Charcoal", navy rendering). */
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/inter-latin-wght.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  color-scheme: dark;
+  /* surfaces */
+  --surface: #051424;
+  --surface-lowest: #010f1f;
+  --surface-low: #0d1c2d;
+  --surface-container: #122131;
+  --surface-high: #1c2b3c;
+  --surface-highest: #273647;
+  --surface-bright: #2c3a4c;
+  --header-bg: #16181d;
+  /* content */
+  --on-surface: #d4e4fa;
+  --on-variant: #c6c6cb;
+  --outline: #909095;
+  --outline-variant: #46474b;
+  --hairline: #273647;
+  /* interactive */
+  --primary: #c6c6cd;
+  --primary-fixed: #e2e2e9;
+  --on-primary: #2e3036;
+  --secondary: #bdc2ff;
+  --tertiary: #45dfa4;
+  --error: #ffb4ab;
+  /* topic accents: indicators only */
+  --t-ai: #818cf8;
+  --t-devtools: #34d399;
+  --t-infra: #38bdf8;
+  --t-jobs: #fbbf24;
+  --t-business: #f87171;
+  --t-security: #fb923c;
+  --t-neutral: #94a3b8;
+  /* shape + spacing */
+  --r-sm: 2px;
+  --r-md: 4px;
+  --r-lg: 8px;
+  --sp-xs: .25rem;
+  --sp-sm: .5rem;
+  --sp-md: 1rem;
+  --sp-lg: 1.5rem;
+  --sp-xl: 2.5rem;
+  --sp-2xl: 4rem;
+  --margin: 2rem;
+  --container: 64rem;
+  --header-h: 4rem;
+  --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+@media (max-width: 47.99rem) {
+  :root { --margin: 1rem; --header-h: 5.4rem; }
+}
+.topic--ai { --topic: var(--t-ai); }
+.topic--devtools { --topic: var(--t-devtools); }
+.topic--infra { --topic: var(--t-infra); }
+.topic--jobs { --topic: var(--t-jobs); }
+.topic--business { --topic: var(--t-business); }
+.topic--security { --topic: var(--t-security); }
+.topic--neutral { --topic: var(--t-neutral); }

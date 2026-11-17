@@ -1,0 +1,19 @@
+{{- /* Split long text for progressive disclosure.
+  Returns {paragraphs: [..], lead: "...", rest: [..]}; rest is empty when the text is
+  shorter than params.summaryCollapseChars. Paragraphs are separated by blank lines. */ -}}
+{{- $text := trim (string .) " \n\t" -}}
+{{- $paras := slice -}}
+{{- range split (replaceRE `\r\n?` "\n" $text) "\n\n" }}{{ with trim . " \n\t" }}{{ $paras = $paras | append . }}{{ end }}{{ end -}}
+{{- $limit := site.Params.summaryCollapseChars | default 600 -}}
+{{- $lead := index $paras 0 | default "" -}}
+{{- $rest := after 1 $paras | default slice -}}
+{{- if and (gt (len $text) $limit) (not $rest) -}}
+  {{- /* One long paragraph: lead is the first sentence(s) up to ~1/2 the limit. */ -}}
+  {{- with findRESubmatch (printf `^(.{%d,}?[.!?])\s+(.+)$` (div $limit 3)) $lead 1 -}}
+    {{- $lead = index (index . 0) 1 -}}
+    {{- $rest = slice (index (index . 0) 2) -}}
+  {{- end -}}
+{{- else if le (len $text) $limit -}}
+  {{- $lead = "" -}}{{- $rest = slice -}}
+{{- end -}}
+{{- return dict "paragraphs" $paras "lead" $lead "rest" $rest -}}

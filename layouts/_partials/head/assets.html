@@ -1,0 +1,13 @@
+{{- /* Stylesheet, font preload and icon. No JavaScript is loaded. */ -}}
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#16181d">
+<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+<link rel="preload" href="{{ "fonts/inter-latin-wght.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+{{- $parts := slice }}
+{{- range slice "tokens" "base" "layout" "components" "pages" }}
+  {{- with resources.Get (printf "css/%s.css" .) }}{{ $parts = $parts | append . }}{{ end }}
+{{- end }}
+{{- with $parts }}
+  {{- $css := . | resources.Concat "css/main.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{- end }}

@@ -1,0 +1,8 @@
+{{- /* Category chip: accent dot + icon + name. Context: {category, href?}. */ -}}
+{{- $style := partial "data/topic-style.html" .category -}}
+{{- $inner := printf `<span class="dot" aria-hidden="true"></span>%s%s` (cond (eq $style.icon "dot") "" (partial "components/icon.html" $style.icon)) (.category | htmlEscape) -}}
+{{- if .href -}}
+<a class="topic-chip topic--{{ $style.key }}" href="{{ .href }}">{{ $inner | safeHTML }}</a>
+{{- else -}}
+<span class="topic-chip topic--{{ $style.key }}">{{ $inner | safeHTML }}</span>
+{{- end -}}

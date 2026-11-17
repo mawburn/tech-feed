@@ -1,0 +1,4 @@
+{{- /* Look up one daily edition by date string; returns nil when absent. */ -}}
+{{- $found := false -}}
+{{- with hugo.Data.daily }}{{ $found = index . $ }}{{ end -}}
+{{- return $found -}}

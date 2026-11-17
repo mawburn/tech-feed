@@ -1,0 +1,34 @@
+{{- define "main" -}}
+{{- $category := .Params.category -}}
+{{- $slug := .Params.slug -}}
+{{- $window := partialCached "data/window.html" . -}}
+{{- $recent := slice }}{{ $earlier := slice -}}
+{{- $windowDates := slice }}{{ range $window }}{{ $windowDates = $windowDates | append .date }}{{ end -}}
+{{- range partialCached "data/published-daily.html" . -}}
+  {{- $issue := . -}}
+  {{- $n := 0 }}{{ range partial "data/stories.html" (slice $issue) }}{{ if eq (partial "data/category.html" .) $category }}{{ $n = add $n 1 }}{{ end }}{{ end -}}
+  {{- if $n }}{{ if in $windowDates $issue.date }}{{ $recent = $recent | append $issue }}{{ else }}{{ $earlier = $earlier | append (dict "issue" $issue "count" $n) }}{{ end }}{{ end -}}
+{{- end -}}
+{{ partial "components/page-header.html" (dict "kicker" "Topic" "title" $category "intro" "Stories from the last seven days, with links to earlier coverage.") }}
+{{- range $recent }}
+    {{ partial "components/edition.html" (dict "issue" . "level" 2 "headed" true "category" $category "topicScope" "global") }}
+    {{- else }}
+    {{ partial "components/empty-state.html" (printf "No %s stories in the last seven days." $category) }}
+    {{- end }}
+    {{- with $earlier }}
+    <section class="archive__group">
+      <h2>Earlier {{ $category }} coverage</h2>
+      <ul class="archive__list">
+        {{- range . }}
+        {{- $row := . }}
+        {{- with site.GetPage (printf "/daily/%s/topics/%s" $row.issue.date $slug) }}
+        <li><a href="{{ .RelPermalink }}"><time datetime="{{ $row.issue.date }}">{{ time.AsTime $row.issue.date | time.Format "Monday, January 2, 2006" }}</time></a> · {{ $row.count }} {{ cond (eq $row.count 1) "story" "stories" }}</li>
+        {{- end }}
+        {{- end }}
+      </ul>
+    </section>
+    {{- end }}
+<div class="browse">
+  {{ partial "components/topic-nav.html" (dict "issues" $window "current" $category "label" "Topics this week" "allHref" (site.GetPage "/all").RelPermalink) }}
+</div>
+{{- end -}}

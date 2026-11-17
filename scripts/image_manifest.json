@@ -1,0 +1,943 @@
+{
+  "images": {
+    "https://api-docs.deepseek.com/img/deepseek-social-card.jpeg": {
+      "attempts": 1,
+      "bytes": 8446,
+      "encoding": "q80",
+      "file": "img/de504414b414011cd72f.webp",
+      "height": 319,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "de504414b414011cd72f62d0bf347884504426869c663df0484ac8b3ef2dd623",
+      "sourceBytes": 466392,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://assets.claude.com/21b3240f9264f8e4c8ab1390e2702cf1401b2367.jpg": {
+      "attempts": 1,
+      "bytes": 8200,
+      "encoding": "q80",
+      "file": "img/a2aa419075758844625e.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "a2aa419075758844625e89bb48544a491115b6629b7e75ab8acb17b1c5dc70ae",
+      "sourceBytes": 42935,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://assets.claude.com/6d4a0d28992ade92d6fa63646fd9c9d318245c6c.jpg": {
+      "attempts": 1,
+      "bytes": 2176,
+      "encoding": "q60",
+      "file": "img/18b3c70b6298faa3457d.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "18b3c70b6298faa3457d1d79c8cd03e7ab16342d5f857cd72079459793e5bd35",
+      "sourceBytes": 30702,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://blog.google/static/blogv2/images/google-1440x754.jpg?version=pr20261029-2131": {
+      "attempts": 1,
+      "bytes": 2344,
+      "encoding": "q60",
+      "file": "img/dda07c035f4adff75440.webp",
+      "height": 314,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "dda07c035f4adff75440221d5b6dc062efd906f693dc4cbd8182b1e8ddeda0c9",
+      "sourceBytes": 92839,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/meituan-longcat/LongCat-2.5.png": {
+      "attempts": 1,
+      "bytes": 5128,
+      "encoding": "q65",
+      "file": "img/303197b28a8349d6f066.webp",
+      "height": 324,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "303197b28a8349d6f066422ebe3f9f2358072ecce837ddbb71966c5b23372e89",
+      "sourceBytes": 361214,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/nativ-community/SOV-Transcribe-1-4bit.png": {
+      "attempts": 1,
+      "bytes": 6206,
+      "encoding": "q65",
+      "file": "img/779e6bf2d5f2b9967827.webp",
+      "height": 324,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "779e6bf2d5f2b99678273d02c7abdc23cd2600fe02d24e3d0b3d525d292cf020",
+      "sourceBytes": 365630,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/salesforce-sovereign-intelligence/SOV-Transcribe-1-DFlash.png": {
+      "attempts": 1,
+      "bytes": 7138,
+      "encoding": "q60",
+      "file": "img/4916d7b66a0cb8fb7833.webp",
+      "height": 324,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "4916d7b66a0cb8fb7833fed9597d0073820359ac8f5b645d3f30b2510aa5b6b3",
+      "sourceBytes": 379704,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/salesforce-sovereign-intelligence/SOV-Transcribe-1.png": {
+      "attempts": 1,
+      "bytes": 6390,
+      "encoding": "q60",
+      "file": "img/b8571e223db052089049.webp",
+      "height": 324,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "b8571e223db05208904927b5f80bedbab0a2a9c3f758b2fee322ddb86e140b36",
+      "sourceBytes": 375903,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://cdn-thumbnails.huggingface.co/social-thumbnails/nvidia.png": {
+      "attempts": 1,
+      "bytes": 2884,
+      "encoding": "q60",
+      "file": "img/87186b84d4fabfd7bcc5.webp",
+      "height": 324,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "87186b84d4fabfd7bcc5ebe5fc39eaedb25304e1633c269522c13f82f6d84b12",
+      "sourceBytes": 23375,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://cdn-uploads.huggingface.co/production/uploads/6962d3267513fcf314118d5f/e3kJpSjgR9Y4EX_hcR6iZ.png": {
+      "attempts": 1,
+      "bytes": 17124,
+      "encoding": "q90",
+      "file": "img/a1b8ac54c688c3e5e17f.webp",
+      "height": 314,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "a1b8ac54c688c3e5e17f5cc40b41a15d182bdca7ddd566bc11d4f61742eefd76",
+      "sourceBytes": 4213577,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6af52a0047907d0f9587a24f_Social%20Announcement.png": {
+      "attempts": 1,
+      "bytes": 28110,
+      "encoding": "q85",
+      "file": "img/64fb78232b38d671539e.webp",
+      "height": 338,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "64fb78232b38d671539efb0c9f0846e0393f1487570c14497a55722bec075482",
+      "sourceBytes": 2346197,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/11/11/Header-A-dark-gradient-1-1260x630.png": {
+      "attempts": 1,
+      "bytes": 9708,
+      "encoding": "q80",
+      "file": "img/44cbdc177c462eb10cbd.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "44cbdc177c462eb10cbdbf68c95ca63c765020ca796e5b3bf9a0030c9d2ffe15",
+      "sourceBytes": 258479,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://d341ezm4iqaae0.cloudfront.net/hiringlaborg/2026/11/12162624/Tech_developersdiscussingcodeinofficegettyperp-scaled.jpg": {
+      "attempts": 1,
+      "bytes": 24734,
+      "encoding": "q80",
+      "file": "img/e9abb8eebe7a409765f5.webp",
+      "height": 400,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "e9abb8eebe7a409765f5fa8f27a648925907a7146b0052930e52f748daa51083",
+      "sourceBytes": 435948,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://d3phaj0sisr2ct.cloudfront.net/site/images/sanity/2026/11/frame-8-bddb7fbc-4647-44e5-bf65-1fbb7e559b24-af3f1b60-26e7-4a91-afda-ee27b0a4674b.webp": {
+      "attempts": 1,
+      "bytes": 10432,
+      "encoding": "q80",
+      "file": "img/735ecb95187f003b7673.webp",
+      "height": 400,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "735ecb95187f003b767301afe7d93c0edb87c954c2a7e03e44e6f4757d1cbffc",
+      "sourceBytes": 26896,
+      "sourceFormat": "WEBP",
+      "status": "ok",
+      "width": 600
+    },
+    "https://dart.dev/images/dart3-14-cover.3079441d48d27e634bcebd64eff41b26.webp": {
+      "attempts": 1,
+      "bytes": 14346,
+      "encoding": "q80",
+      "file": "img/e3f9f132b2550f00ba65.webp",
+      "height": 338,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "e3f9f132b2550f00ba657489a1c845a0b9ac2e2834ae43f46ce3b53b8037546e",
+      "sourceBytes": 80774,
+      "sourceFormat": "WEBP",
+      "status": "ok",
+      "width": 600
+    },
+    "https://github.blog/wp-content/uploads/2019/03/engineering-social.png?fit=1201%2C630": {
+      "attempts": 1,
+      "bytes": 11344,
+      "encoding": "q80",
+      "file": "img/ddd70447541a0872c689.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "ddd70447541a0872c6890c2cbf60a6f7ecd07bd86612a800c1b558d8588bbb81",
+      "sourceBytes": 34894,
+      "sourceFormat": "WEBP",
+      "status": "ok",
+      "width": 600
+    },
+    "https://github.blog/wp-content/uploads/2026/11/571554102-6349f5b6-b0b7-4130-9300-6d5d87e0b6e9_19d4ff.jpg": {
+      "attempts": 1,
+      "bytes": 8698,
+      "encoding": "q80",
+      "file": "img/fa2bcae4f9955818c4d5.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "fa2bcae4f9955818c4d5e5f242081e48da113a99837e1cdd4c600d4bdea96217",
+      "sourceBytes": 1152124,
+      "sourceFormat": "WEBP",
+      "status": "ok",
+      "width": 600
+    },
+    "https://github.blog/wp-content/uploads/2026/11/5b5fed0ce69f241f469053d4f178383688adb2fb7ef44dff82c1a2dd6a626fa1-1920x1080-1.png": {
+      "attempts": 1,
+      "bytes": 13008,
+      "encoding": "q80",
+      "file": "img/137b1b95ee7e41a3229f.webp",
+      "height": 338,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "137b1b95ee7e41a3229fa59da0ddc140bcbe1e81ecc64f1da60834a818c696e2",
+      "sourceBytes": 36162,
+      "sourceFormat": "WEBP",
+      "status": "ok",
+      "width": 600
+    },
+    "https://github.blog/wp-content/uploads/2026/11/645867806-878ea927-48c9-4765-a896-4a5f3d7b8f2e.jpg": {
+      "attempts": 1,
+      "bytes": 8384,
+      "encoding": "q80",
+      "file": "img/8bc55225be89d7beb6ce.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "8bc55225be89d7beb6cedeb1988d03fab3e6bd06b8695c859a6fce63f1f5f7d2",
+      "sourceBytes": 38336,
+      "sourceFormat": "WEBP",
+      "status": "ok",
+      "width": 600
+    },
+    "https://github.blog/wp-content/uploads/2026/11/704888510-f6f002b4-825a-48c2-ad38-5256b8a3aafd.jpg": {
+      "attempts": 1,
+      "bytes": 9786,
+      "encoding": "q80",
+      "file": "img/8aef44ea048a178a5206.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "8aef44ea048a178a5206102c7f3b422844d2abf47c3adef150292cbeba50cfe7",
+      "sourceBytes": 23526,
+      "sourceFormat": "WEBP",
+      "status": "ok",
+      "width": 600
+    },
+    "https://github.githubassets.com/assets/github-mark-57519b92ca4e.png": {
+      "attempts": 1,
+      "bytes": 2952,
+      "encoding": "q60",
+      "file": "img/26d56f273ff7a7d824a4.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "26d56f273ff7a7d824a4b581e9a7650b7fb933bcc9232bc2736df3682fba255d",
+      "sourceBytes": 22772,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://i.insider.com/6af77f050cc3ffba8779d016?width=1200&format=jpeg": {
+      "attempts": 1,
+      "bytes": 11000,
+      "encoding": "q80",
+      "file": "img/80fa1830ab558076fde7.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "80fa1830ab558076fde7f8876b6e6d75ec69af138d1210fdf4b37c508f2c27d0",
+      "sourceBytes": 28984,
+      "sourceFormat": "WEBP",
+      "status": "ok",
+      "width": 600
+    },
+    "https://images.ft.com/v3/image/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F6613ccdf-6f45-453d-b4c2-5ca8c027ae84.jpg?source=next-barrier-page&fit=scale-down&quality=highest&width=700&dpr=1": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "publisher policy (ft.com)",
+      "status": "skipped"
+    },
+    "https://lh3.googleusercontent.com/ufe__EokQeN6itypUE9XmN6-HX9kqi1cNllSWZ688h8dXXOh8lDS_Ltc8c-hdbJSp86GcKcpbHmsXharkzaEaFzhOFLsbx7zFcoi20GqnwTREcto=w1200-h630-n-nu-rw": {
+      "attempts": 1,
+      "bytes": 6982,
+      "encoding": "q80",
+      "file": "img/ce239b6be935dde0d3ae.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "ce239b6be935dde0d3ae05562e6ed1458c3ae61e51cc3730ff76a9e14fbdd40f",
+      "sourceBytes": 416760,
+      "sourceFormat": "WEBP",
+      "status": "ok",
+      "width": 600
+    },
+    "https://media.wired.com/photos/6ae951f7e1fce5fdf7878b36/191:100/w_1280,c_limit/SM_Science_Synchron_GettyImages-1610629090.jpg": {
+      "attempts": 1,
+      "bytes": 16028,
+      "encoding": "q80",
+      "file": "img/bc6b9b56e46b0d7d1040.webp",
+      "height": 314,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "bc6b9b56e46b0d7d1040b95d619626946e4bbe3ff6681d75c8164b3c56674102",
+      "sourceBytes": 65006,
+      "sourceFormat": "WEBP",
+      "status": "ok",
+      "width": 600
+    },
+    "https://nodejs.org/en/next-data/og/vulnerability/Node.js%20%E2%80%94%20Wednesday,%20November%2011,%202026%20Security%20Releases": {
+      "attempts": 1,
+      "bytes": 11982,
+      "encoding": "q90",
+      "file": "img/c765700f675ff754346a.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "c765700f675ff754346a57cc0571b7fee85afe77d37aa75667685c0560660b2a",
+      "sourceBytes": 188207,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://nvidianews.nvidia.com/media/sites/219/images/social-image.jpg": {
+      "attempts": 1,
+      "bytes": 3504,
+      "encoding": "q80",
+      "file": "img/880d8614c5c5e8fcb5c8.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "880d8614c5c5e8fcb5c8b90c43a872d7bc00548114355c036bec6dadba410358",
+      "sourceBytes": 75016,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://opengraph.githubassets.com/893f328115f736f3c49f5add942cfc800c3703396d10d842b7c123745c633f32/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr": {
+      "attempts": 1,
+      "bytes": 12890,
+      "encoding": "q85",
+      "file": "img/6be759c56efb679125aa.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "6be759c56efb679125aa3c47a550426606cd092dfbd2e1c5c9bc2bcf18680a3d",
+      "sourceBytes": 49936,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://opengraph.githubassets.com/942d1ba8d4f809fdba40368a2a4b6b67c74fce397f28406da0fc60370ceacf02/ggml-org/llama.cpp/discussions/30566": {
+      "attempts": 1,
+      "bytes": 12454,
+      "encoding": "q90",
+      "file": "img/becede1798461616b924.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "becede1798461616b924b6bafd5dc8780d5702e8dbd4557e82fcf3585103aba0",
+      "sourceBytes": 79856,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://platform.claude.com/web-api/og/docs/en/release-notes/overview?design-rev=5": {
+      "attempts": 1,
+      "bytes": 7020,
+      "encoding": "q70",
+      "file": "img/c32098164cae419081da.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "c32098164cae419081da4cb496e396c4910cd2e0597d92e1bae28d588a61d22a",
+      "sourceBytes": 14794,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://qwenlm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "HTTP 404 from https://qwenlm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E",
+      "status": "failed"
+    },
+    "https://raw.githubusercontent.com/modelcontextprotocol/docs/2eb6171ddbfeefde349dc3b8d5e2b87414c26250/images/og-image.png": {
+      "attempts": 1,
+      "bytes": 3380,
+      "encoding": "q60",
+      "file": "img/2e34e915dff849a69661.webp",
+      "height": 338,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "2e34e915dff849a6966163e6900610528d93c053635d7052d331526ec5b246ea",
+      "sourceBytes": 20976,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://status.bath.ac.uk/assets/status_pages/og_wl_operational-6028a588.png": {
+      "attempts": 1,
+      "bytes": 2664,
+      "encoding": "q60",
+      "file": "img/845d3fc7a2f3993d4288.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "845d3fc7a2f3993d428835f3045c51251b2f3e07bfdb39516ffeec2efef0a1ee",
+      "sourceBytes": 17172,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-hydrogen__key-art__lockup__16-9.width-1300.jpg": {
+      "attempts": 1,
+      "bytes": 8866,
+      "encoding": "q80",
+      "file": "img/8fab615d980da0f4e939.webp",
+      "height": 337,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "8fab615d980da0f4e939f0663c4fe46ff81945cd28c7d504dc84337e4cee16bd",
+      "sourceBytes": 81402,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini__decisions__blog-header_2784x1566.width-1300.png": {
+      "attempts": 1,
+      "bytes": 8880,
+      "encoding": "q90",
+      "file": "img/8c81ad5ac18fcaaa0aaa.webp",
+      "height": 337,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "8c81ad5ac18fcaaa0aaa6d1f5de3e96d80f9ff486dc3d20415137f33e7a84fda",
+      "sourceBytes": 1010365,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://worldlabs.ai/opengraph-image.png?4b39e0cc40ca8b21": {
+      "attempts": 1,
+      "bytes": 38084,
+      "encoding": "q90",
+      "file": "img/12e4db22aa54385a2ee1.webp",
+      "height": 339,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "12e4db22aa54385a2ee151681904e07c6475f6d7de30b94daccc92e680e2d49e",
+      "sourceBytes": 798720,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://www.faa.gov/themes/custom/dot_cms/images/seal_dot.png": {
+      "attempts": 1,
+      "bytes": 9578,
+      "encoding": "q60",
+      "file": "img/ba4920dcb38f76a802b0.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "ba4920dcb38f76a802b076e01586e9a1cc17abfb3cf5bc84ed35c898d9b34477",
+      "sourceBytes": 169410,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://www.federalreserve.gov/images/social-media/social-default-image-opengraph.jpg": {
+      "attempts": 1,
+      "bytes": 21032,
+      "encoding": "q60",
+      "file": "img/a4a79ead4dff5b95b66e.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "a4a79ead4dff5b95b66e1469906858aa214d8f1a4ebc66d27e6cb8aac8d7e27d",
+      "sourceBytes": 218055,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://www.notion.com/front-static/meta/global-evergreen-03.png": {
+      "attempts": 1,
+      "bytes": 16896,
+      "encoding": "q90",
+      "file": "img/9cb4a4021edc3c5176e5.webp",
+      "height": 312,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "9cb4a4021edc3c5176e52dec2cbd06ffa18269b1b6c4599252fbe9d7573b3c74",
+      "sourceBytes": 175320,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg": {
+      "attempts": 1,
+      "bytes": 16616,
+      "encoding": "q80",
+      "file": "img/478b4c2e2e9517cacc9d.webp",
+      "height": 338,
+      "lastAttempt": "2026-11-16T22:31:11Z",
+      "sha256": "478b4c2e2e9517cacc9d7c2b3f0829b52be45e733db9cca56d67e432cb2ed17d",
+      "sourceBytes": 148792,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    }
+  },
+  "pages": {
+    "https://api-docs.deepseek.com/": {
+      "attempts": 1,
+      "image": "https://api-docs.deepseek.com/img/deepseek-social-card.jpeg",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://arxiv.org/abs/2609.27263": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/": {
+      "attempts": 1,
+      "image": "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/11/11/Header-A-dark-gradient-1-1260x630.png",
+      "lastAttempt": "2026-11-16T22:16:07Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/": {
+      "attempts": 1,
+      "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-hydrogen__key-art__lockup__16-9.width-1300.jpg",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/": {
+      "attempts": 1,
+      "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini__decisions__blog-header_2784x1566.width-1300.png",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://blog.google/products/shopping/": {
+      "attempts": 1,
+      "image": "https://blog.google/static/blogv2/images/google-1440x754.jpg?version=pr20261029-2131",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://blog.rust-lang.org/releases/latest/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://dart.dev/blog/announcing-dart-3-14": {
+      "attempts": 1,
+      "image": "https://dart.dev/images/dart3-14-cover.3079441d48d27e634bcebd64eff41b26.webp",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://deepmind.google/models/gemini/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://docs.qwencloud.com/developer-guides/getting-started/latest-model": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-16T21:34:20Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills/": {
+      "attempts": 1,
+      "image": "https://github.blog/wp-content/uploads/2026/11/5b5fed0ce69f241f469053d4f178383688adb2fb7ef44dff82c1a2dd6a626fa1-1920x1080-1.png",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.blog/changelog/": {
+      "attempts": 1,
+      "image": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-changelog.jpg",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.blog/changelog/2026-11-12-secret-scanning-adds-a-detector-for-cloudflare/": {
+      "attempts": 1,
+      "image": "https://github.blog/wp-content/uploads/2026/11/571554102-6349f5b6-b0b7-4130-9300-6d5d87e0b6e9_19d4ff.jpg",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.blog/changelog/label/security/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "HTTP 404 from https://github.blog/changelog/label/security/",
+      "status": "failed"
+    },
+    "https://github.blog/changelog/month/11-2026/": {
+      "attempts": 1,
+      "image": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-changelog.jpg",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.blog/engineering/": {
+      "attempts": 1,
+      "image": "https://github.blog/wp-content/uploads/2019/03/engineering-social.png?fit=1201%2C630",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.com/ggml-org/llama.cpp/discussions/30566": {
+      "attempts": 1,
+      "image": "https://opengraph.githubassets.com/942d1ba8d4f809fdba40368a2a4b6b67c74fce397f28406da0fc60370ceacf02/ggml-org/llama.cpp/discussions/30566",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.com/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr": {
+      "attempts": 1,
+      "image": "https://opengraph.githubassets.com/893f328115f736f3c49f5add942cfc800c3703396d10d842b7c123745c633f32/git/git/security/advisories/GHSA-vp2w-7xxj-jvxr",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.com/search?q=zig+llm+inference&type=repositories": {
+      "attempts": 1,
+      "image": "https://github.githubassets.com/assets/github-mark-57519b92ca4e.png",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://hiringlab.indeed.com/2026/11/12/2026-q3-us-tech-labor-market-update/": {
+      "attempts": 1,
+      "image": "https://d341ezm4iqaae0.cloudfront.net/hiringlaborg/2026/11/12162624/Tech_developersdiscussingcodeinofficegettyperp-scaled.jpg",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1": {
+      "attempts": 1,
+      "image": "https://cdn-uploads.huggingface.co/production/uploads/6962d3267513fcf314118d5f/e3kJpSjgR9Y4EX_hcR6iZ.png",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://huggingface.co/meituan-longcat/LongCat-2.5": {
+      "attempts": 1,
+      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/meituan-longcat/LongCat-2.5.png",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://huggingface.co/nativ-community/SOV-Transcribe-1-4bit": {
+      "attempts": 1,
+      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/nativ-community/SOV-Transcribe-1-4bit.png",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://huggingface.co/nvidia": {
+      "attempts": 1,
+      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/nvidia.png",
+      "lastAttempt": "2026-11-16T22:16:07Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1": {
+      "attempts": 1,
+      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/salesforce-sovereign-intelligence/SOV-Transcribe-1.png",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1-DFlash": {
+      "attempts": 1,
+      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/salesforce-sovereign-intelligence/SOV-Transcribe-1-DFlash.png",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://media.bis.gov/sites/default/files/documents/BIS%20Issues%20Rule%20Addressing%20Remote%20Access%20to%20American%20Super%20Intelligence%20Technology.pdf": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "not an HTML article URL",
+      "status": "skipped"
+    },
+    "https://modelcontextprotocol.io/": {
+      "attempts": 1,
+      "image": "https://raw.githubusercontent.com/modelcontextprotocol/docs/2eb6171ddbfeefde349dc3b8d5e2b87414c26250/images/og-image.png",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases/": {
+      "attempts": 1,
+      "image": "https://nodejs.org/en/next-data/og/vulnerability/Node.js%20%E2%80%94%20Wednesday,%20November%2011,%202026%20Security%20Releases",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition": {
+      "attempts": 1,
+      "image": "https://nvidianews.nvidia.com/media/sites/219/images/social-image.jpg",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://platform.claude.com/docs/en/release-notes/overview": {
+      "attempts": 1,
+      "image": "https://platform.claude.com/web-api/og/docs/en/release-notes/overview?design-rev=5",
+      "lastAttempt": "2026-11-16T22:16:07Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://qwenlm.github.io/": {
+      "attempts": 1,
+      "image": "https://qwenlm.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://runway.com/news/company-news/praxis-1-is-now-available": {
+      "attempts": 1,
+      "image": "https://d3phaj0sisr2ct.cloudfront.net/site/images/sanity/2026/11/frame-8-bddb7fbc-4647-44e5-bf65-1fbb7e559b24-af3f1b60-26e7-4a91-afda-ee27b0a4674b.webp",
+      "lastAttempt": "2026-11-16T22:16:07Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://status.bath.ac.uk/incident/1124080?mp=true": {
+      "attempts": 1,
+      "image": "https://status.bath.ac.uk/assets/status_pages/og_wl_operational-6028a588.png",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://worldlabs.ai/blog": {
+      "attempts": 1,
+      "image": "https://worldlabs.ai/opengraph-image.png?4b39e0cc40ca8b21",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.anthropic.com/claude-fable-and-mythos-5-2": {
+      "attempts": 1,
+      "image": "https://assets.claude.com/21b3240f9264f8e4c8ab1390e2702cf1401b2367.jpg",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.anthropic.com/news": {
+      "attempts": 1,
+      "image": "https://assets.claude.com/6d4a0d28992ade92d6fa63646fd9c9d318245c6c.jpg",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.anthropic.com/news/roadshow-launch": {
+      "attempts": 1,
+      "image": "https://assets.claude.com/6d4a0d28992ade92d6fa63646fd9c9d318245c6c.jpg",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.appliedmaterials.com/us/en/newsroom/press-releases/111226-applied-materials-announces-fourth-qtr-fiscal-year-end-2026-results.html": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "HTTP 403 from https://www.appliedmaterials.com/us/en/newsroom/press-releases/111226-applied-materials-announces-fourth-qtr-fiscal-year-end-2026-results.html",
+      "status": "failed"
+    },
+    "https://www.businessinsider.com/ai-engineering-jobs-changing-more-meetings-office-time-social-skills-2026-11": {
+      "attempts": 1,
+      "image": "https://i.insider.com/6af77f050cc3ffba8779d016?width=1200&format=jpeg",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.census.gov/econ/bfs/index.html": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.faa.gov/newsroom": {
+      "attempts": 1,
+      "image": "https://www.faa.gov/themes/custom/dot_cms/images/seal_dot.png",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.federalreserve.gov/newsevents/speech/barr20261112a.htm": {
+      "attempts": 1,
+      "image": "https://www.federalreserve.gov/images/social-media/social-default-image-opengraph.jpg",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.federalreserve.gov/publications/files/financial-stability-report-20261113.pdf": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "not an HTML article URL",
+      "status": "skipped"
+    },
+    "https://www.ft.com/content/f999a0c2-af52-499f-8008-accbdfd45a25": {
+      "attempts": 1,
+      "image": "https://images.ft.com/v3/image/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F6613ccdf-6f45-453d-b4c2-5ca8c027ae84.jpg?source=next-barrier-page&fit=scale-down&quality=highest&width=700&dpr=1",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.industry.gov.au/policies-and-initiatives/ai": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "TimeoutError: The read operation timed out",
+      "status": "failed"
+    },
+    "https://www.langchain.com/blog/series-c": {
+      "attempts": 1,
+      "image": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6af52a0047907d0f9587a24f_Social%20Announcement.png",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.nasdaq.com/press-release/psiquantum-and-amd-collaborate-build-computing-foundation-utility-scale-quantum": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "TimeoutError: The read operation timed out",
+      "status": "failed"
+    },
+    "https://www.notion.com/en-gb/security/advisories/security-incident-involving-a-third-party-ai-vendor": {
+      "attempts": 1,
+      "image": "https://www.notion.com/front-static/meta/global-evergreen-03.png",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.reuters.com/business/amd-invest-psiquantum-advance-quantum-computing-infrastructure-2026-11-12/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "HTTP 401 from https://www.reuters.com/business/amd-invest-psiquantum-advance-quantum-computing-infrastructure-2026-11-12/",
+      "status": "failed"
+    },
+    "https://www.reuters.com/business/finance/ai-rockets-top-worries-about-financial-system-latest-fed-survey-2026-11-13/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "HTTP 401 from https://www.reuters.com/business/finance/ai-rockets-top-worries-about-financial-system-latest-fed-survey-2026-11-13/",
+      "status": "failed"
+    },
+    "https://www.reuters.com/business/media-telecom/amazons-plan-own-worlds-product-data-fight-ai-shopping-agents-2026-11-13/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "HTTP 401 from https://www.reuters.com/business/media-telecom/amazons-plan-own-worlds-product-data-fight-ai-shopping-agents-2026-11-13/",
+      "status": "failed"
+    },
+    "https://www.reuters.com/business/openai-google-anthropic-hit-with-lawsuit-seeking-halt-frontier-ai-development-2026-11-12/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "HTTP 401 from https://www.reuters.com/business/openai-google-anthropic-hit-with-lawsuit-seeking-halt-frontier-ai-development-2026-11-12/",
+      "status": "failed"
+    },
+    "https://www.reuters.com/business/retail-consumer/alibaba-unveils-new-flagship-ai-model-with-safety-upgrades-2026-11-16/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "HTTP 401 from https://www.reuters.com/business/retail-consumer/alibaba-unveils-new-flagship-ai-model-with-safety-upgrades-2026-11-16/",
+      "status": "failed"
+    },
+    "https://www.reuters.com/commentary/reuters-open-interest/metals-age-ai-game-changer-or-hyperscale-hype-2026-11-14/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "HTTP 401 from https://www.reuters.com/commentary/reuters-open-interest/metals-age-ai-game-changer-or-hyperscale-hype-2026-11-14/",
+      "status": "failed"
+    },
+    "https://www.reuters.com/legal/litigation/us-issues-rule-protect-advanced-ai-chips-being-accessed-remotely-2026-11-16/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "HTTP 401 from https://www.reuters.com/legal/litigation/us-issues-rule-protect-advanced-ai-chips-being-accessed-remotely-2026-11-16/",
+      "status": "failed"
+    },
+    "https://www.reuters.com/world/china/us-allies-team-up-protect-ai-tech-infrastructure-amid-china-rivalry-2026-11-16/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "HTTP 401 from https://www.reuters.com/world/china/us-allies-team-up-protect-ai-tech-infrastructure-amid-china-rivalry-2026-11-16/",
+      "status": "failed"
+    },
+    "https://www.reuters.com/world/feds-barr-warns-ai-risks-financial-system-2026-11-16/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "HTTP 401 from https://www.reuters.com/world/feds-barr-warns-ai-risks-financial-system-2026-11-16/",
+      "status": "failed"
+    },
+    "https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/exhibit991q42026earningsre.htm": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "HTTP 403 from https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/exhibit991q42026earningsre.htm",
+      "status": "failed"
+    },
+    "https://www.securityweek.com/attacker-targets-60000-github-repositories-in-credential-theft-campaign//": {
+      "attempts": 1,
+      "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg",
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.wired.com/story/synchron-pauses-trials-of-its-brain-implant-due-to-performance-issues/": {
+      "attempts": 1,
+      "image": "https://media.wired.com/photos/6ae951f7e1fce5fdf7878b36/191:100/w_1280,c_limit/SM_Science_Synchron_GettyImages-1610629090.jpg",
+      "lastAttempt": "2026-11-16T22:16:07Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.wsj.com/pro/cybersecurity/startup-corma-builds-ai-agents-for-cyber-defense-7d296a0f": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "HTTP 401 from https://www.wsj.com/pro/cybersecurity/startup-corma-builds-ai-agents-for-cyber-defense-7d296a0f",
+      "status": "failed"
+    },
+    "https://www.wsj.com/tech/ai/trump-administration-to-name-nvidia-among-ai-national-champions-c9284344": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-16T21:33:10Z",
+      "reason": "HTTP 401 from https://www.wsj.com/tech/ai/trump-administration-to-name-nvidia-among-ai-national-champions-c9284344",
+      "status": "failed"
+    }
+  },
+  "version": 1
+}

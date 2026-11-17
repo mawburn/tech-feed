@@ -1,0 +1,14 @@
+{{- define "main" -}}
+{{- $window := partialCached "data/window.html" . -}}
+{{- $recentCounts := dict }}{{ range partial "data/topic-counts.html" $window }}{{ $recentCounts = merge $recentCounts (dict .slug .count) }}{{ end -}}
+{{- $allCounts := dict }}{{ range partial "data/topic-counts.html" (partialCached "data/published-daily.html" .) }}{{ $allCounts = merge $allCounts (dict .slug .count) }}{{ end -}}
+{{ partial "components/page-header.html" (dict "kicker" "Browse" "title" "Topics" "intro" "Every topic covered by the daily briefings.") }}
+<ul class="topic-index">
+  {{- range sort .Pages "LinkTitle" }}
+  {{- $style := partial "data/topic-style.html" .Params.category }}
+  <li class="topic topic--{{ $style.key }}"><a href="{{ .RelPermalink }}"><span class="dot" aria-hidden="true"></span>{{ .Params.category }}</a> {{ index $recentCounts .Params.slug | default 0 }} this week · {{ index $allCounts .Params.slug | default 0 }} all time</li>
+  {{- else }}
+  <li>No topics yet.</li>
+  {{- end }}
+</ul>
+{{- end -}}

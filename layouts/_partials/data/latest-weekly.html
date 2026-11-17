@@ -1,0 +1,4 @@
+{{- /* The newest weekly review, or false. */ -}}
+{{- $latest := false -}}
+{{- with partialCached "data/weekly.html" . }}{{ $latest = index . 0 }}{{ end -}}
+{{- return $latest -}}

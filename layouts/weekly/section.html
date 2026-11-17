@@ -1,0 +1,5 @@
+{{- define "main" -}}
+{{- $weeks := partialCached "data/weekly.html" . -}}
+{{ partial "components/page-header.html" (dict "kicker" "Archive" "title" "Weekly reviews" "intro" (printf "%d Sunday reviews, newest first." (len $weeks))) }}
+{{- with $weeks }}{{ partial "components/weekly-list.html" (dict "weeks" . "label" "All weekly reviews") }}{{ else }}{{ partial "components/empty-state.html" "No weekly reviews have been published yet." }}{{ end -}}
+{{- end -}}

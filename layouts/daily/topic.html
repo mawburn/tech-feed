@@ -1,0 +1,14 @@
+{{- define "main" -}}
+{{- $category := .Params.category -}}
+{{- with partial "data/find-daily.html" .Params.date -}}
+{{- $when := time.AsTime .date -}}
+{{- $edition := site.GetPage (printf "/daily/%s" .date) -}}
+{{ partial "components/page-header.html" (dict "kicker" ($when | time.Format "Monday, January 2, 2006") "title" $category) }}
+{{ partial "components/edition.html" (dict "issue" . "level" 2 "headed" false "category" $category) }}
+<p class="back-link"><a href="{{ $edition.RelPermalink }}">← Full {{ $when | time.Format "January 2" }} edition</a>{{ with site.GetPage (printf "/topics/%s" $.Params.slug) }} · <a href="{{ .RelPermalink }}">All recent {{ $category }} stories</a>{{ end }}</p>
+<div class="browse">
+  {{ partial "components/topic-nav.html" (dict "issues" (slice .) "date" .date "current" $category "label" "Topics in this edition" "allHref" $edition.RelPermalink) }}
+    {{ partial "components/date-nav.html" (dict "issues" (partialCached "data/window.html" $) "current" .date) }}
+</div>
+{{- end -}}
+{{- end -}}

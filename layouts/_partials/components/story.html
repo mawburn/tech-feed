@@ -1,0 +1,88 @@
+{{- /* One daily story.
+  Context: {story, level (heading level), variant ("lead"|"brief"|"tool"), rank?, total?, date?,
+  topicScope ("daily"|"global")}. Keeps class "story__title" on the heading exactly (tests match it). */ -}}
+{{- $s := .story -}}
+{{- $category := partial "data/category.html" $s -}}
+{{- $slug := partial "data/slug.html" $category -}}
+{{- $topic := false -}}
+{{- if and (eq .topicScope "daily") .date }}{{ $topic = site.GetPage (printf "/daily/%s/topics/%s" .date $slug) }}{{ else }}{{ $topic = site.GetPage (printf "/topics/%s" $slug) }}{{ end -}}
+{{- $href := "" }}{{ with $topic }}{{ $href = .RelPermalink }}{{ end -}}
+{{- $style := partial "data/topic-style.html" $category -}}
+{{- $chip := partial "components/topic-chip.html" (dict "category" $category "href" $href) -}}
+{{- $variant := .variant | default "lead" -}}
+{{- $level := .level -}}
+{{- /* first valid source, for the host tag and call to action */ -}}
+{{- $first := false -}}
+{{- range $s.sources }}{{ if and (not $first) (reflect.IsMap .) (partial "data/is-http.html" .url) }}{{ $first = . }}{{ end }}{{ end -}}
+{{- $host := "" -}}
+{{- with $first }}{{ $u := urls.Parse .url }}{{ $host = strings.TrimPrefix "www." $u.Host }}{{ if eq $variant "tool" }}{{ $seg := index (split (strings.Trim $u.Path "/") "/") 0 }}{{ with $seg }}{{ $host = printf "%s/%s" $host . }}{{ end }}{{ end }}{{ end -}}
+{{- $note := "" -}}
+{{- if eq $variant "lead" -}}
+<article class="story story--lead topic topic--{{ $style.key }}">
+  <div class="story__grid">
+    <div class="story__head">
+      <p class="story__meta">
+        {{- $chip -}}
+        {{- with .rank }}<span>Story {{ printf "%02d" (int .) }}{{ with $.total }} of {{ printf "%02d" (int .) }}{{ end }}</span>{{ end -}}
+        {{- if $s.isUpdate }}<span class="story__badge">Updated</span>{{ end -}}
+      </p>
+      {{ partial "components/heading.html" (dict "level" $level "text" $s.title "class" "story__title") }}
+      {{- partial "components/discussion-badges.html" (dict "discussions" $s.discussions) }}
+    </div>
+    {{- partial "components/story-image.html" (dict "image" $s.image "alt" $s.title) }}
+    <div class="story__rest">
+      {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary") }}
+      {{- with $s.whyItMatters }}
+      <div class="story__note"><span class="story__note-label">Why it matters</span><p>{{ . }}</p></div>
+      {{- end }}
+      <div class="story__foot">
+        {{- partial "components/story-sources.html" (dict "sources" $s.sources "limit" 2) }}
+        {{- if or $s.limitations $s.discoveredVia (gt (len $s.sources) 2) }}
+        <details class="briefing">
+          <summary><span class="briefing__closed">Read briefing</span><span class="briefing__open">Collapse briefing</span>{{ partial "components/icon.html" "chevron" }}</summary>
+          <div class="briefing__panel">
+            <p class="briefing__label"><span class="dot" aria-hidden="true"></span>Briefing detail</p>
+            {{- with $s.limitations }}
+            {{ partial "components/heading.html" (dict "level" (add $level 1) "text" "Limitations & caveats") }}
+            <p>{{ . }}</p>
+            {{- end }}
+            {{- partial "components/story-links.html" (dict "sources" $s.sources "discoveredVia" $s.discoveredVia) }}
+          </div>
+        </details>
+        {{- end }}
+      </div>
+    </div>
+  </div>
+</article>
+{{- else if eq $variant "brief" -}}
+<article class="story story--brief topic topic--{{ $style.key }}">
+  <div class="story__top">{{ $chip }}{{ with $host }}<span class="story__host">{{ . }}</span>{{ end }}</div>
+  {{ partial "components/heading.html" (dict "level" $level "text" $s.title "class" "story__title") }}
+  {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary") }}
+  {{- with $s.whyItMatters }}
+  <div class="story__note"><span class="story__note-label">Why it matters</span><p>{{ . }}</p></div>
+  {{- end }}
+  {{- partial "components/discussion-badges.html" (dict "discussions" $s.discussions) }}
+  <div class="story__foot">
+    {{- partial "components/story-sources.html" (dict "sources" $s.sources) }}
+    {{- partial "components/link-list.html" (dict "label" "Found via" "links" $s.discoveredVia "kind" "community") }}
+  </div>
+</article>
+{{- else -}}
+<article class="story story--tool topic topic--{{ $style.key }}">
+  <div class="story__top">{{ $chip }}{{ with $host }}<span class="story__host">{{ . }}</span>{{ end }}</div>
+  <div class="story__row">
+    <div class="story__text">
+      {{ partial "components/heading.html" (dict "level" $level "text" $s.title "class" "story__title") }}
+      {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary") }}
+    </div>
+    {{- partial "components/story-image.html" (dict "image" $s.image "alt" $s.title "sizes" "5rem") }}
+  </div>
+  {{- partial "components/discussion-badges.html" (dict "discussions" $s.discussions) }}
+  <div class="story__foot">
+    {{- with $first }}<a class="story__cta" href="{{ .url }}" rel="noopener"><span>{{ .label | default "Open source" }}</span>{{ partial "components/icon.html" "arrow-right" }}</a>{{ end }}
+    {{- partial "components/story-sources.html" (dict "sources" (after 1 $s.sources) "prefix" "also") }}
+    {{- partial "components/link-list.html" (dict "label" "Found via" "links" $s.discoveredVia "kind" "community") }}
+  </div>
+</article>
+{{- end -}}

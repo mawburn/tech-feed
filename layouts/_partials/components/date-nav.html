@@ -1,0 +1,16 @@
+{{- /* Recent edition dates. Context: {issues, current (date string, optional)} */ -}}
+{{- $current := .current -}}
+{{- with .issues -}}
+<nav class="date-nav" aria-label="Recent editions">
+  <h2 class="date-nav__title">Recent editions</h2>
+  <ul>
+    {{- range . }}
+    {{- $issue := . }}
+    {{- with site.GetPage (printf "/daily/%s" $issue.date) }}
+    <li><a href="{{ .RelPermalink }}"{{ if eq $issue.date $current }} aria-current="page"{{ end }}><time datetime="{{ $issue.date }}">{{ time.AsTime $issue.date | time.Format "Mon, Jan 2" }}</time> <span class="count">{{ len (partial "data/stories.html" (slice $issue)) }}</span></a></li>
+    {{- end }}
+    {{- end }}
+  </ul>
+  <p><a href="{{ (site.GetPage "/all").RelPermalink }}">All stories from the last seven days</a> · <a href="{{ (site.GetPage "/daily").RelPermalink }}">Full archive</a></p>
+</nav>
+{{- end -}}

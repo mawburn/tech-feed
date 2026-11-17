@@ -1,0 +1,7 @@
+{{- /* Daily editions dated today (Pacific) or earlier, newest first. */ -}}
+{{- $today := partialCached "data/today.html" . -}}
+{{- $out := slice -}}
+{{- range partialCached "data/daily.html" . -}}
+  {{- if le .date $today }}{{ $out = $out | append . }}{{ end -}}
+{{- end -}}
+{{- return $out -}}

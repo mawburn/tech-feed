@@ -1,78 +1,132 @@
-name: Build and deploy static news site
+name: Build and deploy site
 
+# Builds the Hugo site from data/*.json and deploys it to GitHub Pages.
+#
+# Publication data (data/**) is NOT a push trigger here: the "Enrich and publish"
+# workflow enriches new publications first and then calls this workflow, so each
+# publication is deployed once. This workflow runs directly for site changes
+# (templates, config, schemas) and on demand.
 on:
   push:
     branches: [main]
     paths:
-      - "src/**"
-      - "data/**"
-      - "assets/styles.css"
-      - "assets/favicon.svg"
-      - "eleventy.config.js"
-      - "scripts/data.mjs"
-      - "scripts/validate-feed.mjs"
-      - "scripts/validate-static.mjs"
-      - "scripts/validate-output.mjs"
+      - "layouts/**"
+      - "content/**"
+      - "assets/css/**"
+      - "static/**"
+      - "hugo.toml"
+      - "schemas/**"
+      - "scripts/validate-content.mjs"
+      - "tests/site.test.mjs"
       - "package.json"
-      - "package-lock.json"
-      - "archive.md"
-      - "weekly-archive.md"
-      - "llms.txt"
-      - "robots.txt"
+      - "pnpm-lock.yaml"
       - ".github/workflows/deploy-pages.yml"
-  # A GITHUB_TOKEN-driven image update does not trigger a new push workflow.
-  workflow_run:
-    workflows: ["Sync publisher Open Graph images"]
-    types: [completed]
-    branches: [main]
   workflow_dispatch:
+  workflow_call:
 
 permissions:
   contents: read
 
-concurrency:
-  group: tech-feed-pages
-  cancel-in-progress: false
+env:
+  HUGO_VERSION: "0.170.0"
+  NODE_VERSION: "24"
 
 jobs:
   build:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      quarantined: ${{ steps.validate.outputs.quarantined }}
     steps:
-      - name: Check out latest source
-        uses: actions/checkout@v4
+      - name: Check out the latest main
+        uses: actions/checkout@v7
         with:
           ref: main
+          persist-credentials: false
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
+
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: "22"
-      - name: Install Eleventy
-        run: npm install --no-audit --no-fund
-      - name: Validate daily and weekly JSON
-        run: npm run check
-      - name: Render static HTML
-        run: npm run build
-      - name: Verify generated output
-        run: node scripts/validate-output.mjs
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-      - name: Upload static Pages artifact
-        uses: actions/upload-pages-artifact@v4
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install Node dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Hugo ${{ env.HUGO_VERSION }}
+        run: |
+          set -euo pipefail
+          cd "${RUNNER_TEMP}"
+          base="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}"
+          archive="hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+          curl -fsSLO "${base}/${archive}"
+          curl -fsSLO "${base}/hugo_${HUGO_VERSION}_checksums.txt"
+          grep " ${archive}\$" "hugo_${HUGO_VERSION}_checksums.txt" | sha256sum --check --strict
+          mkdir -p hugo-bin && tar -xzf "${archive}" -C hugo-bin hugo
+          echo "${RUNNER_TEMP}/hugo-bin" >> "${GITHUB_PATH}"
+
+      - name: Restore Hugo image cache
+        uses: actions/cache@v6
         with:
-          path: _site
+          path: ${{ runner.temp }}/hugo_cache
+          key: hugo-${{ env.HUGO_VERSION }}-${{ hashFiles('assets/img/**') }}
+          restore-keys: hugo-${{ env.HUGO_VERSION }}-
+
+      - name: Pin the Pacific build date
+        run: echo "HUGO_PARAMS_TODAY=$(TZ=America/Los_Angeles date +%F)" >> "${GITHUB_ENV}"
+
+      # Invalid publications are removed from this checkout only (never from git), so the
+      # remaining valid content still deploys. The run is marked failed afterwards.
+      - name: Validate publications (quarantine invalid files)
+        id: validate
+        env:
+          QUARANTINE_REPORT: ${{ runner.temp }}/quarantine.txt
+        run: |
+          node scripts/validate-content.mjs --quarantine
+          if [ -s "${QUARANTINE_REPORT}" ]; then echo "quarantined=true" >> "${GITHUB_OUTPUT}"; fi
+
+      - name: Build with Hugo
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
+        run: hugo build --gc --minify
+
+      - name: Verify generated site
+        run: pnpm test:site
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: public
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      contents: read
       pages: write
       id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     environment:
       name: github-pages
-      url: ${{ steps.pages.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
       - name: Deploy to GitHub Pages
-        id: pages
-        uses: actions/deploy-pages@v4
+        id: deployment
+        uses: actions/deploy-pages@v5
+
+  report:
+    needs: [build, deploy]
+    if: needs.build.outputs.quarantined == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail on quarantined publications
+        run: |
+          echo "::error::One or more publications failed validation and were left out of the deployed site. See the build job summary."
+          exit 1

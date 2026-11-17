@@ -1,0 +1,7 @@
+{{- /* Markdown bullet links for a story/theme. Context: {sources, discoveredVia, discussions} */ -}}
+{{- range .sources }}{{ if partial "data/is-http.html" .url }}
+- [{{ .label | default "Source" }}]({{ .url }}){{ end }}{{ end -}}
+{{- range .discoveredVia }}{{ if partial "data/is-http.html" .url }}
+- Found via: [{{ .platform }}{{ with .label }} · {{ . }}{{ end }}]({{ .url }}){{ end }}{{ end -}}
+{{- range .discussions }}{{ if partial "data/is-http.html" .url }}
+- Comments: [{{ .platform }}{{ with .label }} · {{ . }}{{ end }}]({{ .url }}){{ end }}{{ end -}}

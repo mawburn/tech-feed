@@ -1,0 +1,8 @@
+{{- /* All weekly reviews from data/weekly/*.json, newest first. */ -}}
+{{- $weeks := slice -}}
+{{- range $key, $week := hugo.Data.weekly -}}
+  {{- if and (reflect.IsMap $week) (eq (string $week.weekEnding) $key) (findRE `^\d{4}-\d{2}-\d{2}$` $key) -}}
+    {{- $weeks = $weeks | append $week -}}
+  {{- end -}}
+{{- end -}}
+{{- return sort $weeks "weekEnding" "desc" -}}

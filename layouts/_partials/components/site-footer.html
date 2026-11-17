@@ -1,0 +1,24 @@
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <img class="site-footer__logo" src="{{ "img/mawburn-dispatch.svg" | relURL }}" alt="mawburn dispatch" width="240" height="136" loading="lazy">
+        <p class="site-footer__blurb">{{ site.Params.description }}</p>
+      </div>
+      <p class="site-footer__note"><span>Published every morning · Weekly on Sundays</span><span>Summaries link to primary sources</span></p>
+    </div>
+    <div class="site-footer__bottom">
+      <ul class="site-footer__links">
+        {{- range $item := slice (dict "label" "Daily Brief" "path" "/") (dict "label" "Weekly Review" "path" "/weekly-latest") (dict "label" "Topics" "path" "/topics") (dict "label" "Archive" "path" "/daily") }}
+        {{- with site.GetPage $item.path }}<li><a href="{{ .RelPermalink }}">{{ $item.label }}</a></li>{{ end }}
+        {{- end }}
+        {{- with site.Home.OutputFormats.Get "briefings" }}<li><a href="{{ .RelPermalink }}">Daily JSON</a></li>{{ end }}
+        {{- with site.Home.OutputFormats.Get "weeklyjson" }}<li><a href="{{ .RelPermalink }}">Weekly JSON</a></li>{{ end }}
+        {{- with site.Home.OutputFormats.Get "archive" }}<li><a href="{{ .RelPermalink }}">Archive (Markdown)</a></li>{{ end }}
+        {{- with site.Home.OutputFormats.Get "llms" }}<li><a href="{{ .RelPermalink }}">llms.txt</a></li>{{ end }}
+        <li><a href="{{ site.Params.repository }}">Source</a></li>
+      </ul>
+      <p class="site-footer__copy">© {{ now.Year }} {{ site.Params.author }}. Images are credited to their publishers.</p>
+    </div>
+  </div>
+</footer>

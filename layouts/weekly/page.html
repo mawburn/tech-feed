@@ -1,0 +1,6 @@
+{{- define "main" -}}
+{{- with partial "data/find-weekly.html" .Params.weekEnding -}}
+{{ partial "components/weekly-edition.html" (dict "week" . "level" 2) }}
+<div class="browse">{{ partial "components/weekly-list.html" (dict "weeks" (first 12 (partialCached "data/weekly.html" $)) "current" .weekEnding "label" "Recent weekly reviews") }}</div>
+{{- end -}}
+{{- end -}}

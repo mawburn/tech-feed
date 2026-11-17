@@ -1,0 +1,2 @@
+{{- /* The latest N weekly reviews (params.weeklyWindow, 52) for /data/weekly.json. */ -}}
+{{- return first (site.Params.weeklyWindow | default 52) (partialCached "data/weekly.html" .) -}}

@@ -1,0 +1,16 @@
+{{- /* A labelled list of outbound links. Context: {label, links, kind: "source"|"community"}.
+  Source links use {label,url}; community links use {platform,label,url}. Invalid URLs are skipped. */ -}}
+{{- $links := slice -}}
+{{- range .links }}{{ if and (reflect.IsMap .) (partial "data/is-http.html" .url) }}{{ $links = $links | append . }}{{ end }}{{ end -}}
+{{- if $links -}}
+<div class="link-list link-list--{{ .kind }}">
+  <span class="link-list__label">{{ .label }}</span>
+  <ul>
+    {{- range $links }}
+    {{- $text := .label | default "Source" -}}
+    {{- if .platform }}{{ $text = cond (and .label (ne .label .platform)) (printf "%s · %s" .platform .label) .platform }}{{ end }}
+    <li><a href="{{ .url }}" rel="noopener">{{ $text }}</a></li>
+    {{- end }}
+  </ul>
+</div>
+{{- end -}}

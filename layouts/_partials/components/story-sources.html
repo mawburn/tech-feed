@@ -1,0 +1,10 @@
+{{- /* Inline "via A & B" source credit. Context: {sources, limit?, prefix?}. Invalid URLs are skipped. */ -}}
+{{- $limit := .limit | default 99 -}}
+{{- $prefix := .prefix | default "via" -}}
+{{- $links := slice -}}
+{{- range .sources }}{{ if and (reflect.IsMap .) (partial "data/is-http.html" .url) }}{{ $links = $links | append . }}{{ end }}{{ end -}}
+{{- if $links -}}
+{{- $shown := first $limit $links -}}
+{{- $n := len $shown -}}
+<span class="via">{{ $prefix }} {{ range $i, $l := $shown }}{{ if $i }}{{ if eq $i (sub $n 1) }} &amp; {{ else }}, {{ end }}{{ end }}<a href="{{ $l.url }}" rel="noopener">{{ $l.label | default "Source" }}</a>{{ end }}</span>
+{{- end -}}

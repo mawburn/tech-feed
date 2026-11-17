@@ -1,0 +1,5 @@
+{{- define "main" -}}
+{{- with partial "data/find-daily.html" .Params.date -}}
+{{ partial "components/daily-view.html" (dict "issue" . "page" $ "allHref" $.RelPermalink) }}
+{{- end -}}
+{{- end -}}

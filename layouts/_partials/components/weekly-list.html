@@ -1,0 +1,15 @@
+{{- /* List of weekly reviews. Context: {weeks, current (weekEnding, optional), label} */ -}}
+{{- $current := .current -}}
+{{- with .weeks -}}
+<nav class="date-nav" aria-label="{{ $.label | default "Weekly reviews" }}">
+  <h2 class="date-nav__title">{{ $.label | default "Weekly reviews" }}</h2>
+  <ul>
+    {{- range . }}
+    {{- $week := . }}
+    {{- with site.GetPage (printf "/weekly/%s" $week.weekEnding) }}
+    <li><a href="{{ .RelPermalink }}"{{ if eq $week.weekEnding $current }} aria-current="page"{{ end }}><time datetime="{{ $week.weekEnding }}">Week ending {{ time.AsTime $week.weekEnding | time.Format "Jan 2, 2006" }}</time></a>{{ with $week.title }} — {{ . }}{{ end }}</li>
+    {{- end }}
+    {{- end }}
+  </ul>
+</nav>
+{{- end -}}

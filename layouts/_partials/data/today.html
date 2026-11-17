@@ -1,0 +1,9 @@
+{{- /* Today's date (YYYY-MM-DD) in America/Los_Angeles at build time.
+  Override for reproducible builds/tests with HUGO_PARAMS_TODAY=YYYY-MM-DD. */ -}}
+{{- $today := "" -}}
+{{- with site.Params.today -}}
+  {{- $today = string . -}}
+{{- else -}}
+  {{- $today = (time.In "America/Los_Angeles" time.Now).Format "2006-01-02" -}}
+{{- end -}}
+{{- return $today -}}

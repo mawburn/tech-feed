@@ -353,15 +353,25 @@ def run():
     files=sorted(p for p in FOLDER.glob("*.json") if start<=p.stem<=current.isoformat())
     changed=0
     counts={"Hacker News":0,"Reddit":0}
-    docs=[(file,json.loads(file.read_text(encoding="utf8"))) for file in files]
-    stories=[(issue["date"],story) for _,issue in docs for section in ("topStories","alsoWorthKnowing","newTools") for story in issue.get(section,[])]
+    docs=[]
+    for file in files:
+        # A malformed publication is reported by the validator; never rewrite it here.
+        try:
+            issue=json.loads(file.read_text(encoding="utf8"))
+        except (OSError,ValueError) as exc:
+            print(f"Skipping unparseable {file.name}: {exc}",file=sys.stderr)
+            continue
+        if isinstance(issue,dict) and issue.get("date")==file.stem:
+            docs.append((file,issue))
+    stories=[(issue["date"],story) for _,issue in docs for section in ("topStories","alsoWorthKnowing","newTools")
+             for story in (issue.get(section) if isinstance(issue.get(section),list) else []) if isinstance(story,dict)]
     # Bounded parallelism, with in-memory URL caches and endpoint circuit breakers.
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
         matches=list(pool.map(lambda task: enrich_story(*task),stories))
     by_id={id(story):matches[i] for i,(_,story) in enumerate(stories)}
     removed_total=0
     for file,data in docs:
-        outcome=[by_id[id(story)] for section in ("topStories","alsoWorthKnowing","newTools") for story in data.get(section,[]) if id(story) in by_id]
+        outcome=[by_id[id(story)] for section in ("topStories","alsoWorthKnowing","newTools") for story in (data.get(section) or []) if id(story) in by_id]
         found=[link for item in outcome for link in item["added"]]
         removed=sum(item["removed"] for item in outcome)
         removed_total+=removed

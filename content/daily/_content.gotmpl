@@ -1,0 +1,33 @@
+{{- /* Content adapter: one page per data/daily/YYYY-MM-DD.json at /daily/YYYY-MM-DD/,
+  plus one page per category in that edition at /daily/YYYY-MM-DD/topics/SLUG/.
+  Pages carry only the date (and category); templates read the JSON itself
+  through layouts/_partials/data/*, so the source schema never passes through
+  Hugo's (case-folding) front matter. */ -}}
+{{- range $issue := partial "data/published-daily.html" . -}}
+  {{- $date := $issue.date -}}
+  {{- $when := time.AsTime $date -}}
+  {{- $.AddPage (dict
+      "kind" "page"
+      "path" $date
+      "title" (printf "Daily Technology & AI Briefing — %s" $date)
+      "linkTitle" ($when | time.Format "Monday, January 2, 2006")
+      "dates" (dict "date" $when "lastmod" $when)
+      "params" (dict "date" $date "description" (printf "Source-linked AI and software engineering news briefing for %s." $date))
+  ) -}}
+  {{- $seen := dict -}}
+  {{- range partial "data/stories.html" (slice $issue) -}}
+    {{- $category := partial "data/category.html" . -}}
+    {{- $slug := partial "data/slug.html" $category -}}
+    {{- if and $slug (not (index $seen $slug)) -}}
+      {{- $seen = merge $seen (dict $slug true) -}}
+      {{- $.AddPage (dict
+          "kind" "page"
+          "path" (printf "%s/topics/%s" $date $slug)
+          "title" (printf "%s News — %s" $category $date)
+          "layout" "topic"
+          "dates" (dict "date" $when "lastmod" $when)
+          "params" (dict "date" $date "category" $category "slug" $slug "description" (printf "Browse all %s news from the %s briefing." $category $date))
+      ) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

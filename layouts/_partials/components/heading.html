@@ -1,0 +1,6 @@
+{{- /* Heading at a computed level; renders nothing for empty text.
+  Context: {level (2-6), text, class?, id?} */ -}}
+{{- with trim (string (.text | default "")) " \n\t" -}}
+  {{- $level := math.Min 6 (math.Max 2 (int $.level)) | int -}}
+  {{- printf "<h%d%s%s>%s</h%d>" $level (cond (ne ($.class | default "") "") (printf " class=%q" $.class) "") (cond (ne ($.id | default "") "") (printf " id=%q" $.id) "") (. | htmlEscape) $level | safeHTML -}}
+{{- end -}}

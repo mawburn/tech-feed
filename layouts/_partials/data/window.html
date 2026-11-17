@@ -1,0 +1,10 @@
+{{- /* The rolling daily window: the last N Pacific calendar days, inclusive of today
+  (N = params.dailyWindowDays, 7). Feeds /data/briefings.json, /all/ and /archive.md. */ -}}
+{{- $today := partialCached "data/today.html" . -}}
+{{- $days := site.Params.dailyWindowDays | default 7 -}}
+{{- $start := ((time.AsTime $today).AddDate 0 0 (sub 1 $days)).Format "2006-01-02" -}}
+{{- $out := slice -}}
+{{- range partialCached "data/published-daily.html" . -}}
+  {{- if ge .date $start }}{{ $out = $out | append . }}{{ end -}}
+{{- end -}}
+{{- return $out -}}

@@ -1,0 +1,8 @@
+{{- define "main" -}}
+{{- with partialCached "data/latest-daily.html" . -}}
+{{ partial "components/daily-view.html" (dict "issue" . "page" $) }}
+{{- else -}}
+{{ partial "components/page-header.html" (dict "title" "Technology & AI briefing") }}
+{{ partial "components/empty-state.html" "No daily briefing has been published yet. The next edition will appear here." }}
+{{- end -}}
+{{- end -}}

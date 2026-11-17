@@ -1,0 +1,12 @@
+{{- /* Content adapter: one page per data/weekly/YYYY-MM-DD.json at /weekly/YYYY-MM-DD/. */ -}}
+{{- range $week := partial "data/weekly.html" . -}}
+  {{- $when := time.AsTime $week.weekEnding -}}
+  {{- $.AddPage (dict
+      "kind" "page"
+      "path" $week.weekEnding
+      "title" (printf "Weekly Technology & AI Summary — %s" $week.weekEnding)
+      "linkTitle" (string ($week.title | default $week.weekEnding))
+      "dates" (dict "date" $when "lastmod" $when)
+      "params" (dict "weekEnding" $week.weekEnding "description" (printf "Sunday weekly AI and technology news summary for the week ending %s." $week.weekEnding))
+  ) -}}
+{{- end -}}

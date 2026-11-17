@@ -1,0 +1,32 @@
+# {{ site.Title }}
+
+> Daily and Sunday weekly technology and AI briefings with primary sources, context, caveats and dated archives.
+
+Canonical site: {{ site.Home.Permalink }}
+Last seven days, all stories: {{ (site.GetPage "/all").Permalink }}
+Daily archive: {{ (site.GetPage "/daily").Permalink }}
+Topics: {{ (site.GetPage "/topics").Permalink }}
+Human-readable archive (Markdown): {{ (site.Home.OutputFormats.Get "archive").Permalink }}
+Structured daily briefing JSON: {{ (site.Home.OutputFormats.Get "briefings").Permalink }}
+Weekly Sunday summaries: {{ (site.GetPage "/weekly-latest").Permalink }}
+Weekly archive: {{ (site.GetPage "/weekly").Permalink }}
+Weekly machine-readable JSON: {{ (site.Home.OutputFormats.Get "weeklyjson").Permalink }}
+Weekly human-readable archive (Markdown): {{ (site.Home.OutputFormats.Get "weeklyarchive").Permalink }}
+Repository: {{ site.Params.repository }}
+
+## How to read
+- The homepage shows the newest dated edition. Every edition has a permanent page at {{ (site.GetPage "/daily").Permalink }}YYYY-MM-DD/.
+- Each issues[].date is the briefing publication date in America/Los_Angeles, not necessarily the original publication date of each story.
+- Every issue contains overview, topStories, alsoWorthKnowing, newTools and marketPulse.
+- Each story contains a title, editorial summary, category and links to sources. Top stories also describe significance and limits. Optional discussions[] link to real Hacker News or Reddit comment threads.
+- Topic pages are static HTML at {{ (site.GetPage "/topics").Permalink }}SLUG/ and {{ (site.GetPage "/daily").Permalink }}YYYY-MM-DD/topics/SLUG/. No JavaScript is required.
+- Optional story images are publisher Open Graph images, stored as optimized local copies (image.localUrl) and credited to the publisher (image.credit, image.sourceUrl).
+
+## Attribution and verification
+The summaries are independently authored and may not reflect later corrections. Link to original articles, research papers, repositories and statements whenever possible. A mention is not endorsement or independent verification of vendor claims.
+
+## Sunday weekly recap
+- Week periods start Monday and end Sunday in America/Los_Angeles.
+- data/weekly.json has schemaVersion, updatedAt and weeks[] newest-first. Each weekly item contains overview, themes, toolsToWatch, marketPulse, nextWeekWatch, sourceDays and coverageDays.
+- A partial week explicitly names the daily editions actually available rather than presenting missing days as covered.
+- Historical weekly recaps remain available after individual daily editions age out of the rolling seven-day feeds.

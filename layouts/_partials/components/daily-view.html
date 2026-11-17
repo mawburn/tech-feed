@@ -1,0 +1,10 @@
+{{- /* A single daily edition page body. Context: {issue, page, allHref?, topicPage?} */ -}}
+{{- $issue := .issue -}}
+{{ partial "components/edition-hero.html" $issue }}
+{{ partial "components/section-index.html" $issue }}
+{{ partial "components/edition.html" (dict "issue" $issue "level" 2 "headed" false) }}
+{{ partial "components/edition-pager.html" $issue.date }}
+<div class="browse">
+  {{ partial "components/topic-nav.html" (dict "issues" (slice $issue) "date" $issue.date "label" "Topics in this edition" "allHref" .allHref) }}
+  {{ partial "components/date-nav.html" (dict "issues" (partialCached "data/window.html" .page) "current" $issue.date) }}
+</div>

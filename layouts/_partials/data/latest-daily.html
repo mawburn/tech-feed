@@ -1,0 +1,4 @@
+{{- /* The newest published daily edition (today or earlier), or false. */ -}}
+{{- $latest := false -}}
+{{- with partialCached "data/published-daily.html" . }}{{ $latest = index . 0 }}{{ end -}}
+{{- return $latest -}}

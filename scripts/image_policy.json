@@ -1,0 +1,24 @@
+{
+  "description": "Hosts whose images are never re-hosted. Matching is by host suffix against the image URL and the article (sourceUrl) host. The image metadata (url, credit, sourceUrl) is still kept; only the local copy is skipped. Pages or image responses marked noimageindex are skipped automatically.",
+  "blockedHosts": [
+    "gettyimages.com",
+    "gettyimages.co.uk",
+    "istockphoto.com",
+    "shutterstock.com",
+    "alamy.com",
+    "apimages.com",
+    "ap.org",
+    "apnews.com",
+    "reuters.com",
+    "reutersmedia.net",
+    "afp.com",
+    "epa.eu",
+    "bloomberg.com",
+    "bwbx.io",
+    "wsj.com",
+    "wsj.net",
+    "ft.com",
+    "nytimes.com",
+    "nyt.com"
+  ]
+}

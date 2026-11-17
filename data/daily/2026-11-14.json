@@ -23,7 +23,11 @@
         "url": "https://blog.google/static/blogv2/images/google-1440x754.jpg?version=pr20261029-2131",
         "alt": "Publisher-provided image for AI agents are becoming actual customers, not just shopping assistants",
         "credit": "blog.google",
-        "sourceUrl": "https://blog.google/products/shopping/"
+        "sourceUrl": "https://blog.google/products/shopping/",
+        "local": "img/dda07c035f4adff75440.webp",
+        "width": 600,
+        "height": 314,
+        "sha256": "dda07c035f4adff75440221d5b6dc062efd906f693dc4cbd8182b1e8ddeda0c9"
       }
     },
     {
@@ -46,7 +50,11 @@
         "url": "https://nvidianews.nvidia.com/media/sites/219/images/social-image.jpg",
         "alt": "Publisher-provided image for Nvidia's leadership crisis is now affecting the broader AI infrastructure trade",
         "credit": "nvidianews.nvidia.com",
-        "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+        "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition",
+        "local": "img/880d8614c5c5e8fcb5c8.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "880d8614c5c5e8fcb5c8b90c43a872d7bc00548114355c036bec6dadba410358"
       },
       "discussions": [
         {
@@ -76,7 +84,11 @@
         "url": "https://status.bath.ac.uk/assets/status_pages/og_wl_operational-6028a588.png",
         "alt": "Publisher-provided image for Microsoft 365 suffers a major global outage",
         "credit": "status.bath.ac.uk",
-        "sourceUrl": "https://status.bath.ac.uk/incident/1124080?mp=true"
+        "sourceUrl": "https://status.bath.ac.uk/incident/1124080?mp=true",
+        "local": "img/845d3fc7a2f3993d4288.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "845d3fc7a2f3993d428835f3045c51251b2f3e07bfdb39516ffeec2efef0a1ee"
       }
     },
     {
@@ -99,7 +111,11 @@
         "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-hydrogen__key-art__lockup__16-9.width-1300.jpg",
         "alt": "Publisher-provided image for Google releases Gemini 4 Hydrogen for faster agentic coding",
         "credit": "blog.google",
-        "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+        "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+        "local": "img/8fab615d980da0f4e939.webp",
+        "width": 600,
+        "height": 337,
+        "sha256": "8fab615d980da0f4e939f0663c4fe46ff81945cd28c7d504dc84337e4cee16bd"
       },
       "discussions": [
         {
@@ -129,7 +145,11 @@
         "url": "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/11/11/Header-A-dark-gradient-1-1260x630.png",
         "alt": "Publisher-provided image for AWS Emulator offers local infrastructure testing for coding agents",
         "credit": "aws.amazon.com",
-        "sourceUrl": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/"
+        "sourceUrl": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/",
+        "local": "img/44cbdc177c462eb10cbd.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "44cbdc177c462eb10cbdbf68c95ca63c765020ca796e5b3bf9a0030c9d2ffe15"
       },
       "discussions": [
         {
@@ -203,7 +223,11 @@
         "url": "https://github.blog/wp-content/uploads/2026/11/645867806-878ea927-48c9-4765-a896-4a5f3d7b8f2e.jpg",
         "alt": "Publisher-provided image for Copilot model lifecycle",
         "credit": "github.blog",
-        "sourceUrl": "https://github.blog/changelog/month/11-2026/"
+        "sourceUrl": "https://github.blog/changelog/month/11-2026/",
+        "local": "img/8bc55225be89d7beb6ce.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "8bc55225be89d7beb6cedeb1988d03fab3e6bd06b8695c859a6fce63f1f5f7d2"
       }
     },
     {
@@ -220,7 +244,11 @@
         "url": "https://github.blog/wp-content/uploads/2026/11/645867806-878ea927-48c9-4765-a896-4a5f3d7b8f2e.jpg",
         "alt": "Publisher-provided image for Enterprise development",
         "credit": "github.blog",
-        "sourceUrl": "https://github.blog/changelog/"
+        "sourceUrl": "https://github.blog/changelog/",
+        "local": "img/8bc55225be89d7beb6ce.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "8bc55225be89d7beb6cedeb1988d03fab3e6bd06b8695c859a6fce63f1f5f7d2"
       }
     },
     {
@@ -237,7 +265,11 @@
         "url": "https://assets.claude.com/6d4a0d28992ade92d6fa63646fd9c9d318245c6c.jpg",
         "alt": "Publisher-provided image for Anthropic IPO",
         "credit": "anthropic.com",
-        "sourceUrl": "https://www.anthropic.com/news"
+        "sourceUrl": "https://www.anthropic.com/news",
+        "local": "img/18b3c70b6298faa3457d.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "18b3c70b6298faa3457d1d79c8cd03e7ab16342d5f857cd72079459793e5bd35"
       }
     },
     {
@@ -276,7 +308,11 @@
         "url": "https://api-docs.deepseek.com/img/deepseek-social-card.jpeg",
         "alt": "Publisher-provided image for DeepSeek API expansion",
         "credit": "api-docs.deepseek.com",
-        "sourceUrl": "https://api-docs.deepseek.com/"
+        "sourceUrl": "https://api-docs.deepseek.com/",
+        "local": "img/de504414b414011cd72f.webp",
+        "width": 600,
+        "height": 319,
+        "sha256": "de504414b414011cd72f62d0bf347884504426869c663df0484ac8b3ef2dd623"
       }
     },
     {
@@ -293,7 +329,11 @@
         "url": "https://cdn-uploads.huggingface.co/production/uploads/6962d3267513fcf314118d5f/e3kJpSjgR9Y4EX_hcR6iZ.png",
         "alt": "Publisher-provided image for Speech-model evaluation",
         "credit": "huggingface.co",
-        "sourceUrl": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
+        "sourceUrl": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1",
+        "local": "img/a1b8ac54c688c3e5e17f.webp",
+        "width": 600,
+        "height": 314,
+        "sha256": "a1b8ac54c688c3e5e17f5cc40b41a15d182bdca7ddd566bc11d4f61742eefd76"
       }
     }
   ],
@@ -316,7 +356,11 @@
         "url": "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/11/11/Header-A-dark-gradient-1-1260x630.png",
         "alt": "Publisher-provided image for AWS Emulator",
         "credit": "aws.amazon.com",
-        "sourceUrl": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/"
+        "sourceUrl": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/",
+        "local": "img/44cbdc177c462eb10cbd.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "44cbdc177c462eb10cbdbf68c95ca63c765020ca796e5b3bf9a0030c9d2ffe15"
       },
       "discussions": [
         {
@@ -344,7 +388,11 @@
         "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-hydrogen__key-art__lockup__16-9.width-1300.jpg",
         "alt": "Publisher-provided image for Gemini 4 Hydrogen",
         "credit": "blog.google",
-        "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+        "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+        "local": "img/8fab615d980da0f4e939.webp",
+        "width": 600,
+        "height": 337,
+        "sha256": "8fab615d980da0f4e939f0663c4fe46ff81945cd28c7d504dc84337e4cee16bd"
       },
       "discussions": [
         {
@@ -368,7 +416,11 @@
         "url": "https://raw.githubusercontent.com/modelcontextprotocol/docs/2eb6171ddbfeefde349dc3b8d5e2b87414c26250/images/og-image.png",
         "alt": "Publisher-provided image for Personal Agent Protocol 1.0",
         "credit": "modelcontextprotocol.io",
-        "sourceUrl": "https://modelcontextprotocol.io/"
+        "sourceUrl": "https://modelcontextprotocol.io/",
+        "local": "img/2e34e915dff849a69661.webp",
+        "width": 600,
+        "height": 338,
+        "sha256": "2e34e915dff849a6966163e6900610528d93c053635d7052d331526ec5b246ea"
       }
     }
   ],

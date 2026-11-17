@@ -1,0 +1,9 @@
+{{- define "main" -}}
+{{- with partialCached "data/latest-weekly.html" . -}}
+{{ partial "components/weekly-edition.html" (dict "week" . "level" 2) }}
+<div class="browse">{{ partial "components/weekly-list.html" (dict "weeks" (first 12 (partialCached "data/weekly.html" $)) "label" "Recent weekly reviews") }}</div>
+{{- else -}}
+{{ partial "components/page-header.html" (dict "title" "The week in technology") }}
+{{ partial "components/empty-state.html" "No weekly review has been published yet. The next one appears on Sunday." }}
+{{- end -}}
+{{- end -}}

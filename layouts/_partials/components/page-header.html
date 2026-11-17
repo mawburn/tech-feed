@@ -1,0 +1,6 @@
+{{- /* Page heading. Context: {title, kicker?, intro?} */ -}}
+<header class="page-header">
+  {{- with .kicker }}<p class="page-header__kicker">{{ . }}</p>{{ end }}
+  <h1 class="page-header__title">{{ .title }}</h1>
+  {{- with .intro }}<p class="page-header__intro">{{ . }}</p>{{ end }}
+</header>

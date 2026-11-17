@@ -1,0 +1,17 @@
+{{- /* Content adapter: one page per category ever published at /topics/SLUG/.
+  Pages persist after a category leaves the seven-day window, so topic URLs are permanent. */ -}}
+{{- $topics := dict -}}
+{{- range partial "data/stories.html" (partial "data/published-daily.html" .) -}}
+  {{- $category := partial "data/category.html" . -}}
+  {{- $slug := partial "data/slug.html" $category -}}
+  {{- if and $slug (not (index $topics $slug)) }}{{ $topics = merge $topics (dict $slug $category) }}{{ end -}}
+{{- end -}}
+{{- range $slug, $category := $topics -}}
+  {{- $.AddPage (dict
+      "kind" "page"
+      "path" $slug
+      "title" (printf "%s News" $category)
+      "linkTitle" $category
+      "params" (dict "category" $category "slug" $slug "description" (printf "Recent %s stories from source-linked daily technology and AI briefings." $category))
+  ) -}}
+{{- end -}}

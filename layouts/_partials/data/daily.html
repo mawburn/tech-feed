@@ -1,0 +1,9 @@
+{{- /* All daily editions from data/daily/*.json, newest first.
+  Files whose name and "date" disagree are skipped (the validator reports them). */ -}}
+{{- $issues := slice -}}
+{{- range $key, $issue := hugo.Data.daily -}}
+  {{- if and (reflect.IsMap $issue) (eq (string $issue.date) $key) (findRE `^\d{4}-\d{2}-\d{2}$` $key) -}}
+    {{- $issues = $issues | append $issue -}}
+  {{- end -}}
+{{- end -}}
+{{- return sort $issues "date" "desc" -}}

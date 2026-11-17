@@ -1,0 +1,3 @@
+{{- /* True when the value is an absolute http(s) URL. */ -}}
+{{- $ok := gt (len (findRE `^https?://[^\s/]+` (string .))) 0 -}}
+{{- return $ok -}}

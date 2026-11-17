@@ -1,0 +1,19 @@
+{{- /* Render text as paragraphs; long text gets a native <details> disclosure (no JS).
+  Context: {text, class?, label?} */ -}}
+{{- $split := partial "data/split-text.html" .text -}}
+{{- $class := .class | default "" -}}
+{{- if $split.rest -}}
+<div class="{{ $class }}">
+  <p>{{ $split.lead }}</p>
+  <details class="disclosure">
+    <summary>{{ .label | default "Read more" }}</summary>
+    {{- range $split.rest }}
+    <p>{{ . }}</p>
+    {{- end }}
+  </details>
+</div>
+{{- else if gt (len $split.paragraphs) 1 -}}
+<div class="{{ $class }}">{{ range $split.paragraphs }}<p>{{ . }}</p>{{ end }}</div>
+{{- else if $split.paragraphs -}}
+<p class="{{ $class }}">{{ index $split.paragraphs 0 }}</p>
+{{- end -}}

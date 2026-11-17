@@ -1,0 +1,8 @@
+{{- /* Flatten every story of the given daily editions (a slice of issues). */ -}}
+{{- $out := slice -}}
+{{- range $issue := . -}}
+  {{- range partialCached "data/sections.html" "sections" -}}
+    {{- range index $issue .key }}{{ $out = $out | append . }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $out -}}
