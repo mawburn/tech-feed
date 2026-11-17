@@ -157,7 +157,12 @@ a.topic-chip:hover { background: var(--surface-high); color: var(--on-surface); 
 .briefing[open] .briefing__closed { display: none; }
 .briefing__panel { margin-top: var(--sp-sm); padding: var(--sp-lg); background: var(--surface-container); border-radius: var(--r-lg); border-left: 3px solid var(--topic, var(--outline)); display: grid; gap: var(--sp-md); font-size: 13px; line-height: 20px; letter-spacing: 0; font-weight: 400; color: var(--on-variant); }
 .briefing__label { display: flex; align-items: center; gap: .5rem; font-size: 11px; line-height: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--on-surface); }
-.briefing__panel h4 { font-size: 18px; line-height: 26px; font-weight: 600; letter-spacing: -.01em; color: var(--on-surface); }
+.briefing__section { display: grid; gap: .5rem; max-width: 64ch; }
+.briefing__section + .briefing__section { padding-top: var(--sp-md); border-top: 1px solid var(--hairline); }
+.briefing__section-title { font-size: 15px; line-height: 22px; font-weight: 600; letter-spacing: -.01em; color: var(--on-surface); }
+.briefing__body { color: var(--on-variant); line-height: 1.65; }
+.briefing__body p + p { margin-top: .6rem; }
+.briefing__panel > .link-list { padding-top: var(--sp-sm); border-top: 1px solid var(--hairline); }
 @media (max-width: 47.99rem) { .briefing__panel { padding: 1rem; } }
 
 /* link lists + discussion pills */

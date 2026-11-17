@@ -41,6 +41,9 @@
 .banner--caveat .banner__label { color: var(--on-variant); }
 .banner--caveat p { color: var(--on-variant); }
 .theme .story-image { aspect-ratio: 16 / 7; }
+.theme > .briefing { width: 100%; }
+.theme > .briefing .briefing__panel { margin-top: .5rem; }
+.tool-card > .briefing { margin-top: .25rem; }
 .theme__links { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-top: var(--sp-sm); }
 .theme__links .discussion-badges { margin: 0; }
 @media (max-width: 47.99rem) {

@@ -83,6 +83,9 @@
           },
           "image": {
             "$ref": "common.v1.schema.json#/$defs/image"
+          },
+          "briefing": {
+            "$ref": "common.v1.schema.json#/$defs/briefing"
           }
         }
       }
@@ -103,6 +106,9 @@
             "items": {
               "type": "object"
             }
+          },
+          "briefing": {
+            "$ref": "common.v1.schema.json#/$defs/briefing"
           }
         }
       }

@@ -3,42 +3,102 @@
   "$id": "https://mawburn.github.io/tech-feed/schemas/common.v1.schema.json",
   "title": "Tech Feed shared definitions, v1",
   "$defs": {
-    "isoDate": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$", "format": "date" },
-    "httpUrl": { "type": "string", "pattern": "^https?://[^\\s/]+", "format": "uri" },
-    "nonEmptyText": { "type": "string", "pattern": "\\S" },
+    "isoDate": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "format": "date"
+    },
+    "httpUrl": {
+      "type": "string",
+      "pattern": "^https?://[^\\s/]+",
+      "format": "uri"
+    },
+    "nonEmptyText": {
+      "type": "string",
+      "pattern": "\\S"
+    },
     "sourceLink": {
       "type": "object",
-      "required": ["label", "url"],
+      "required": [
+        "label",
+        "url"
+      ],
       "properties": {
-        "label": { "type": "string" },
-        "url": { "$ref": "#/$defs/httpUrl" }
+        "label": {
+          "type": "string"
+        },
+        "url": {
+          "$ref": "#/$defs/httpUrl"
+        }
       }
     },
     "communityLink": {
       "type": "object",
-      "required": ["platform", "url"],
+      "required": [
+        "platform",
+        "url"
+      ],
       "properties": {
-        "platform": { "$ref": "#/$defs/nonEmptyText" },
-        "url": { "$ref": "#/$defs/httpUrl" },
-        "label": { "type": "string" }
+        "platform": {
+          "$ref": "#/$defs/nonEmptyText"
+        },
+        "url": {
+          "$ref": "#/$defs/httpUrl"
+        },
+        "label": {
+          "type": "string"
+        }
       }
     },
-    "communityLinks": { "type": "array", "items": { "$ref": "#/$defs/communityLink" } },
+    "communityLinks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/communityLink"
+      }
+    },
     "image": {
       "description": "Publisher Open Graph image. url/alt/credit/sourceUrl come from discovery or the scheduler; local/width/height/sha256 are added by the image pipeline in GitHub Actions.",
       "type": "object",
-      "required": ["url"],
+      "required": [
+        "url"
+      ],
       "properties": {
-        "url": { "$ref": "#/$defs/httpUrl" },
-        "alt": { "type": "string" },
-        "credit": { "type": "string" },
-        "sourceUrl": { "$ref": "#/$defs/httpUrl" },
-        "local": { "type": "string", "pattern": "^img/[0-9a-f]{20}\\.(webp|svg)$" },
-        "width": { "type": "integer", "minimum": 1 },
-        "height": { "type": "integer", "minimum": 1 },
-        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        "url": {
+          "$ref": "#/$defs/httpUrl"
+        },
+        "alt": {
+          "type": "string"
+        },
+        "credit": {
+          "type": "string"
+        },
+        "sourceUrl": {
+          "$ref": "#/$defs/httpUrl"
+        },
+        "local": {
+          "type": "string",
+          "pattern": "^img/[0-9a-f]{20}\\.(webp|svg)$"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
       },
-      "dependentRequired": { "local": ["width", "height", "sha256"] }
+      "dependentRequired": {
+        "local": [
+          "width",
+          "height",
+          "sha256"
+        ]
+      }
     },
     "discoveryAudit": {
       "type": "object",
@@ -133,6 +193,27 @@
         },
         "rankingNotes": {
           "type": "string"
+        }
+      }
+    },
+    "briefing": {
+      "type": "array",
+      "description": "Optional original source-grounded expanded briefing; 2-5 titled explanatory sections. Older editions may omit it.",
+      "minItems": 2,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "heading",
+          "body"
+        ],
+        "properties": {
+          "heading": {
+            "$ref": "#/$defs/nonEmptyText"
+          },
+          "body": {
+            "$ref": "#/$defs/nonEmptyText"
+          }
         }
       }
     }

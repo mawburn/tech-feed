@@ -4,33 +4,100 @@
   "title": "Daily briefing (data/daily/YYYY-MM-DD.json), v1",
   "description": "Written by the scheduler. Additional properties are allowed so the scheduler can evolve without breaking validation.",
   "type": "object",
-  "required": ["date", "overview", "marketPulse", "topStories", "alsoWorthKnowing", "newTools"],
+  "required": [
+    "date",
+    "overview",
+    "marketPulse",
+    "topStories",
+    "alsoWorthKnowing",
+    "newTools"
+  ],
   "properties": {
-    "date": { "$ref": "common.v1.schema.json#/$defs/isoDate" },
-    "label": { "type": "string" },
-    "overview": { "$ref": "common.v1.schema.json#/$defs/nonEmptyText" },
-    "marketPulse": { "type": "string" },
-    "discoveryAudit": { "$ref": "common.v1.schema.json#/$defs/discoveryAudit" },
-    "topStories": { "type": "array", "items": { "$ref": "#/$defs/story" } },
-    "alsoWorthKnowing": { "type": "array", "items": { "$ref": "#/$defs/story" } },
-    "newTools": { "type": "array", "items": { "$ref": "#/$defs/story" } }
+    "date": {
+      "$ref": "common.v1.schema.json#/$defs/isoDate"
+    },
+    "label": {
+      "type": "string"
+    },
+    "overview": {
+      "$ref": "common.v1.schema.json#/$defs/nonEmptyText"
+    },
+    "marketPulse": {
+      "type": "string"
+    },
+    "discoveryAudit": {
+      "$ref": "common.v1.schema.json#/$defs/discoveryAudit"
+    },
+    "topStories": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/story"
+      }
+    },
+    "alsoWorthKnowing": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/story"
+      }
+    },
+    "newTools": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/story"
+      }
+    }
   },
   "$defs": {
     "story": {
       "type": "object",
-      "required": ["title", "summary", "category", "sources"],
+      "required": [
+        "title",
+        "summary",
+        "category",
+        "sources"
+      ],
       "properties": {
-        "rank": { "type": "integer", "minimum": 1 },
-        "title": { "$ref": "common.v1.schema.json#/$defs/nonEmptyText" },
-        "category": { "$ref": "common.v1.schema.json#/$defs/nonEmptyText" },
-        "summary": { "$ref": "common.v1.schema.json#/$defs/nonEmptyText" },
-        "whyItMatters": { "type": "string" },
-        "limitations": { "type": "string" },
-        "isUpdate": { "type": "boolean" },
-        "sources": { "type": "array", "minItems": 1, "items": { "$ref": "common.v1.schema.json#/$defs/sourceLink" } },
-        "discoveredVia": { "$ref": "common.v1.schema.json#/$defs/communityLinks" },
-        "discussions": { "$ref": "common.v1.schema.json#/$defs/communityLinks" },
-        "image": { "$ref": "common.v1.schema.json#/$defs/image" }
+        "rank": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "$ref": "common.v1.schema.json#/$defs/nonEmptyText"
+        },
+        "category": {
+          "$ref": "common.v1.schema.json#/$defs/nonEmptyText"
+        },
+        "summary": {
+          "$ref": "common.v1.schema.json#/$defs/nonEmptyText"
+        },
+        "whyItMatters": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "isUpdate": {
+          "type": "boolean"
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "common.v1.schema.json#/$defs/sourceLink"
+          }
+        },
+        "discoveredVia": {
+          "$ref": "common.v1.schema.json#/$defs/communityLinks"
+        },
+        "discussions": {
+          "$ref": "common.v1.schema.json#/$defs/communityLinks"
+        },
+        "image": {
+          "$ref": "common.v1.schema.json#/$defs/image"
+        },
+        "briefing": {
+          "$ref": "common.v1.schema.json#/$defs/briefing"
+        }
       }
     }
   }

@@ -16,7 +16,6 @@
 {{- range $s.sources }}{{ if and (not $first) (reflect.IsMap .) (partial "data/is-http.html" .url) }}{{ $first = . }}{{ end }}{{ end -}}
 {{- $host := "" -}}
 {{- with $first }}{{ $u := urls.Parse .url }}{{ $host = strings.TrimPrefix "www." $u.Host }}{{ if eq $variant "tool" }}{{ $seg := index (split (strings.Trim $u.Path "/") "/") 0 }}{{ with $seg }}{{ $host = printf "%s/%s" $host . }}{{ end }}{{ end }}{{ end -}}
-{{- $note := "" -}}
 {{- if eq $variant "lead" -}}
 <article class="story story--lead topic topic--{{ $style.key }}">
   <div class="story__grid">
@@ -31,25 +30,13 @@
     </div>
     {{- partial "components/story-image.html" (dict "image" $s.image "alt" $s.title) }}
     <div class="story__rest">
-      {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary") }}
+      {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary" "full" true) }}
       {{- with $s.whyItMatters }}
       <div class="story__note"><span class="story__note-label">Why it matters</span><p>{{ . }}</p></div>
       {{- end }}
       <div class="story__foot">
         {{- partial "components/story-sources.html" (dict "sources" $s.sources "limit" 2) }}
-        {{- if or $s.limitations $s.discoveredVia (gt (len $s.sources) 2) }}
-        <details class="briefing">
-          <summary><span class="briefing__closed">Read briefing</span><span class="briefing__open">Collapse briefing</span>{{ partial "components/icon.html" "chevron" }}</summary>
-          <div class="briefing__panel">
-            <p class="briefing__label"><span class="dot" aria-hidden="true"></span>Briefing detail</p>
-            {{- with $s.limitations }}
-            {{ partial "components/heading.html" (dict "level" (add $level 1) "text" "Limitations & caveats") }}
-            <p>{{ . }}</p>
-            {{- end }}
-            {{- partial "components/story-links.html" (dict "sources" $s.sources "discoveredVia" $s.discoveredVia) }}
-          </div>
-        </details>
-        {{- end }}
+        {{- partial "components/expanded-briefing.html" (dict "sections" $s.briefing "level" $level "caveat" $s.limitations "sources" $s.sources "discoveredVia" $s.discoveredVia "showLinks" true) }}
       </div>
     </div>
   </div>
@@ -58,7 +45,7 @@
 <article class="story story--brief topic topic--{{ $style.key }}">
   <div class="story__top">{{ $chip }}{{ with $host }}<span class="story__host">{{ . }}</span>{{ end }}</div>
   {{ partial "components/heading.html" (dict "level" $level "text" $s.title "class" "story__title") }}
-  {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary") }}
+  {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary" "full" true) }}
   {{- with $s.whyItMatters }}
   <div class="story__note"><span class="story__note-label">Why it matters</span><p>{{ . }}</p></div>
   {{- end }}
@@ -66,6 +53,7 @@
   <div class="story__foot">
     {{- partial "components/story-sources.html" (dict "sources" $s.sources) }}
     {{- partial "components/link-list.html" (dict "label" "Found via" "links" $s.discoveredVia "kind" "community") }}
+    {{- partial "components/expanded-briefing.html" (dict "sections" $s.briefing "level" $level "caveat" $s.limitations) }}
   </div>
 </article>
 {{- else -}}
@@ -74,7 +62,7 @@
   <div class="story__row">
     <div class="story__text">
       {{ partial "components/heading.html" (dict "level" $level "text" $s.title "class" "story__title") }}
-      {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary") }}
+      {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary" "full" true) }}
     </div>
     {{- partial "components/story-image.html" (dict "image" $s.image "alt" $s.title "sizes" "5rem") }}
   </div>
@@ -83,6 +71,7 @@
     {{- with $first }}<a class="story__cta" href="{{ .url }}" rel="noopener"><span>{{ .label | default "Open source" }}</span>{{ partial "components/icon.html" "arrow-right" }}</a>{{ end }}
     {{- partial "components/story-sources.html" (dict "sources" (after 1 $s.sources) "prefix" "also") }}
     {{- partial "components/link-list.html" (dict "label" "Found via" "links" $s.discoveredVia "kind" "community") }}
+    {{- partial "components/expanded-briefing.html" (dict "sections" $s.briefing "level" $level "caveat" $s.limitations) }}
   </div>
 </article>
 {{- end -}}

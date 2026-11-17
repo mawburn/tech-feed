@@ -1,8 +1,14 @@
 {{- /* Render text as paragraphs; long text gets a native <details> disclosure (no JS).
-  Context: {text, class?, label?} */ -}}
+  Context: {text, class?, label?, full? (render whole summary without auto-collapse)} */ -}}
 {{- $split := partial "data/split-text.html" .text -}}
 {{- $class := .class | default "" -}}
-{{- if $split.rest -}}
+{{- if .full -}}
+  {{- if gt (len $split.paragraphs) 1 }}
+  <div class="{{ $class }}">{{ range $split.paragraphs }}<p>{{ . }}</p>{{ end }}</div>
+  {{- else if $split.paragraphs }}
+  <p class="{{ $class }}">{{ index $split.paragraphs 0 }}</p>
+  {{- end }}
+{{- else if $split.rest -}}
 <div class="{{ $class }}">
   <p>{{ $split.lead }}</p>
   <details class="disclosure">

@@ -1,0 +1,37 @@
+{{- /* Structured story briefing sections; older stories may have only caveats/extra links.
+Context {sections, level, caveat?, sources?, discoveredVia?, showLinks?}. */ -}}
+{{- $sections := .sections | default slice -}}
+{{- $caveat := .caveat | default "" -}}
+{{- $sources := .sources | default slice -}}
+{{- $discovered := .discoveredVia | default slice -}}
+{{- $showLinks := .showLinks | default false -}}
+{{- $hasLinks := and $showLinks (or $discovered (gt (len $sources) 2)) -}}
+{{- if or $sections $caveat $hasLinks -}}
+<details class="briefing">
+  <summary>
+    <span class="briefing__closed">{{ if $sections }}Read full briefing{{ else }}More context{{ end }}</span>
+    <span class="briefing__open">Collapse briefing</span>
+    {{ partial "components/icon.html" "chevron" }}
+  </summary>
+  <div class="briefing__panel">
+    {{- if $sections }}
+    <p class="briefing__label"><span class="dot" aria-hidden="true"></span>Detailed briefing</p>
+    {{- range $sections }}
+    <section class="briefing__section">
+      {{ partial "components/heading.html" (dict "level" (add $.level 1) "text" .heading "class" "briefing__section-title") }}
+      {{ partial "components/text.html" (dict "text" .body "class" "briefing__body" "full" true) }}
+    </section>
+    {{- end }}
+    {{- end }}
+    {{- with $caveat }}
+    <section class="briefing__section">
+      {{ partial "components/heading.html" (dict "level" (add $.level 1) "text" "Limitations & caveats" "class" "briefing__section-title") }}
+      <p>{{ . }}</p>
+    </section>
+    {{- end }}
+    {{- if $hasLinks }}
+    {{- partial "components/story-links.html" (dict "sources" $sources "discoveredVia" $discovered) }}
+    {{- end }}
+  </div>
+</details>
+{{- end -}}

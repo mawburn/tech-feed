@@ -12,6 +12,7 @@ The ChatGPT daily and Sunday scheduled tasks read the version-controlled editori
 - [Discovery protocol](editorial/DISCOVERY.md): rolling 24-hour Hacker News scan, cross-category breaking-incident sweep, source checks and research audit.
 - [Ranking rules](editorial/RANKING.md): operational-impact priority and final missing-story check.
 - [Source guide](editorial/SOURCES.md): primary sources, independent confirmation and community-link rules.
+- [Writing standards](editorial/WRITING.md): substantive visible summaries and source-grounded expandable explanations for daily stories and weekly themes.
 
 New daily and weekly JSON files may include an optional root `discoveryAudit` field recording which sources were checked, actual candidate counts where known, material incidents considered and editorial decisions. It is research metadata; it does not replace `sources`, `discoveredVia`, or `discussions`. These instructions are used by the scheduled research task, not executed as a GitHub Actions collector.
 
@@ -45,9 +46,21 @@ ChatGPT scheduler ──commits──▶ data/daily/YYYY-MM-DD.json / data/weekl
 The schemas describe the scheduler's existing output. They allow unknown properties, so new fields don't break the build. The fields stories use:
 
 - **Required:** `title`, `category`, `summary`, `sources[]` (`{label,url}`).
-- **Optional:** `rank`, `whyItMatters`, `limitations`, `isUpdate`, `discoveredVia[]`, `discussions[]` and `image`.
+- **Optional:** `rank`, `whyItMatters`, `limitations`, `isUpdate`, `discoveredVia[]`, `discussions[]`, `briefing[]` and `image`.
 
-Weekly reviews carry `themes[]`, `toolsToWatch[]`, `sourceDays[]` and optional summary fields.
+Weekly reviews carry `themes[]`, `toolsToWatch[]`, `sourceDays[]` and optional summary fields. Each theme, and optionally each weekly tool, may also contain `briefing[]`.
+
+`summary` is a complete, moderately detailed account shown directly on the card. `briefing` adds 2–5 headed sections inside a native **Read full briefing** disclosure:
+
+```json
+"summary": "A meaningful multi-sentence account of the event, its scope, evidence and consequences.",
+"briefing": [
+  {"heading": "What happened", "body": "Additional verified chronology, scope and context."},
+  {"heading": "How it works and what changes", "body": "Concrete technical details and implications."}
+]
+```
+
+These examples show the structure only; actual stories require supported detailed reporting. The field is optional for backward compatibility with old editions, but required by the editorial writing standards for new daily stories and weekly themes. Longer visible summaries are not automatically collapsed into a second, competing disclosure.
 
 Optional link metadata:
 
@@ -105,7 +118,7 @@ tests/                      site, validator and image-pipeline tests
 - **Components:** `story.html` has `lead`, `brief` and `tool` variants. `edition-hero`, `section-index`, `coverage-bars` and `weekly-edition` build the page bodies, and `icon.html` holds the inline SVG icons. Keep `class="story__title"` on story headings and `thread-pill` on discussion links, because the site tests match them.
 - **Brand:** the logo SVGs in `static/img/` were generated from the outlined artwork (wordmark, full lockup, mountain mark). The favicon uses the same crescent and mountain.
 - **Fonts:** Inter variable (latin, SIL OFL) is self-hosted in `static/fonts/`. Mono text uses the system monospace stack.
-- **Images:** the image partial (`components/story-image.html`) renders `srcset`, `sizes`, `width`/`height`, lazy loading and attribution (as an overlay credit), and handles SVGs. It renders nothing when a story has no local image. Adjust `sizes` there and `params.imageWidths` in `hugo.toml` to match a layout change. Long summaries collapse into a native `<details>` element, set by `params.summaryCollapseChars`.
+- **Images:** the image partial (`components/story-image.html`) renders `srcset`, `sizes`, `width`/`height`, lazy loading and attribution (as an overlay credit), and handles SVGs. It renders nothing when a story has no local image. Adjust `sizes` there and `params.imageWidths` in `hugo.toml` to match a layout change. General long-form text can still collapse at `params.summaryCollapseChars`, but story and weekly-theme summaries are shown fully. Structured `briefing[]` sections use their own native `<details>` element.
 
 ## Local development
 

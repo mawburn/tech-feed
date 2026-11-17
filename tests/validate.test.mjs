@@ -84,6 +84,32 @@ test("daily and weekly discovery audits accept verified checks and reject invali
   rmSync(dir, { recursive: true });
 });
 
+test("structured daily and weekly briefings validate, while legacy editions remain valid", () => {
+  const dir = sandbox();
+  const briefing = [
+    { heading: "What happened", body: "Verified background, sequence, and immediate effects." },
+    { heading: "How it works", body: "Independent technical context and relevant constraints." },
+  ];
+  const daily = clone(schedulerDaily);
+  daily.topStories[0].briefing = clone(briefing);
+  daily.alsoWorthKnowing[0].briefing = clone(briefing);
+  daily.newTools[0].briefing = clone(briefing);
+  const dpath = put(dir, "daily", `${daily.date}.json`, daily);
+  assert.deepEqual(check(dir, dpath), [], "valid daily expanded brief");
+  daily.topStories[0].briefing = [{ heading: "One section only", body: "Insufficient sections." }];
+  assert.notDeepEqual(check(dir, put(dir, "daily", `${daily.date}.json`, daily)), [], "a single section is invalid");
+  daily.topStories[0].briefing = [{ heading: "", body: "Content" }, ...briefing];
+  assert.notDeepEqual(check(dir, put(dir, "daily", `${daily.date}.json`, daily)), [], "empty heading is invalid");
+  const weekly = clone(schedulerWeekly);
+  weekly.themes[0].briefing = clone(briefing);
+  weekly.toolsToWatch[0].briefing = clone(briefing);
+  const wpath = put(dir, "weekly", `${weekly.weekEnding}.json`, weekly);
+  assert.deepEqual(check(dir, wpath), [], "valid weekly expanded brief");
+  weekly.themes[0].briefing = [{ heading: "Missing body" }, ...briefing];
+  assert.notDeepEqual(check(dir, put(dir, "weekly", `${weekly.weekEnding}.json`, weekly)), [], "missing section body is invalid");
+  rmSync(dir, { recursive: true });
+});
+
 test("malformed publications are rejected", () => {
   const dir = sandbox();
   const date = schedulerDaily.date;

@@ -6,7 +6,7 @@
 {{- $previous := false -}}
 {{- range partialCached "data/weekly.html" "weekly" }}{{ if and (not $previous) (lt .weekEnding $w.weekEnding) }}{{ $previous = . }}{{ end }}{{ end -}}
 {{- $chars := add (len ($w.overview | default "")) (len ($w.marketPulse | default "")) (len ($w.nextWeekWatch | default "")) -}}
-{{- range $w.themes }}{{ $chars = add $chars (len (.summary | default "")) (len (.impact | default "")) (len (.caveat | default "")) }}{{ end -}}
+{{- range $w.themes }}{{ $chars = add $chars (len (.summary | default "")) (len (.impact | default "")) (len (.caveat | default "")) }}{{ range .briefing }}{{ $chars = add $chars (len .body) }}{{ end }}{{ end -}}
 {{- $mins := int (math.Max 1 (math.Ceil (div (float $chars) 1100))) -}}
 <article class="weekly">
   <div class="ticker">
@@ -16,7 +16,7 @@
   <header class="weekly__header">
     <p class="weekly__kicker">mawburn dispatch · weekly synthesis</p>
     <h1 class="weekly__title">{{ $w.title | default (printf "Week ending %s" ($end | time.Format "January 2, 2006")) }}</h1>
-    {{- with $w.overview }}{{ partial "components/text.html" (dict "text" . "class" "weekly__overview") }}{{ end }}
+    {{- with $w.overview }}{{ partial "components/text.html" (dict "text" . "class" "weekly__overview" "full" true) }}{{ end }}
     {{- if or $w.themes $w.toolsToWatch }}
     <nav class="pillbar" aria-label="Sections in this review">
       {{- range $i, $t := $w.themes }}<a href="#theme-{{ add $i 1 }}">{{ add $i 1 }}. {{ $t.title | truncate 30 }}</a>{{ end }}
@@ -38,7 +38,7 @@
       </div>
       <div class="theme__head">
         {{ partial "components/heading.html" (dict "level" $level "text" $t.title "class" "theme__title") }}
-        {{- partial "components/text.html" (dict "text" $t.summary "class" "theme__summary") }}
+        {{- partial "components/text.html" (dict "text" $t.summary "class" "theme__summary" "full" true) }}
       </div>
       {{- with $t.impact }}
       <div class="banner"><span class="banner__label">{{ partial "components/icon.html" "alert" }}Why it matters</span><p>{{ . }}</p></div>
@@ -47,6 +47,7 @@
       {{- with $t.caveat }}
       <div class="banner banner--caveat"><span class="banner__label">Caveat</span><p>{{ . }}</p></div>
       {{- end }}
+      {{- partial "components/expanded-briefing.html" (dict "sections" $t.briefing "level" $level) }}
       <div class="theme__links">
         {{- partial "components/link-list.html" (dict "label" "Sources" "links" $t.links "kind" "source") }}
         {{- partial "components/discussion-badges.html" (dict "discussions" $t.discussions) }}
@@ -63,7 +64,8 @@
       {{- range . }}
       <article class="tool-card">
         {{ partial "components/heading.html" (dict "level" (add $level 1) "text" .title "class" "tool-card__title") }}
-        {{- partial "components/text.html" (dict "text" .summary "class" "tool-card__summary") }}
+        {{- partial "components/text.html" (dict "text" .summary "class" "tool-card__summary" "full" true) }}
+        {{- partial "components/expanded-briefing.html" (dict "sections" .briefing "level" (add $level 1)) }}
         {{- partial "components/link-list.html" (dict "label" "Sources" "links" .links "kind" "source") }}
       </article>
       {{- end }}

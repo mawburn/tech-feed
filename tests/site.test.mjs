@@ -88,6 +88,28 @@ test("daily pages contain every story and discussion link", () => {
   }
 });
 
+test("structured full briefings are rendered without hiding their visible summaries", () => {
+  for (const issue of published) {
+    const html = decode(read(`daily/${issue.date}/index.html`));
+    for (const story of stories(issue)) {
+      for (const section of story.briefing || []) {
+        assert.ok(html.includes(section.heading), `${issue.date}: missing briefing heading "${section.heading}"`);
+        assert.ok(html.includes(section.body), `${issue.date}: missing briefing text for "${story.title}"`);
+      }
+      if (story.briefing?.length) assert.match(html, /Read full briefing/, "expanded details control is missing");
+    }
+  }
+  for (const week of weeks) {
+    const html = decode(read(`weekly/${week.weekEnding}/index.html`));
+    for (const theme of [...(week.themes || []), ...(week.toolsToWatch || [])]) {
+      for (const section of theme.briefing || []) {
+        assert.ok(html.includes(section.heading), `${week.weekEnding}: missing weekly heading "${section.heading}"`);
+        assert.ok(html.includes(section.body), `${week.weekEnding}: missing weekly expanded text`);
+      }
+    }
+  }
+});
+
 test("per-edition topic pages contain only that topic", () => {
   for (const issue of published) {
     for (const category of new Set(stories(issue).map(s => s.category))) {
