@@ -91,6 +91,7 @@
       }
     },
     "toolsToWatch": {
+      "description": "Weekly 'AI & tooling in practice' entries (key kept for compatibility). Any number of entries; no cap.",
       "type": "array",
       "items": {
         "type": "object",
@@ -100,6 +101,9 @@
           },
           "summary": {
             "type": "string"
+          },
+          "format": {
+            "$ref": "common.v1.schema.json#/$defs/contentFormat"
           },
           "links": {
             "type": "array",

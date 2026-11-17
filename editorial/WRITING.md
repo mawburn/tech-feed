@@ -16,10 +16,10 @@ Each `briefing` is an array of 2–5 objects: `{"heading":"Specific heading","bo
 - **Daily overview:** roughly 110–180 words (typically 5–8 informative sentences) synthesizing the main developments and their relative significance.
 - **Daily top stories:** visible `summary` around 75–130 words (usually 3–5 substantive sentences). Expanded `briefing` around 180–350 words in 3–5 headed sections. `whyItMatters` and `limitations` should add distinct information rather than repeat entire sections.
 - **Also worth knowing:** visible `summary` around 50–95 words (typically 3–4 sentences). Expanded `briefing` usually 100–220 words across 2–3 headings, focused on useful concrete context.
-- **New tools, models and repositories:** visible `summary` around 45–90 words on what it does, who it is for, and differentiators. Expanded `briefing` around 100–180 words in 2–3 sections when reliable evidence supports this; include practical setup or limitations rather than marketing.
+- **AI & tooling in practice (`newTools`):** visible `summary` around 60–120 words on what was built or demonstrated, how, and the evidence. Expanded `briefing` of 2–6 sections (about 120–300 words) covering what was done, how it works, why it is interesting and how to reproduce it, plus limitations. Optional `format` label. No fixed entry count. Follow `editorial/APPLICATIONS.md`.
 - **Weekly overview:** about 130–220 words explaining the arc of the week, not a list of headlines.
 - **Weekly themes:** visible `summary` around 85–145 words; expanded `briefing` 200–400 words in 3–5 sections explaining development over the week, evidence, technical/business effects, and uncertainties. `impact` and `caveat` are concise distinct complements.
-- **Weekly tools to watch:** visible `summary` 50–100 words; add 2–3 headed `briefing` sections when details can be verified.
+- **Weekly AI & tooling in practice (`toolsToWatch`):** visible `summary` around 60–120 words; add `briefing` sections (what was done, how it works, how to reproduce) when details can be verified. No fixed entry count.
 - **Market pulse / next-week watch:** meaningful synthesis with specific dates, figures, samples and caveats when verified; do not fill space when there is no material signal.
 
 These ranges are **targets, not minimum quotas**. A short verified report is preferable to verbose speculation. Never hallucinate details to hit a word count.

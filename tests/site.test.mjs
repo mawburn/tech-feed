@@ -88,6 +88,29 @@ test("daily pages contain every story and discussion link", () => {
   }
 });
 
+test("AI & tooling in practice heading replaces the old section name and renders every entry", () => {
+  for (const issue of published) {
+    const html = read(`daily/${issue.date}/index.html`);
+    assert.ok(!/Tools, models (&amp;|&) repositories/.test(html), `${issue.date}: old heading still present`);
+    assert.ok(!/Tools &amp; Repos/.test(html), `${issue.date}: old index label still present`);
+    const n = (issue.newTools || []).length;
+    if (n) {
+      assert.match(html, /AI (&amp;|&) tooling in practice/, `${issue.date}: new heading missing`);
+      const cards = (html.match(/<article class="?story story--tool[ ">]/g) || []).length;
+      assert.equal(cards, n, `${issue.date}: expected ${n} entries, rendered ${cards}`);
+    }
+  }
+  for (const week of weeks) {
+    const html = read(`weekly/${week.weekEnding}/index.html`);
+    assert.ok(!/Tools worth investigating/.test(html), `${week.weekEnding}: old heading still present`);
+    const n = (week.toolsToWatch || []).length;
+    if (n) {
+      assert.match(html, /AI (&amp;|&) tooling in practice/);
+      assert.equal((html.match(/<article class="?tool-card[ ">]/g) || []).length, n, `${week.weekEnding}: weekly entry count`);
+    }
+  }
+});
+
 test("structured full briefings are rendered without hiding their visible summaries", () => {
   for (const issue of published) {
     const html = decode(read(`daily/${issue.date}/index.html`));

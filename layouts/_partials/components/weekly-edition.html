@@ -20,7 +20,7 @@
     {{- if or $w.themes $w.toolsToWatch }}
     <nav class="pillbar" aria-label="Sections in this review">
       {{- range $i, $t := $w.themes }}<a href="#theme-{{ add $i 1 }}">{{ add $i 1 }}. {{ $t.title | truncate 30 }}</a>{{ end }}
-      {{- if $w.toolsToWatch }}<a class="is-accent" href="#tools">Tools to watch</a>{{ end }}
+      {{- if $w.toolsToWatch }}<a class="is-accent" href="#tools">AI &amp; tooling in practice</a>{{ end }}
       {{- if $w.marketPulse }}<a class="is-accent" href="#market">Job market</a>{{ end }}
     </nav>
     {{- end }}
@@ -58,11 +58,12 @@
   {{- end }}
   {{- with $w.toolsToWatch }}
   <section class="panel panel--low" id="tools">
-    <p class="panel__kicker">Curated roundup</p>
-    {{ partial "components/heading.html" (dict "level" $level "text" "Tools worth investigating" "class" "panel__title") }}
+    <p class="panel__kicker">Hands-on roundup</p>
+    {{ partial "components/heading.html" (dict "level" $level "text" "AI & tooling in practice" "class" "panel__title") }}
     <div class="tool-grid">
       {{- range . }}
       <article class="tool-card">
+        {{- with .format }}<p class="tool-card__format"><span class="format-badge">{{ . }}</span></p>{{ end }}
         {{ partial "components/heading.html" (dict "level" (add $level 1) "text" .title "class" "tool-card__title") }}
         {{- partial "components/text.html" (dict "text" .summary "class" "tool-card__summary" "full" true) }}
         {{- partial "components/expanded-briefing.html" (dict "sections" .briefing "level" (add $level 1)) }}
@@ -84,7 +85,7 @@
           <div class="glance__row"><dt>Period</dt><dd>{{ $start | time.Format "Jan 2" }} – {{ $end | time.Format "Jan 2" }}</dd></div>
           {{- with $w.coverageDays }}<div class="glance__row"><dt>Editions covered</dt><dd>{{ . }}{{ if $w.partial }} (partial week){{ end }}</dd></div>{{ end }}
           {{- with $w.themes }}<div class="glance__row"><dt>Themes</dt><dd>{{ len . }}</dd></div>{{ end }}
-          {{- with $w.toolsToWatch }}<div class="glance__row"><dt>Tools to watch</dt><dd>{{ len . }}</dd></div>{{ end }}
+          {{- with $w.toolsToWatch }}<div class="glance__row"><dt>Practical applications</dt><dd>{{ len . }}</dd></div>{{ end }}
         </dl>
       </aside>
     </div>

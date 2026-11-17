@@ -12,6 +12,7 @@ The ChatGPT daily and Sunday scheduled tasks read the version-controlled editori
 - [Discovery protocol](editorial/DISCOVERY.md): rolling 24-hour Hacker News scan, cross-category breaking-incident sweep, source checks and research audit.
 - [Ranking rules](editorial/RANKING.md): operational-impact priority and final missing-story check.
 - [Source guide](editorial/SOURCES.md): primary sources, independent confirmation and community-link rules.
+- [AI & tooling in practice](editorial/APPLICATIONS.md): discovery, selection, verification and writing standards for hands-on applications, tutorials, demos and experiments (daily `newTools`, weekly `toolsToWatch`).
 - [Writing standards](editorial/WRITING.md): substantive visible summaries and source-grounded expandable explanations for daily stories and weekly themes.
 
 New daily and weekly JSON files may include an optional root `discoveryAudit` field recording which sources were checked, actual candidate counts where known, material incidents considered and editorial decisions. It is research metadata; it does not replace `sources`, `discoveredVia`, or `discussions`. These instructions are used by the scheduled research task, not executed as a GitHub Actions collector.
@@ -46,7 +47,9 @@ ChatGPT scheduler ──commits──▶ data/daily/YYYY-MM-DD.json / data/weekl
 The schemas describe the scheduler's existing output. They allow unknown properties, so new fields don't break the build. The fields stories use:
 
 - **Required:** `title`, `category`, `summary`, `sources[]` (`{label,url}`).
-- **Optional:** `rank`, `whyItMatters`, `limitations`, `isUpdate`, `discoveredVia[]`, `discussions[]`, `briefing[]` and `image`.
+- **Optional:** `rank`, `whyItMatters`, `limitations`, `isUpdate`, `discoveredVia[]`, `discussions[]`, `briefing[]`, `format` and `image`.
+
+The third daily section is published as **AI & tooling in practice** (hands-on workflows, tutorials, demos and experiments). Its JSON keys stay `newTools` (daily) and `toolsToWatch` (weekly) for compatibility. Neither section has an item cap: any number of entries, including none, renders correctly. An optional `format` string (for example "Video tutorial", "Workflow", "Experiment", "Case study") labels an entry; direct YouTube, GitHub and demo links use the normal `sources[]`/`links[]` structure. A `briefing` may have 2–6 sections.
 
 Weekly reviews carry `themes[]`, `toolsToWatch[]`, `sourceDays[]` and optional summary fields. Each theme, and optionally each weekly tool, may also contain `briefing[]`.
 
@@ -115,7 +118,7 @@ tests/                      site, validator and image-pipeline tests
 
 - **Tokens and CSS:** `assets/css/tokens.css` holds the palette, type, spacing and the six topic accents. The files are concatenated in `head/assets.html`. There is no JavaScript. The "Read briefing" expander is a native `<details>`.
 - **Topic accents:** `_partials/data/topic-style.html` maps any category name to an accent and icon by keyword (security, jobs, business, developer tools, infrastructure, AI, else neutral). Templates only emit `topic--{key}`.
-- **Components:** `story.html` has `lead`, `brief` and `tool` variants. `edition-hero`, `section-index`, `coverage-bars` and `weekly-edition` build the page bodies, and `icon.html` holds the inline SVG icons. Keep `class="story__title"` on story headings and `thread-pill` on discussion links, because the site tests match them.
+- **Components:** `story.html` has `lead`, `brief` and `tool` variants (`tool` renders "AI & tooling in practice" entries in a responsive auto-fill grid). `edition-hero`, `section-index`, `coverage-bars` and `weekly-edition` build the page bodies, and `icon.html` holds the inline SVG icons. Keep `class="story__title"` on story headings and `thread-pill` on discussion links, because the site tests match them.
 - **Brand:** the logo SVGs in `static/img/` were generated from the outlined artwork (wordmark, full lockup, mountain mark). The favicon uses the same crescent and mountain.
 - **Fonts:** Inter variable (latin, SIL OFL) is self-hosted in `static/fonts/`. Mono text uses the system monospace stack.
 - **Images:** the image partial (`components/story-image.html`) renders `srcset`, `sizes`, `width`/`height`, lazy loading and attribution (as an overlay credit), and handles SVGs. It renders nothing when a story has no local image. Adjust `sizes` there and `params.imageWidths` in `hugo.toml` to match a layout change. General long-form text can still collapse at `params.summaryCollapseChars`, but story and weekly-theme summaries are shown fully. Structured `briefing[]` sections use their own native `<details>` element.

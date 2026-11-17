@@ -41,6 +41,7 @@
       }
     },
     "newTools": {
+      "description": "Section 'AI & tooling in practice' (key kept for compatibility). Any number of entries, including none; there is no editorial or schema cap.",
       "type": "array",
       "items": {
         "$ref": "#/$defs/story"
@@ -69,6 +70,9 @@
         },
         "summary": {
           "$ref": "common.v1.schema.json#/$defs/nonEmptyText"
+        },
+        "format": {
+          "$ref": "common.v1.schema.json#/$defs/contentFormat"
         },
         "whyItMatters": {
           "type": "string"

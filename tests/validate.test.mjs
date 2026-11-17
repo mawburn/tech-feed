@@ -110,6 +110,32 @@ test("structured daily and weekly briefings validate, while legacy editions rema
   rmSync(dir, { recursive: true });
 });
 
+test("AI & tooling in practice: format, any entry count, direct links and 6-section briefings validate", () => {
+  const dir = sandbox();
+  const section = n => ({ heading: `Section ${n}`, body: "Specific verified detail." });
+  const entry = (i, extra = {}) => ({
+    ...clone(schedulerDaily.newTools[0]), title: `Practical build ${i}`,
+    sources: [{ label: "YouTube tutorial", url: "https://www.youtube.com/watch?v=abc123" }, { label: "Source code", url: "https://github.com/example/repo" }],
+    ...extra,
+  });
+  for (const count of [0, 1, 7]) {
+    const doc = clone(schedulerDaily);
+    doc.newTools = Array.from({ length: count }, (_, i) => entry(i, { format: "Video tutorial" }));
+    assert.deepEqual(check(dir, put(dir, "daily", `${doc.date}.json`, doc)), [], `${count} entries`);
+  }
+  const doc = clone(schedulerDaily);
+  doc.newTools = [entry(1, { briefing: Array.from({ length: 6 }, (_, i) => section(i)) })];
+  assert.deepEqual(check(dir, put(dir, "daily", `${doc.date}.json`, doc)), [], "six briefing sections");
+  doc.newTools[0].briefing.push(section(7));
+  assert.notDeepEqual(check(dir, put(dir, "daily", `${doc.date}.json`, doc)), [], "seven briefing sections");
+  doc.newTools = [entry(1, { format: "   " })];
+  assert.notDeepEqual(check(dir, put(dir, "daily", `${doc.date}.json`, doc)), [], "blank format");
+  const week = clone(schedulerWeekly);
+  week.toolsToWatch = [...week.toolsToWatch, ...week.toolsToWatch, ...week.toolsToWatch, ...week.toolsToWatch].map(t => ({ ...t, format: "Workflow" }));
+  assert.deepEqual(check(dir, put(dir, "weekly", `${week.weekEnding}.json`, week)), [], "weekly with many formatted entries");
+  rmSync(dir, { recursive: true });
+});
+
 test("malformed publications are rejected", () => {
   const dir = sandbox();
   const date = schedulerDaily.date;

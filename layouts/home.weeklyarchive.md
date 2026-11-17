@@ -22,9 +22,9 @@ Category: {{ partial "data/category.html" $t }}
 **Caveat:** {{ . }}
 {{ end }}{{ partial "markdown/links.html" (dict "sources" $t.links "discussions" $t.discussions) }}
 {{ end }}
-### Tools worth investigating
+### AI & tooling in practice
 {{ range .toolsToWatch }}
-- **{{ .title }}** — {{ .summary }}{{ range .links }}{{ if partial "data/is-http.html" .url }}
+- **{{ .title }}**{{ with .format }} ({{ . }}){{ end }} — {{ .summary }}{{ range .links }}{{ if partial "data/is-http.html" .url }}
   - [{{ .label | default "Source" }}]({{ .url }}){{ end }}{{ end }}
 {{ end }}
 ### Jobs and markets

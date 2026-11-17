@@ -196,11 +196,18 @@
         }
       }
     },
+    "contentFormat": {
+      "type": "string",
+      "description": "Optional content-format label for an 'AI & tooling in practice' entry, e.g. Video tutorial, Workflow, Experiment, Case study, Technical writeup, Demo, Source code, Show HN. Free text so new formats never break validation.",
+      "minLength": 1,
+      "maxLength": 40,
+      "pattern": "\\S"
+    },
     "briefing": {
       "type": "array",
-      "description": "Optional original source-grounded expanded briefing; 2-5 titled explanatory sections. Older editions may omit it.",
+      "description": "Optional original source-grounded expanded briefing; 2-6 titled explanatory sections. Older editions may omit it.",
       "minItems": 2,
-      "maxItems": 5,
+      "maxItems": 6,
       "items": {
         "type": "object",
         "required": [

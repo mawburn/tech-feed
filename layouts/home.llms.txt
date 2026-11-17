@@ -17,7 +17,7 @@ Repository: {{ site.Params.repository }}
 ## How to read
 - The homepage shows the newest dated edition. Every edition has a permanent page at {{ (site.GetPage "/daily").Permalink }}YYYY-MM-DD/.
 - Each issues[].date is the briefing publication date in America/Los_Angeles, not necessarily the original publication date of each story.
-- Every issue contains overview, topStories, alsoWorthKnowing, newTools and marketPulse.
+- Every issue contains overview, topStories, alsoWorthKnowing, newTools and marketPulse. The newTools key holds the "AI & tooling in practice" section: hands-on workflows, tutorials, demos and experiments of any count, each with an optional format label.
 - Each story contains a title, editorial summary, category and links to sources. Top stories also describe significance and limits. Optional discussions[] link to real Hacker News or Reddit comment threads.
 - Topic pages are static HTML at {{ (site.GetPage "/topics").Permalink }}SLUG/ and {{ (site.GetPage "/daily").Permalink }}YYYY-MM-DD/topics/SLUG/. No JavaScript is required.
 - Optional story images are publisher Open Graph images, stored as optimized local copies (image.localUrl) and credited to the publisher (image.credit, image.sourceUrl).
@@ -27,6 +27,6 @@ The summaries are independently authored and may not reflect later corrections. 
 
 ## Sunday weekly recap
 - Week periods start Monday and end Sunday in America/Los_Angeles.
-- data/weekly.json has schemaVersion, updatedAt and weeks[] newest-first. Each weekly item contains overview, themes, toolsToWatch, marketPulse, nextWeekWatch, sourceDays and coverageDays.
+- data/weekly.json has schemaVersion, updatedAt and weeks[] newest-first. Each weekly item contains overview, themes, toolsToWatch (the weekly "AI & tooling in practice" entries), marketPulse, nextWeekWatch, sourceDays and coverageDays.
 - A partial week explicitly names the daily editions actually available rather than presenting missing days as covered.
 - Historical weekly recaps remain available after individual daily editions age out of the rolling seven-day feeds.

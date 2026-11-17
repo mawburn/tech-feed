@@ -1,6 +1,6 @@
-{{- /* The three story sections of a daily edition, in display order. */ -}}
+{{- /* The three story sections of a daily edition, in display order. The newTools key is kept for compatibility. */ -}}
 {{- return slice
   (dict "key" "topStories" "label" "Top stories" "primary" true)
   (dict "key" "alsoWorthKnowing" "label" "Also worth knowing" "primary" false)
-  (dict "key" "newTools" "label" "Tools, models & repositories" "primary" false)
+  (dict "key" "newTools" "label" "AI & tooling in practice" "primary" false)
 -}}

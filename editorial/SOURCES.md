@@ -41,6 +41,16 @@ Review relevant technical Reddit communities, Lobsters, developer forums and dir
 
 `sources` contains evidence for the factual story. `discoveredVia` is its genuine discovery origin. `discussions` is a matching community conversation. One link can serve multiple roles only if those roles are actually true.
 
+## Practical applications and tutorials
+
+Used for the "AI & tooling in practice" section; see `editorial/APPLICATIONS.md` for selection and verification rules.
+
+- YouTube: search recent tutorials, demos and build logs by topic; link the specific video. Independent creators and conference talks are preferred over vendor marketing. Review the video itself, not only the title or description.
+- GitHub: new and recently updated example repositories, trending projects, awesome-lists and linked demos. Verify the code, license, commit history and instructions.
+- Show HN (`https://hacker-news.firebaseio.com/v0/showstories.json`, or Algolia with `tags=show_hn`): projects with working demos or source.
+- Technical blogs, engineering writeups, Lobsters, relevant Reddit communities and developer forums for case studies and workflows.
+- Treat aggregators and social posts as leads. The evidence is the underlying video, repository or writeup.
+
 ## Jobs, business and policy
 
 Use employer filings/announcements, labor statistics, credible compensation and hiring datasets, regulatory texts, earnings/SEC documents, reputable business reporting and studies with identifiable sampling. Avoid making sweeping market conclusions from anecdotes, surveys without representative methodology, or isolated layoffs.

@@ -63,12 +63,12 @@
 .panel__lead { color: var(--on-variant); font-size: 15px; margin-bottom: var(--sp-lg); max-width: 48rem; }
 @media (max-width: 47.99rem) { .panel { padding: 1rem; margin-bottom: 1rem; } .panel__title { font-size: 18px; line-height: 26px; letter-spacing: -.01em; margin-bottom: .75rem; } }
 
-.tool-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-lg); }
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); gap: var(--sp-lg); }
+.tool-card__format { margin: 0; }
 .tool-card { background: var(--surface-container); border-radius: var(--r-lg); padding: var(--sp-md); display: flex; flex-direction: column; gap: var(--sp-sm); }
 .tool-card__title { font-size: 18px; line-height: 26px; font-weight: 600; letter-spacing: -.01em; }
 .tool-card__summary { font-size: 13px; line-height: 20px; color: var(--on-variant); }
 .tool-card .link-list { margin-top: auto; padding-top: var(--sp-sm); }
-@media (max-width: 63.99rem) { .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 47.99rem) { .tool-grid { grid-template-columns: 1fr; gap: .75rem; } }
 
 .weekly-pulse { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: var(--sp-lg); }

@@ -8,7 +8,7 @@
 {{- $scope := .topicScope | default "daily" -}}
 {{- $when := time.AsTime $issue.date -}}
 {{- $variants := dict "topStories" "lead" "alsoWorthKnowing" "brief" "newTools" "tool" -}}
-{{- $kickers := dict "topStories" "Primary intelligence" "alsoWorthKnowing" "Rapid scan briefs" "newTools" "Engineering curations" -}}
+{{- $kickers := dict "topStories" "Primary intelligence" "alsoWorthKnowing" "Rapid scan briefs" "newTools" "Hands-on applications" -}}
 {{- $groups := slice -}}
 {{- range partialCached "data/sections.html" "sections" -}}
   {{- $items := slice -}}
