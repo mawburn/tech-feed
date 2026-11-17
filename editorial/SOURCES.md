@@ -71,6 +71,24 @@ If one venue is inaccessible, use a reasonable alternative and record `partial`/
 
 Do not let a watchlist become a whitelist. Every run should also search outside the known venues, including non-English creators or niche maker communities when a credible, relevant project appears. Rotate themes (coding agents, software architecture, 3D/Blender, game engines, simulation, creative coding, local inference, data visualization, automation, robotics/hardware, video/audio workflows), and avoid covering the same category or popular creator repeatedly without a material new technique.
 
+### Optional independent technical blogs (supplementary leads, not priority sources)
+
+These are examples of thoughtful, often technically detailed writing to **sample periodically** alongside broad web searches, HN, GitHub and unfamiliar independent authors. They are **not a ranking, a whitelist, a mandatory daily checklist or preferred publication sources**. A post from one of these blogs must meet the exact same freshness, factual relevance, evidence and significance standards as any other source. Do not allocate a fixed number of story slots or give an automatic score boost to any author. A useful old explanation may provide background, but is not new news merely because it has been rediscovered.
+
+| Blog | Possible areas of interest |
+| --- | --- |
+| [Daniel Doubrovkine — code.dblock.org](https://code.dblock.org/) | Hands-on engineering, AI coding, open source, developer workflows and leadership |
+| [Dan Abramov — overreacted.io](https://overreacted.io/) | React, JavaScript, web architecture, developer mental models and unusual programming experiments |
+| [Julia Evans — jvns.ca](https://jvns.ca/) | Systems, debugging, Unix, networking and practical explanations |
+| [Dan Luu — danluu.com](https://danluu.com/) | Empirical software engineering, performance, benchmarks, infrastructure and skepticism about claims |
+| [Brandur Leach — brandur.org](https://brandur.org/articles) | APIs, databases, production engineering and software design |
+| [matklad](https://matklad.github.io/) | Languages, compilers, tooling, Rust/Zig and concrete software design |
+| [Brendan Gregg's blog](https://www.brendangregg.com/blog/) | Performance analysis, observability, Linux and systems diagnostics |
+| [Martin Fowler](https://martinfowler.com/) | Architecture, refactoring, engineering practices and system design |
+| [Josh W. Comeau](https://www.joshwcomeau.com/blog/) | Frontend engineering, CSS/React, interactive teaching and creative implementation |
+
+Use **actual new-post dates** and read the original article before summarizing it. For the general news feed, seek substantive new engineering developments, investigations or insights, not every post. For **AI & tooling in practice**, select only entries that demonstrate a concrete workflow, experiment, reproducible technique or useful walkthrough; an opinion essay does not qualify merely because it appears here. Discover other writers through relevant links, citations, niche communities and blogrolls so these examples do not narrow the search. Check author affiliations and commercial interests where they matter; do not assume either independence or accuracy.
+
 ### Reusable search patterns
 
 Use different queries and date filters as supported by each platform. Examples; substitute the current topic rather than searching only these exact strings:
