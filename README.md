@@ -5,6 +5,16 @@ Daily and weekly AI and technology briefings, built with [Hugo](https://gohugo.i
 - **Daily:** https://mawburn.github.io/tech-feed/
 - **Weekly:** https://mawburn.github.io/tech-feed/weekly.html
 
+## Editorial discovery and ranking
+
+The ChatGPT daily and Sunday scheduled tasks read the version-controlled editorial playbooks **before** selecting stories:
+
+- [Discovery protocol](editorial/DISCOVERY.md): rolling 24-hour Hacker News scan, cross-category breaking-incident sweep, source checks and research audit.
+- [Ranking rules](editorial/RANKING.md): operational-impact priority and final missing-story check.
+- [Source guide](editorial/SOURCES.md): primary sources, independent confirmation and community-link rules.
+
+New daily and weekly JSON files may include an optional root `discoveryAudit` field recording which sources were checked, actual candidate counts where known, material incidents considered and editorial decisions. It is research metadata; it does not replace `sources`, `discoveredVia`, or `discussions`. These instructions are used by the scheduled research task, not executed as a GitHub Actions collector.
+
 ## How it fits together
 
 ```
@@ -72,6 +82,7 @@ Primary `sources` show what was reported. `discoveredVia` records where a story 
 ## Project layout
 
 ```
+editorial/                  source discovery, ranking and verification playbooks
 hugo.toml                   site config: base URL, output formats (JSON/Markdown/llms.txt), windows
 content/                    section stubs + content adapters (daily, weekly, topics)
 layouts/

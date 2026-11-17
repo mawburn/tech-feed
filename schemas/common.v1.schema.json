@@ -39,6 +39,102 @@
         "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
       },
       "dependentRequired": { "local": ["width", "height", "sha256"] }
+    },
+    "discoveryAudit": {
+      "type": "object",
+      "description": "Optional editorial research audit. Actual checks only; never fabricate timestamps, candidate counts, or incident claims.",
+      "required": [
+        "checkedAt",
+        "windowStart",
+        "windowEnd",
+        "sources"
+      ],
+      "properties": {
+        "checkedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "windowStart": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "windowEnd": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "status"
+            ],
+            "properties": {
+              "name": {
+                "$ref": "#/$defs/nonEmptyText"
+              },
+              "status": {
+                "enum": [
+                  "checked",
+                  "partial",
+                  "unavailable"
+                ]
+              },
+              "candidateCount": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "url": {
+                "$ref": "#/$defs/httpUrl"
+              },
+              "notes": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "majorIncidentsConsidered": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "decision",
+              "reason"
+            ],
+            "properties": {
+              "title": {
+                "$ref": "#/$defs/nonEmptyText"
+              },
+              "decision": {
+                "enum": [
+                  "top-story",
+                  "also-worth",
+                  "excluded"
+                ]
+              },
+              "reason": {
+                "$ref": "#/$defs/nonEmptyText"
+              },
+              "status": {
+                "enum": [
+                  "active",
+                  "resolved",
+                  "uncertain"
+                ]
+              },
+              "sourceUrl": {
+                "$ref": "#/$defs/httpUrl"
+              }
+            }
+          }
+        },
+        "rankingNotes": {
+          "type": "string"
+        }
+      }
     }
   }
 }

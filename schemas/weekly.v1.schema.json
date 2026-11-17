@@ -37,6 +37,9 @@
     "nextWeekWatch": {
       "type": "string"
     },
+    "discoveryAudit": {
+      "$ref": "common.v1.schema.json#/$defs/discoveryAudit"
+    },
     "sourceDays": {
       "type": "array",
       "items": {

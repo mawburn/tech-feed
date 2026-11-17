@@ -10,6 +10,7 @@
     "label": { "type": "string" },
     "overview": { "$ref": "common.v1.schema.json#/$defs/nonEmptyText" },
     "marketPulse": { "type": "string" },
+    "discoveryAudit": { "$ref": "common.v1.schema.json#/$defs/discoveryAudit" },
     "topStories": { "type": "array", "items": { "$ref": "#/$defs/story" } },
     "alsoWorthKnowing": { "type": "array", "items": { "$ref": "#/$defs/story" } },
     "newTools": { "type": "array", "items": { "$ref": "#/$defs/story" } }
