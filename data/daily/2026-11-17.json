@@ -286,7 +286,24 @@
           "heading": "Residual risk and engineering lessons",
           "body": "The attacker placed code inside the project-level JavaScript served through a trusted experimentation script, so organizations could expose visitors without changes to their own application repositories. The investigation documents wallet substitution, payment skimming, cookie theft and mobile exploit delivery, but it cannot measure all resulting losses. Organizations should review historical third-party script changes, browser security telemetry, content security policy and any affected visitor sessions. Optimizely's incident remains in monitoring."
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50524767",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://storage.ghost.io/c/2d/aa/2daa4f7f-a71b-47d2-a54c-06b8c60222ef/content/images/size/w1200/2026/11/Cybersecurity-Alert_-Malicious-Code-Injection.png",
+        "alt": "Publisher-provided image for Optimizely confirms security fix after malicious web-snippet campaign",
+        "credit": "blog.report-uri.com",
+        "sourceUrl": "https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/",
+        "local": "img/3464c3db74247a757505.webp",
+        "width": 600,
+        "height": 307,
+        "sha256": "3464c3db74247a757505a76b4649bd16763d306712f3aaf24fb0fe8ef938e1fa"
+      }
     },
     {
       "title": "NSA confirms temporary internal network degradation",
