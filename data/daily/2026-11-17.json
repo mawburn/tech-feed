@@ -36,7 +36,17 @@
           "url": "https://www.reddit.com/r/java/comments/1xywnrw/calif_discloses_java4shell_flaw_in_openjdks/",
           "label": "r/java discussion"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://calif.io/java4shell/poster.jpg",
+        "alt": "Publisher-provided image for Java4Shell exposes OpenJDK Base64 memory corruption",
+        "credit": "calif.io",
+        "sourceUrl": "https://calif.io/java4shell/",
+        "local": "img/729ad118434546c0d964.webp",
+        "width": 403,
+        "height": 600,
+        "sha256": "729ad118434546c0d9645c7cce41d5bd114c0f42215ae9d5b7e4e8bfeb7e9282"
+      }
     },
     {
       "title": "Equinor responds to cyberattack on corporate IT",
@@ -127,7 +137,24 @@
           "heading": "What remains unproven",
           "body": "Vendor tests do not establish independent model superiority or actual enterprise reliability. The system card is useful evidence of the company's testing methodology and risk classifications, not a substitute for external evaluation."
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50535230",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://cdn.openai.com/mdx-assets/e193aefe-5e58-431c-8cd2-adadac0c1496/44573edd-9653-49b3-ba07-7b3643545ef9.d3072be3.png",
+        "alt": "Publisher-provided image for OpenAI introduces GPT-6.2 Astra and Sol",
+        "credit": "openai.com",
+        "sourceUrl": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+        "local": "img/d3072be36bb2e00be18d.webp",
+        "width": 600,
+        "height": 338,
+        "sha256": "d3072be36bb2e00be18d4f2ef919bbe36b3ad2ba1815bca0f93549095401dfea"
+      }
     },
     {
       "title": "Microsoft launches MAI Code 2 and Code 2 Flash",
@@ -160,7 +187,24 @@
           "heading": "Evidence boundary",
           "body": "The launch is confirmed by Microsoft's own announcement and Reuters reporting. Independent production measurements and broad adoption data were not established."
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50535885",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://microsoft.ai/wp-content/uploads/2026/11/MAI-Code-2-Ignite-WithHeader-16x9-1.jpg",
+        "alt": "Publisher-provided image for Microsoft launches MAI Code 2 and Code 2 Flash",
+        "credit": "microsoft.ai",
+        "sourceUrl": "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/",
+        "local": "img/5448e06996f54aa03c29.webp",
+        "width": 600,
+        "height": 338,
+        "sha256": "5448e06996f54aa03c294998d6a3a5d6cce715703cc3044fa44bd4bbad1ecdc4"
+      }
     },
     {
       "title": "jQuery 4.1.0 and 3.8.0 fix selector ReDoS",
@@ -188,6 +232,13 @@
         {
           "heading": "Migration path",
           "body": "Version 3.8.0 backports selected fixes and adds deprecation signals for APIs removed in 4.x. Teams should test compatibility and use jQuery Migrate rather than assume all older plugins will work unchanged."
+        }
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50537647",
+          "label": "HN discussion"
         }
       ]
     },
@@ -218,7 +269,24 @@
           "heading": "Migration considerations",
           "body": "Existing Solid applications should review API changes and test loading, error recovery and optimistic-update paths. The announcement alone cannot establish production reliability across all application architectures."
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50536387",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://www.solidjs.com/og/blog/solid-2-0-the-long-hold.png",
+        "alt": "Publisher-provided image for Solid 2.0 reaches stable with async reactivity",
+        "credit": "solidjs.com",
+        "sourceUrl": "https://www.solidjs.com/blog/solid-2-0-the-long-hold/",
+        "local": "img/a87eb4f229a6e2546bb6.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "a87eb4f229a6e2546bb670f556ff380af095b055031127fcdcc35e1ac67f9c10"
+      }
     }
   ],
   "alsoWorthKnowing": [
@@ -240,6 +308,13 @@
         {
           "heading": "Evidence and implications",
           "body": "Reuters could not independently establish the full duration or scope. The agency's narrower statement should not be conflated with reports that the entire classified network was inoperable. The practical impact should be evaluated against primary documentation and subsequent verified outcomes, rather than inferred from announcement language."
+        }
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50533089",
+          "label": "HN discussion"
         }
       ]
     },
@@ -304,7 +379,24 @@
           "heading": "Evidence and implications",
           "body": "Cloudflare has a direct industry interest, so its interpretation is commentary rather than an independent legal finding. The practical impact should be evaluated against primary documentation and subsequent verified outcomes, rather than inferred from announcement language."
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50538994",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://blog.cloudflare.com/_emdash/api/media/file/01M7NJA0M7FAQEQZBW0K0W5KKS.png",
+        "alt": "Publisher-provided image for Cloudflare examines Quad9 withdrawal from France",
+        "credit": "blog.cloudflare.com",
+        "sourceUrl": "https://blog.cloudflare.com/quad9-withdrawal-from-france/",
+        "local": "img/dd2260b7567201479f2d.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "dd2260b7567201479f2d9171280e58171909821f79077a55868518c8247ab86c"
+      }
     },
     {
       "title": "OpenAI reports cybersecurity work with NATO",
@@ -325,7 +417,17 @@
           "heading": "Evidence and implications",
           "body": "That is a vendor-reported activity measure, not an independently verified reduction in attacks or an assessment of operational effectiveness. The practical impact should be evaluated against primary documentation and subsequent verified outcomes, rather than inferred from announcement language."
         }
-      ]
+      ],
+      "image": {
+        "url": "https://images.ctfassets.net/kftzwdyauwt9/4AvTdfi4XgE0hchiQH8UhY/6c9c5278cafc000de19c0892beecbf8c/strengthening-nato-and-allied-cyber-defences-with-ai-seo.png?w=1600&h=900&fit=fill",
+        "alt": "Publisher-provided image for OpenAI reports cybersecurity work with NATO",
+        "credit": "openai.com",
+        "sourceUrl": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai/",
+        "local": "img/db17285ae1f4b4fe4344.webp",
+        "width": 600,
+        "height": 338,
+        "sha256": "db17285ae1f4b4fe4344f4fd2844ee42164cd55278f1a04183db8775124e4ab1"
+      }
     }
   ],
   "newTools": [
@@ -371,7 +473,24 @@
           "heading": "How to investigate",
           "body": "Read the source and examples, then try a small migration with a deliberately violated property. No independent execution was performed here, and unsupported SQL behavior or modeling assumptions may limit practical coverage."
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50531208",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/f29316ef7cb21f5fc9c24ce614017fed1626de4af863a2983689f4a885f6b656/vihren-dev/belay",
+        "alt": "Publisher-provided image for Belay explores Lean proofs for SQLite migrations",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/vihren-dev/belay",
+        "local": "img/cf1aa9469a6033bb053a.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "cf1aa9469a6033bb053ad4892a6cbbd6b6e9baf5b613ec5a56fa4dcd116a86f1"
+      }
     },
     {
       "title": "Interactive course teaches GPU inference mechanics",
@@ -393,7 +512,17 @@
           "heading": "Practical use and limits",
           "body": "Work through the diagrams, then profile a representative inference service for latency, throughput and memory usage. The course was inspected online but no hardware benchmark was independently reproduced."
         }
-      ]
+      ],
+      "image": {
+        "url": "https://athrael.net/courses/gpu-inference/og.png",
+        "alt": "Publisher-provided image for Interactive course teaches GPU inference mechanics",
+        "credit": "athrael.net",
+        "sourceUrl": "https://athrael.net/courses/gpu-inference/",
+        "local": "img/e09e8c95f9e0ac70e61b.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "e09e8c95f9e0ac70e61be12a5161fe8046f3333c9f450a365e42376a843554c4"
+      }
     }
   ],
   "marketPulse": "No new comprehensive, representative US software-engineering labor-market dataset was verified for November 17. Individual AI launches and company announcements do not establish a change in Staff+ hiring, compensation or employment demand.\n\nMicrosoft's and OpenAI's model announcements show continued competition on coding capability, cost and agent security. The Java vulnerability and Equinor incident reinforce the importance of software inventories, patching and security engineering. Those are engineering priorities, not direct measures of hiring growth.",

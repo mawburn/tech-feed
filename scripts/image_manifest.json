@@ -39,6 +39,32 @@
       "status": "ok",
       "width": 600
     },
+    "https://athrael.net/courses/gpu-inference/og.png": {
+      "attempts": 1,
+      "bytes": 18360,
+      "encoding": "q90",
+      "file": "img/e09e8c95f9e0ac70e61b.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "sha256": "e09e8c95f9e0ac70e61be12a5161fe8046f3333c9f450a365e42376a843554c4",
+      "sourceBytes": 75149,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://blog.cloudflare.com/_emdash/api/media/file/01M7NJA0M7FAQEQZBW0K0W5KKS.png": {
+      "attempts": 1,
+      "bytes": 10328,
+      "encoding": "q80",
+      "file": "img/dd2260b7567201479f2d.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "sha256": "dd2260b7567201479f2d9171280e58171909821f79077a55868518c8247ab86c",
+      "sourceBytes": 139402,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://blog.google/static/blogv2/images/google-1440x754.jpg?version=pr20261029-2131": {
       "attempts": 1,
       "bytes": 2344,
@@ -51,6 +77,19 @@
       "sourceFormat": "JPEG",
       "status": "ok",
       "width": 600
+    },
+    "https://calif.io/java4shell/poster.jpg": {
+      "attempts": 1,
+      "bytes": 32116,
+      "encoding": "q80",
+      "file": "img/729ad118434546c0d964.webp",
+      "height": 600,
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "sha256": "729ad118434546c0d9645c7cce41d5bd114c0f42215ae9d5b7e4e8bfeb7e9282",
+      "sourceBytes": 377549,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 403
     },
     "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/meituan-longcat/LongCat-2.5.png": {
       "attempts": 1,
@@ -126,6 +165,19 @@
       "lastAttempt": "2026-11-16T22:31:11Z",
       "sha256": "a1b8ac54c688c3e5e17f5cc40b41a15d182bdca7ddd566bc11d4f61742eefd76",
       "sourceBytes": 4213577,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://cdn.openai.com/mdx-assets/e193aefe-5e58-431c-8cd2-adadac0c1496/44573edd-9653-49b3-ba07-7b3643545ef9.d3072be3.png": {
+      "attempts": 1,
+      "bytes": 19874,
+      "encoding": "q85",
+      "file": "img/d3072be36bb2e00be18d.webp",
+      "height": 338,
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "sha256": "d3072be36bb2e00be18d4f2ef919bbe36b3ad2ba1815bca0f93549095401dfea",
+      "sourceBytes": 5585461,
       "sourceFormat": "PNG",
       "status": "ok",
       "width": 600
@@ -305,6 +357,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://images.ctfassets.net/kftzwdyauwt9/4AvTdfi4XgE0hchiQH8UhY/6c9c5278cafc000de19c0892beecbf8c/strengthening-nato-and-allied-cyber-defences-with-ai-seo.png?w=1600&h=900&fit=fill": {
+      "attempts": 1,
+      "bytes": 16402,
+      "encoding": "q90",
+      "file": "img/db17285ae1f4b4fe4344.webp",
+      "height": 338,
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "sha256": "db17285ae1f4b4fe4344f4fd2844ee42164cd55278f1a04183db8775124e4ab1",
+      "sourceBytes": 1443798,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://images.ft.com/v3/image/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F6613ccdf-6f45-453d-b4c2-5ca8c027ae84.jpg?source=next-barrier-page&fit=scale-down&quality=highest&width=700&dpr=1": {
       "attempts": 1,
       "lastAttempt": "2026-11-16T21:33:10Z",
@@ -353,6 +418,19 @@
       "sha256": "bc6b9b56e46b0d7d1040b95d619626946e4bbe3ff6681d75c8164b3c56674102",
       "sourceBytes": 65006,
       "sourceFormat": "WEBP",
+      "status": "ok",
+      "width": 600
+    },
+    "https://microsoft.ai/wp-content/uploads/2026/11/MAI-Code-2-Ignite-WithHeader-16x9-1.jpg": {
+      "attempts": 1,
+      "bytes": 11708,
+      "encoding": "q80",
+      "file": "img/5448e06996f54aa03c29.webp",
+      "height": 338,
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "sha256": "5448e06996f54aa03c294998d6a3a5d6cce715703cc3044fa44bd4bbad1ecdc4",
+      "sourceBytes": 357853,
+      "sourceFormat": "JPEG",
       "status": "ok",
       "width": 600
     },
@@ -456,6 +534,19 @@
       "lastAttempt": "2026-11-17T04:09:37Z",
       "sha256": "2f59111d86dd1eab7c35dd5a0b80d0d9c14d9a9a8a7b89284e01ea7c8842e9f2",
       "sourceBytes": 51204,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://opengraph.githubassets.com/f29316ef7cb21f5fc9c24ce614017fed1626de4af863a2983689f4a885f6b656/vihren-dev/belay": {
+      "attempts": 1,
+      "bytes": 8272,
+      "encoding": "q80",
+      "file": "img/cf1aa9469a6033bb053a.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "sha256": "cf1aa9469a6033bb053ad4892a6cbbd6b6e9baf5b613ec5a56fa4dcd116a86f1",
+      "sourceBytes": 48439,
       "sourceFormat": "PNG",
       "status": "ok",
       "width": 600
@@ -674,6 +765,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://www.solidjs.com/og/blog/solid-2-0-the-long-hold.png": {
+      "attempts": 1,
+      "bytes": 13176,
+      "encoding": "q85",
+      "file": "img/a87eb4f229a6e2546bb6.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "sha256": "a87eb4f229a6e2546bb670f556ff380af095b055031127fcdcc35e1ac67f9c10",
+      "sourceBytes": 85101,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://xusheng.dev/posts/windows-coding-agent-telemetry/agent-names.jpeg": {
       "attempts": 1,
       "bytes": 39376,
@@ -689,6 +793,13 @@
     }
   },
   "pages": {
+    "https://alloyhtml.com/example.html": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://api-docs.deepseek.com/": {
       "attempts": 1,
       "image": "https://api-docs.deepseek.com/img/deepseek-social-card.jpeg",
@@ -715,6 +826,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://athrael.net/courses/gpu-inference/": {
+      "attempts": 1,
+      "image": "https://athrael.net/courses/gpu-inference/og.png",
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/": {
       "attempts": 1,
       "image": "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/11/11/Header-A-dark-gradient-1-1260x630.png",
@@ -726,6 +844,13 @@
       "attempts": 1,
       "image": "https://prose.sh/card.png",
       "lastAttempt": "2026-11-17T07:01:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://blog.cloudflare.com/quad9-withdrawal-from-france/": {
+      "attempts": 1,
+      "image": "https://blog.cloudflare.com/_emdash/api/media/file/01M7NJA0M7FAQEQZBW0K0W5KKS.png",
+      "lastAttempt": "2026-11-18T01:07:42Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -750,6 +875,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://blog.jquery.com/2026/11/17/jquery-4-1-0-and-3-8-0-released-passing-the-torch/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://blog.rust-lang.org/releases/latest/": {
       "attempts": 1,
       "image": null,
@@ -771,6 +903,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://calif.io/java4shell/": {
+      "attempts": 1,
+      "image": "https://calif.io/java4shell/poster.jpg",
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://dart.dev/blog/announcing-dart-3-14": {
       "attempts": 1,
       "image": "https://dart.dev/images/dart3-14-cover.3079441d48d27e634bcebd64eff41b26.webp",
@@ -789,6 +928,13 @@
       "attempts": 1,
       "image": null,
       "lastAttempt": "2026-11-17T07:01:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://deploymentsafety.openai.com/gpt-6-2-astra-sol/additional-informational-assessments-1": {
+      "attempts": 1,
+      "image": "https://localhost/assets/deploymentsafety-social.png",
+      "lastAttempt": "2026-11-18T01:07:42Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -910,6 +1056,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://github.com/vihren-dev/belay": {
+      "attempts": 1,
+      "image": "https://opengraph.githubassets.com/f29316ef7cb21f5fc9c24ce614017fed1626de4af863a2983689f4a885f6b656/vihren-dev/belay",
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://hiringlab.indeed.com/2026/11/12/2026-q3-us-tech-labor-market-update/": {
       "attempts": 1,
       "image": "https://d341ezm4iqaae0.cloudfront.net/hiringlaborg/2026/11/12162624/Tech_developersdiscussingcodeinofficegettyperp-scaled.jpg",
@@ -979,10 +1132,24 @@
       "reason": "not an HTML article URL",
       "status": "skipped"
     },
+    "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/": {
+      "attempts": 1,
+      "image": "https://microsoft.ai/wp-content/uploads/2026/11/MAI-Code-2-Ignite-WithHeader-16x9-1.jpg",
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://modelcontextprotocol.io/": {
       "attempts": 1,
       "image": "https://raw.githubusercontent.com/modelcontextprotocol/docs/2eb6171ddbfeefde349dc3b8d5e2b87414c26250/images/og-image.png",
       "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://news.microsoft.com/source/2026/11/17/microsoft-and-organizations-across-industries-launch-ai-transparency-initiative-to-strengthen-enterprise-trust-in-ai-models-and-agents/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-18T01:07:42Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1004,6 +1171,20 @@
       "attempts": 1,
       "image": "https://nvidianews.nvidia.com/media/sites/219/images/social-image.jpg",
       "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://openai.com/index/introducing-gpt-6-2-astra-sol/": {
+      "attempts": 1,
+      "image": "https://cdn.openai.com/mdx-assets/e193aefe-5e58-431c-8cd2-adadac0c1496/44573edd-9653-49b3-ba07-7b3643545ef9.d3072be3.png",
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai/": {
+      "attempts": 1,
+      "image": "https://images.ctfassets.net/kftzwdyauwt9/4AvTdfi4XgE0hchiQH8UhY/6c9c5278cafc000de19c0892beecbf8c/strengthening-nato-and-allied-cyber-defences-with-ai-seo.png?w=1600&h=900&fit=fill",
+      "lastAttempt": "2026-11-18T01:07:42Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1179,6 +1360,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://www.microsoft.com/en-us/security/blog/2026/11/17/security-for-the-agentic-era-powered-by-microsoft-perception/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://www.nasdaq.com/press-release/psiquantum-and-amd-collaborate-build-computing-foundation-utility-scale-quantum": {
       "attempts": 1,
       "lastAttempt": "2026-11-16T21:33:10Z",
@@ -1222,10 +1410,22 @@
       "reason": "HTTP 401 from https://www.reuters.com/business/retail-consumer/alibaba-unveils-new-flagship-ai-model-with-safety-upgrades-2026-11-16/",
       "status": "failed"
     },
+    "https://www.reuters.com/business/retail-consumer/apple-works-restore-services-after-outage-caused-by-internal-update-2026-11-17/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "reason": "HTTP 401 from https://www.reuters.com/business/retail-consumer/apple-works-restore-services-after-outage-caused-by-internal-update-2026-11-17/",
+      "status": "failed"
+    },
     "https://www.reuters.com/commentary/reuters-open-interest/metals-age-ai-game-changer-or-hyperscale-hype-2026-11-14/": {
       "attempts": 1,
       "lastAttempt": "2026-11-16T21:33:10Z",
       "reason": "HTTP 401 from https://www.reuters.com/commentary/reuters-open-interest/metals-age-ai-game-changer-or-hyperscale-hype-2026-11-14/",
+      "status": "failed"
+    },
+    "https://www.reuters.com/legal/litigation/microsoft-unveils-ai-models-coding-cybersecurity-it-takes-anthropic-openai-2026-11-17/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "reason": "HTTP 401 from https://www.reuters.com/legal/litigation/microsoft-unveils-ai-models-coding-cybersecurity-it-takes-anthropic-openai-2026-11-17/",
       "status": "failed"
     },
     "https://www.reuters.com/legal/litigation/us-issues-rule-protect-advanced-ai-chips-being-accessed-remotely-2026-11-16/": {
@@ -1238,6 +1438,18 @@
       "attempts": 1,
       "lastAttempt": "2026-11-17T04:09:37Z",
       "reason": "HTTP 401 from https://www.reuters.com/legal/transactional/downdetector-reports-outages-major-us-banks-2026-11-16/",
+      "status": "failed"
+    },
+    "https://www.reuters.com/technology/equinor-detects-ongoing-cyberattack-output-unaffected-2026-11-17/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "reason": "HTTP 401 from https://www.reuters.com/technology/equinor-detects-ongoing-cyberattack-output-unaffected-2026-11-17/",
+      "status": "failed"
+    },
+    "https://www.reuters.com/technology/highly-classified-us-national-security-communications-network-is-down-cnn-2026-11-17/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-18T01:07:42Z",
+      "reason": "HTTP 401 from https://www.reuters.com/technology/highly-classified-us-national-security-communications-network-is-down-cnn-2026-11-17/",
       "status": "failed"
     },
     "https://www.reuters.com/world/china/us-allies-team-up-protect-ai-tech-infrastructure-amid-china-rivalry-2026-11-16/": {
@@ -1268,6 +1480,13 @@
       "attempts": 1,
       "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg",
       "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.solidjs.com/blog/solid-2-0-the-long-hold/": {
+      "attempts": 1,
+      "image": "https://www.solidjs.com/og/blog/solid-2-0-the-long-hold.png",
+      "lastAttempt": "2026-11-18T01:07:42Z",
       "noimageindex": false,
       "status": "ok"
     },
