@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mawburn.github.io/tech-feed/schemas/incident.v1.schema.json",
+  "title": "Incident (data/incidents/<id>.json), v1",
+  "description": "One persistent record per real-world incident (outage, breach, vulnerability campaign). Daily stories and weekly themes point at it with incidentId instead of repeating its status. File name must be <id>.json. Additional properties are allowed.",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "provider",
+    "status",
+    "discoveredDate",
+    "sources",
+    "history"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.v1.schema.json#/$defs/incidentId"
+    },
+    "title": {
+      "$ref": "common.v1.schema.json#/$defs/nonEmptyText"
+    },
+    "provider": {
+      "description": "Affected provider, vendor, operator or project (for example \"Microsoft\", \"Equinor\", \"OpenJDK\").",
+      "$ref": "common.v1.schema.json#/$defs/nonEmptyText"
+    },
+    "category": {
+      "description": "Optional topic category (same vocabulary as story categories); drives the accent colour.",
+      "type": "string"
+    },
+    "summary": {
+      "description": "Current one-paragraph state of the incident. Rewrite it as facts change; the history keeps the earlier states.",
+      "type": "string"
+    },
+    "status": {
+      "description": "Current status. investigating: scope or cause unknown. identified: cause or scope known, fix not yet in place. monitoring: mitigation applied, watching for recurrence or full recovery. resolved: service restored or vulnerability patched (resolvedDate required).",
+      "enum": [
+        "investigating",
+        "identified",
+        "monitoring",
+        "resolved"
+      ]
+    },
+    "discoveredDate": {
+      "description": "Date the incident was first reported or noticed (Pacific).",
+      "$ref": "common.v1.schema.json#/$defs/isoDate"
+    },
+    "occurredDate": {
+      "description": "Date the incident actually began or the flaw was introduced, when known and different from discovery.",
+      "$ref": "common.v1.schema.json#/$defs/isoDate"
+    },
+    "resolvedDate": {
+      "description": "Date service was restored or the immediate threat ended. Set only when status is resolved.",
+      "$ref": "common.v1.schema.json#/$defs/isoDate"
+    },
+    "fixDate": {
+      "description": "Date a permanent fix (patch, architectural change, rollback policy) shipped. May be later than resolvedDate.",
+      "$ref": "common.v1.schema.json#/$defs/isoDate"
+    },
+    "fix": {
+      "description": "What the permanent fix is. Distinct from rootCause and from any temporary mitigation.",
+      "type": "string"
+    },
+    "rootCause": {
+      "type": "object",
+      "required": [
+        "status",
+        "summary"
+      ],
+      "properties": {
+        "status": {
+          "description": "unknown: not disclosed. suspected: researcher or press inference. confirmed: stated by the affected party or a postmortem.",
+          "enum": [
+            "unknown",
+            "suspected",
+            "confirmed"
+          ]
+        },
+        "summary": {
+          "$ref": "common.v1.schema.json#/$defs/nonEmptyText"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "common.v1.schema.json#/$defs/sourceLink"
+          }
+        }
+      }
+    },
+    "postmortems": {
+      "description": "Official or independent postmortems, added whenever they are published.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "label",
+          "url"
+        ],
+        "properties": {
+          "label": {
+            "$ref": "common.v1.schema.json#/$defs/nonEmptyText"
+          },
+          "url": {
+            "$ref": "common.v1.schema.json#/$defs/httpUrl"
+          },
+          "publishedDate": {
+            "$ref": "common.v1.schema.json#/$defs/isoDate"
+          },
+          "summary": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sources": {
+      "description": "Primary and best secondary sources for the incident as a whole.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "common.v1.schema.json#/$defs/sourceLink"
+      }
+    },
+    "history": {
+      "description": "Chronological, append-only timeline (oldest first). Each entry records what became known on that date.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "date",
+          "summary"
+        ],
+        "properties": {
+          "date": {
+            "$ref": "common.v1.schema.json#/$defs/isoDate"
+          },
+          "kind": {
+            "enum": [
+              "discovery",
+              "update",
+              "mitigation",
+              "resolution",
+              "fix",
+              "postmortem",
+              "correction"
+            ]
+          },
+          "status": {
+            "description": "Status as of this entry. The last entry that sets one must equal the incident status.",
+            "enum": [
+              "investigating",
+              "identified",
+              "monitoring",
+              "resolved"
+            ]
+          },
+          "summary": {
+            "$ref": "common.v1.schema.json#/$defs/nonEmptyText"
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "$ref": "common.v1.schema.json#/$defs/sourceLink"
+            }
+          }
+        }
+      }
+    }
+  },
+  "if": {
+    "properties": {
+      "status": {
+        "const": "resolved"
+      }
+    },
+    "required": [
+      "status"
+    ]
+  },
+  "then": {
+    "required": [
+      "resolvedDate"
+    ]
+  }
+}

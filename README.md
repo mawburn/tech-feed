@@ -11,6 +11,7 @@ The ChatGPT daily and Sunday scheduled tasks read the version-controlled editori
 
 - [Discovery protocol](editorial/DISCOVERY.md): rolling 24-hour Hacker News scan, cross-category breaking-incident sweep, source checks and research audit.
 - [Ranking rules](editorial/RANKING.md): operational-impact priority and final missing-story check.
+- [Incident tracking](editorial/INCIDENTS.md): when to open an incident record, how to update its status, timeline, fix and postmortems, and how stories and weekly themes link to it with `incidentId`.
 - [Source guide](editorial/SOURCES.md): concrete discovery venues (YouTube, Show HN, GitHub, Hugging Face, niche technical communities), rotating searches, primary sources and verification rules. This is where to update the watchlist and places to look.
 - [AI & tooling in practice](editorial/APPLICATIONS.md): discovery, selection, verification and writing standards for hands-on applications, tutorials, demos and experiments (daily `newTools`, weekly `toolsToWatch`).
 - [Writing standards](editorial/WRITING.md): substantive visible summaries and source-grounded expandable explanations for daily stories and weekly themes.
@@ -43,6 +44,7 @@ ChatGPT scheduler ──commits──▶ data/daily/YYYY-MM-DD.json / data/weekl
 | --- | --- | --- |
 | `data/daily/YYYY-MM-DD.json` | Morning scheduler (Pacific date) | [`schemas/daily.v1.schema.json`](schemas/daily.v1.schema.json) |
 | `data/weekly/YYYY-MM-DD.json` | Sunday scheduler (week-ending Sunday) | [`schemas/weekly.v1.schema.json`](schemas/weekly.v1.schema.json) |
+| `data/incidents/<id>.json` | Either scheduler, whenever an incident is opened or changes | [`schemas/incident.v1.schema.json`](schemas/incident.v1.schema.json) |
 
 The schemas describe the scheduler's existing output. They allow unknown properties, so new fields don't break the build. The fields stories use:
 
@@ -76,6 +78,30 @@ Primary `sources` show what was reported. `discoveredVia` records where a story 
 
 `image` keeps the publisher's metadata: `{url, alt, credit, sourceUrl}`. The image pipeline adds `local` (a path under `assets/`), `width`, `height` and `sha256`. It never changes the original keys.
 
+### Incidents
+
+An incident is stored **once**, in `data/incidents/<id>.json`, and followed from discovery through resolution, permanent fix and postmortem. The file name is the incident `id` (lowercase kebab-case, assigned once and never renamed). Daily stories, weekly themes and `discoveryAudit.majorIncidentsConsidered[]` entries link to it with an optional `incidentId`; reports that omit it are unaffected, so existing daily and weekly JSON stays valid.
+
+```json
+{
+  "id": "example-provider-outage-2026-11",
+  "title": "Example Provider API outage",
+  "provider": "Example Provider",
+  "status": "monitoring",
+  "discoveredDate": "2026-11-17",
+  "occurredDate": "2026-11-16",
+  "rootCause": {"status": "suspected", "summary": "…"},
+  "sources": [{"label": "Status page", "url": "https://status.example.com/1"}],
+  "history": [{"date": "2026-11-17", "kind": "discovery", "status": "investigating", "summary": "…"}]
+}
+```
+
+- **Required:** `id`, `title`, `provider`, `status` (`investigating`, `identified`, `monitoring` or `resolved`), `discoveredDate`, `sources[]`, `history[]` (at least one `{date, summary}` entry).
+- **Optional:** `summary` (current state), `category`, `occurredDate`, `resolvedDate`, `fixDate`, `fix`, `rootCause` (`{status: unknown|suspected|confirmed, summary, sources?}`) and `postmortems[]` (`{label, url, publishedDate?, summary?}`).
+- **Extra rules the validator enforces:** `id` equals the file name; `resolved` requires `resolvedDate`, and `resolvedDate` is forbidden on an open incident; `occurredDate` ≤ `discoveredDate` ≤ `resolvedDate`/`fixDate`; `history` is chronological; the last status set in `history` equals `status`; every `incidentId` in a daily or weekly file points at an existing, valid incident. If an incident file fails validation in the CI build, it and the reports that reference it are quarantined together.
+- **Publishing:** an incident appears once its `discoveredDate` is today (Pacific) or earlier; later `history` entries are hidden until their date.
+- **Reports are not rewritten.** A story keeps the account it had on its day and shows a **Track this incident** link with the incident's *current* status. Status, timeline, fix and postmortems live only in the incident record. See [`editorial/INCIDENTS.md`](editorial/INCIDENTS.md) for the editorial rules.
+
 ## Routes
 
 | Path | Content |
@@ -86,6 +112,7 @@ Primary `sources` show what was reported. `discoveredVia` records where a story 
 | `/daily/` | Full daily archive |
 | `/all/` | Every story from the last seven Pacific days |
 | `/topics/`, `/topics/SLUG/` | Topic index; recent stories per topic plus links to earlier coverage |
+| `/incidents/`, `/incidents/ID/` | Incident tracker (open and resolved) and one page per incident: status, lifecycle, timeline, root cause, fix, postmortems and the briefings that cover it |
 | `/weekly.html` | Latest weekly review |
 | `/weekly/YYYY-MM-DD/`, `/weekly/` | Every weekly review, plus the archive |
 | `/data/briefings.json` | Last seven Pacific days, `{schemaVersion:1, updatedAt, issues[]}` |
@@ -100,16 +127,17 @@ Primary `sources` show what was reported. `discoveredVia` records where a story 
 ```
 editorial/                  source discovery, ranking and verification playbooks
 hugo.toml                   site config: base URL, output formats (JSON/Markdown/llms.txt), windows
-content/                    section stubs + content adapters (daily, weekly, topics)
+content/                    section stubs + content adapters (daily, weekly, topics, incidents)
 layouts/
   baseof.html, home.html…   page templates (one per route type)
-  _partials/data/           data access only: editions, windows, slugs, images (no markup)
-  _partials/components/     reusable markup: edition, story, story-image, link lists, navs
+  _partials/data/           data access only: editions, incidents, windows, slugs, images (no markup)
+  _partials/components/     reusable markup: edition, story, story-image, link lists, navs, incident-* (card, status, lifecycle, timeline, ref)
   _partials/head/           <head> metadata, SEO, JSON-LD
 assets/css/                 tokens, base, layout, components, pages (concatenated + fingerprinted)
 assets/img/                 optimized publisher images only (committed)
 static/                     favicon, logo SVGs (img/), self-hosted Inter (fonts/), .nojekyll
-schemas/                    versioned JSON Schemas
+data/                       daily/, weekly/ and incidents/ JSON (the only content source)
+schemas/                    versioned JSON Schemas (common, daily, weekly, incident)
 scripts/                    validator (Node), enrichment (Python), image policy and manifest
 tests/                      site, validator and image-pipeline tests
 ```
@@ -117,6 +145,7 @@ tests/                      site, validator and image-pipeline tests
 **Design:** the *mawburn dispatch* design (Stitch export, navy "Editorial Charcoal" palette) lives entirely in `layouts/`, `assets/css/` and `static/`.
 
 - **Tokens and CSS:** `assets/css/tokens.css` holds the palette, type, spacing and the six topic accents. The files are concatenated in `head/assets.html`. There is no JavaScript. The "Read briefing" expander is a native `<details>`.
+- **Incidents:** `incident-status.html` is the status pill (colours are `--st-*` tokens in `tokens.css`), `incident-lifecycle.html` the discovered / resolved / fixed / postmortem track, and `incident-ref.html` the "Track this incident" chip shown on stories and weekly themes that carry an `incidentId`.
 - **Topic accents:** `_partials/data/topic-style.html` maps any category name to an accent and icon by keyword (security, jobs, business, developer tools, infrastructure, AI, else neutral). Templates only emit `topic--{key}`.
 - **Components:** `story.html` has `lead`, `brief` and `tool` variants (`tool` renders "AI & tooling in practice" entries in a responsive auto-fill grid). `edition-hero`, `section-index`, `coverage-bars` and `weekly-edition` build the page bodies, and `icon.html` holds the inline SVG icons. Keep `class="story__title"` on story headings and `thread-pill` on discussion links, because the site tests match them.
 - **Brand:** the logo SVGs in `static/img/` were generated from the outlined artwork (wordmark, full lockup, mountain mark). The favicon uses the same crescent and mountain.

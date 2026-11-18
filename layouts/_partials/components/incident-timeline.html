@@ -1,0 +1,18 @@
+{{- /* Chronological incident history, oldest first. Context: {incident, level}. */ -}}
+{{- $kinds := dict "discovery" "Discovered" "update" "Update" "mitigation" "Mitigation" "resolution" "Resolved" "fix" "Permanent fix" "postmortem" "Postmortem" "correction" "Correction" -}}
+{{- $today := partialCached "data/today.html" "today" -}}
+<ol class="timeline">
+  {{- range .incident.history }}
+  {{- if le (string .date) $today }}
+  <li class="timeline__item{{ with .kind }} timeline__item--{{ . }}{{ end }}">
+    <div class="timeline__meta">
+      <time datetime="{{ .date }}">{{ time.AsTime .date | time.Format "Jan 2, 2006" }}</time>
+      {{- with .kind }}<span class="timeline__kind">{{ index $kinds . | default (. | title) }}</span>{{ end }}
+      {{- with .status }}{{ partial "components/incident-status.html" . }}{{ end }}
+    </div>
+    {{ partial "components/text.html" (dict "text" .summary "class" "timeline__summary" "full" true) }}
+    {{- partial "components/story-sources.html" (dict "sources" .sources) }}
+  </li>
+  {{- end }}
+  {{- end }}
+</ol>

@@ -86,6 +86,10 @@
           },
           "briefing": {
             "$ref": "common.v1.schema.json#/$defs/briefing"
+          },
+          "incidentId": {
+            "$ref": "common.v1.schema.json#/$defs/incidentId",
+            "description": "Optional link to data/incidents/<incidentId>.json. The incident record is the single source of truth for status, timeline and fixes."
           }
         }
       }

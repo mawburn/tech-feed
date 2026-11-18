@@ -5,19 +5,21 @@ import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, existsSync, rmSync
 import { tmpdir } from "node:os";
 import { join, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { createValidators, validateFile, allPublicationFiles, main } from "../scripts/validate-content.mjs";
+import { createValidators, validateFile, allPublicationFiles, knownIncidentIds, main } from "../scripts/validate-content.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const fixtures = join(root, "tests", "fixtures");
 const validators = createValidators();
 const schedulerDaily = JSON.parse(readFileSync(join(fixtures, "scheduler-daily.json"), "utf8"));
 const schedulerWeekly = JSON.parse(readFileSync(join(fixtures, "scheduler-weekly.json"), "utf8"));
+const schedulerIncident = JSON.parse(readFileSync(join(fixtures, "scheduler-incident.json"), "utf8"));
 const clone = v => structuredClone(v);
 
 function sandbox() {
   const dir = mkdtempSync(join(tmpdir(), "tech-feed-validate-"));
   mkdirSync(join(dir, "data", "daily"), { recursive: true });
   mkdirSync(join(dir, "data", "weekly"), { recursive: true });
+  mkdirSync(join(dir, "data", "incidents"), { recursive: true });
   mkdirSync(join(dir, "assets", "img"), { recursive: true });
   return dir;
 }
@@ -195,5 +197,96 @@ test("quarantine removes only invalid files and succeeds", () => {
   assert.ok(existsSync(good) && existsSync(week));
   assert.ok(!existsSync(bad));
   assert.equal(readFileSync(report, "utf8").trim(), "data/daily/2026-11-17.json");
+  rmSync(dir, { recursive: true });
+});
+
+const putIncident = (dir, doc, name = `${doc.id}.json`) => put(dir, "incidents", name, doc);
+
+test("a complete incident validates, and minimal incidents validate", () => {
+  const dir = sandbox();
+  assert.deepEqual(check(dir, putIncident(dir, schedulerIncident)), []);
+  const minimal = {
+    id: "minimal-incident", title: "Minimal", provider: "Someone", status: "investigating", discoveredDate: "2026-11-17",
+    sources: [{ label: "Report", url: "https://example.com/r" }],
+    history: [{ date: "2026-11-17", summary: "Reported." }],
+  };
+  assert.deepEqual(check(dir, putIncident(dir, minimal)), []);
+  rmSync(dir, { recursive: true });
+});
+
+test("malformed incidents are rejected", () => {
+  const dir = sandbox();
+  const cases = {
+    "missing provider": d => { delete d.provider; },
+    "unknown status": d => { d.status = "fixed"; },
+    "bad id characters": d => { d.id = "Bad_ID"; },
+    "no sources": d => { d.sources = []; },
+    "empty history": d => { d.history = []; },
+    "history entry without summary": d => { delete d.history[0].summary; },
+    "history out of order": d => { d.history.reverse(); },
+    "resolved without resolvedDate": d => { delete d.resolvedDate; },
+    "resolvedDate while still open": d => { d.status = "monitoring"; d.history[1].status = "monitoring"; },
+    "occurred after discovered": d => { d.occurredDate = "2026-11-19"; },
+    "resolved before discovered": d => { d.resolvedDate = "2026-11-10"; },
+    "status contradicts history": d => { d.history[1].status = "monitoring"; },
+    "impossible date": d => { d.fixDate = "2026-02-30"; },
+    "bad postmortem url": d => { d.postmortems[0].url = "javascript:alert(1)"; },
+    "unknown root cause status": d => { d.rootCause.status = "certain"; },
+  };
+  for (const [name, mutate] of Object.entries(cases)) {
+    const doc = clone(schedulerIncident);
+    mutate(doc);
+    assert.notDeepEqual(check(dir, putIncident(dir, doc, `${schedulerIncident.id}.json`)), [], name);
+  }
+  assert.notDeepEqual(check(dir, putIncident(dir, { ...clone(schedulerIncident), id: "other-id" }, `${schedulerIncident.id}.json`)), [], "id differs from file name");
+  assert.notDeepEqual(check(dir, putIncident(dir, schedulerIncident, "Not_Kebab.json")), [], "file name");
+  rmSync(dir, { recursive: true });
+});
+
+test("daily stories and weekly themes may link to incidents; dangling or malformed links are rejected", () => {
+  const dir = sandbox();
+  putIncident(dir, schedulerIncident);
+  const id = schedulerIncident.id;
+  const daily = clone(schedulerDaily);
+  daily.topStories[0].incidentId = id;
+  assert.deepEqual(check(dir, put(dir, "daily", `${daily.date}.json`, daily)), [], "daily link");
+  const weekly = clone(schedulerWeekly);
+  weekly.themes[0].incidentId = id;
+  assert.deepEqual(check(dir, put(dir, "weekly", `${weekly.weekEnding}.json`, weekly)), [], "weekly link");
+  daily.discoveryAudit = { checkedAt: "2026-11-17T08:00:00-08:00", windowStart: "2026-11-16T08:00:00-08:00", windowEnd: "2026-11-17T08:00:00-08:00",
+    sources: [{ name: "HN", status: "checked" }],
+    majorIncidentsConsidered: [{ title: "Example", decision: "top-story", reason: "Big.", incidentId: id }] };
+  assert.deepEqual(check(dir, put(dir, "daily", `${daily.date}.json`, daily)), [], "audit link");
+  daily.topStories[0].incidentId = "does-not-exist";
+  assert.match(check(dir, put(dir, "daily", `${daily.date}.json`, daily)).join(), /no valid record/, "dangling daily link");
+  weekly.themes[0].incidentId = "does-not-exist";
+  assert.match(check(dir, put(dir, "weekly", `${weekly.weekEnding}.json`, weekly)).join(), /no valid record/, "dangling weekly link");
+  daily.topStories[0].incidentId = "Not Kebab";
+  assert.notDeepEqual(check(dir, put(dir, "daily", `${daily.date}.json`, daily)), [], "malformed link");
+  rmSync(dir, { recursive: true });
+});
+
+test("reports without incidentId stay valid with no incidents directory content", () => {
+  const dir = sandbox();
+  assert.deepEqual(check(dir, put(dir, "daily", `${schedulerDaily.date}.json`, schedulerDaily)), []);
+  assert.equal(knownIncidentIds(validators, dir).size, 0);
+  rmSync(dir, { recursive: true });
+});
+
+test("quarantining an invalid incident also quarantines reports that reference it", () => {
+  const dir = sandbox();
+  const bad = clone(schedulerIncident);
+  delete bad.provider;
+  putIncident(dir, bad);
+  const daily = clone(schedulerDaily);
+  daily.topStories[0].incidentId = bad.id;
+  const dpath = put(dir, "daily", `${daily.date}.json`, daily);
+  const saved = { ...process.env };
+  delete process.env.QUARANTINE_REPORT; delete process.env.GITHUB_STEP_SUMMARY; delete process.env.GITHUB_ACTIONS;
+  const errors = console.error;
+  console.error = () => {};
+  try { assert.equal(main(["--root", dir, "--quarantine"]), 0); } finally { console.error = errors; process.env = saved; }
+  assert.ok(!existsSync(join(dir, "data", "incidents", `${bad.id}.json`)));
+  assert.ok(!existsSync(dpath));
   rmSync(dir, { recursive: true });
 });

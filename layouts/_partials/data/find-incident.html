@@ -1,0 +1,5 @@
+{{- /* Look up one published incident by id; returns nil when absent. Context: incident id string. */ -}}
+{{- $found := false -}}
+{{- $id := string (. | default "") -}}
+{{- if $id }}{{ range partialCached "data/incidents.html" "incidents" }}{{ if eq .id $id }}{{ $found = . }}{{ end }}{{ end }}{{ end -}}
+{{- return $found -}}

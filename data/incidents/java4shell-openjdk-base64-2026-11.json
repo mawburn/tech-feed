@@ -1,0 +1,53 @@
+{
+  "id": "java4shell-openjdk-base64-2026-11",
+  "title": "Java4Shell: OpenJDK Base64 memory corruption (CVE-2026-114938)",
+  "provider": "OpenJDK",
+  "category": "Security",
+  "summary": "Calif disclosed a critical memory-corruption flaw in the optimized Base64 decoder of affected OpenJDK builds. On certain x86-64 processors with AVX-512 VBMI, malformed padded input can trigger an out-of-bounds heap write, and researchers demonstrated pre-authentication remote code execution against several enterprise Java products. Patches were announced November 17. No widespread exploitation has been verified.",
+  "status": "monitoring",
+  "discoveredDate": "2026-11-17",
+  "fixDate": "2026-11-17",
+  "fix": "Patched OpenJDK builds announced November 17. Runtimes need inventorying and updating; exposure depends on CPU and runtime build.",
+  "rootCause": {
+    "status": "confirmed",
+    "summary": "An out-of-bounds heap write in the optimized Base64 decoder intrinsic, reachable with malformed padded input on x86-64 CPUs with AVX-512 VBMI.",
+    "sources": [
+      {
+        "label": "Calif technical investigation",
+        "url": "https://calif.io/java4shell/"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "Calif technical investigation",
+      "url": "https://calif.io/java4shell/"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-17",
+      "kind": "discovery",
+      "status": "identified",
+      "summary": "Calif disclosed CVE-2026-114938 with pre-authentication remote code execution demonstrations against default configurations of Keycloak, Jira, Confluence, Jenkins, Artifactory and PingFederate.",
+      "sources": [
+        {
+          "label": "Calif technical investigation",
+          "url": "https://calif.io/java4shell/"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-17",
+      "kind": "fix",
+      "status": "monitoring",
+      "summary": "Patches were announced. The demonstrations do not prove that every Java deployment is exploitable, and no widespread exploitation in the wild has been established.",
+      "sources": [
+        {
+          "label": "Calif technical investigation",
+          "url": "https://calif.io/java4shell/"
+        }
+      ]
+    }
+  ]
+}

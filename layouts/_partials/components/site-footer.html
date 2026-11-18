@@ -9,7 +9,7 @@
     </div>
     <div class="site-footer__bottom">
       <ul class="site-footer__links">
-        {{- range $item := slice (dict "label" "Daily Brief" "path" "/") (dict "label" "Weekly Review" "path" "/weekly-latest") (dict "label" "Topics" "path" "/topics") (dict "label" "Archive" "path" "/daily") }}
+        {{- range $item := slice (dict "label" "Daily Brief" "path" "/") (dict "label" "Weekly Review" "path" "/weekly-latest") (dict "label" "Topics" "path" "/topics") (dict "label" "Incidents" "path" "/incidents") (dict "label" "Archive" "path" "/daily") }}
         {{- with site.GetPage $item.path }}<li><a href="{{ .RelPermalink }}">{{ $item.label }}</a></li>{{ end }}
         {{- end }}
         {{- with site.Home.OutputFormats.Get "briefings" }}<li><a href="{{ .RelPermalink }}">Daily JSON</a></li>{{ end }}

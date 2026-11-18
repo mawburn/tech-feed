@@ -1,0 +1,24 @@
+{{- /* Daily stories and weekly themes that link to an incident, oldest first.
+  Context: incident id. Returns [{kind, date, title, category}] from published editions only. */ -}}
+{{- $id := string . -}}
+{{- $today := partialCached "data/today.html" "today" -}}
+{{- $out := slice -}}
+{{- range partialCached "data/published-daily.html" "daily" -}}
+  {{- $issue := . -}}
+  {{- range partial "data/stories.html" (slice $issue) -}}
+    {{- if eq (string (.incidentId | default "")) $id -}}
+      {{- $out = $out | append (dict "kind" "daily" "date" $issue.date "title" .title "category" (partial "data/category.html" .)) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- range partialCached "data/weekly.html" "weekly" -}}
+  {{- $week := . -}}
+  {{- if le $week.weekEnding $today -}}
+    {{- range $week.themes -}}
+      {{- if eq (string (.incidentId | default "")) $id -}}
+        {{- $out = $out | append (dict "kind" "weekly" "date" $week.weekEnding "title" .title "category" (partial "data/category.html" .)) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return sort (sort $out "kind" "desc") "date" -}}

@@ -1,0 +1,52 @@
+{
+  "id": "apple-icloud-apple-pay-outage-2026-11",
+  "title": "Apple iCloud and Apple Pay outage after internal update",
+  "provider": "Apple",
+  "category": "Cloud & Infrastructure",
+  "summary": "Apple acknowledged that an internal update caused an outage affecting services including iCloud and Apple Pay. Many systems had recovered in the latest reviewed report while Apple worked to restore the rest. Apple said a cyberattack was not the cause.",
+  "status": "monitoring",
+  "discoveredDate": "2026-11-17",
+  "occurredDate": "2026-11-17",
+  "rootCause": {
+    "status": "confirmed",
+    "summary": "Apple attributed the disruption to an internal update. It has not published which component or change was responsible.",
+    "sources": [
+      {
+        "label": "Reuters",
+        "url": "https://www.reuters.com/business/retail-consumer/apple-works-restore-services-after-outage-caused-by-internal-update-2026-11-17/"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "Reuters",
+      "url": "https://www.reuters.com/business/retail-consumer/apple-works-restore-services-after-outage-caused-by-internal-update-2026-11-17/"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-17",
+      "kind": "discovery",
+      "status": "identified",
+      "summary": "Apple acknowledged an outage affecting services including iCloud and Apple Pay and said an internal update caused it, not a cyberattack. Downdetector peaked near 2,300 US Apple Pay and 1,800 iCloud user reports; these are submissions, not verified customer totals.",
+      "sources": [
+        {
+          "label": "Reuters",
+          "url": "https://www.reuters.com/business/retail-consumer/apple-works-restore-services-after-outage-caused-by-internal-update-2026-11-17/"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-17",
+      "kind": "mitigation",
+      "status": "monitoring",
+      "summary": "Reuters reported that many systems had recovered while Apple was still working to restore the remainder. Full restoration is not yet confirmed.",
+      "sources": [
+        {
+          "label": "Reuters",
+          "url": "https://www.reuters.com/business/retail-consumer/apple-works-restore-services-after-outage-caused-by-internal-update-2026-11-17/"
+        }
+      ]
+    }
+  ]
+}

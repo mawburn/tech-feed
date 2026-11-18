@@ -29,11 +29,16 @@ const htmlFiles = dir => readdirSync(dir).flatMap(name => {
 });
 const attrs = (html, name) => [...html.matchAll(new RegExp(`\\s${name}=(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, "g"))].map(m => decode(m[1] ?? m[2] ?? m[3]));
 
+const hrefs = html => attrs(html, "href");
 const today = pacificToday();
 const windowStart = addDays(today, -6);
 const published = loadDir("daily", "date").filter(i => i.date <= today);
 const windowIssues = published.filter(i => i.date >= windowStart);
 const weeks = loadDir("weekly", "weekEnding");
+const incidents = existsSync(join(root, "data", "incidents"))
+  ? readdirSync(join(root, "data", "incidents")).filter(f => f.endsWith(".json"))
+    .map(f => JSON.parse(readFileSync(join(root, "data", "incidents", f), "utf8"))).filter(i => i.discoveredDate <= today)
+  : [];
 
 test("built site exists", () => {
   assert.ok(exists("index.html"), "run `hugo build` first");
@@ -41,7 +46,7 @@ test("built site exists", () => {
 
 test("fixed routes are generated", () => {
   for (const path of ["index.html", "all/index.html", "weekly.html", "daily/index.html", "weekly/index.html",
-    "topics/index.html", "data/briefings.json", "data/weekly.json", "archive.md", "weekly-archive.md",
+    "topics/index.html", "incidents/index.html", "data/briefings.json", "data/weekly.json", "archive.md", "weekly-archive.md",
     "sitemap.xml", "robots.txt", "llms.txt", "favicon.svg", ".nojekyll"]) {
     assert.ok(exists(path), `missing ${path}`);
   }
@@ -208,4 +213,55 @@ test("markdown archives and llms.txt use absolute site URLs", () => {
   const llms = read("llms.txt");
   assert.ok(llms.includes(`${BASE_URL}data/briefings.json`));
   assert.ok(!/\]\(\//.test(archive), "archive.md contains root-relative links");
+});
+
+test("incident list and detail pages exist for every published incident", () => {
+  assert.ok(incidents.length > 0, "expected at least one incident in data/incidents");
+  const list = read("incidents/index.html");
+  for (const incident of incidents) {
+    assert.ok(exists(`incidents/${incident.id}/index.html`), `missing incidents/${incident.id}/`);
+    assert.ok(hrefs(list).includes(`${BASE_PATH}incidents/${incident.id}/`), `list lacks ${incident.id}`);
+    const page = decode(read(`incidents/${incident.id}/index.html`));
+    assert.ok(page.includes(incident.title), `${incident.id}: title`);
+    assert.ok(page.includes(incident.provider), `${incident.id}: provider`);
+    assert.match(page, new RegExp(`status--${incident.status}`), `${incident.id}: status pill`);
+    for (const entry of incident.history) {
+      assert.ok(attrs(read(`incidents/${incident.id}/index.html`), "datetime").includes(entry.date), `${incident.id}: history date ${entry.date}`);
+      assert.ok(page.includes(entry.summary.slice(0, 60)), `${incident.id}: history entry "${entry.summary.slice(0, 30)}"`);
+    }
+    for (const pm of incident.postmortems || []) assert.ok(page.includes(pm.url), `${incident.id}: postmortem link`);
+    if (incident.fixDate) assert.match(page, /Permanent fix/, `${incident.id}: fix section`);
+    if (!incident.postmortems?.length) assert.match(page, /None published yet/, `${incident.id}: postmortem placeholder`);
+  }
+});
+
+test("stories and themes with incidentId link to the incident, and the incident links back to the edition", () => {
+  const ids = new Set(incidents.map(i => i.id));
+  let linked = 0;
+  for (const issue of published) {
+    const html = read(`daily/${issue.date}/index.html`);
+    for (const story of stories(issue).filter(s => s.incidentId)) {
+      assert.ok(ids.has(story.incidentId), `${issue.date}: dangling incidentId ${story.incidentId}`);
+      assert.ok(hrefs(html).includes(`${BASE_PATH}incidents/${story.incidentId}/`), `${issue.date}: no link to ${story.incidentId}`);
+      assert.ok(hrefs(read(`incidents/${story.incidentId}/index.html`)).includes(`${BASE_PATH}daily/${issue.date}/`), `${story.incidentId} lacks backlink to ${issue.date}`);
+      linked++;
+    }
+  }
+  for (const week of weeks.filter(w => w.weekEnding <= today)) {
+    for (const theme of (week.themes || []).filter(t => t.incidentId)) {
+      assert.ok(ids.has(theme.incidentId), `${week.weekEnding}: dangling incidentId ${theme.incidentId}`);
+      assert.ok(hrefs(read(`weekly/${week.weekEnding}/index.html`)).includes(`${BASE_PATH}incidents/${theme.incidentId}/`), `weekly ${week.weekEnding} lacks link`);
+      assert.ok(hrefs(read(`incidents/${theme.incidentId}/index.html`)).includes(`${BASE_PATH}weekly/${week.weekEnding}/`), `${theme.incidentId} lacks weekly backlink`);
+      linked++;
+    }
+  }
+  assert.ok(linked > 0, "expected at least one linked story or theme");
+});
+
+test("incidents are in navigation, sitemap and llms.txt", () => {
+  assert.ok(hrefs(read("index.html")).includes(`${BASE_PATH}incidents/`), "header nav");
+  const sitemap = read("sitemap.xml");
+  assert.ok(sitemap.includes(`${BASE_URL}incidents/`), "sitemap list");
+  for (const incident of incidents) assert.ok(sitemap.includes(`${BASE_URL}incidents/${incident.id}/`), `sitemap ${incident.id}`);
+  assert.ok(read("llms.txt").includes(`${BASE_URL}incidents/`), "llms.txt");
 });

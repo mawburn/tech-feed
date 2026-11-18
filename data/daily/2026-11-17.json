@@ -4,6 +4,7 @@
   "topStories": [
     {
       "title": "Java4Shell exposes OpenJDK Base64 memory corruption",
+      "incidentId": "java4shell-openjdk-base64-2026-11",
       "category": "Security",
       "summary": "Calif disclosed CVE-2026-114938, a critical memory-corruption vulnerability in the optimized Base64 decoder of affected OpenJDK builds. On certain x86-64 processors with AVX-512 VBMI, malformed padded input can trigger an out-of-bounds heap write. Researchers report pre-authentication remote-code-execution demonstrations against default configurations of Keycloak, Jira, Confluence, Jenkins, Artifactory and PingFederate, with other application-specific chains requiring authentication.\n\nPatches were announced November 17. The vulnerability warrants urgent Java runtime inventory and updates, but the researchers' demonstrations do not prove every Java deployment is exploitable or establish widespread exploitation in the wild.",
       "rank": 1,
@@ -50,6 +51,7 @@
     },
     {
       "title": "Equinor responds to cyberattack on corporate IT",
+      "incidentId": "equinor-cyberattack-2026-11",
       "category": "Security",
       "summary": "Equinor said November 17 it detected an ongoing cyberattack against some internal IT systems and mobilized resources to contain it. Reuters reported disruption to internal applications and, citing an employee, to email. Norway's National Security Authority acknowledged the incident and said it was offering assistance.\n\nThe energy company explicitly reported no impact on oil and gas operations or production and no indication of data theft. The distinction is important: a corporate IT incident at a critical energy supplier is serious without implying that industrial systems or energy delivery have been compromised.",
       "rank": 2,
@@ -79,6 +81,7 @@
     },
     {
       "title": "Apple Pay and iCloud disrupted after internal update",
+      "incidentId": "apple-icloud-apple-pay-outage-2026-11",
       "category": "Cloud & Infrastructure",
       "summary": "Apple acknowledged that an internal update caused a November 17 outage affecting services including iCloud and Apple Pay. Reuters reported that many systems had recovered, while Apple was still working to restore the remainder. Downdetector recorded peaks of approximately 2,300 US Apple Pay reports and 1,800 iCloud reports, but those are user submissions rather than verified customer totals.\n\nApple said the disruption was not caused by a cyberattack. There is no evidence linking it to recent Microsoft, airline or banking failures, despite the incidents occurring close together.",
       "rank": 3,

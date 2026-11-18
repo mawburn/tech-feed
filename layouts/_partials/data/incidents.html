@@ -1,0 +1,13 @@
+{{- /* Published incidents from data/incidents/<id>.json (discovered today Pacific or earlier).
+  Each map gains lastUpdate (newest history date). Sorted by lastUpdate, newest first.
+  Files whose name and "id" disagree are skipped (the validator reports them). */ -}}
+{{- $today := partialCached "data/today.html" . -}}
+{{- $out := slice -}}
+{{- range $key, $i := hugo.Data.incidents -}}
+  {{- if and (reflect.IsMap $i) (eq (string $i.id) $key) (findRE `^[a-z0-9]+(-[a-z0-9]+)*$` $key) (le (string $i.discoveredDate) $today) -}}
+    {{- $dates := slice (string $i.discoveredDate) -}}
+    {{- range $i.history }}{{ if le (string .date) $today }}{{ $dates = $dates | append (string .date) }}{{ end }}{{ end -}}
+    {{- $out = $out | append (merge (dict) $i (dict "lastUpdate" (index (sort $dates "value" "desc") 0))) -}}
+  {{- end -}}
+{{- end -}}
+{{- return sort (sort $out "id") "lastUpdate" "desc" -}}

@@ -1,0 +1,3 @@
+{{- /* Status pill. Context: status string (investigating|identified|monitoring|resolved). */ -}}
+{{- $labels := dict "investigating" "Investigating" "identified" "Identified" "monitoring" "Monitoring" "resolved" "Resolved" -}}
+<span class="status status--{{ . }}"><span class="dot" aria-hidden="true"></span>{{ index $labels . | default (. | title) }}</span>

@@ -1,0 +1,33 @@
+{
+  "id": "equinor-cyberattack-2026-11",
+  "title": "Equinor cyberattack on corporate IT systems",
+  "provider": "Equinor",
+  "category": "Security",
+  "summary": "Equinor detected an ongoing cyberattack against some internal IT systems and mobilized resources to contain it. It reported no impact on oil and gas operations or production and no indication of data theft. The attacker and full scope are unknown.",
+  "status": "investigating",
+  "discoveredDate": "2026-11-17",
+  "rootCause": {
+    "status": "unknown",
+    "summary": "Initial access, attacker and scope have not been disclosed."
+  },
+  "sources": [
+    {
+      "label": "Reuters",
+      "url": "https://www.reuters.com/technology/equinor-detects-ongoing-cyberattack-output-unaffected-2026-11-17/"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-17",
+      "kind": "discovery",
+      "status": "investigating",
+      "summary": "Equinor said it detected an ongoing attack on some internal IT systems. Reuters reported disruption to internal applications and, citing an employee, email. Norway's National Security Authority acknowledged the incident and offered assistance. Equinor reported no production impact and no indication of data theft.",
+      "sources": [
+        {
+          "label": "Reuters",
+          "url": "https://www.reuters.com/technology/equinor-detects-ongoing-cyberattack-output-unaffected-2026-11-17/"
+        }
+      ]
+    }
+  ]
+}

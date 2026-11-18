@@ -1,0 +1,91 @@
+{{- define "main" -}}
+{{- with partial "data/find-incident.html" .Params.incidentId -}}
+{{- $i := . -}}
+{{- $style := partial "data/topic-style.html" (partial "data/category.html" $i) -}}
+{{- $coverage := partial "data/incident-coverage.html" $i.id -}}
+{{- $postmortems := $i.postmortems | default slice -}}
+<article class="incident topic topic--{{ $style.key }}">
+  <header class="page-header incident__header">
+    <p class="page-header__kicker"><a href="{{ (site.GetPage "/incidents").RelPermalink }}">Incidents</a> · {{ $i.provider }}</p>
+    <h1 class="page-header__title">{{ $i.title }}</h1>
+    <p class="incident__status">{{ partial "components/incident-status.html" $i.status }}<span>Last updated <time datetime="{{ $i.lastUpdate }}">{{ time.AsTime $i.lastUpdate | time.Format "January 2, 2006" }}</time></span></p>
+    {{- with $i.summary }}{{ partial "components/text.html" (dict "text" . "class" "page-header__intro" "full" true) }}{{ end }}
+    {{ partial "components/incident-lifecycle.html" $i }}
+  </header>
+
+  <div class="incident__layout">
+    <div class="incident__main">
+      <section class="panel panel--low" id="timeline" aria-labelledby="timeline-title">
+        <p class="panel__kicker">{{ partial "components/icon.html" "clock" }}Timeline</p>
+        <h2 class="panel__title" id="timeline-title">What happened, in order</h2>
+        {{ partial "components/incident-timeline.html" (dict "incident" $i) }}
+      </section>
+
+      <section class="panel panel--lowest" id="cause" aria-labelledby="cause-title">
+        <p class="panel__kicker">{{ partial "components/icon.html" "alert" }}Root cause</p>
+        <h2 class="panel__title" id="cause-title">{{ with $i.rootCause }}{{ if eq .status "confirmed" }}Confirmed cause{{ else if eq .status "suspected" }}Suspected cause{{ else }}Cause not yet disclosed{{ end }}{{ else }}Cause not yet disclosed{{ end }}</h2>
+        {{- with $i.rootCause }}
+        {{ partial "components/text.html" (dict "text" .summary "class" "panel__lead" "full" true) }}
+        {{ partial "components/story-sources.html" (dict "sources" .sources) }}
+        {{- else }}
+        <p class="panel__lead">No root cause has been reported.</p>
+        {{- end }}
+      </section>
+
+      <section class="panel panel--lowest" id="fix" aria-labelledby="fix-title">
+        <p class="panel__kicker">{{ partial "components/icon.html" "shield" }}Permanent fix</p>
+        <h2 class="panel__title" id="fix-title">{{ if $i.fixDate }}Shipped {{ time.AsTime $i.fixDate | time.Format "January 2, 2006" }}{{ else }}No permanent fix yet{{ end }}</h2>
+        {{- with $i.fix }}{{ partial "components/text.html" (dict "text" . "class" "panel__lead" "full" true) }}
+        {{- else }}<p class="panel__lead">{{ if $i.fixDate }}A fix date is recorded but its details have not been published.{{ else }}Restoration or mitigation is not the same as a permanent fix. This page will record one when it ships.{{ end }}</p>{{ end }}
+      </section>
+
+      <section class="panel panel--low" id="postmortem" aria-labelledby="postmortem-title">
+        <p class="panel__kicker">{{ partial "components/icon.html" "newspaper" }}Postmortems</p>
+        <h2 class="panel__title" id="postmortem-title">{{ if $postmortems }}{{ len $postmortems }} published{{ else }}None published yet{{ end }}</h2>
+        {{- if $postmortems }}
+        <ul class="postmortems">
+          {{- range $postmortems }}{{ if partial "data/is-http.html" .url }}
+          <li><a href="{{ .url }}" rel="noopener">{{ .label }}{{ partial "components/icon.html" "arrow-out" }}</a>{{ with .publishedDate }}<time datetime="{{ . }}">{{ time.AsTime . | time.Format "Jan 2, 2006" }}</time>{{ end }}{{ with .summary }}<p>{{ . }}</p>{{ end }}</li>
+          {{- end }}{{ end }}
+        </ul>
+        {{- else }}
+        <p class="panel__lead">An official or independent postmortem will be linked here when one appears.</p>
+        {{- end }}
+      </section>
+    </div>
+
+    <aside class="incident__side" aria-label="Incident facts">
+      <div class="glance">
+        <h2 class="date-nav__title">At a glance</h2>
+        <dl class="glance__rows">
+          <div class="glance__row"><dt>Provider</dt><dd>{{ $i.provider }}</dd></div>
+          <div class="glance__row"><dt>Status</dt><dd>{{ partial "components/incident-status.html" $i.status }}</dd></div>
+          {{- with $i.occurredDate }}<div class="glance__row"><dt>Occurred</dt><dd><time datetime="{{ . }}">{{ time.AsTime . | time.Format "Jan 2, 2006" }}</time></dd></div>{{ end }}
+          <div class="glance__row"><dt>Discovered</dt><dd><time datetime="{{ $i.discoveredDate }}">{{ time.AsTime $i.discoveredDate | time.Format "Jan 2, 2006" }}</time></dd></div>
+          {{- with $i.resolvedDate }}<div class="glance__row"><dt>Resolved</dt><dd><time datetime="{{ . }}">{{ time.AsTime . | time.Format "Jan 2, 2006" }}</time></dd></div>{{ end }}
+          {{- with $i.fixDate }}<div class="glance__row"><dt>Fixed</dt><dd><time datetime="{{ . }}">{{ time.AsTime . | time.Format "Jan 2, 2006" }}</time></dd></div>{{ end }}
+        </dl>
+      </div>
+      {{ partial "components/link-list.html" (dict "label" "Sources" "links" $i.sources "kind" "source") }}
+      <nav class="date-nav" aria-label="Appearances in briefings">
+        <h2 class="date-nav__title">In the briefings</h2>
+        {{- if $coverage }}
+        <ul>
+          {{- range $coverage }}
+          {{- $c := . }}
+          {{- $page := cond (eq $c.kind "weekly") (site.GetPage (printf "/weekly/%s" $c.date)) (site.GetPage (printf "/daily/%s" $c.date)) }}
+          {{- with $page }}
+          <li><a href="{{ .RelPermalink }}"><span>{{ if eq $c.kind "weekly" }}Week ending {{ end }}{{ time.AsTime $c.date | time.Format "Jan 2" }}</span><span class="date-nav__kind">{{ if eq $c.kind "weekly" }}Weekly{{ else }}Daily{{ end }}</span></a></li>
+          {{- end }}
+          {{- end }}
+        </ul>
+        {{- else }}
+        <p>No briefing links to this incident yet.</p>
+        {{- end }}
+      </nav>
+    </aside>
+  </div>
+  <p class="back-link"><a href="{{ (site.GetPage "/incidents").RelPermalink }}">← All incidents</a></p>
+</article>
+{{- end -}}
+{{- end -}}

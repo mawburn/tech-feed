@@ -1,0 +1,13 @@
+{{- /* Four-step lifecycle: discovered, resolved, fixed, postmortem. Context: incident. */ -}}
+{{- $i := . -}}
+{{- $steps := slice
+  (dict "label" "Discovered" "date" $i.discoveredDate)
+  (dict "label" "Resolved" "date" $i.resolvedDate)
+  (dict "label" "Permanent fix" "date" $i.fixDate)
+  (dict "label" "Postmortem" "date" (cond (gt (len ($i.postmortems | default slice)) 0) (or (index ($i.postmortems | default slice) 0).publishedDate "published") "")) -}}
+<ol class="lifecycle" aria-label="Incident lifecycle">
+  {{- range $steps }}
+  {{- $done := ne (string (.date | default "")) "" }}
+  <li class="lifecycle__step{{ if $done }} is-done{{ end }}"><span class="lifecycle__mark" aria-hidden="true"></span><span class="lifecycle__label">{{ .label }}</span><span class="lifecycle__date">{{ if not $done }}Pending{{ else if findRE `^\d{4}-` (string .date) }}<time datetime="{{ .date }}">{{ time.AsTime .date | time.Format "Jan 2, 2006" }}</time>{{ else }}Published{{ end }}</span></li>
+  {{- end }}
+</ol>

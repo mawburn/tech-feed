@@ -27,6 +27,7 @@
       </p>
       {{ partial "components/heading.html" (dict "level" $level "text" $s.title "class" "story__title") }}
       {{- partial "components/discussion-badges.html" (dict "discussions" $s.discussions) }}
+      {{- partial "components/incident-ref.html" $s.incidentId }}
     </div>
     {{- partial "components/story-image.html" (dict "image" $s.image "alt" $s.title) }}
     <div class="story__rest">
@@ -50,6 +51,7 @@
   <div class="story__note"><span class="story__note-label">Why it matters</span><p>{{ . }}</p></div>
   {{- end }}
   {{- partial "components/discussion-badges.html" (dict "discussions" $s.discussions) }}
+  {{- partial "components/incident-ref.html" $s.incidentId }}
   <div class="story__foot">
     {{- partial "components/story-sources.html" (dict "sources" $s.sources) }}
     {{- partial "components/link-list.html" (dict "label" "Found via" "links" $s.discoveredVia "kind" "community") }}
@@ -70,6 +72,7 @@
   <div class="story__note"><span class="story__note-label">Why it's interesting</span><p>{{ . }}</p></div>
   {{- end }}
   {{- partial "components/discussion-badges.html" (dict "discussions" $s.discussions) }}
+  {{- partial "components/incident-ref.html" $s.incidentId }}
   <div class="story__foot">
     {{- with $first }}<a class="story__cta" href="{{ .url }}" rel="noopener"><span>{{ .label | default "Open source" }}</span>{{ partial "components/icon.html" "arrow-right" }}</a>{{ end }}
     {{- partial "components/story-sources.html" (dict "sources" (after 1 $s.sources) "prefix" "also") }}

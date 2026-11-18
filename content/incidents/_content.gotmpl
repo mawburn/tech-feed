@@ -1,0 +1,13 @@
+{{- /* Content adapter: one page per published data/incidents/<id>.json at /incidents/<id>/.
+  Templates read the JSON through layouts/_partials/data/*, like the daily and weekly adapters. */ -}}
+{{- range partial "data/incidents.html" . -}}
+  {{- $when := time.AsTime .lastUpdate -}}
+  {{- $.AddPage (dict
+      "kind" "page"
+      "path" .id
+      "title" (printf "%s — Incident Tracker" .title)
+      "linkTitle" .title
+      "dates" (dict "date" (time.AsTime .discoveredDate) "lastmod" $when)
+      "params" (dict "incidentId" .id "description" (printf "Status, timeline, fixes and postmortems for: %s." .title))
+  ) -}}
+{{- end -}}

@@ -1,0 +1,8 @@
+{{- /* Link from a daily story or weekly theme to its incident record. Context: incidentId (string).
+  Renders nothing when the incident is absent or not yet published. */ -}}
+{{- with partial "data/find-incident.html" . -}}
+{{- $i := . -}}
+{{- with site.GetPage (printf "/incidents/%s" $i.id) }}
+<p class="incident-ref"><a href="{{ .RelPermalink }}" aria-label="Track incident: {{ $i.title }}">{{ partial "components/incident-status.html" $i.status }}<span class="incident-ref__text">Track this incident</span>{{ partial "components/icon.html" "arrow-right" }}</a></p>
+{{- end }}
+{{- end -}}

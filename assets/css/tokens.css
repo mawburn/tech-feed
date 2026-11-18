@@ -38,6 +38,11 @@
   --t-business: #f87171;
   --t-security: #fb923c;
   --t-neutral: #94a3b8;
+  /* incident status: indicators only */
+  --st-investigating: #fb923c;
+  --st-identified: #fbbf24;
+  --st-monitoring: #38bdf8;
+  --st-resolved: #45dfa4;
   /* shape + spacing */
   --r-sm: 2px;
   --r-md: 4px;

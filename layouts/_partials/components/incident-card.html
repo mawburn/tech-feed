@@ -1,0 +1,17 @@
+{{- /* Incident list entry. Context: incident. */ -}}
+{{- $i := . -}}
+{{- $style := partial "data/topic-style.html" (partial "data/category.html" $i) -}}
+{{- $coverage := partial "data/incident-coverage.html" $i.id -}}
+{{- with site.GetPage (printf "/incidents/%s" $i.id) }}
+<article class="incident-card topic topic--{{ $style.key }}">
+  <div class="incident-card__top">
+    {{ partial "components/incident-status.html" $i.status }}
+    <span class="incident-card__provider">{{ $i.provider }}</span>
+    <span class="incident-card__updated">Updated <time datetime="{{ $i.lastUpdate }}">{{ time.AsTime $i.lastUpdate | time.Format "Jan 2, 2006" }}</time></span>
+  </div>
+  <h3 class="incident-card__title"><a href="{{ .RelPermalink }}">{{ $i.title }}</a></h3>
+  {{- with $i.summary }}<p class="incident-card__summary">{{ . | truncate 260 }}</p>{{ end }}
+  {{ partial "components/incident-lifecycle.html" $i }}
+  <p class="incident-card__foot"><span>{{ len $i.history }} {{ cond (eq (len $i.history) 1) "update" "updates" }}</span><span>{{ len $coverage }} {{ cond (eq (len $coverage) 1) "report mention" "report mentions" }}</span></p>
+</article>
+{{- end -}}

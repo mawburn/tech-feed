@@ -40,6 +40,7 @@
         {{ partial "components/heading.html" (dict "level" $level "text" $t.title "class" "theme__title") }}
         {{- partial "components/text.html" (dict "text" $t.summary "class" "theme__summary" "full" true) }}
       </div>
+      {{- partial "components/incident-ref.html" $t.incidentId }}
       {{- with $t.impact }}
       <div class="banner"><span class="banner__label">{{ partial "components/icon.html" "alert" }}Why it matters</span><p>{{ . }}</p></div>
       {{- end }}

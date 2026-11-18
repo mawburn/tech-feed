@@ -6,6 +6,7 @@ Canonical site: {{ site.Home.Permalink }}
 Last seven days, all stories: {{ (site.GetPage "/all").Permalink }}
 Daily archive: {{ (site.GetPage "/daily").Permalink }}
 Topics: {{ (site.GetPage "/topics").Permalink }}
+Incident tracker: {{ (site.GetPage "/incidents").Permalink }}
 Human-readable archive (Markdown): {{ (site.Home.OutputFormats.Get "archive").Permalink }}
 Structured daily briefing JSON: {{ (site.Home.OutputFormats.Get "briefings").Permalink }}
 Weekly Sunday summaries: {{ (site.GetPage "/weekly-latest").Permalink }}
@@ -20,6 +21,7 @@ Repository: {{ site.Params.repository }}
 - Every issue contains overview, topStories, alsoWorthKnowing, newTools and marketPulse. The newTools key holds the "AI & tooling in practice" section: hands-on workflows, tutorials, demos and experiments of any count, each with an optional format label.
 - Each story contains a title, editorial summary, category and links to sources. Top stories also describe significance and limits. Optional discussions[] link to real Hacker News or Reddit comment threads.
 - Topic pages are static HTML at {{ (site.GetPage "/topics").Permalink }}SLUG/ and {{ (site.GetPage "/daily").Permalink }}YYYY-MM-DD/topics/SLUG/. No JavaScript is required.
+- Incidents are tracked once, at {{ (site.GetPage "/incidents").Permalink }}INCIDENT-ID/, with current status, a chronological timeline, root cause, permanent fix and postmortems. Stories and weekly themes about an incident link to it instead of repeating its status.
 - Optional story images are publisher Open Graph images, stored as optimized local copies (image.localUrl) and credited to the publisher (image.credit, image.sourceUrl).
 
 ## Attribution and verification

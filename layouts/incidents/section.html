@@ -1,0 +1,19 @@
+{{- define "main" -}}
+{{- $incidents := partialCached "data/incidents.html" "incidents" -}}
+{{- $active := slice }}{{ $resolved := slice -}}
+{{- range $incidents }}{{ if eq .status "resolved" }}{{ $resolved = $resolved | append . }}{{ else }}{{ $active = $active | append . }}{{ end }}{{ end -}}
+{{ partial "components/page-header.html" (dict "kicker" "Tracker" "title" "Incidents" "intro" (printf "%d tracked, %d still open. Each incident is followed from discovery through resolution, permanent fix and postmortem, so its status is updated in one place instead of repeated across reports." (len $incidents) (len $active))) }}
+{{- with $active }}
+<section class="archive__group" aria-labelledby="incidents-open">
+  <h2 id="incidents-open">Open incidents <span class="count">{{ len . }}</span></h2>
+  <div class="incident-list">{{ range . }}{{ partial "components/incident-card.html" . }}{{ end }}</div>
+</section>
+{{- end }}
+{{- with $resolved }}
+<section class="archive__group" aria-labelledby="incidents-resolved">
+  <h2 id="incidents-resolved">Resolved <span class="count">{{ len . }}</span></h2>
+  <div class="incident-list">{{ range . }}{{ partial "components/incident-card.html" . }}{{ end }}</div>
+</section>
+{{- end }}
+{{- if not $incidents }}{{ partial "components/empty-state.html" "No incidents are being tracked yet." }}{{ end }}
+{{- end -}}

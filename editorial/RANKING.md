@@ -34,6 +34,7 @@ Before publishing:
 - Inspect current outage/incident coverage again: is a verified major incident missing or buried? Correct ranking or record a defensible reason.
 - Compare selected stories with the highest-signal rolling 24-hour HN candidates, plus new/Show HN and other community discoveries. If important candidates were excluded, know why.
 - Review cross-category balance without enforcing quotas. Significant security, platform, infrastructure, jobs, business, languages and AI news can all lead.
+- Check `data/incidents/` before ranking: a new development on a tracked incident is an update to its record (and a story with the same `incidentId`), not a new incident. See `editorial/INCIDENTS.md`.
 - Distinguish *incident occurred*, *reported*, *resolved*, *root cause published* and *investigation continuing* timestamps.
 - Avoid repeating an old article as new; a material update needs an explicit change.
 - Do not invent community consensus, vendor capabilities, source URLs, dates, cause/effect claims or adoption.

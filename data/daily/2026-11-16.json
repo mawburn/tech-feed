@@ -5,6 +5,7 @@
   "topStories": [
     {
       "title": "Optimizely supply-chain attack delivers malware across 178 organizations",
+      "incidentId": "optimizely-web-snippet-malware-2026-11",
       "category": "Security",
       "summary": "Scott Helme identified 188 infected Optimizely Web snippets at 178 organizations on November 16, distributing cryptocurrency address substitution, payment-card skimming, cookie theft and iOS exploit payloads. Most observed scripts were cleaned by the final sweep; the full impact is unknown. The practical significance depends on the specific technical mechanism and the independently established scope, rather than headline counts or vendor claims. The remaining evidence gaps are important when assessing operational consequences.",
       "whyItMatters": "Trusted third-party scripts can create cross-organization security exposure without direct compromises of each customer website.",

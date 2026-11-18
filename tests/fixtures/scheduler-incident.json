@@ -1,0 +1,21 @@
+{
+  "id": "example-provider-outage-2026-11",
+  "title": "Example Provider API outage",
+  "provider": "Example Provider",
+  "category": "Cloud & Infrastructure",
+  "summary": "Elevated API errors; a rollback restored service.",
+  "status": "resolved",
+  "discoveredDate": "2026-11-17",
+  "occurredDate": "2026-11-16",
+  "resolvedDate": "2026-11-17",
+  "fixDate": "2026-11-18",
+  "fix": "Configuration changes now roll out in stages.",
+  "rootCause": { "status": "confirmed", "summary": "A bad configuration push.", "sources": [{ "label": "Status page", "url": "https://status.example.com/1" }] },
+  "postmortems": [{ "label": "Example postmortem", "url": "https://example.com/postmortem", "publishedDate": "2026-11-20" }],
+  "sources": [{ "label": "Status page", "url": "https://status.example.com/1" }],
+  "history": [
+    { "date": "2026-11-17", "kind": "discovery", "status": "investigating", "summary": "Errors reported." },
+    { "date": "2026-11-17", "kind": "resolution", "status": "resolved", "summary": "Rollback completed." },
+    { "date": "2026-11-18", "kind": "fix", "summary": "Staged rollout shipped." }
+  ]
+}

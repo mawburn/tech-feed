@@ -1,7 +1,7 @@
 name: Enrich and publish
 
 # The publishing pipeline for new and updated publications:
-#   1. The ChatGPT scheduler commits data/daily/*.json or data/weekly/*.json to main.
+#   1. The ChatGPT scheduler commits data/daily/*.json, data/weekly/*.json or data/incidents/*.json to main.
 #   2. This workflow prefetches discussion threads and stores optimized publisher images,
 #      committing changes (JSON references, assets/img/*, scripts/image_manifest.json) back to main when there are any.
 #   3. It then calls deploy-pages.yml to build and deploy. Pushes made with GITHUB_TOKEN do
@@ -14,6 +14,7 @@ on:
     paths:
       - "data/daily/**"
       - "data/weekly/**"
+      - "data/incidents/**"
   schedule:
     - cron: "17 3 * * *" # evening Pacific refresh: discussions posted after the morning briefing
   workflow_dispatch:

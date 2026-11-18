@@ -13,7 +13,7 @@ If GitHub or any source is unavailable, execute the fallback in the scheduled pr
 
 ## 2. Breaking incidents and operational impact — mandatory early sweep
 
-Before final story ranking, explicitly search current reports and relevant official status/incident communications for widespread outages, active security emergencies, data breaches, infrastructure failures, service interruptions and cross-provider dependencies.
+Before final story ranking, first re-check every open record in `data/incidents/` (see `editorial/INCIDENTS.md`) for new developments, then explicitly search current reports and relevant official status/incident communications for widespread outages, active security emergencies, data breaches, infrastructure failures, service interruptions and cross-provider dependencies.
 
 Cover meaningful current incidents involving cloud hosting, DNS/CDNs, developer platforms, identity/authentication, major SaaS services, payments/banking, telecommunications, airlines/transportation and other critical consumer or business systems. Do not limit this to AI companies or developer tools.
 

@@ -34,7 +34,7 @@ Choose useful headings according to the event. Examples:
 - **Who is affected / practical impact:** users, engineers, businesses, migrations, costs, security implications or response actions.
 - **What remains unresolved:** known gaps, operational recovery, licensing, adoption evidence, unanswered questions and next steps.
 
-For live outages or incidents, include confirmed start/resolution state and observed effects. Distinguish facts from preliminary reports. For acquisitions and policy, explain concrete terms, what changes now versus later, and plausible constraints. For developer releases, explain what is new, how it differs from alternatives, compatibility and real limitations. For a weekly theme, integrate the week's timeline instead of repeating daily news verbatim.
+For live outages or incidents, track them in `data/incidents/` and link the story with `incidentId` (see `editorial/INCIDENTS.md`); the story states what was known that day while the incident record carries the live status. Include confirmed start/resolution state and observed effects. Distinguish facts from preliminary reports. For acquisitions and policy, explain concrete terms, what changes now versus later, and plausible constraints. For developer releases, explain what is new, how it differs from alternatives, compatibility and real limitations. For a weekly theme, integrate the week's timeline instead of repeating daily news verbatim.
 
 Do not rigidly use all headings for every story. Never restate the same paragraph several times under different headings. Write with an informed technical reader in mind, defining unfamiliar terms briefly where necessary.
 

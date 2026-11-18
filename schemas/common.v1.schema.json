@@ -187,6 +187,9 @@
               },
               "sourceUrl": {
                 "$ref": "#/$defs/httpUrl"
+              },
+              "incidentId": {
+                "$ref": "#/$defs/incidentId"
               }
             }
           }
@@ -223,6 +226,13 @@
           }
         }
       }
+    },
+    "incidentId": {
+      "type": "string",
+      "description": "Stable incident identifier: lowercase kebab-case, also the file name of data/incidents/<id>.json. Assigned once when the incident is first recorded; never renamed.",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "minLength": 3,
+      "maxLength": 80
     }
   }
 }
