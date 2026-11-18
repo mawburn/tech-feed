@@ -1,1 +1,470 @@
-{"date":"2026-11-17","overview":"A critical OpenJDK Base64 memory-corruption vulnerability requires immediate attention from operators of affected Java installations. Equinor reports an ongoing cyberattack on corporate IT with production unaffected, while Apple is recovering from a multi-service outage attributed to an internal update.\n\nOpenAI released GPT-6.2 Astra and Sol; Microsoft introduced MAI Code 2 models. jQuery 4.1.0 and 3.8.0 fix selector ReDoS, and Solid 2.0 reaches stable. Practical experiments in CSS-only UI, formal database verification and GPU inference education add engineering depth.","topStories":[],"alsoWorthKnowing":[],"newTools":[],"marketPulse":"No new representative software engineering employment data verified.","discoveryAudit":{"checkedAt":"2026-11-17T17:04:19-08:00","windowStart":"2026-11-16T17:04:19-08:00","windowEnd":"2026-11-17T17:04:19-08:00","sources":[{"name":"Current incident sweep","status":"partial"},{"name":"HN Algolia","status":"unavailable"}]}}
+{
+  "date": "2026-11-17",
+  "overview": "A newly disclosed OpenJDK Base64 memory-corruption vulnerability is the day's most urgent developer-security development. Researchers report remote-code-execution chains in several enterprise Java applications, and patches are available. Separately, Equinor is responding to a cyberattack against internal IT systems while reporting no disruption to oil and gas production. Apple also acknowledged an internal update that disrupted iCloud and Apple Pay, with recovery still underway in the latest verified report.\n\nAI news is substantial: OpenAI released GPT-6.2 Astra and Sol with consequential cybersecurity safety assessments, while Microsoft introduced its MAI Code 2 family and expanded enterprise-agent governance efforts. For frontend engineers, jQuery 4.1.0 and 3.8.0 fix a selector denial-of-service issue, and Solid 2.0 reaches stable. Practical demonstrations include a no-JavaScript invoicing interface, Lean-based SQLite migration verification and an interactive GPU inference course. These incidents and announcements have distinct causes; no common failure mechanism is established.",
+  "topStories": [
+    {
+      "title": "Java4Shell exposes OpenJDK Base64 memory corruption",
+      "category": "Security",
+      "summary": "Calif disclosed CVE-2026-114938, a critical memory-corruption vulnerability in the optimized Base64 decoder of affected OpenJDK builds. On certain x86-64 processors with AVX-512 VBMI, malformed padded input can trigger an out-of-bounds heap write. Researchers report pre-authentication remote-code-execution demonstrations against default configurations of Keycloak, Jira, Confluence, Jenkins, Artifactory and PingFederate, with other application-specific chains requiring authentication.\n\nPatches were announced November 17. The vulnerability warrants urgent Java runtime inventory and updates, but the researchers' demonstrations do not prove every Java deployment is exploitable or establish widespread exploitation in the wild.",
+      "rank": 1,
+      "whyItMatters": "Critical runtime flaw with urgent patching implications.",
+      "limitations": "CPU and runtime dependent; no verified widespread exploitation.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "Calif technical investigation",
+          "url": "https://calif.io/java4shell/"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "The optimized intrinsic",
+          "body": "The vulnerability is in hand-written HotSpot assembly used for accelerated Base64 decoding. A malformed padded tail can underflow the calculated output length and produce an incorrect vector write mask, allowing data to be written past the destination array before Java rejects the input."
+        },
+        {
+          "heading": "Operational exposure",
+          "body": "Application endpoints that decode attacker-controlled Base64, including authentication and upload paths, may expose the vulnerable routine. The researchers report different exploit chains for different products; the actual runtime, CPU and application configuration determine exposure."
+        },
+        {
+          "heading": "Mitigation and uncertainty",
+          "body": "Consult the vendor advisory and deploy patched Java builds. Calif also describes disabling the Base64 intrinsic as a temporary mitigation, but this can affect performance and must be tested. There is no verified broad exploitation count."
+        }
+      ],
+      "discussions": [
+        {
+          "platform": "Reddit",
+          "url": "https://www.reddit.com/r/java/comments/1xywnrw/calif_discloses_java4shell_flaw_in_openjdks/",
+          "label": "r/java discussion"
+        }
+      ]
+    },
+    {
+      "title": "Equinor responds to cyberattack on corporate IT",
+      "category": "Security",
+      "summary": "Equinor said November 17 it detected an ongoing cyberattack against some internal IT systems and mobilized resources to contain it. Reuters reported disruption to internal applications and, citing an employee, to email. Norway's National Security Authority acknowledged the incident and said it was offering assistance.\n\nThe energy company explicitly reported no impact on oil and gas operations or production and no indication of data theft. The distinction is important: a corporate IT incident at a critical energy supplier is serious without implying that industrial systems or energy delivery have been compromised.",
+      "rank": 2,
+      "whyItMatters": "An active attack at a major energy supplier warrants close monitoring.",
+      "limitations": "Production unaffected; attacker and scope unknown.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "Primary report",
+          "url": "https://www.reuters.com/technology/equinor-detects-ongoing-cyberattack-output-unaffected-2026-11-17/"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "Verified operational scope",
+          "body": "The company described internal IT effects and ongoing containment. Reuters reported internal email disruption, but the affected system inventory, start time and complete duration remain undisclosed."
+        },
+        {
+          "heading": "Production and response",
+          "body": "Equinor said its production was unaffected, and Norway's security authority confirmed it was aware of the situation. The attack should not be described as an industrial control-system compromise."
+        },
+        {
+          "heading": "Unknowns",
+          "body": "No attacker attribution, intrusion path, confirmed stolen data or final restoration time was established in the reporting reviewed. Additional company statements are needed to determine when containment is complete."
+        }
+      ]
+    },
+    {
+      "title": "Apple Pay and iCloud disrupted after internal update",
+      "category": "Cloud & Infrastructure",
+      "summary": "Apple acknowledged that an internal update caused a November 17 outage affecting services including iCloud and Apple Pay. Reuters reported that many systems had recovered, while Apple was still working to restore the remainder. Downdetector recorded peaks of approximately 2,300 US Apple Pay reports and 1,800 iCloud reports, but those are user submissions rather than verified customer totals.\n\nApple said the disruption was not caused by a cyberattack. There is no evidence linking it to recent Microsoft, airline or banking failures, despite the incidents occurring close together.",
+      "rank": 3,
+      "whyItMatters": "A shared internal change disrupted major consumer services.",
+      "limitations": "Full restoration and customer counts unconfirmed.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "Primary report",
+          "url": "https://www.reuters.com/business/retail-consumer/apple-works-restore-services-after-outage-caused-by-internal-update-2026-11-17/"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "Recovery status",
+          "body": "Apple said many services were back online but did not confirm complete restoration in the latest reviewed Reuters report. A status page that does not expose machine-readable incident details cannot independently establish recovery."
+        },
+        {
+          "heading": "Interpreting the numbers",
+          "body": "Downdetector figures reflect user reports, not affected accounts or failed transactions. They indicate a visible disruption but should not be extrapolated to a total population."
+        },
+        {
+          "heading": "Engineering implications",
+          "body": "A shared internal update can affect multiple customer products. The company attributed this incident to an update, not malicious activity; separate recent outages should not be assigned a common cause."
+        }
+      ]
+    },
+    {
+      "title": "OpenAI introduces GPT-6.2 Astra and Sol",
+      "category": "AI",
+      "summary": "OpenAI announced GPT-6.2 Astra and Sol on November 17, describing improvements in professional work, coding, computer use and efficiency across ChatGPT Work, Codex and the API. The company says both models meet its Critical cybersecurity capability threshold and High biological and chemical threshold. Astra additionally meets its High AI self-improvement threshold.\n\nThe company reports stronger performance on exploit-development tasks than its earlier models and says it has tightened controls on higher-risk cybersecurity assistance. These results come from OpenAI's own evaluations and need independent corroboration before being treated as comparative performance facts.",
+      "rank": 4,
+      "whyItMatters": "New model capabilities create both developer opportunities and security concerns.",
+      "limitations": "Vendor-reported evaluations.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "OpenAI announcement",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+        },
+        {
+          "label": "OpenAI system card",
+          "url": "https://deploymentsafety.openai.com/gpt-6-2-astra-sol/additional-informational-assessments-1"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "Model positioning",
+          "body": "Astra and Sol represent different capability and efficiency choices for professional tasks and coding agents. Meaningful deployment comparisons should measure successful repository-level tasks, latency, supervision and total cost rather than relying on benchmarks alone."
+        },
+        {
+          "heading": "Cybersecurity assessment",
+          "body": "The published system card reports stronger ability to build exploits from known vulnerabilities. OpenAI says this prompted tighter default restrictions and additional vetting for more permissive access."
+        },
+        {
+          "heading": "What remains unproven",
+          "body": "Vendor tests do not establish independent model superiority or actual enterprise reliability. The system card is useful evidence of the company's testing methodology and risk classifications, not a substitute for external evaluation."
+        }
+      ]
+    },
+    {
+      "title": "Microsoft launches MAI Code 2 and Code 2 Flash",
+      "category": "AI",
+      "summary": "Microsoft introduced MAI Code 2 and MAI Code 2 Flash on November 17, expanding its proprietary AI model offerings for software development. The announcement emphasizes coding capability and scalable economics, while Reuters also reports Microsoft unveiling cybersecurity-oriented models. The move increases competition among model providers serving coding agents and developer platforms.\n\nThe relevant engineering comparison is cost per successful task, including tool calls, retries and verification. Microsoft-reported results should not be interpreted as independently established superiority over other coding models.",
+      "rank": 5,
+      "whyItMatters": "Competition in coding models may affect cost and reliability.",
+      "limitations": "Independent benchmarks unavailable.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "Primary report",
+          "url": "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/"
+        },
+        {
+          "label": "Reuters",
+          "url": "https://www.reuters.com/legal/litigation/microsoft-unveils-ai-models-coding-cybersecurity-it-takes-anthropic-openai-2026-11-17/"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "Why a fast tier matters",
+          "body": "Coding agents may require many iterative model calls to inspect repositories, make changes and run tests. A lower-latency model can improve throughput if it remains reliable enough to avoid expensive retries."
+        },
+        {
+          "heading": "Evaluation criteria",
+          "body": "Use representative code repair, refactoring and review workloads. Compare correctness, security defects, tool-use behavior, context handling and total cost, not simply advertised per-token pricing."
+        },
+        {
+          "heading": "Evidence boundary",
+          "body": "The launch is confirmed by Microsoft's own announcement and Reuters reporting. Independent production measurements and broad adoption data were not established."
+        }
+      ]
+    },
+    {
+      "title": "jQuery 4.1.0 and 3.8.0 fix selector ReDoS",
+      "category": "Developer Tools",
+      "summary": "jQuery released versions 4.1.0 and 3.8.0 on November 17, including a fix for a selector regular expression vulnerable to catastrophic backtracking on crafted identifier escapes. Version 4.1 also adds jqXHR responseURL support where transports expose it, handles form-associated custom elements in serialization and makes uniqueSort's duplicate-removal phase linear rather than quadratic.\n\nThe maintainers say 3.8.0 is the last planned feature release on the 3.x branch, which will receive only critical security and bug fixes. Legacy applications should review the patch and migration guidance.",
+      "rank": 6,
+      "whyItMatters": "Security maintenance and long-term migration for a widely deployed web library.",
+      "limitations": "Compatibility testing required.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "jQuery release notes",
+          "url": "https://blog.jquery.com/2026/11/17/jquery-4-1-0-and-3-8-0-released-passing-the-torch/"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "Security mechanism",
+          "body": "A crafted selector containing many escape sequences could cause excessive regex backtracking and hang a page. The fix changes identifier matching to avoid the pathological case."
+        },
+        {
+          "heading": "4.1 improvements",
+          "body": "Modern querySelectorAll use, form-associated custom element serialization and more efficient uniqueSort address correctness and performance in mature web applications."
+        },
+        {
+          "heading": "Migration path",
+          "body": "Version 3.8.0 backports selected fixes and adds deprecation signals for APIs removed in 4.x. Teams should test compatibility and use jQuery Migrate rather than assume all older plugins will work unchanged."
+        }
+      ]
+    },
+    {
+      "title": "Solid 2.0 reaches stable with async reactivity",
+      "category": "Developer Tools",
+      "summary": "Solid announced version 2.0 stable after a multiyear development effort. The release brings asynchronous operations into its fine-grained reactive graph and introduces server functions, streaming and diagnostics intended to make reactive behavior more inspectable. The project also describes a smaller API and a more integrated approach to coordinating client and server state.\n\nFor frontend teams, the important question is how these changes affect data fetching, optimistic updates and debugging. The release announcement establishes availability, not effortless migration or superior performance in every application.",
+      "rank": 7,
+      "whyItMatters": "A significant change to frontend asynchronous state architecture.",
+      "limitations": "First-party claims and migration unknowns.",
+      "isUpdate": false,
+      "sources": [
+        {
+          "label": "Solid release",
+          "url": "https://www.solidjs.com/blog/solid-2-0-the-long-hold/"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "Async graph",
+          "body": "Solid's fine-grained reactivity updates individual dependencies rather than rerendering entire component trees. Version 2.0 extends that approach to asynchronous values and server interactions."
+        },
+        {
+          "heading": "Server and debugging work",
+          "body": "The maintainers describe server functions, streaming and diagnostic features that make reactive state and execution easier to understand, including when agents produce code."
+        },
+        {
+          "heading": "Migration considerations",
+          "body": "Existing Solid applications should review API changes and test loading, error recovery and optimistic-update paths. The announcement alone cannot establish production reliability across all application architectures."
+        }
+      ]
+    }
+  ],
+  "alsoWorthKnowing": [
+    {
+      "title": "NSA confirms temporary internal network degradation",
+      "category": "Cloud & Infrastructure",
+      "summary": "The NSA said scheduled maintenance caused temporary degradation in some classified internal communications systems. The agency reported that mission-critical capabilities remained operational and its national security defense functions were not impaired.\n\nReuters could not independently establish the full duration or scope. The agency's narrower statement should not be conflated with reports that the entire classified network was inoperable.",
+      "sources": [
+        {
+          "label": "Original reporting",
+          "url": "https://www.reuters.com/technology/highly-classified-us-national-security-communications-network-is-down-cnn-2026-11-17/"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "Established development",
+          "body": "The NSA said scheduled maintenance caused temporary degradation in some classified internal communications systems. The agency reported that mission-critical capabilities remained operational and its national security defense functions were not impaired."
+        },
+        {
+          "heading": "Evidence and implications",
+          "body": "Reuters could not independently establish the full duration or scope. The agency's narrower statement should not be conflated with reports that the entire classified network was inoperable. The practical impact should be evaluated against primary documentation and subsequent verified outcomes, rather than inferred from announcement language."
+        }
+      ]
+    },
+    {
+      "title": "Microsoft launches AI Transparency Initiative",
+      "category": "AI",
+      "summary": "Microsoft announced an AI Transparency Initiative at Ignite with more than 40 participating organizations, including Adobe, Accenture, Mastercard and Volvo Cars. It aims to improve governance and visibility into models and agents interacting with enterprise data.\n\nThe announcement is a coordination and product-direction commitment, not independent evidence that interoperable controls are already deployed across every participant.",
+      "sources": [
+        {
+          "label": "Original reporting",
+          "url": "https://news.microsoft.com/source/2026/11/17/microsoft-and-organizations-across-industries-launch-ai-transparency-initiative-to-strengthen-enterprise-trust-in-ai-models-and-agents/"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "Established development",
+          "body": "Microsoft announced an AI Transparency Initiative at Ignite with more than 40 participating organizations, including Adobe, Accenture, Mastercard and Volvo Cars. It aims to improve governance and visibility into models and agents interacting with enterprise data."
+        },
+        {
+          "heading": "Evidence and implications",
+          "body": "The announcement is a coordination and product-direction commitment, not independent evidence that interoperable controls are already deployed across every participant. The practical impact should be evaluated against primary documentation and subsequent verified outcomes, rather than inferred from announcement language."
+        }
+      ]
+    },
+    {
+      "title": "Microsoft describes Perception security for agents",
+      "category": "Security",
+      "summary": "Microsoft introduced security capabilities under its Perception initiative, connecting agent identity, access governance and monitoring across its security products. The stated goal is to make autonomous activity visible and governable in enterprise systems.\n\nThe effectiveness of these controls depends on deployed integrations, identity boundaries and actual audit coverage; the available claims are first-party.",
+      "sources": [
+        {
+          "label": "Original reporting",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/17/security-for-the-agentic-era-powered-by-microsoft-perception/"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "Established development",
+          "body": "Microsoft introduced security capabilities under its Perception initiative, connecting agent identity, access governance and monitoring across its security products. The stated goal is to make autonomous activity visible and governable in enterprise systems."
+        },
+        {
+          "heading": "Evidence and implications",
+          "body": "The effectiveness of these controls depends on deployed integrations, identity boundaries and actual audit coverage; the available claims are first-party. The practical impact should be evaluated against primary documentation and subsequent verified outcomes, rather than inferred from announcement language."
+        }
+      ]
+    },
+    {
+      "title": "Cloudflare examines Quad9 withdrawal from France",
+      "category": "Security",
+      "summary": "Cloudflare published an analysis of Quad9's withdrawal from France, arguing that legal pressure on recursive DNS operators can affect global infrastructure. The underlying issue concerns jurisdiction, filtering requirements and operators' willingness to serve particular markets.\n\nCloudflare has a direct industry interest, so its interpretation is commentary rather than an independent legal finding.",
+      "sources": [
+        {
+          "label": "Original reporting",
+          "url": "https://blog.cloudflare.com/quad9-withdrawal-from-france/"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "Established development",
+          "body": "Cloudflare published an analysis of Quad9's withdrawal from France, arguing that legal pressure on recursive DNS operators can affect global infrastructure. The underlying issue concerns jurisdiction, filtering requirements and operators' willingness to serve particular markets."
+        },
+        {
+          "heading": "Evidence and implications",
+          "body": "Cloudflare has a direct industry interest, so its interpretation is commentary rather than an independent legal finding. The practical impact should be evaluated against primary documentation and subsequent verified outcomes, rather than inferred from announcement language."
+        }
+      ]
+    },
+    {
+      "title": "OpenAI reports cybersecurity work with NATO",
+      "category": "AI",
+      "summary": "OpenAI described providing advanced cybersecurity models to NATO's Communications and Information Agency. The company reports usage reaching up to 300 billion raw input and output tokens per month.\n\nThat is a vendor-reported activity measure, not an independently verified reduction in attacks or an assessment of operational effectiveness.",
+      "sources": [
+        {
+          "label": "Original reporting",
+          "url": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai/"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "Established development",
+          "body": "OpenAI described providing advanced cybersecurity models to NATO's Communications and Information Agency. The company reports usage reaching up to 300 billion raw input and output tokens per month."
+        },
+        {
+          "heading": "Evidence and implications",
+          "body": "That is a vendor-reported activity measure, not an independently verified reduction in attacks or an assessment of operational effectiveness. The practical impact should be evaluated against primary documentation and subsequent verified outcomes, rather than inferred from announcement language."
+        }
+      ]
+    }
+  ],
+  "newTools": [
+    {
+      "title": "Alloy CSS builds a no-JavaScript invoice dashboard",
+      "category": "Developer Tools",
+      "format": "Interactive demo",
+      "summary": "A Show HN project presents a detailed fictional invoice dashboard built as a single HTML page using Alloy CSS without JavaScript. The working example includes menus, dialogs, tabs, invoice filters and form controls, with a source link on the page.\n\nIt is a useful experiment for evaluating declarative UI and progressive enhancement. The application uses made-up data, so it does not demonstrate backend persistence, authentication or real payment processing.",
+      "sources": [
+        {
+          "label": "Working demonstration",
+          "url": "https://alloyhtml.com/example.html"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "The demonstration",
+          "body": "The Ledger invoice example shows navigation, invoice states, a new-invoice dialog, tabbed content and filtering controls. The page explicitly says the app is fictional and links its source."
+        },
+        {
+          "heading": "Reproduction and limitations",
+          "body": "Inspect the example's source and Alloy CSS documentation, then test the interaction patterns with JavaScript disabled. The demo does not establish cross-browser accessibility or production readiness; those require separate testing."
+        }
+      ]
+    },
+    {
+      "title": "Belay explores Lean proofs for SQLite migrations",
+      "category": "Developer Tools",
+      "format": "Source code",
+      "summary": "Belay is an experimental repository using Lean 4 to verify properties of SQLite schema migrations and queries. Its implementation and documentation make it an inspectable example of bringing formal methods into routine database maintenance.\n\nThe interesting application is checking migration invariants before production rollout. It does not establish complete SQLite semantics or that every schema change can be proved automatically.",
+      "sources": [
+        {
+          "label": "Repository",
+          "url": "https://github.com/vihren-dev/belay"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "Technical approach",
+          "body": "The project models selected database migration and query behavior in Lean and expresses properties as proof obligations. This allows checking specified invariants rather than relying solely on test examples."
+        },
+        {
+          "heading": "How to investigate",
+          "body": "Read the source and examples, then try a small migration with a deliberately violated property. No independent execution was performed here, and unsupported SQL behavior or modeling assumptions may limit practical coverage."
+        }
+      ]
+    },
+    {
+      "title": "Interactive course teaches GPU inference mechanics",
+      "category": "Developer Tools",
+      "format": "Interactive tutorial",
+      "summary": "A short GPU inference course uses interactive diagrams to explain inference-serving concepts and their performance tradeoffs. The format lets developers explore ideas such as execution, batching and memory behavior visually rather than relying on static vendor claims.\n\nIt is educational material, not a benchmark or production serving framework. Its examples should be validated against real GPU workloads before making deployment decisions.",
+      "sources": [
+        {
+          "label": "Working demonstration",
+          "url": "https://athrael.net/courses/gpu-inference/"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "What the course offers",
+          "body": "The interactive web course presents inference concepts through diagrams and explanatory material. Readers can use it to develop a mental model of how serving decisions affect system behavior."
+        },
+        {
+          "heading": "Practical use and limits",
+          "body": "Work through the diagrams, then profile a representative inference service for latency, throughput and memory usage. The course was inspected online but no hardware benchmark was independently reproduced."
+        }
+      ]
+    }
+  ],
+  "marketPulse": "No new comprehensive, representative US software-engineering labor-market dataset was verified for November 17. Individual AI launches and company announcements do not establish a change in Staff+ hiring, compensation or employment demand.\n\nMicrosoft's and OpenAI's model announcements show continued competition on coding capability, cost and agent security. The Java vulnerability and Equinor incident reinforce the importance of software inventories, patching and security engineering. Those are engineering priorities, not direct measures of hiring growth.",
+  "discoveryAudit": {
+    "checkedAt": "2026-11-17T17:04:19-08:00",
+    "windowStart": "2026-11-16T17:04:19-08:00",
+    "windowEnd": "2026-11-17T17:04:19-08:00",
+    "sources": [
+      {
+        "name": "Current incident sweep",
+        "status": "partial",
+        "notes": "Reviewed Calif, Reuters Equinor and Apple reporting, NSA statement and Apple status. Resolution not verified for all incidents."
+      },
+      {
+        "name": "HN Algolia rolling 24h",
+        "status": "unavailable",
+        "url": "https://hn.algolia.com/api/v1/search",
+        "notes": "Timestamp-filtered endpoint inaccessible; 40–60 distinct candidate scan not completed."
+      },
+      {
+        "name": "HN Top, Best, Show and New",
+        "status": "partial",
+        "url": "https://news.ycombinator.com/news",
+        "notes": "Read listings and selected original sources; listing titles not counted as fully examined items."
+      },
+      {
+        "name": "Reddit technical communities",
+        "status": "partial",
+        "notes": "Verified direct Java4Shell developer threads; no exhaustive subreddit scan."
+      },
+      {
+        "name": "Developer and AI primary sources",
+        "status": "checked",
+        "notes": "Reviewed OpenAI, Microsoft, jQuery and Solid announcements."
+      },
+      {
+        "name": "Applied-tooling discovery",
+        "status": "partial",
+        "notes": "Inspected Show HN, Alloy live demo, Belay repository and GPU inference course; no eligible YouTube video fully reviewed."
+      }
+    ],
+    "majorIncidentsConsidered": [
+      {
+        "title": "Java4Shell",
+        "decision": "top-story",
+        "reason": "Critical patchable vulnerability with researcher-demonstrated RCE chains.",
+        "status": "active",
+        "sourceUrl": "https://calif.io/java4shell/"
+      },
+      {
+        "title": "Equinor IT cyberattack",
+        "decision": "top-story",
+        "reason": "Ongoing attack against major energy supplier, production reportedly unaffected.",
+        "status": "active",
+        "sourceUrl": "https://www.reuters.com/technology/equinor-detects-ongoing-cyberattack-output-unaffected-2026-11-17/"
+      },
+      {
+        "title": "Apple iCloud and Apple Pay outage",
+        "decision": "top-story",
+        "reason": "Confirmed customer impact, restoration still underway in latest reviewed report.",
+        "status": "uncertain",
+        "sourceUrl": "https://www.reuters.com/business/retail-consumer/apple-works-restore-services-after-outage-caused-by-internal-update-2026-11-17/"
+      },
+      {
+        "title": "NSA internal network degradation",
+        "decision": "also-worth",
+        "reason": "Temporary maintenance-related internal degradation with mission-critical operations unaffected.",
+        "status": "resolved",
+        "sourceUrl": "https://www.reuters.com/technology/highly-classified-us-national-security-communications-network-is-down-cnn-2026-11-17/"
+      }
+    ],
+    "rankingNotes": "Critical Java vulnerability leads, followed by ongoing Equinor attack and Apple multi-service outage. NSA incident lower severity per agency. Algolia inaccessible; official HN pages only partially examined. No unrelated outage causes conflated."
+  }
+}
