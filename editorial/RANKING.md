@@ -45,3 +45,7 @@ For the Sunday review, rank themes by the week's cumulative importance, not Mond
 ## Explain exceptions
 
 When a widely verified operational emergency is covered below an ordinary launch or acquisition, explain the editorial reason in `discoveryAudit.rankingNotes`. If evidence is insufficient or the incident was already resolved, state that fact. Do not make the reason up after the ranking.
+
+## Explicit exclusion: jQuery-specific coverage
+
+Do not select standalone jQuery releases, security/maintenance patches, migration instructions, plugin updates or other routine jQuery stories for the daily or weekly technology feed. This is an explicit reader preference, not a claim about jQuery's usage or maintenance status. Look for more consequential technology news instead; do not artificially pad story counts to replace it. Exception: a genuinely major, independently verified broader cross-ecosystem incident may mention jQuery where indispensable to the incident facts, but do not frame it as a jQuery product story. Apply this filter before final ranking and do not rewrite historic editions as part of routine research.
