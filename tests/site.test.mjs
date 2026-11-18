@@ -9,8 +9,8 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const out = join(root, process.env.SITE_DIR || "public");
-const BASE_PATH = "/tech-feed/";
-const BASE_URL = "https://mawburn.github.io/tech-feed/";
+const BASE_PATH = "/";
+const BASE_URL = "https://news.mawburn.com/";
 const SECTIONS = ["topStories", "alsoWorthKnowing", "newTools"];
 
 const pacificToday = () => process.env.HUGO_PARAMS_TODAY ||
@@ -170,7 +170,7 @@ test("JSON feeds keep their windows and schema shape", () => {
   assert.deepEqual(weekly.weeks.map(w => w.weekEnding), weeks.slice(0, 52).map(w => w.weekEnding));
 });
 
-test("links, assets and images respect the /tech-feed/ prefix and resolve locally", () => {
+test("links, assets and images respect the base path and resolve locally", () => {
   for (const file of htmlFiles(out)) {
     const html = readFileSync(file, "utf8");
     const rel = file.slice(out.length + 1);

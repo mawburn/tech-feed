@@ -1,7 +1,7 @@
 # Tech Feed — Hugo configuration.
 # Content lives in data/daily/*.json and data/weekly/*.json (the scheduler's
 # contract). Pages are generated from it by content adapters under content/.
-baseURL = "https://mawburn.github.io/tech-feed/"
+baseURL = "https://news.mawburn.com/"
 locale = "en-US"
 title = "mawburn Feed"
 timeZone = "America/Los_Angeles"

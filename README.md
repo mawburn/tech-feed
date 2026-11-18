@@ -2,8 +2,8 @@
 
 Daily and weekly AI and technology briefings, built with [Hugo](https://gohugo.io/) and published on GitHub Pages as static HTML. No browser JavaScript is used.
 
-- **Daily:** https://mawburn.github.io/tech-feed/
-- **Weekly:** https://mawburn.github.io/tech-feed/weekly.html
+- **Daily:** https://news.mawburn.com/
+- **Weekly:** https://news.mawburn.com/weekly.html
 
 ## Editorial discovery and ranking
 
@@ -176,7 +176,7 @@ Common commands:
 | Command | What it does |
 | --- | --- |
 | `pnpm validate` | Validate every publication against the schemas |
-| `pnpm dev` | Start the dev server at http://localhost:1313/tech-feed/ |
+| `pnpm dev` | Start the dev server at http://localhost:1313/ |
 | `pnpm build` | Build to `public/` |
 | `pnpm test:site` | Check the built site (routes, feeds, links, images, sitemap) |
 | `pnpm check` | Validate, build, then test the site |

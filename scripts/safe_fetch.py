@@ -19,7 +19,7 @@ import time
 from dataclasses import dataclass, field
 from urllib.parse import urljoin, urlsplit
 
-USER_AGENT = "mawburn-tech-feed/2.0 (+https://mawburn.github.io/tech-feed/; publisher metadata fetcher)"
+USER_AGENT = "mawburn-tech-feed/2.0 (+https://news.mawburn.com/; publisher metadata fetcher)"
 ALLOWED_PORTS = {"http": 80, "https": 443}
 MAX_REDIRECTS = 5
 
