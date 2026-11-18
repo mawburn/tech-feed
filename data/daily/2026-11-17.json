@@ -1,6 +1,6 @@
 {
   "date": "2026-11-17",
-  "overview": "A newly disclosed OpenJDK Base64 memory-corruption vulnerability is the day's most urgent developer-security development. Researchers report remote-code-execution chains in several enterprise Java applications, and patches are available. Separately, Equinor is responding to a cyberattack against internal IT systems while reporting no disruption to oil and gas production. Apple also acknowledged an internal update that disrupted iCloud and Apple Pay, with recovery still underway in the latest verified report.\n\nAI news is substantial: OpenAI released GPT-6.2 Astra and Sol with consequential cybersecurity safety assessments, while Microsoft introduced its MAI Code 2 family and expanded enterprise-agent governance efforts. For frontend engineers, jQuery 4.1.0 and 3.8.0 fix a selector denial-of-service issue, and Solid 2.0 reaches stable. Practical demonstrations include a no-JavaScript invoicing interface, Lean-based SQLite migration verification and an interactive GPU inference course. These incidents and announcements have distinct causes; no common failure mechanism is established.",
+  "overview": "Java4Shell remains the day's most urgent Java security development: researchers demonstrated a critical Base64 decoder memory-corruption flaw on affected x86-64 runtimes, while Red Hat says distribution-specific fixes are being expedited. Equinor continues to investigate an attack against corporate IT, with production reportedly unaffected. Apple attributed its iCloud and Apple Pay disruption to an internal update, but a complete restoration time could not be independently confirmed.\n\nA significant follow-up to yesterday's Optimizely supply-chain compromise adds concrete recovery evidence. Optimizely now confirms that it fixed the exploited Experimentation vulnerability, removed injected code, secured affected accounts and introduced safeguards. Independent research found its observed malicious snippets clean by November 16 at 23:11 UTC; downstream visitor impact remains unknown.\n\nAI announcements from OpenAI and Microsoft and Solid 2.0's stable release remain relevant. Hands-on demonstrations cover JavaScript-free interfaces, formal verification of SQLite migrations and GPU inference education. No new representative senior-engineering hiring dataset was verified.",
   "topStories": [
     {
       "title": "Java4Shell exposes OpenJDK Base64 memory corruption",
@@ -210,46 +210,10 @@
       }
     },
     {
-      "title": "jQuery 4.1.0 and 3.8.0 fix selector ReDoS",
-      "category": "Developer Tools",
-      "summary": "jQuery released versions 4.1.0 and 3.8.0 on November 17, including a fix for a selector regular expression vulnerable to catastrophic backtracking on crafted identifier escapes. Version 4.1 also adds jqXHR responseURL support where transports expose it, handles form-associated custom elements in serialization and makes uniqueSort's duplicate-removal phase linear rather than quadratic.\n\nThe maintainers say 3.8.0 is the last planned feature release on the 3.x branch, which will receive only critical security and bug fixes. Legacy applications should review the patch and migration guidance.",
-      "rank": 6,
-      "whyItMatters": "Security maintenance and long-term migration for a widely deployed web library.",
-      "limitations": "Compatibility testing required.",
-      "isUpdate": false,
-      "sources": [
-        {
-          "label": "jQuery release notes",
-          "url": "https://blog.jquery.com/2026/11/17/jquery-4-1-0-and-3-8-0-released-passing-the-torch/"
-        }
-      ],
-      "briefing": [
-        {
-          "heading": "Security mechanism",
-          "body": "A crafted selector containing many escape sequences could cause excessive regex backtracking and hang a page. The fix changes identifier matching to avoid the pathological case."
-        },
-        {
-          "heading": "4.1 improvements",
-          "body": "Modern querySelectorAll use, form-associated custom element serialization and more efficient uniqueSort address correctness and performance in mature web applications."
-        },
-        {
-          "heading": "Migration path",
-          "body": "Version 3.8.0 backports selected fixes and adds deprecation signals for APIs removed in 4.x. Teams should test compatibility and use jQuery Migrate rather than assume all older plugins will work unchanged."
-        }
-      ],
-      "discussions": [
-        {
-          "platform": "Hacker News",
-          "url": "https://news.ycombinator.com/item?id=50537647",
-          "label": "HN discussion"
-        }
-      ]
-    },
-    {
       "title": "Solid 2.0 reaches stable with async reactivity",
       "category": "Developer Tools",
       "summary": "Solid announced version 2.0 stable after a multiyear development effort. The release brings asynchronous operations into its fine-grained reactive graph and introduces server functions, streaming and diagnostics intended to make reactive behavior more inspectable. The project also describes a smaller API and a more integrated approach to coordinating client and server state.\n\nFor frontend teams, the important question is how these changes affect data fetching, optimistic updates and debugging. The release announcement establishes availability, not effortless migration or superior performance in every application.",
-      "rank": 7,
+      "rank": 6,
       "whyItMatters": "A significant change to frontend asynchronous state architecture.",
       "limitations": "First-party claims and migration unknowns.",
       "isUpdate": false,
@@ -293,6 +257,37 @@
     }
   ],
   "alsoWorthKnowing": [
+    {
+      "title": "Optimizely confirms security fix after malicious web-snippet campaign",
+      "incidentId": "optimizely-web-snippet-malware-2026-11",
+      "category": "Security",
+      "summary": "Optimizely has confirmed that an attacker exploited a vulnerability in its Web Experimentation platform to add malicious JavaScript to customer projects. The company says it fixed the vulnerability, removed injected code, secured affected accounts and added safeguards against unauthorized script delivery. Independent researcher Scott Helme reports that all 188 infected snippets in his observed sample were clean by November 16 at 23:11 UTC.\n\nThis is a material remediation update to the November 16 compromise, not a new incident. The number of visitors exposed to card skimming, cookie theft, cryptocurrency-address substitution or iOS exploit delivery remains unknown. Optimizely still labels the incident monitoring.",
+      "isUpdate": true,
+      "sources": [
+        {
+          "label": "Optimizely incident statement",
+          "url": "https://status.optimizely.com/"
+        },
+        {
+          "label": "Report URI investigation and November 17 update",
+          "url": "https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "Provider confirms vulnerability and corrective actions",
+          "body": "Optimizely's November 17 incident notice says an unauthorized party exploited a vulnerability in its experimentation product to add malicious JavaScript to some customer projects. It reports fixing the vulnerability, removing injected code, securing affected accounts and adding protections against unauthorized code delivery. The company has not yet published detailed technical root-cause mechanics or a full postmortem."
+        },
+        {
+          "heading": "Observed cleanup timeline",
+          "body": "Scott Helme's follow-up, posted November 17 at 09:17 UTC, reports that all previously infected Optimizely files in his observed set had been clean since November 16 at 23:11 UTC. He also reports several attacker domains were disabled or stopped responding. These observations support removal of the known malicious scripts but do not establish that every cached copy or downstream exposure was cleared."
+        },
+        {
+          "heading": "Residual risk and engineering lessons",
+          "body": "The attacker placed code inside the project-level JavaScript served through a trusted experimentation script, so organizations could expose visitors without changes to their own application repositories. The investigation documents wallet substitution, payment skimming, cookie theft and mobile exploit delivery, but it cannot measure all resulting losses. Organizations should review historical third-party script changes, browser security telemetry, content security policy and any affected visitor sessions. Optimizely's incident remains in monitoring."
+        }
+      ]
+    },
     {
       "title": "NSA confirms temporary internal network degradation",
       "category": "Cloud & Infrastructure",
@@ -530,9 +525,9 @@
   ],
   "marketPulse": "No new comprehensive, representative US software-engineering labor-market dataset was verified for November 17. Individual AI launches and company announcements do not establish a change in Staff+ hiring, compensation or employment demand.\n\nMicrosoft's and OpenAI's model announcements show continued competition on coding capability, cost and agent security. The Java vulnerability and Equinor incident reinforce the importance of software inventories, patching and security engineering. Those are engineering priorities, not direct measures of hiring growth.",
   "discoveryAudit": {
-    "checkedAt": "2026-11-17T17:04:19-08:00",
-    "windowStart": "2026-11-16T17:04:19-08:00",
-    "windowEnd": "2026-11-17T17:04:19-08:00",
+    "checkedAt": "2026-11-17T17:42:00-08:00",
+    "windowStart": "2026-11-16T17:42:00-08:00",
+    "windowEnd": "2026-11-17T17:42:00-08:00",
     "sources": [
       {
         "name": "Current incident sweep",
@@ -565,6 +560,21 @@
         "name": "Applied-tooling discovery",
         "status": "partial",
         "notes": "Inspected Show HN, Alloy live demo, Belay repository and GPU inference course; no eligible YouTube video fully reviewed."
+      },
+      {
+        "name": "Incident registry and official status recheck",
+        "status": "checked",
+        "notes": "Read all four incident records, Optimizely first-party security status and Report URI follow-up, Red Hat bulletin, Equinor reporting, Apple reports, GitHub and Cloudflare status."
+      },
+      {
+        "name": "Company engineering blogs rotating pool",
+        "status": "partial",
+        "notes": "Reviewed Report URI technical investigation, Cloudflare material and selected engineering sources; not exhaustive across catalog."
+      },
+      {
+        "name": "YouTube demos",
+        "status": "unavailable",
+        "notes": "No direct YouTube demonstration reviewed in this rerun."
       }
     ],
     "majorIncidentsConsidered": [
@@ -595,8 +605,16 @@
         "reason": "Temporary maintenance-related internal degradation with mission-critical operations unaffected.",
         "status": "resolved",
         "sourceUrl": "https://www.reuters.com/technology/highly-classified-us-national-security-communications-network-is-down-cnn-2026-11-17/"
+      },
+      {
+        "title": "Optimizely Web experimentation compromise",
+        "incidentId": "optimizely-web-snippet-malware-2026-11",
+        "decision": "also-worth",
+        "reason": "Material first-party confirmation of vulnerability fix and independently observed malicious-script cleanup; monitoring and residual visitor exposure remain open.",
+        "status": "active",
+        "sourceUrl": "https://status.optimizely.com/"
       }
     ],
-    "rankingNotes": "Critical Java vulnerability leads, followed by ongoing Equinor attack and Apple multi-service outage. NSA incident lower severity per agency. Algolia inaccessible; official HN pages only partially examined. No unrelated outage causes conflated."
+    "rankingNotes": "Java4Shell remains the lead for urgent patching. Equinor and Apple remain operationally important with incomplete recovery evidence. Optimizely's verified remediation is a substantive update to the prior day's incident, not a new attack. Excluded jQuery under explicit editorial policy. HN Algolia 24-hour API scan was unavailable; official Top, Best, Show and New lists inspected, but not 40–60 distinct original stories."
   }
 }
