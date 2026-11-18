@@ -31,6 +31,149 @@ Research relevant official release notes, changelogs, GitHub releases/issues/adv
 
 GitHub Trending and community ranking are discovery prompts; prefer project documentation, code, release history and real-world evidence for claims.
 
+## Company engineering and technical developer blogs — rotating discovery catalog
+
+**Purpose:** Find substantive engineering knowledge, incidents, debugging reports, performance work, architecture trade-offs, new developer capabilities, technical investigations, and postmortems that may never get covered by technology news. This catalog is a **discovery map, not an endorsement, ranking, whitelist, story quota, or demand to visit every URL on every run**. Follow current articles and direct technical sources. **Company posts receive no editorial priority merely for being on this list.** Search other organizations and independent engineers too.
+
+**Routine:** Rotate across these categories during the week, going deeper on Sunday. Check the most relevant newly published engineering posts, incident histories and recent significant updates; for any tracked outage or regression, check the *specific responsible provider's* engineering blog, incident history, issue tracker and patch notes even if that provider is not listed. Prefer official engineering/technology subcategories over broad corporate news feeds. Where RSS/Atom is actually available, use it; otherwise use category pages and date-filtered search. Older high-quality posts can supply technical background, **not** a fresh headline by themselves. Verify actual publication and incident dates; some indexes, redirects and archives change.
+
+### Cloud, networking, infrastructure and operational reliability
+
+| Official source | Topics worth checking |
+| --- | --- |
+| [Cloudflare Blog](https://blog.cloudflare.com/) | DNS/CDN, BGP, networking, security, edge architecture, incident analyses |
+| [AWS Architecture Blog](https://aws.amazon.com/blogs/architecture/) and [Amazon Builders' Library](https://aws.amazon.com/builders-library/) | Large-scale design, retries, overload, distributed systems and failure handling |
+| [AWS Compute Blog](https://aws.amazon.com/blogs/compute/) and [AWS Database Blog](https://aws.amazon.com/blogs/database/) | Lambda, containers, infrastructure and persistence internals |
+| [Google Cloud Blog](https://cloud.google.com/blog) and [Google SRE](https://sre.google/) | Infrastructure, distributed systems, availability, operations and reliability |
+| [Microsoft DevBlogs](https://devblogs.microsoft.com/) and [Azure Blog](https://azure.microsoft.com/en-us/blog/) | Runtime internals, Azure, .NET, developer tooling, reliability |
+| [Fastly Blog](https://www.fastly.com/blog) | Edge, CDN, traffic engineering, security and outages |
+| [Fly.io Blog](https://fly.io/blog/) | Anycast, VMs, distributed SQLite, networking, honest failures |
+| [Tailscale Blog](https://tailscale.com/blog) | WireGuard, NAT traversal, networking, security and debugging |
+| [Oxide Computer Blog](https://oxide.computer/blog) | Systems software, Rust, firmware, hardware and operational design |
+| [Dropbox Tech Blog](https://dropbox.tech/) | Sync, storage, data durability and infrastructure |
+| [Uber Engineering](https://www.uber.com/us/en/blog/engineering/) | Storage, service architecture, capacity, performance and distributed systems |
+| [Lyft Engineering](https://eng.lyft.com/) | Envoy, service mesh, data infrastructure and experimentation |
+| [Netflix TechBlog](https://netflixtechblog.com/) | Chaos engineering, streaming, performance, distributed data systems |
+| [Slack Engineering](https://slack.engineering/) | Reliability, cloud migration, testing and service operations |
+| [Discord Engineering posts](https://discord.com/blog) | Realtime messaging, voice infrastructure, data migrations and scaling; filter for technical articles |
+| [Shopify Engineering](https://shopify.engineering/) | Ruby/React, high-traffic commerce, performance, deploys, data and engineering practices |
+| [Backblaze Blog](https://www.backblaze.com/blog/) | Hardware/storage reliability and observed drive-failure data |
+| [Ably Blog](https://ably.com/blog) | Realtime messaging, pub/sub, ordering, delivery and scale |
+| [incident.io Blog](https://incident.io/blog) | Incident response and concrete internal engineering decisions |
+
+### Software platforms, frontend, developer tools and observability
+
+| Official source | Topics worth checking |
+| --- | --- |
+| [GitHub Engineering](https://github.blog/engineering/) | Git infrastructure, search, performance, developer systems and incidents |
+| [GitLab Engineering](https://about.gitlab.com/blog/categories/engineering/) | CI/CD, builds, testing, repositories and infrastructure |
+| [Vercel Blog](https://vercel.com/blog) | Next.js, runtime, web performance, build infrastructure and security; filter marketing |
+| [Netlify Blog](https://www.netlify.com/blog/) | Hosting, serverless, build/release systems and web developer tooling |
+| [Figma Engineering](https://www.figma.com/blog/engineering/) | Multiplayer synchronization, browser performance, rendering and databases |
+| [Canva Engineering](https://www.canva.dev/blog/engineering/) | Frontend, scaling, infrastructure, security and rendering |
+| [Linear Blog](https://linear.app/blog) | Local-first-ish sync, architecture and client performance; filter launches |
+| [Notion Tech](https://www.notion.com/blog/topic/tech) | Database systems, search, multi-region architecture and performance |
+| [JetBrains Blog](https://blog.jetbrains.com/) | IDE internals, compiler/tooling performance and language development |
+| [Docker Blog](https://www.docker.com/blog/) | Containers, builds, developer experience and runtime internals |
+| [Sentry Blog](https://blog.sentry.io/) | Production debugging, instrumentation, error tracking, profiling |
+| [Datadog Engineering](https://www.datadoghq.com/blog/engineering/) | Telemetry systems, profiling, ingestion and observability infrastructure |
+| [Grafana Labs Blog](https://grafana.com/blog/) | Prometheus/Mimir/Loki/Tempo, operational design and scaling |
+| [Honeycomb Blog](https://www.honeycomb.io/blog) | Observability, tracing and practical production debugging |
+| [Temporal Blog](https://temporal.io/blog) | Durable execution, workflows, event processing; filter promotional content |
+| [Sourcegraph Blog](https://sourcegraph.com/blog) | Code intelligence, search, agent-assisted software development and evaluations |
+| [Prisma Blog](https://www.prisma.io/blog) | TypeScript, ORM and database query-engine internals |
+| [V8 Blog](https://v8.dev/blog) | JavaScript engine, compilation, optimization, garbage collection |
+| [Chromium Developers Blog](https://developer.chrome.com/blog) | Browser engines, web platform and Chrome developer capabilities |
+| [WebKit Blog](https://webkit.org/blog/) | Browser internals, rendering, performance, CSS/JS implementation |
+| [Mozilla Hacks](https://hacks.mozilla.org/) | Web standards, Firefox internals and browser engineering |
+| [Node.js Blog](https://nodejs.org/en/blog) | Node runtime, APIs, security and releases |
+| [Go Blog](https://go.dev/blog/) and [Rust Blog](https://blog.rust-lang.org/) | Language/runtime/compiler features, engineering changes and ecosystem design |
+| [React Blog](https://react.dev/blog) | React architecture, renderer, framework guidance and releases |
+| [Yelp Engineering](https://engineeringblog.yelp.com/) | TypeScript migrations, GraphQL, search and ML production work |
+
+### Databases, data infrastructure and distributed systems
+
+| Official source | Topics worth checking |
+| --- | --- |
+| [PlanetScale Blog](https://planetscale.com/blog) | MySQL/Postgres internals, query behavior, backups and operations |
+| [ClickHouse Blog](https://clickhouse.com/blog) | OLAP internals, query execution, storage and benchmarks |
+| [Neon Blog](https://neon.com/blog) | Serverless Postgres, storage separation and branching |
+| [Cockroach Labs Blog](https://www.cockroachlabs.com/blog/) | Distributed SQL, consensus, transactions and failure modes; filter AI marketing |
+| [MongoDB Engineering](https://www.mongodb.com/company/blog/engineering) | Storage engines, concurrency, specification and correctness |
+| [Confluent Blog](https://www.confluent.io/blog/) | Kafka, Flink, stream processing and operational trade-offs |
+| [Materialize Blog](https://materialize.com/blog/) | Incremental computation, dataflow and streaming SQL |
+| [Redis Blog](https://redis.io/blog/) | Caching, data structures and Redis internals; filter generic SEO posts |
+| [Turso Blog](https://turso.tech/blog) | SQLite, storage engines, Rust and multitenant databases |
+| [Supabase Blog](https://supabase.com/blog) | Postgres, realtime, auth and developer platform internals |
+| [Elastic Search Labs](https://www.elastic.co/search-labs/blog) | Search internals, retrieval, indexing and performance |
+| [Vespa Blog](https://blog.vespa.ai/) | Search, ranking, vector retrieval and evaluation |
+
+### AI systems, compilers, hardware and research engineering
+
+| Official source | Topics worth checking |
+| --- | --- |
+| [NVIDIA Technical Blog](https://developer.nvidia.com/blog/) | GPU/graphics internals, CUDA, inference, performance, optimization and game tech |
+| [Anthropic Engineering](https://www.anthropic.com/engineering) | Agents, evaluation design, practical model infrastructure and limitations |
+| [OpenAI Research](https://openai.com/research/) | Research, systems, evaluation methods and technical reports; scrutinize vendor claims |
+| [Google Research Blog](https://research.google/blog/) | Systems, algorithms, AI, measurements and research |
+| [Google DeepMind Blog](https://deepmind.google/discover/blog/) | ML research, model systems and reproducible evidence |
+| [Meta Engineering](https://engineering.fb.com/) | Networks, ML systems, datacenters, storage and open source |
+| [Hugging Face Blog](https://huggingface.co/blog) | Model implementations, open-source tooling, inference and practical experiments |
+| [Databricks Engineering Blog](https://www.databricks.com/blog/category/engineering) | Data/ML systems, distributed execution, storage and infrastructure |
+| [Jane Street Blog](https://blog.janestreet.com/) | OCaml, compilers, correctness, hardware acceleration and formal methods |
+| [Microsoft Research Blog](https://www.microsoft.com/en-us/research/blog/) | Systems research, AI evaluation, research implementation and methodology |
+
+### Game engineering, realtime simulation, rendering and anti-cheat — explicit technical beat
+
+**Riot/VALORANT are particularly useful examples of the desired depth.** Technical posts about tick rate, network replication, hit registration, lag compensation, server load, anti-cheat, shader implementation, debugging and performance can be significant without describing a new game release. Avoid equating player-facing patch notes or promotional dev diaries with engineering investigations.
+
+| Official source | Topics worth checking |
+| --- | --- |
+| [Riot Games Technology](https://technology.riotgames.com/) and [Riot's game-dev tech resources](https://www.riotgames.com/en/game-dev-resources) | Game servers, netcode, anti-cheat, patching, debugging, rendering and developer tooling |
+| [VALORANT Dev articles](https://playvalorant.com/en-us/news/dev/) | Technical deep dives when present, netcode/anti-cheat/replays/performance alongside less-technical design updates |
+| [Riot: Peeking into VALORANT's Netcode](https://www.riotgames.com/en/news/peeking-valorants-netcode) | **Quality exemplar, not fresh news**: competitive netcode, latency and peeker's advantage |
+| [Riot: VALORANT's 128-Tick Servers](https://www.riotgames.com/en/news/valorants-128-tick-servers) | **Quality exemplar, not fresh news**: optimizing game-server compute and profiling |
+| [Riot: Scalability and Load Testing for VALORANT](https://www.riotgames.com/en/news/scalability-and-load-testing-valorant) | **Quality exemplar, not fresh news**: game-server capacity and realistic load tests |
+| [Roblox Engineering](https://about.roblox.com/engineering) | Engine, networking, platform scale, realtime simulation and runtime performance |
+| [Unity Blog](https://unity.com/blog) | Engine internals, graphics, physics, Burst, DOTS, profiling and tooling; filter product promotion |
+| [Unreal Engine News](https://www.unrealengine.com/en-US/news) and [Epic Developer Community](https://dev.epicgames.com/community/) | Rendering, engine architecture, optimization, technical Unreal Fest material |
+| [Bungie Tech Blog introduction / archive entry](https://www.bungie.net/7/en/News/Article/50139) | Game networking, matchmaking, rendering, tools and automation; check whether new engineering writing exists rather than assuming an active feed |
+| [Ubisoft technology research](https://www.ubisoft.com/en-us/company/how-we-make-games/technology) | Snowdrop/Anvil, simulation, graphics, tools, technical R&D |
+| [NVIDIA developer game/graphics posts](https://developer.nvidia.com/blog/) | GPU profiling, rendering, shaders, latency and engine optimization |
+
+### Commerce, consumer platforms, finance and large-scale product engineering
+
+| Official source | Topics worth checking |
+| --- | --- |
+| [Stripe Dev Blog: Engineering](https://stripe.dev/blog/topic/engineering) | APIs, idempotency, payments, database remediation and reliability |
+| [Airbnb Engineering](https://medium.com/airbnb-engineering) | Search/ML systems, product experimentation, service and data architecture |
+| [DoorDash Engineering](https://careersatdoordash.com/engineering-blog/) | Backend architecture, logistics, platform engineering and data systems |
+| [Spotify Engineering](https://engineering.atspotify.com/) | Developer platforms, experimentation, infrastructure and incident reviews |
+| [LinkedIn Engineering](https://www.linkedin.com/blog/engineering) | Kafka, distributed storage, search, stream processing and platform systems |
+| [Pinterest Engineering](https://medium.com/pinterest-engineering) | ML, high-throughput data and recommendation systems |
+| [Etsy Code as Craft](https://www.etsy.com/codeascraft) | Observability, deployment, web scaling and experimentation |
+| [Booking.com Tech](https://blog.booking.com/) | Experimentation, infrastructure, mobile and data platforms |
+| [Grab Engineering](https://engineering.grab.com/) | Data platforms, scale, infrastructure and systems trade-offs |
+| [Zalando Engineering](https://engineering.zalando.com/) | Kubernetes, open source, infrastructure and load balancing |
+| [Monzo Technology](https://monzo.com/blog/topic/technology) | Banking infrastructure, microservices, operational reliability |
+| [Coinbase Engineering](https://www.coinbase.com/blog/landing/engineering) | Incident postmortems, infrastructure, security and trading-system operations |
+| [PayPal Technology](https://medium.com/paypal-tech) | Payment services, storage, scale and production engineering |
+| [Netflix TechBlog](https://netflixtechblog.com/) | Revisit for experiment platforms, streaming scale and resilience |
+
+### Independent discovery directories (find omissions, do not substitute for primary sources)
+
+- [73 engineering blogs worth reading](https://bytesizeddesign.com/resources/engineering-blogs) — maintained directory with topic descriptions and RSS information, not a ranking mandate.
+- [Engineering.fyi company engineering archive](https://www.engineering.fyi/companies) — cross-company article discovery; follow each finding to its original publisher.
+- [Riot game development resource index](https://www.riotgames.com/en/game-dev-resources) — first-party entry point for Riot technical content; don't mistake archived highlights for new posts.
+
+**Editorial filters for every category:**
+- Prefer implementation detail, code, measurements, reproducible experiments, diagrams, failures and trade-offs. A deep bug investigation or graphics/netcode technique can beat a routine model launch for practical reader value.
+- Distinguish **engineering analysis, incident RCA, tutorial/demonstration, product launch, and corporate opinion**. A product announcement is not an engineering deep dive simply because the company calls it a developer blog.
+- When covering an incident, track its original occurrence, mitigation, final fixes and later postmortem across dates; link the direct primary article and status/issue history.
+- Search beyond the catalog, check actual new-post dates, independently verify consequential claims, and never invent feeds or claim a source was checked without actually opening it.
+- The existing independent technical-blog list below remains complementary and should still be sampled without automatic priority.
+
+
 ## AI and research
 
 Use first-party model cards, code/weight repositories, peer-reviewed or preprint papers, independent evaluations, hardware and inference benchmarks with disclosed methodologies, and credible reporting. State whether models are proprietary, open-weight or open-source; do not conflate the categories. Treat vendor tests as vendor-reported.
