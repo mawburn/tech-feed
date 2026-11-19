@@ -1,0 +1,53 @@
+{
+  "id": "nginx-http2-rce-2026-11",
+  "title": "NGINX HTTP/2 unauthenticated remote-code-execution flaws",
+  "provider": "NGINX / F5",
+  "category": "Security",
+  "status": "monitoring",
+  "discoveredDate": "2026-11-18",
+  "fixDate": "2026-11-18",
+  "summary": "Two critical NGINX HTTP/2 memory-safety vulnerabilities, CVE-2026-123633 and CVE-2026-123007, allow unauthenticated remote code execution in affected configurations. F5 coordinated fixes released November 18, with NGINX OSS 1.30.7 stable and 1.31.9 mainline listed as patched. Public research demonstrates exploitation in lab environments; widespread in-the-wild exploitation was not verified.",
+  "rootCause": {
+    "status": "confirmed",
+    "summary": "HTTP/2 connection reuse bookkeeping causes a use-after-free (CVE-2026-123633), while flow-control accounting and integer underflow can produce an out-of-bounds copy (CVE-2026-123007).",
+    "sources": [
+      {
+        "label": "Wiz technical disclosure",
+        "url": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities"
+      }
+    ]
+  },
+  "fix": "NGINX OSS 1.30.7 stable or 1.31.9 mainline address both vulnerabilities; relevant NGINX Plus patch levels are documented in the technical disclosure. Disabling HTTP/2 is a temporary mitigation, not a permanent fix.",
+  "sources": [
+    {
+      "label": "Wiz technical disclosure and fix matrix",
+      "url": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-18",
+      "kind": "discovery",
+      "status": "identified",
+      "summary": "Wiz, Ikotas Labs, Metnir, Rapid7 and Xint coordinated disclosure of critical HTTP/2 RCE vulnerabilities, including successful lab exploitation. The issues were privately reported in October and November; public disclosure occurred November 18.",
+      "sources": [
+        {
+          "label": "Wiz disclosure",
+          "url": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-18",
+      "kind": "fix",
+      "status": "monitoring",
+      "summary": "F5 issued security fixes on November 18; NGINX OSS fixed versions include 1.30.7 and 1.31.9. Operators must deploy patches or temporarily disable HTTP/2. Production adoption and downstream recovery remain unverified.",
+      "sources": [
+        {
+          "label": "Wiz fixed-release matrix",
+          "url": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities"
+        }
+      ]
+    }
+  ]
+}
