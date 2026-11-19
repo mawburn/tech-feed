@@ -195,6 +195,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://cdn.springcraft.ai/springrep/springrep-preview-mwmpm0jd.png": {
+      "attempts": 1,
+      "bytes": 12728,
+      "encoding": "q90",
+      "file": "img/edb76445a8cceef52854.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-19T01:06:33Z",
+      "sha256": "edb76445a8cceef52854c8f01dcc71bb41d4db6c5a4239f195bf80dfddd40739",
+      "sourceBytes": 56436,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/11/11/Header-A-dark-gradient-1-1260x630.png": {
       "attempts": 1,
       "bytes": 9708,
@@ -421,6 +434,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://microsoft.ai/wp-content/uploads/2026/11/All-Up-Blog.jpg": {
+      "attempts": 1,
+      "bytes": 3290,
+      "encoding": "q60",
+      "file": "img/3f3012140f78ab4a3027.webp",
+      "height": 338,
+      "lastAttempt": "2026-11-19T01:06:33Z",
+      "sha256": "3f3012140f78ab4a30271578dac0e68397add902d8a8772307655d5696bca05c",
+      "sourceBytes": 61922,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    },
     "https://microsoft.ai/wp-content/uploads/2026/11/MAI-Code-2-Ignite-WithHeader-16x9-1.jpg": {
       "attempts": 1,
       "bytes": 11708,
@@ -609,6 +635,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://rshekhar.com/voyager/og.jpg": {
+      "attempts": 1,
+      "bytes": 7010,
+      "encoding": "q80",
+      "file": "img/d7b4f461e46ed9b10b08.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-19T01:06:33Z",
+      "sha256": "d7b4f461e46ed9b10b089ed6d65536a7ae88ac43791076968bd83e1470dfbaab",
+      "sourceBytes": 49041,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    },
     "https://status.bath.ac.uk/assets/status_pages/og_wl_operational-6028a588.png": {
       "attempts": 1,
       "bytes": 2664,
@@ -648,6 +687,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-neon__blog-header__sm.width-1300.png": {
+      "attempts": 1,
+      "bytes": 14304,
+      "encoding": "q90",
+      "file": "img/1bb001958468294151f1.webp",
+      "height": 335,
+      "lastAttempt": "2026-11-19T01:06:33Z",
+      "sha256": "1bb001958468294151f19ad61727ef979c88b6822332e0b33901ea0a0f0ced97",
+      "sourceBytes": 1063604,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini__decisions__blog-header_2784x1566.width-1300.png": {
       "attempts": 1,
       "bytes": 8880,
@@ -657,6 +709,19 @@
       "lastAttempt": "2026-11-16T22:31:11Z",
       "sha256": "8c81ad5ac18fcaaa0aaa6d1f5de3e96d80f9ff486dc3d20415137f33e7a84fda",
       "sourceBytes": 1010365,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://techafricanews.com/wp-content/uploads/2025/07/orange.png": {
+      "attempts": 1,
+      "bytes": 46164,
+      "encoding": "q85",
+      "file": "img/264612916fa8e705029b.webp",
+      "height": 405,
+      "lastAttempt": "2026-11-19T01:06:33Z",
+      "sha256": "264612916fa8e705029b9ecbab614952f422b54b0064fdce292db691adae0401",
+      "sourceBytes": 1660629,
       "sourceFormat": "PNG",
       "status": "ok",
       "width": 600
@@ -697,6 +762,32 @@
       "sha256": "713861d7b2912bef1e9edc2ab0d6863dcb433aafd0555cd073f487235357e554",
       "sourceBytes": 12558,
       "sourceFormat": "AVIF",
+      "status": "ok",
+      "width": 600
+    },
+    "https://www.datocms-assets.com/75231/1794936719-img_7875.png?fm=webp": {
+      "attempts": 1,
+      "bytes": 29014,
+      "encoding": "q80",
+      "file": "img/828bfac2e8e707e751a7.webp",
+      "height": 334,
+      "lastAttempt": "2026-11-19T01:06:33Z",
+      "sha256": "828bfac2e8e707e751a74997af4e59b4e8172faff3460f7dc11be506830464ad",
+      "sourceBytes": 345676,
+      "sourceFormat": "WEBP",
+      "status": "ok",
+      "width": 600
+    },
+    "https://www.datocms-assets.com/75231/1794951224-threat-update-purple-wireframe_custom.jpeg?fm=webp": {
+      "attempts": 1,
+      "bytes": 25574,
+      "encoding": "q80",
+      "file": "img/62c12a49ee9a753813f5.webp",
+      "height": 338,
+      "lastAttempt": "2026-11-19T01:06:33Z",
+      "sha256": "62c12a49ee9a753813f527b760f7e7b195a47213d8c0d36011dfa51afb461f54",
+      "sourceBytes": 106308,
+      "sourceFormat": "WEBP",
       "status": "ok",
       "width": 600
     },
@@ -819,6 +910,12 @@
       "reason": "HTTP 403 from https://apnews.com/article/60f868d3bb430b85a8657b27d421096e",
       "status": "failed"
     },
+    "https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-19T01:06:33Z",
+      "reason": "HTTP 403 from https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c",
+      "status": "failed"
+    },
     "https://arxiv.org/abs/2609.27263": {
       "attempts": 1,
       "image": null,
@@ -858,6 +955,13 @@
       "attempts": 1,
       "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-hydrogen__key-art__lockup__16-9.width-1300.jpg",
       "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/": {
+      "attempts": 1,
+      "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-neon__blog-header__sm.width-1300.png",
+      "lastAttempt": "2026-11-19T01:06:33Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1146,6 +1250,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://microsoft.ai/news/microsoft-ignite-2026/": {
+      "attempts": 1,
+      "image": "https://microsoft.ai/wp-content/uploads/2026/11/All-Up-Blog.jpg",
+      "lastAttempt": "2026-11-19T01:06:33Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://modelcontextprotocol.io/": {
       "attempts": 1,
       "image": "https://raw.githubusercontent.com/modelcontextprotocol/docs/2eb6171ddbfeefde349dc3b8d5e2b87414c26250/images/og-image.png",
@@ -1157,6 +1268,13 @@
       "attempts": 1,
       "image": null,
       "lastAttempt": "2026-11-18T01:07:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://news.ycombinator.com/item?id=50548660": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-19T01:06:33Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1230,10 +1348,24 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://rshekhar.com/voyager/": {
+      "attempts": 1,
+      "image": "https://rshekhar.com/voyager/og.jpg",
+      "lastAttempt": "2026-11-19T01:06:33Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://runway.com/news/company-news/praxis-1-is-now-available": {
       "attempts": 1,
       "image": "https://d3phaj0sisr2ct.cloudfront.net/site/images/sanity/2026/11/frame-8-bddb7fbc-4647-44e5-bf65-1fbb7e559b24-af3f1b60-26e7-4a91-afda-ee27b0a4674b.webp",
       "lastAttempt": "2026-11-16T22:16:07Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://springcraft-ai.github.io/springrep/": {
+      "attempts": 1,
+      "image": "https://cdn.springcraft.ai/springrep/springrep-preview-mwmpm0jd.png",
+      "lastAttempt": "2026-11-19T01:06:33Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1248,6 +1380,13 @@
       "attempts": 1,
       "image": null,
       "lastAttempt": "2026-11-18T01:44:31Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://techafricanews.com/2026/11/18/orange-releases-five-open-weight-ai-models-for-wolof-language/": {
+      "attempts": 1,
+      "image": "https://techafricanews.com/wp-content/uploads/2025/07/orange.png",
+      "lastAttempt": "2026-11-19T01:06:33Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1310,6 +1449,13 @@
       "attempts": 1,
       "image": null,
       "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.chainguard.dev/unchained/microsoft-agent-framework-compromised-on-pypi-november-2026": {
+      "attempts": 1,
+      "image": "https://images.ctfassets.net/l47ir7rfykkn/37UXfGLVWJiH7J11pJEaFc/3bb8b4cf9664c85edba5b1878aa617e9/agent-framework.png",
+      "lastAttempt": "2026-11-19T01:06:33Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1448,6 +1594,12 @@
       "reason": "HTTP 401 from https://www.reuters.com/legal/litigation/us-issues-rule-protect-advanced-ai-chips-being-accessed-remotely-2026-11-16/",
       "status": "failed"
     },
+    "https://www.reuters.com/legal/transactional/anthropic-prices-blockbuster-ipo-83-share-source-says-2026-11-18/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-19T01:06:33Z",
+      "reason": "HTTP 401 from https://www.reuters.com/legal/transactional/anthropic-prices-blockbuster-ipo-83-share-source-says-2026-11-18/",
+      "status": "failed"
+    },
     "https://www.reuters.com/legal/transactional/downdetector-reports-outages-major-us-banks-2026-11-16/": {
       "attempts": 1,
       "lastAttempt": "2026-11-17T04:09:37Z",
@@ -1476,6 +1628,12 @@
       "attempts": 1,
       "lastAttempt": "2026-11-16T21:33:10Z",
       "reason": "HTTP 401 from https://www.reuters.com/world/feds-barr-warns-ai-risks-financial-system-2026-11-16/",
+      "status": "failed"
+    },
+    "https://www.reuters.com/world/south-korea-holds-emergency-meeting-possible-flaws-java-programming-language-2026-11-18/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-19T01:06:33Z",
+      "reason": "HTTP 401 from https://www.reuters.com/world/south-korea-holds-emergency-meeting-possible-flaws-java-programming-language-2026-11-18/",
       "status": "failed"
     },
     "https://www.reuters.com/world/us/united-airlines-says-technology-issue-affecting-departing-flights-2026-11-16/": {
@@ -1515,6 +1673,20 @@
       "attempts": 1,
       "image": "https://media.wired.com/photos/6ae951f7e1fce5fdf7878b36/191:100/w_1280,c_limit/SM_Science_Synchron_GettyImages-1610629090.jpg",
       "lastAttempt": "2026-11-16T22:16:07Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi": {
+      "attempts": 1,
+      "image": "https://www.datocms-assets.com/75231/1794951224-threat-update-purple-wireframe_custom.jpeg?fm=webp",
+      "lastAttempt": "2026-11-19T01:06:33Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities": {
+      "attempts": 1,
+      "image": "https://www.datocms-assets.com/75231/1794936719-img_7875.png?fm=webp",
+      "lastAttempt": "2026-11-19T01:06:33Z",
       "noimageindex": false,
       "status": "ok"
     },
