@@ -29,13 +29,32 @@
 .stat__label { font-size: 11px; line-height: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--on-variant); }
 
 /* panels */
-.dash__grid { display: grid; gap: var(--sp-md); grid-template-columns: minmax(0, 1fr); grid-template-areas: "incidents" "rundown" "headlines"; }
+.dash__grid { display: grid; gap: var(--sp-md); grid-template-columns: minmax(0, 1fr); grid-template-areas: "summary" "incidents" "headlines"; }
 .dash__panel { background: var(--surface-low); border-radius: var(--r-lg); padding: var(--sp-lg); min-width: 0; }
 .dash__panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
-.dash__rundown { grid-area: rundown; }
+.dash__summary { grid-area: summary; }
 .dash__headlines { grid-area: headlines; }
 .dash__incidents { grid-area: incidents; }
-.dash__rundown .prose { font-size: 15px; line-height: 25px; color: var(--on-surface); max-width: 62ch; }
+/* executive summary: each bullet is a link to its story (stretched over the item);
+   the trailing source links sit above that layer */
+.exec { display: grid; }
+.exec__item { position: relative; display: flex; gap: .65rem; padding: .7rem .6rem; margin-inline: -.6rem; border-radius: var(--r-md); transition: background .15s; }
+.exec__item + .exec__item { border-top: 1px solid rgba(39,54,71,.55); }
+.exec__item.has-story:hover { background: var(--surface-container); }
+.exec__item > .dot { width: 8px; height: 8px; margin-top: 8px; }
+.exec__body { flex: 1; min-width: 0; font-size: 14px; line-height: 22px; color: var(--on-variant); max-width: 70ch; }
+.exec__headline { font-weight: 650; color: var(--on-surface); }
+a.exec__headline::after { content: ""; position: absolute; inset: 0; border-radius: var(--r-md); }
+a.exec__headline:hover { color: var(--on-surface); }
+.exec__item.has-story:hover .exec__headline { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--outline); }
+.exec__links { display: inline; white-space: normal; }
+.exec__links a { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: .25rem; vertical-align: bottom; font-size: 13px; font-weight: 500; color: var(--secondary); }
+.exec__links a:hover { color: var(--primary-fixed); text-decoration: underline; text-underline-offset: 3px; }
+.exec__links .icon, .exec__links .brand-mark { width: 13px; height: 13px; }
+.exec__links .icon--brand { color: currentColor; }
+.exec__sep { color: var(--outline); }
+.dash__summary .rundown-more { margin-top: .5rem; padding-top: .25rem; border-top: 1px solid var(--hairline); }
+.dash__summary .rundown-more p { font-size: 14px; line-height: 22px; max-width: 70ch; }
 .rundown-more summary { display: inline-flex; align-items: center; gap: .35rem; min-height: 36px; margin-top: .25rem; cursor: pointer; list-style: none; color: var(--secondary); font-size: 13px; font-weight: 500; }
 .rundown-more summary::-webkit-details-marker { display: none; }
 .rundown-more summary .icon { width: 16px; height: 16px; transition: transform .2s; }
@@ -51,8 +70,8 @@
 /* incidents: mini panel on the dashboard (full view is /incidents/) */
 .dash__incidents.has-ongoing { border: 1px solid rgba(251,146,60,.28); }
 .dash__incidents .dash__panel-head .dash__label { margin-bottom: .4rem; }
-.inc-strip { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .5rem; }
-.inc-strip__item { display: inline-flex; align-items: center; gap: .35rem; min-height: 28px; padding: .15rem .55rem; border-radius: 999px; background: var(--surface-container); font-size: 12px; line-height: 16px; color: var(--on-variant); transition: background .15s; }
+.inc-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .35rem; margin-bottom: .5rem; }
+.inc-strip__item { display: flex; align-items: center; justify-content: center; gap: .35rem; min-height: 28px; padding: .15rem .55rem; border-radius: 999px; background: var(--surface-container); font-size: 12px; line-height: 16px; color: var(--on-variant); transition: background .15s; }
 .inc-strip__item:hover { background: var(--surface-high); color: var(--on-surface); }
 .inc-strip__item strong { color: var(--on-surface); font-weight: 650; font-variant-numeric: tabular-nums; }
 .inc-strip__item .dot { width: 7px; height: 7px; background: var(--st); }
@@ -88,8 +107,10 @@
 /* category pills = filter. Ordered by count; each carries its topic icon/colour and a
    mini bar (share of the largest category) along its bottom edge. Text stays in text tokens. */
 .dash__hint { font-weight: 500; letter-spacing: .02em; text-transform: none; color: var(--outline); font-size: 12px; }
-.catpills { display: flex; flex-wrap: wrap; gap: .3rem; margin: 0 0 .9rem; padding: 0 0 .9rem; border: 0; border-bottom: 1px solid var(--hairline); min-width: 0; }
-.catpill { position: relative; display: inline-flex; align-items: center; gap: .3rem; min-height: 32px; padding: .2rem .3rem .35rem .45rem; border-radius: var(--r-lg); background: var(--surface-container); border: 1px solid var(--surface-highest); overflow: hidden; cursor: pointer; font-size: 12px; line-height: 15px; font-weight: 500; color: var(--on-variant); white-space: nowrap; transition: background .15s, border-color .15s, color .15s; }
+.catpills { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 10.5rem), 1fr)); gap: .35rem; margin: 0 0 .9rem; padding: 0 0 .9rem; border: 0; border-bottom: 1px solid var(--hairline); min-width: 0; }
+.catpill { position: relative; display: flex; align-items: center; gap: .4rem; min-height: 36px; padding: .3rem .4rem .45rem .55rem; border-radius: var(--r-lg); background: var(--surface-container); border: 1px solid var(--surface-highest); overflow: hidden; cursor: pointer; font-size: 12px; line-height: 15px; font-weight: 500; color: var(--on-variant); transition: background .15s, border-color .15s, color .15s; }
+.catpill__name { flex: 1; min-width: 0; }
+.catpill .icon, .catpill__n { flex: none; }
 .catpill .icon { width: 14px; height: 14px; color: var(--topic, var(--on-variant)); }
 .catpill__n { min-width: 1.2rem; padding: 0 .3rem; border-radius: 999px; background: var(--surface-high); text-align: center; font: 600 11px/17px var(--font); font-variant-numeric: tabular-nums; color: var(--on-surface); }
 .catpill__bar { position: absolute; left: 0; bottom: 0; height: 3px; width: var(--share, 0%); min-width: 6px; background: var(--topic); border-radius: 0 3px 3px 0; opacity: .85; }
@@ -121,7 +142,8 @@ label.hl__cat:hover { border-color: var(--topic); color: var(--on-surface); }
 .filter-note label { flex: none; cursor: pointer; color: var(--secondary); font-weight: 500; }
 
 @media (min-width: 48rem) {
-  .dash__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-rows: auto auto 1fr; grid-template-areas: "headlines incidents" "headlines rundown" "headlines ."; align-items: start; }
+  .dash__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-areas: "summary incidents" "summary ." "headlines headlines"; grid-template-rows: auto 1fr auto; align-items: start; }
+  .dash__summary { align-self: stretch; }
 }
 @media (max-width: 47.99rem) {
   .dash { gap: .75rem; margin-bottom: 1.5rem; }
@@ -171,3 +193,11 @@ label.hl__cat:hover { border-color: var(--topic); color: var(--on-surface); }
 .inc__provider, .incident-card__provider { display: inline-flex; align-items: center; gap: .3rem; vertical-align: bottom; }
 .link-list a.brand-link { text-decoration: none; }
 .link-list a.brand-link span { text-decoration: underline; text-underline-offset: 3px; }
+
+@media (min-width: 64rem) {
+  /* headline groups side by side under the filter pills */
+  .dash__headlines { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--sp-lg); align-items: start; }
+  .dash__headlines > .dash__label, .dash__headlines > .catpills { grid-column: 1 / -1; }
+  .dash__headlines .hl + .hl { margin-top: 0; padding-top: 0; border-top: 0; }
+  .dash__headlines .hl[data-cats=""] { grid-column: 1 / -1; margin-top: .75rem; padding-top: .75rem; border-top: 1px solid var(--hairline); }
+}

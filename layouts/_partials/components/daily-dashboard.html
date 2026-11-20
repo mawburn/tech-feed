@@ -71,18 +71,53 @@
     </section>
     {{- end }}
 
-    {{- with $rundown }}
-    <section class="dash__panel dash__rundown" aria-labelledby="{{ $date }}-rundown">
-      <h2 class="dash__label" id="{{ $date }}-rundown">The rundown</h2>
-      <div class="prose">
-        <p>{{ index . 0 }}</p>
-        {{- with after 1 . }}
-        <details class="rundown-more">
-          <summary><span class="rundown-more__closed">Read the full rundown</span><span class="rundown-more__open">Show less</span>{{ partial "components/icon.html" "chevron" }}</summary>
-          {{- range . }}<p>{{ . }}</p>{{ end }}
-        </details>
+    {{- /* Executive summary: authored bullets (issue.executiveSummary) or, for older editions,
+      one bullet per top story. Each bullet links to its story below; extra links follow the text. */ -}}
+    {{- $bullets := slice }}
+    {{- with $issue.executiveSummary }}
+      {{- range . }}{{ if reflect.IsMap . }}{{ $bullets = $bullets | append . }}{{ end }}{{ end }}
+    {{- else }}
+      {{- range $i, $s := $issue.topStories }}
+        {{- $first := "" }}{{ with (partial "data/split-text.html" ($s.summary | default "")).paragraphs }}{{ $first = index . 0 }}{{ end }}
+        {{- with findRESubmatch `^(.+?[a-z0-9)%"'][.!?])\s+[A-Z]` $first 1 }}{{ $first = index (index . 0) 1 }}{{ end }}
+        {{- $links := slice }}{{ range first 1 ($s.sources | default slice) }}{{ if reflect.IsMap . }}{{ $links = $links | append . }}{{ end }}{{ end }}
+        {{- $bullets = $bullets | append (dict "headline" $s.title "text" $first "story" (printf "topStories/%d" (add $i 1)) "links" $links) }}
+      {{- end }}
+    {{- end }}
+    {{- if or $bullets $rundown }}
+    <section class="dash__panel dash__summary" aria-labelledby="{{ $date }}-summary">
+      <h2 class="dash__label" id="{{ $date }}-summary">Executive summary</h2>
+      {{- with $bullets }}
+      <ul class="exec">
+        {{- range $b := . }}
+        {{- $story := false }}{{ $anchor := "" }}
+        {{- with $b.story }}
+          {{- with findRESubmatch `^(topStories|alsoWorthKnowing|newTools)/([1-9][0-9]*)$` . 1 }}
+            {{- $key := index (index . 0) 1 }}{{ $pos := int (index (index . 0) 2) }}
+            {{- with index $issue $key }}{{ if le $pos (len .) }}{{ $story = index . (sub $pos 1) }}{{ $anchor = printf "#%s-%s-%d" $date $key $pos }}{{ end }}{{ end }}
+          {{- end }}
         {{- end }}
-      </div>
+        {{- $style := dict "key" "neutral" }}{{ with $story }}{{ $style = partial "data/topic-style.html" (partial "data/category.html" .) }}{{ end }}
+        {{- $links := slice }}
+        {{- range $b.links }}{{ if and (reflect.IsMap .) (partial "data/is-http.html" .url) }}{{ $links = $links | append (dict "label" (.label | default "Source") "url" .url "external" true) }}{{ end }}{{ end }}
+        {{- with $story }}{{ with .incidentId }}{{ with site.GetPage (printf "/incidents/%s" .) }}{{ $links = $links | append (dict "label" "Incident timeline" "url" .RelPermalink "external" false) }}{{ end }}{{ end }}{{ end }}
+        <li class="exec__item topic topic--{{ $style.key }}{{ if $anchor }} has-story{{ end }}">
+          <span class="dot" aria-hidden="true"></span>
+          <p class="exec__body">
+            {{- if $anchor }}<a class="exec__headline" href="{{ $anchor }}">{{ $b.headline }}</a>{{ else }}<strong class="exec__headline">{{ $b.headline }}</strong>{{ end }}
+            {{- with $b.text }} <span class="exec__text">{{ . }}</span>{{ end }}
+            {{- with $links }} <span class="exec__links">{{ range $i, $l := . }}{{ if $i }}<span class="exec__sep" aria-hidden="true"> · </span>{{ end }}<a href="{{ $l.url }}"{{ if $l.external }} rel="noopener"{{ end }}>{{ if $l.external }}{{ partial "components/brand-icon.html" (dict "url" $l.url) }}{{ else }}{{ partial "components/icon.html" "clock" }}{{ end }}<span>{{ $l.label }}</span></a>{{ end }}</span>{{ end }}
+          </p>
+        </li>
+        {{- end }}
+      </ul>
+      {{- end }}
+      {{- with $rundown }}
+      <details class="rundown-more">
+        <summary><span class="rundown-more__closed">Read the full overview</span><span class="rundown-more__open">Hide the overview</span>{{ partial "components/icon.html" "chevron" }}</summary>
+        {{- range . }}<p>{{ . }}</p>{{ end }}
+      </details>
+      {{- end }}
     </section>
     {{- end }}
 

@@ -2,6 +2,66 @@
   "date": "2026-11-19",
   "label": "Thursday, November 19, 2026",
   "overview": "Broadcom's November 19 VMware advisory leads today's security coverage: a critical vCenter authentication bypass has no workaround, and supported patches are available. The European Commission also confirmed that an AI-assisted cyberattack detected October 22 disrupted internal applications; most have recovered, but the investigation and some restoration work continue. Neither incident has a verified connection to other recent outages.\n\nPostgreSQL 19 is the most consequential developer-platform release, adding online table repacking, planner advice and read-your-writes support for replicas. Anthropic began Nasdaq trading after its record-sized IPO, while Google published unusually detailed production data about Sashiko, its Linux kernel AI code-review service.\n\nThe practical-tooling section emphasizes reproducible or inspectable work: Sashiko's independent verification passes, browser-based weight-space experiments, lightweight local transcription and a self-hosted voice-assistant walkthrough. Earlier NGINX, Java4Shell and Python package supply-chain incidents still warrant patch and credential review. No representative new Staff-level engineering hiring dataset was verified.",
+  "executiveSummary": [
+    {
+      "headline": "Google puts AI code review to work on the Linux kernel.",
+      "text": "Google says its open-source Sashiko service runs about 1,200 reviews a day. It uses separate passes to find and verify bugs, and publishes the prompts and tool calls so maintainers can inspect how it reached a finding.",
+      "story": "topStories/5",
+      "links": [
+        {
+          "label": "Engineering writeup",
+          "url": "https://cloud.google.com/blog/products/application-development/lessons-from-building-sashiko-an-agentic-code-review-system"
+        },
+        {
+          "label": "Code",
+          "url": "https://github.com/google/sashiko"
+        }
+      ]
+    },
+    {
+      "headline": "Broadcom patches a critical vCenter flaw.",
+      "text": "Fixes are available for the authentication bypass. Broadcom lists no workaround, and the extent of patch deployment is unknown.",
+      "story": "topStories/1"
+    },
+    {
+      "headline": "EU Commission restores most affected apps.",
+      "text": "Some internal tools remained offline after an AI-assisted cyberattack, and the investigation was still open.",
+      "story": "topStories/2"
+    },
+    {
+      "headline": "PostgreSQL 19 ships.",
+      "text": "Teams can reclaim space from bloated tables while writes continue and wait for a write to become visible before reading from a replica.",
+      "story": "topStories/3",
+      "links": [
+        {
+          "label": "Release announcement",
+          "url": "https://www.postgresql.org/about/news/postgresql-19-released-3449/"
+        }
+      ]
+    },
+    {
+      "headline": "Anthropic goes public.",
+      "text": "Shares closed 17% above the $83 offer price on their first day of Nasdaq trading.",
+      "story": "topStories/4",
+      "links": [
+        {
+          "label": "Reuters",
+          "url": "https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/"
+        }
+      ]
+    },
+    {
+      "headline": "Worth a look: Blender through MCP.",
+      "text": "Google demoed Gemini operating Blender through MCP.",
+      "story": "alsoWorthKnowing/3",
+      "links": [
+        {
+          "label": "Watch the demo",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+        }
+      ]
+    }
+  ],
   "topStories": [
     {
       "title": "Broadcom patches exploited critical VMware vCenter authentication bypass",

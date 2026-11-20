@@ -38,6 +38,30 @@
         }
       ]
     },
+    "executiveSummary": {
+      "description": "Dashboard bullets, in reading order. Each bullet links to its story via story (\"<section>/<1-based position>\", e.g. \"topStories/5\"); links are short source links shown after the text. An \"Incident timeline\" link is added automatically when the story has an incidentId. When absent, the dashboard builds bullets from the top stories.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["headline"],
+        "properties": {
+          "headline": { "type": "string", "minLength": 1 },
+          "text": { "type": "string" },
+          "story": { "type": "string", "pattern": "^(topStories|alsoWorthKnowing|newTools)/[1-9][0-9]*$" },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["label", "url"],
+              "properties": {
+                "label": { "type": "string", "minLength": 1 },
+                "url": { "type": "string", "pattern": "^https?://" }
+              }
+            }
+          }
+        }
+      }
+    },
     "discoveryAudit": {
       "$ref": "common.v1.schema.json#/$defs/discoveryAudit"
     },

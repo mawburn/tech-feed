@@ -53,6 +53,15 @@ The schemas describe the scheduler's existing output. They allow unknown propert
 
 The third daily section is published as **AI & tooling in practice** (hands-on workflows, tutorials, demos and experiments). Its JSON keys stay `newTools` (daily) and `toolsToWatch` (weekly) for compatibility. Neither section has an item cap: any number of entries, including none, renders correctly. An optional `format` string (for example "Video tutorial", "Workflow", "Experiment", "Case study") labels an entry; direct YouTube, GitHub and demo links use the normal `sources[]`/`links[]` structure. A `briefing` may have 2–6 sections.
 
+A daily edition may also carry `executiveSummary[]`, the bullets at the top of the dashboard, in reading order. `headline` is required; `text` follows it; `story` points at the story the bullet opens, as `"<section>/<1-based position>"`; `links[]` (`{label,url}`) are short source links shown after the text. An "Incident timeline" link is added automatically when that story has an `incidentId`. Without the field, the dashboard builds one bullet per top story (its title and first sentence), and `overview` stays available under **Read the full overview**.
+
+```json
+"executiveSummary": [
+  {"headline": "PostgreSQL 19 ships.", "text": "Teams can reclaim space from bloated tables while writes continue.",
+   "story": "topStories/3", "links": [{"label": "Release announcement", "url": "https://www.postgresql.org/about/news/postgresql-19-released-3449/"}]}
+]
+```
+
 Weekly reviews carry `themes[]`, `toolsToWatch[]`, `sourceDays[]` and optional summary fields. Each theme, and optionally each weekly tool, may also contain `briefing[]`.
 
 `summary` is a complete, moderately detailed account shown directly on the card. `briefing` adds 2–5 headed sections inside a native **Read full briefing** disclosure:
