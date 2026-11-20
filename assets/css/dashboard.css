@@ -56,7 +56,8 @@ a.topic-pill:hover { background: var(--surface-container); border-color: var(--t
 .rundown-more[open] summary .icon { transform: rotate(180deg); }
 .rundown-more__open, .rundown-more[open] .rundown-more__closed { display: none; }
 .rundown-more[open] .rundown-more__open { display: inline; }
-.rundown-more[open] summary { order: 99; }
+.rundown-more[open] { display: flex; flex-direction: column; }
+.rundown-more[open] summary { order: 99; align-self: flex-start; }
 .rundown-more p { margin-top: .75em; color: var(--on-variant); }
 
 /* headline index */
