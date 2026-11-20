@@ -11,13 +11,14 @@
 {{- $chip := partial "components/topic-chip.html" (dict "category" $category "href" $href) -}}
 {{- $variant := .variant | default "lead" -}}
 {{- $level := .level -}}
+{{- $id := cond (ne (.id | default "") "") (printf ` id="%s"` .id) "" | safeHTMLAttr -}}
 {{- /* first valid source, for the host tag and call to action */ -}}
 {{- $first := false -}}
 {{- range $s.sources }}{{ if and (not $first) (reflect.IsMap .) (partial "data/is-http.html" .url) }}{{ $first = . }}{{ end }}{{ end -}}
 {{- $host := "" -}}
 {{- with $first }}{{ $u := urls.Parse .url }}{{ $host = strings.TrimPrefix "www." $u.Host }}{{ if and (eq $variant "tool") (eq $host "github.com") }}{{ $seg := index (split (strings.Trim $u.Path "/") "/") 0 }}{{ with $seg }}{{ $host = printf "%s/%s" $host . }}{{ end }}{{ end }}{{ end -}}
 {{- if eq $variant "lead" -}}
-<article class="story story--lead topic topic--{{ $style.key }}">
+<article class="story story--lead topic topic--{{ $style.key }}"{{ $id }}>
   <div class="story__grid">
     <div class="story__head">
       <p class="story__meta">
@@ -31,7 +32,7 @@
     </div>
     {{- partial "components/story-image.html" (dict "image" $s.image "alt" $s.title) }}
     <div class="story__rest">
-      {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary" "full" true) }}
+      {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary" "full" true "split" true) }}
       {{- with $s.whyItMatters }}
       <div class="story__note"><span class="story__note-label">Why it matters</span><p>{{ . }}</p></div>
       {{- end }}
@@ -43,10 +44,10 @@
   </div>
 </article>
 {{- else if eq $variant "brief" -}}
-<article class="story story--brief topic topic--{{ $style.key }}">
+<article class="story story--brief topic topic--{{ $style.key }}"{{ $id }}>
   <div class="story__top">{{ $chip }}{{ with $host }}<span class="story__host">{{ . }}</span>{{ end }}</div>
   {{ partial "components/heading.html" (dict "level" $level "text" $s.title "class" "story__title") }}
-  {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary" "full" true) }}
+  {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary" "full" true "split" true) }}
   {{- with $s.whyItMatters }}
   <div class="story__note"><span class="story__note-label">Why it matters</span><p>{{ . }}</p></div>
   {{- end }}
@@ -59,15 +60,15 @@
   </div>
 </article>
 {{- else -}}
-<article class="story story--tool topic topic--{{ $style.key }}">
+<article class="story story--tool topic topic--{{ $style.key }}"{{ $id }}>
   <div class="story__top">{{ $chip }}{{ with $s.format }}<span class="format-badge">{{ . }}</span>{{ end }}{{ with $host }}<span class="story__host">{{ . }}</span>{{ end }}</div>
   <div class="story__row">
     <div class="story__text">
       {{ partial "components/heading.html" (dict "level" $level "text" $s.title "class" "story__title") }}
-      {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary" "full" true) }}
     </div>
-    {{- partial "components/story-image.html" (dict "image" $s.image "alt" $s.title "sizes" "5rem") }}
+    {{- partial "components/story-image.html" (dict "image" $s.image "alt" $s.title "sizes" "4rem") }}
   </div>
+  {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary" "full" true "split" true) }}
   {{- with $s.whyItMatters }}
   <div class="story__note"><span class="story__note-label">Why it's interesting</span><p>{{ . }}</p></div>
   {{- end }}

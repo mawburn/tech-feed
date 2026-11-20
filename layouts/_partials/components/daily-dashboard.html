@@ -1,0 +1,106 @@
+{{- /* Daily edition dashboard: at-a-hl stats, topics, rundown, headline index and open incidents.
+  The detailed stories render below it (components/edition.html). Context: issue. */ -}}
+{{- $issue := . -}}
+{{- $date := $issue.date -}}
+{{- $when := time.AsTime $date -}}
+{{- $n := 0 -}}
+{{- range partialCached "data/published-daily.html" "published" }}{{ if le .date $date }}{{ $n = add $n 1 }}{{ end }}{{ end -}}
+{{- $stories := partial "data/stories.html" (slice $issue) -}}
+{{- $chars := add (len ($issue.overview | default "")) (len ($issue.marketPulse | default "")) -}}
+{{- range $stories }}
+  {{- $chars = add $chars (len (.summary | default "")) (len (.whyItMatters | default "")) (len (.limitations | default "")) }}
+  {{- range .briefing }}{{ $chars = add $chars (len .body) }}{{ end }}
+{{- end -}}
+{{- $mins := int (math.Max 1 (math.Ceil (div (float $chars) 1100))) -}}
+{{- $sections := partialCached "data/sections.html" "sections" -}}
+{{- $short := dict "topStories" "Top stories" "alsoWorthKnowing" "Quick hits" "newTools" "Hands-on" -}}
+{{- $open := partialCached "data/open-incidents.html" "open" -}}
+{{- $topics := partial "data/topic-counts.html" (slice $issue) -}}
+{{- $incidentsPage := site.GetPage "/incidents" -}}
+{{- $rundown := partial "data/chunk-paragraphs.html" (partial "data/split-text.html" ($issue.overview | default "")).paragraphs -}}
+<section class="dash" aria-labelledby="dash-{{ $date }}">
+  <header class="dash__head">
+    <p class="dash__kicker"><span class="dot" aria-hidden="true"></span><span>Issue {{ $n }}</span><span aria-hidden="true">·</span><span>{{ len $stories }} stories</span><span aria-hidden="true">·</span><span>~{{ $mins }} min read</span></p>
+    <h1 class="dash__title" id="dash-{{ $date }}"><time datetime="{{ $date }}">{{ $when | time.Format "Monday, January 2" }}</time></h1>
+  </header>
+
+  <ul class="dash__stats" aria-label="In this edition">
+    {{- range $sections }}
+    {{- $items := index $issue .key }}
+    {{- if $items }}
+    <li><a class="stat stat--{{ .key }}" href="#{{ $date }}-{{ .key }}"><span class="stat__num">{{ len $items }}</span><span class="stat__label">{{ index $short .key }}</span></a></li>
+    {{- end }}
+    {{- end }}
+    {{- with $incidentsPage }}
+    <li><a class="stat stat--incidents{{ if $open }} is-alert{{ end }}" href="{{ .RelPermalink }}"><span class="stat__num">{{ len $open }}</span><span class="stat__label">Open incidents</span></a></li>
+    {{- end }}
+  </ul>
+
+  {{- with $topics }}
+  {{- $total := 0 }}{{ range . }}{{ $total = add $total .count }}{{ end }}
+  <nav class="dash__topics" aria-label="Topics in this edition">
+    <div class="topicbar" aria-hidden="true">
+      {{- range . }}<span class="topicbar__seg topic topic--{{ (partial "data/topic-style.html" .name).key }}" style="flex-grow:{{ .count }}"></span>{{ end -}}
+    </div>
+    <ul class="topic-pills">
+      {{- range . }}
+      {{- $style := partial "data/topic-style.html" .name }}
+      {{- $page := site.GetPage (printf "/daily/%s/topics/%s" $date .slug) }}
+      <li>{{ with $page }}<a class="topic-pill topic topic--{{ $style.key }}" href="{{ .RelPermalink }}">{{ else }}<span class="topic-pill topic topic--{{ $style.key }}">{{ end }}<span class="dot" aria-hidden="true"></span><span class="topic-pill__name">{{ .name }}</span><span class="topic-pill__n">{{ .count }}</span>{{ if $page }}</a>{{ else }}</span>{{ end }}</li>
+      {{- end }}
+    </ul>
+  </nav>
+  {{- end }}
+
+  <div class="dash__grid">
+    {{- with $rundown }}
+    <div class="dash__panel dash__rundown">
+      <h2 class="dash__label">The rundown</h2>
+      <div class="prose">
+        <p>{{ index . 0 }}</p>
+        {{- with after 1 . }}
+        <details class="rundown-more">
+          <summary><span class="rundown-more__closed">Read the full rundown</span><span class="rundown-more__open">Show less</span>{{ partial "components/icon.html" "chevron" }}</summary>
+          {{- range . }}<p>{{ . }}</p>{{ end }}
+        </details>
+        {{- end }}
+      </div>
+    </div>
+    {{- end }}
+
+    <nav class="dash__panel dash__headlines" aria-label="Headlines">
+      <h2 class="dash__label">Headlines</h2>
+      {{- range $sections }}
+      {{- $key := .key }}
+      {{- with index $issue $key }}
+      <div class="hl">
+        <p class="hl__group"><a href="#{{ $date }}-{{ $key }}">{{ index $short $key }}</a></p>
+        <ol class="hl__list">
+          {{- range $i, $s := . }}
+          {{- $style := partial "data/topic-style.html" (partial "data/category.html" $s) }}
+          <li><a class="hl__item topic topic--{{ $style.key }}" href="#{{ $date }}-{{ $key }}-{{ add $i 1 }}"><span class="dot" aria-hidden="true"></span><span class="hl__title">{{ $s.title }}</span>{{ with $s.incidentId }}{{ with partial "data/find-incident.html" . }}<span class="hl__status status--{{ .status }}" title="Incident: {{ .status }}"><span class="dot" aria-hidden="true"></span></span>{{ end }}{{ end }}</a></li>
+          {{- end }}
+        </ol>
+      </div>
+      {{- end }}
+      {{- end }}
+      {{- if $issue.marketPulse }}
+      <div class="hl"><p class="hl__group"><a href="#{{ $date }}-market-pulse">Job market &amp; business pulse</a></p></div>
+      {{- end }}
+    </nav>
+
+    {{- if and $open $incidentsPage }}
+    <div class="dash__panel dash__incidents">
+      <h2 class="dash__label">Open incidents <span class="count">{{ len $open }}</span></h2>
+      <ul class="mini-incidents">
+        {{- range $inc := first 4 $open }}
+        {{- with site.GetPage (printf "/incidents/%s" $inc.id) }}
+        <li><a href="{{ .RelPermalink }}">{{ partial "components/incident-status.html" $inc.status }}<span class="mini-incidents__title">{{ $inc.title }}</span></a></li>
+        {{- end }}
+        {{- end }}
+      </ul>
+      <a class="dash__more" href="{{ $incidentsPage.RelPermalink }}"><span>All incidents</span>{{ partial "components/icon.html" "arrow-right" }}</a>
+    </div>
+    {{- end }}
+  </div>
+</section>

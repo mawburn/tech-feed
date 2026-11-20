@@ -1,15 +1,18 @@
 {{- /* Render text as paragraphs; long text gets a native <details> disclosure (no JS).
-  Context: {text, class?, label?, full? (render whole summary without auto-collapse)} */ -}}
+  Context: {text, class?, label?, full? (render whole text without auto-collapse),
+  split? (also break long paragraphs at sentence boundaries; see data/chunk-paragraphs.html)} */ -}}
 {{- $split := partial "data/split-text.html" .text -}}
 {{- $class := .class | default "" -}}
 {{- if .full -}}
-  {{- if gt (len $split.paragraphs) 1 }}
-  <div class="{{ $class }}">{{ range $split.paragraphs }}<p>{{ . }}</p>{{ end }}</div>
-  {{- else if $split.paragraphs }}
-  <p class="{{ $class }}">{{ index $split.paragraphs 0 }}</p>
+  {{- $paras := $split.paragraphs -}}
+  {{- if .split }}{{ $paras = partial "data/chunk-paragraphs.html" $paras }}{{ end -}}
+  {{- if gt (len $paras) 1 }}
+  <div class="{{ $class }} prose">{{ range $paras }}<p>{{ . }}</p>{{ end }}</div>
+  {{- else if $paras }}
+  <p class="{{ $class }}">{{ index $paras 0 }}</p>
   {{- end }}
 {{- else if $split.rest -}}
-<div class="{{ $class }}">
+<div class="{{ $class }} prose">
   <p>{{ $split.lead }}</p>
   <details class="disclosure">
     <summary>{{ .label | default "Read more" }}</summary>
@@ -19,7 +22,7 @@
   </details>
 </div>
 {{- else if gt (len $split.paragraphs) 1 -}}
-<div class="{{ $class }}">{{ range $split.paragraphs }}<p>{{ . }}</p>{{ end }}</div>
+<div class="{{ $class }} prose">{{ range $split.paragraphs }}<p>{{ . }}</p>{{ end }}</div>
 {{- else if $split.paragraphs -}}
 <p class="{{ $class }}">{{ index $split.paragraphs 0 }}</p>
 {{- end -}}

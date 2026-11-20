@@ -41,5 +41,3 @@
   .site-footer__note { text-align: left; }
   .site-footer__logo { width: 12rem; }
 }
-.nav-short { display: none; }
-@media (max-width: 47.99rem) { .nav-short { display: inline; } .nav-long { display: none; } }

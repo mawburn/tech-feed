@@ -23,7 +23,20 @@
       "$ref": "common.v1.schema.json#/$defs/nonEmptyText"
     },
     "marketPulse": {
-      "type": "string"
+      "description": "Plain text, or an object whose summary and optional business/jobs/watch strings are rendered as paragraphs.",
+      "anyOf": [
+        { "type": "string" },
+        {
+          "type": "object",
+          "required": ["summary"],
+          "properties": {
+            "summary": { "type": "string" },
+            "business": { "type": "string" },
+            "jobs": { "type": "string" },
+            "watch": { "type": "string" }
+          }
+        }
+      ]
     },
     "discoveryAudit": {
       "$ref": "common.v1.schema.json#/$defs/discoveryAudit"

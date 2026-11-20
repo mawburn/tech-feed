@@ -1,0 +1,15 @@
+{{- /* Normalise a daily marketPulse to plain text. Accepts the usual string, or an object
+  {summary, business?, jobs?, watch?} (other keys are appended as "Key: value"). */ -}}
+{{- $p := . -}}
+{{- $out := "" -}}
+{{- if reflect.IsMap $p -}}
+  {{- $parts := slice -}}
+  {{- with $p.summary }}{{ $parts = $parts | append (string .) }}{{ end -}}
+  {{- $labels := dict "business" "Business" "jobs" "Jobs" "watch" "Watch" -}}
+  {{- range $k := slice "business" "jobs" "watch" }}{{ with index $p $k }}{{ $parts = $parts | append (printf "%s: %s" (index $labels $k) .) }}{{ end }}{{ end -}}
+  {{- range $k, $v := $p }}{{ if and (not (in (slice "summary" "business" "jobs" "watch") $k)) (eq (printf "%T" $v) "string") }}{{ $parts = $parts | append (printf "%s: %s" (humanize $k) $v) }}{{ end }}{{ end -}}
+  {{- $out = delimit $parts "\n\n" -}}
+{{- else if $p -}}
+  {{- $out = string $p -}}
+{{- end -}}
+{{- return $out -}}

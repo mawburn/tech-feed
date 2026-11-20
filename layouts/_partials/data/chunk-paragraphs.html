@@ -1,0 +1,22 @@
+{{- /* Break long paragraphs into shorter ones for reading on small screens.
+  Context: slice of paragraph strings. A paragraph longer than params.paragraphMaxChars is split
+  at sentence boundaries and regrouped so each new paragraph stays under that length (a single
+  long sentence is never cut). Text is never rewritten, only regrouped. */ -}}
+{{- $max := site.Params.paragraphMaxChars | default 300 -}}
+{{- $out := slice -}}
+{{- range . -}}
+  {{- if le (len .) $max -}}
+    {{- $out = $out | append . -}}
+  {{- else -}}
+    {{- /* sentence end: lowercase/digit/closer + terminal punctuation, then whitespace, then a capital or opener */ -}}
+    {{- $marked := replaceRE `([a-z0-9%)\]"'’”][.!?]["'’”)]?)\s+([A-Z"“‘(])` "$1\x1f$2" . -}}
+    {{- $cur := "" -}}
+    {{- range split $marked "\x1f" -}}
+      {{- if eq $cur "" }}{{ $cur = . }}
+      {{- else if gt (add (len $cur) (len .) 1) $max }}{{ $out = $out | append $cur }}{{ $cur = . }}
+      {{- else }}{{ $cur = printf "%s %s" $cur . }}{{ end -}}
+    {{- end -}}
+    {{- with $cur }}{{ $out = $out | append . }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $out -}}

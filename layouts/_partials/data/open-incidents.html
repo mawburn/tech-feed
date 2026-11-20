@@ -1,0 +1,10 @@
+{{- /* Published incidents that are not resolved, most urgent status first
+  (investigating, identified, monitoring), then most recently updated. */ -}}
+{{- $rank := dict "investigating" "0" "identified" "1" "monitoring" "2" -}}
+{{- $out := slice -}}
+{{- range partialCached "data/incidents.html" "incidents" -}}
+  {{- if ne .status "resolved" -}}
+    {{- $out = $out | append (merge (dict) . (dict "order" (printf "%s|%s" (index $rank .status | default "3") (replace .lastUpdate "-" "" | int | sub 99999999 | printf "%08d"))) ) -}}
+  {{- end -}}
+{{- end -}}
+{{- return sort $out "order" -}}
