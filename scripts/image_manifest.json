@@ -26,6 +26,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://assets.claude.com/57a443b51d13727573b7c1290130d09c5f434b2c.jpg": {
+      "attempts": 1,
+      "bytes": 38976,
+      "encoding": "q80",
+      "file": "img/d46b4bab567bc54fc7a3.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "sha256": "d46b4bab567bc54fc7a38e610c1e3d4568a33ac3e1ff505dc0e157590d6e5c0f",
+      "sourceBytes": 156857,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    },
     "https://assets.claude.com/6d4a0d28992ade92d6fa63646fd9c9d318245c6c.jpg": {
       "attempts": 1,
       "bytes": 2176,
@@ -259,6 +272,12 @@
       "sourceFormat": "WEBP",
       "status": "ok",
       "width": 600
+    },
+    "https://dims.apnews.com/dims4/default/0411f9b/2147483647/strip/true/crop/7722x5148+0+0/resize/1200x800!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fc8%2F6f%2F8493c812848915b8f042edbea0e0%2Fd6fd50b157cd44cc81b77ac306a0ae9a": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "reason": "publisher policy (apnews.com)",
+      "status": "skipped"
     },
     "https://forum.torproject.org/uploads/default/original/2X/d/d3424bed34f4ec18b2e99178c2801ba6dfb655d6.png": {
       "attempts": 1,
@@ -648,6 +667,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://s3.platypush.tech/static/images/voice-assistant-pipeline.png": {
+      "attempts": 1,
+      "bytes": 10814,
+      "encoding": "q85",
+      "file": "img/5873cfed4453a5684a71.webp",
+      "height": 303,
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "sha256": "5873cfed4453a5684a7174dd2582a94b24dabb0b6e6c0f692ab86f130456bd07",
+      "sourceBytes": 664963,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://status.bath.ac.uk/assets/status_pages/og_wl_operational-6028a588.png": {
       "attempts": 1,
       "bytes": 2664,
@@ -671,6 +703,19 @@
       "sha256": "3464c3db74247a757505a76b4649bd16763d306712f3aaf24fb0fe8ef938e1fa",
       "sourceBytes": 871515,
       "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://storage.googleapis.com/gweb-cloudblog-publish/images/App_Dev.max-2500x2500.jpg": {
+      "attempts": 1,
+      "bytes": 32626,
+      "encoding": "q80",
+      "file": "img/e4e52822fb552034093d.webp",
+      "height": 296,
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "sha256": "e4e52822fb552034093da82557aafd4b2b48bdb78dcf7d2872ee14d34ca7216a",
+      "sourceBytes": 340003,
+      "sourceFormat": "JPEG",
       "status": "ok",
       "width": 600
     },
@@ -713,6 +758,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://tabbyml.github.io/weight-space-playground/og-cover.png": {
+      "attempts": 1,
+      "bytes": 29944,
+      "encoding": "q80",
+      "file": "img/6f1a57551d6dbda39fe2.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "sha256": "6f1a57551d6dbda39fe25fd5fa5e6f879da9cdcdbc27a77d58964ece83c8a5f9",
+      "sourceBytes": 367161,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://techafricanews.com/wp-content/uploads/2025/07/orange.png": {
       "attempts": 1,
       "bytes": 46164,
@@ -736,6 +794,19 @@
       "sha256": "6bbc2f24283b4235e9a0059fc80f116861a034efd46c1af83ac4ddbb61c3fa14",
       "sourceBytes": 155305,
       "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://virtualizationreview.com/-/media/ECG/VirtualizationReview/Images/introimages2014/AI_Cybersecurity.jpg": {
+      "attempts": 1,
+      "bytes": 46234,
+      "encoding": "q75",
+      "file": "img/cb05298ebca2a0d96335.webp",
+      "height": 417,
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "sha256": "cb05298ebca2a0d96335adb0ca2f2cc2f86d62b068e4b45081d64ea3d41e3ed8",
+      "sourceBytes": 686576,
+      "sourceFormat": "JPEG",
       "status": "ok",
       "width": 600
     },
@@ -843,6 +914,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://www.postgresql.org/media/img/about/press/elephant.png": {
+      "attempts": 1,
+      "bytes": 17734,
+      "encoding": "q80",
+      "file": "img/ff92fb5d12a7fa6b23c2.webp",
+      "height": 557,
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "sha256": "ff92fb5d12a7fa6b23c2eb403d2edf4fbc58ced802021e1f02c3583cb70957be",
+      "sourceBytes": 50279,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 540
+    },
     "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg": {
       "attempts": 1,
       "bytes": 16616,
@@ -916,6 +1000,13 @@
       "reason": "HTTP 403 from https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c",
       "status": "failed"
     },
+    "https://apnews.com/article/79705095e8141cd650196dbff1cf3c70": {
+      "attempts": 1,
+      "image": "https://dims.apnews.com/dims4/default/0411f9b/2147483647/strip/true/crop/7722x5148+0+0/resize/1200x800!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fc8%2F6f%2F8493c812848915b8f042edbea0e0%2Fd6fd50b157cd44cc81b77ac306a0ae9a",
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://arxiv.org/abs/2609.27263": {
       "attempts": 1,
       "image": null,
@@ -986,6 +1077,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://blog.platypush.tech/article/Rewriting-my-voice-assistant-pipeline": {
+      "attempts": 1,
+      "image": "https://s3.platypush.tech/static/images/voice-assistant-pipeline.png",
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/": {
       "attempts": 1,
       "image": "https://storage.ghost.io/c/2d/aa/2daa4f7f-a71b-47d2-a54c-06b8c60222ef/content/images/size/w1200/2026/11/Cybersecurity-Alert_-Malicious-Code-Injection.png",
@@ -1018,6 +1116,13 @@
       "attempts": 1,
       "image": "https://calif.io/java4shell/poster.jpg",
       "lastAttempt": "2026-11-18T01:07:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://cloud.google.com/blog/products/application-development/lessons-from-building-sashiko-an-agentic-code-review-system": {
+      "attempts": 1,
+      "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/App_Dev.max-2500x2500.jpg",
+      "lastAttempt": "2026-11-20T01:02:28Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1153,6 +1258,12 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://github.com/google/sashiko": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "reason": "HTTP 404 from https://github.com/google/sashiko",
+      "status": "failed"
+    },
     "https://github.com/gorhill/uBlock/security/advisories/GHSA-cmqw-9r2w-6wv2": {
       "attempts": 1,
       "image": "https://opengraph.githubassets.com/598378a501370951bf4519d69c31b514b1565f522eb48e24dfabab2b9c2588fd/gorhill/uBlock/security/advisories/GHSA-cmqw-9r2w-6wv2",
@@ -1173,6 +1284,12 @@
       "lastAttempt": "2026-11-18T01:07:42Z",
       "noimageindex": false,
       "status": "ok"
+    },
+    "https://github.com/vmware/vcf-security-and-compliance-guidelines/blob/main/security-advisories/vmsa-2026-0009/README.md": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "reason": "not an HTML article URL",
+      "status": "skipped"
     },
     "https://hiringlab.indeed.com/2026/11/12/2026-q3-us-tech-labor-market-update/": {
       "attempts": 1,
@@ -1369,6 +1486,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://starbright.quickthoughts.ca/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://status.bath.ac.uk/incident/1124080?mp=true": {
       "attempts": 1,
       "image": "https://status.bath.ac.uk/assets/status_pages/og_wl_operational-6028a588.png",
@@ -1383,6 +1507,20 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://tabbyml.github.io/weight-space-playground/": {
+      "attempts": 1,
+      "image": "https://tabbyml.github.io/weight-space-playground/og-cover.png",
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://techafricanews.com/2026/11/18/orange-releases-five-open-weight-ai-models-for-wolof-language/": {
       "attempts": 1,
       "image": "https://techafricanews.com/wp-content/uploads/2025/07/orange.png",
@@ -1394,6 +1532,13 @@
       "attempts": 1,
       "image": "https://thingstudio.net/og.png",
       "lastAttempt": "2026-11-17T07:01:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://virtualizationreview.com/articles/2026/11/19/is-it-ai-after-nationwide-outages-broadcom-and-cisa-sound-alarms-on-critical-security-flaws.aspx": {
+      "attempts": 1,
+      "image": "https://virtualizationreview.com/-/media/ECG/VirtualizationReview/Images/introimages2014/AI_Cybersecurity.jpg",
+      "lastAttempt": "2026-11-20T01:02:28Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1422,6 +1567,13 @@
       "attempts": 1,
       "image": "https://assets.claude.com/6d4a0d28992ade92d6fa63646fd9c9d318245c6c.jpg",
       "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.anthropic.com/research/claude-black-hole-physics": {
+      "attempts": 1,
+      "image": "https://assets.claude.com/57a443b51d13727573b7c1290130d09c5f434b2c.jpg",
+      "lastAttempt": "2026-11-20T01:02:28Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1486,6 +1638,12 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://www.ft.com/content/cf875eb6-34a2-413e-b89d-bc609367a19e": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "reason": "HTTP 403 from https://www.ft.com/content/cf875eb6-34a2-413e-b89d-bc609367a19e",
+      "status": "failed"
+    },
     "https://www.ft.com/content/f999a0c2-af52-499f-8008-accbdfd45a25": {
       "attempts": 1,
       "image": "https://images.ft.com/v3/image/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F6613ccdf-6f45-453d-b4c2-5ca8c027ae84.jpg?source=next-barrier-page&fit=scale-down&quality=highest&width=700&dpr=1",
@@ -1540,6 +1698,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://www.postgresql.org/about/news/postgresql-19-released-3449/": {
+      "attempts": 1,
+      "image": "https://www.postgresql.org/media/img/about/press/elephant.png",
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://www.reuters.com/business/amd-invest-psiquantum-advance-quantum-computing-infrastructure-2026-11-12/": {
       "attempts": 2,
       "lastAttempt": "2026-11-20T01:00:36Z",
@@ -1550,6 +1715,12 @@
       "attempts": 2,
       "lastAttempt": "2026-11-20T01:00:36Z",
       "reason": "HTTP 401 from https://www.reuters.com/business/finance/ai-rockets-top-worries-about-financial-system-latest-fed-survey-2026-11-13/",
+      "status": "failed"
+    },
+    "https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "reason": "HTTP 401 from https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/",
       "status": "failed"
     },
     "https://www.reuters.com/business/media-telecom/amazons-plan-own-worlds-product-data-fight-ai-shopping-agents-2026-11-13/": {
@@ -1582,6 +1753,12 @@
       "reason": "HTTP 401 from https://www.reuters.com/commentary/reuters-open-interest/metals-age-ai-game-changer-or-hyperscale-hype-2026-11-14/",
       "status": "failed"
     },
+    "https://www.reuters.com/legal/litigation/eu-commission-targeted-cyberattack-politico-reports-2026-11-19/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "reason": "HTTP 401 from https://www.reuters.com/legal/litigation/eu-commission-targeted-cyberattack-politico-reports-2026-11-19/",
+      "status": "failed"
+    },
     "https://www.reuters.com/legal/litigation/microsoft-unveils-ai-models-coding-cybersecurity-it-takes-anthropic-openai-2026-11-17/": {
       "attempts": 1,
       "lastAttempt": "2026-11-18T01:07:42Z",
@@ -1598,6 +1775,12 @@
       "attempts": 1,
       "lastAttempt": "2026-11-19T01:06:33Z",
       "reason": "HTTP 401 from https://www.reuters.com/legal/transactional/anthropic-prices-blockbuster-ipo-83-share-source-says-2026-11-18/",
+      "status": "failed"
+    },
+    "https://www.reuters.com/legal/transactional/anthropics-15-trillion-debut-rewrites-venture-capitals-playbook-2026-11-19/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-20T01:02:28Z",
+      "reason": "HTTP 401 from https://www.reuters.com/legal/transactional/anthropics-15-trillion-debut-rewrites-venture-capitals-playbook-2026-11-19/",
       "status": "failed"
     },
     "https://www.reuters.com/legal/transactional/downdetector-reports-outages-major-us-banks-2026-11-16/": {

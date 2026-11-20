@@ -69,7 +69,13 @@
           "url": "https://apnews.com/article/79705095e8141cd650196dbff1cf3c70"
         }
       ],
-      "rank": 2
+      "rank": 2,
+      "image": {
+        "url": "https://dims.apnews.com/dims4/default/0411f9b/2147483647/strip/true/crop/7722x5148+0+0/resize/1200x800!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fc8%2F6f%2F8493c812848915b8f042edbea0e0%2Fd6fd50b157cd44cc81b77ac306a0ae9a",
+        "alt": "Publisher-provided image for European Commission confirms AI-assisted cyberattack, with some applications still offline",
+        "credit": "apnews.com",
+        "sourceUrl": "https://apnews.com/article/79705095e8141cd650196dbff1cf3c70"
+      }
     },
     {
       "title": "PostgreSQL 19 ships online repacking, plan advice and replica read-your-writes",
@@ -98,7 +104,24 @@
           "url": "https://www.postgresql.org/about/news/postgresql-19-released-3449/"
         }
       ],
-      "rank": 3
+      "rank": 3,
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50560357",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://www.postgresql.org/media/img/about/press/elephant.png",
+        "alt": "Publisher-provided image for PostgreSQL 19 ships online repacking, plan advice and replica read-your-writes",
+        "credit": "postgresql.org",
+        "sourceUrl": "https://www.postgresql.org/about/news/postgresql-19-released-3449/",
+        "local": "img/ff92fb5d12a7fa6b23c2.webp",
+        "width": 540,
+        "height": 557,
+        "sha256": "ff92fb5d12a7fa6b23c2eb403d2edf4fbc58ced802021e1f02c3583cb70957be"
+      }
     },
     {
       "title": "Anthropic begins public trading after record $81 billion IPO",
@@ -131,7 +154,14 @@
           "url": "https://www.reuters.com/legal/transactional/anthropics-15-trillion-debut-rewrites-venture-capitals-playbook-2026-11-19/"
         }
       ],
-      "rank": 4
+      "rank": 4,
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50562754",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "Google describes Sashiko's real-world Linux kernel agent code-review results",
@@ -164,7 +194,17 @@
           "url": "https://github.com/google/sashiko"
         }
       ],
-      "rank": 5
+      "rank": 5,
+      "image": {
+        "url": "https://storage.googleapis.com/gweb-cloudblog-publish/images/App_Dev.max-2500x2500.jpg",
+        "alt": "Publisher-provided image for Google describes Sashiko's real-world Linux kernel agent code-review results",
+        "credit": "cloud.google.com",
+        "sourceUrl": "https://cloud.google.com/blog/products/application-development/lessons-from-building-sashiko-an-agentic-code-review-system",
+        "local": "img/e4e52822fb552034093d.webp",
+        "width": 600,
+        "height": 296,
+        "sha256": "e4e52822fb552034093da82557aafd4b2b48bdb78dcf7d2872ee14d34ca7216a"
+      }
     }
   ],
   "alsoWorthKnowing": [
@@ -187,7 +227,17 @@
           "label": "Technical reporting",
           "url": "https://virtualizationreview.com/articles/2026/11/19/is-it-ai-after-nationwide-outages-broadcom-and-cisa-sound-alarms-on-critical-security-flaws.aspx"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://virtualizationreview.com/-/media/ECG/VirtualizationReview/Images/introimages2014/AI_Cybersecurity.jpg",
+        "alt": "Publisher-provided image for CISA flags exploited LiteLLM and legacy software vulnerabilities",
+        "credit": "virtualizationreview.com",
+        "sourceUrl": "https://virtualizationreview.com/articles/2026/11/19/is-it-ai-after-nationwide-outages-broadcom-and-cisa-sound-alarms-on-critical-security-flaws.aspx",
+        "local": "img/cb05298ebca2a0d96335.webp",
+        "width": 600,
+        "height": 417,
+        "sha256": "cb05298ebca2a0d96335adb0ca2f2cc2f86d62b068e4b45081d64ea3d41e3ed8"
+      }
     },
     {
       "title": "Anthropic reports AI-assisted progress on two black-hole physics problems",
@@ -208,7 +258,24 @@
           "label": "Anthropic research",
           "url": "https://www.anthropic.com/research/claude-black-hole-physics"
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50563148",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://assets.claude.com/57a443b51d13727573b7c1290130d09c5f434b2c.jpg",
+        "alt": "Publisher-provided image for Anthropic reports AI-assisted progress on two black-hole physics problems",
+        "credit": "anthropic.com",
+        "sourceUrl": "https://www.anthropic.com/research/claude-black-hole-physics",
+        "local": "img/d46b4bab567bc54fc7a3.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "d46b4bab567bc54fc7a38e610c1e3d4568a33ac3e1ff505dc0e157590d6e5c0f"
+      }
     },
     {
       "title": "Google demonstrates Gemini 4 Neon applications in Blender and WebGL",
@@ -229,7 +296,24 @@
           "label": "Google release and demonstrations",
           "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50552424",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-neon__blog-header__sm.width-1300.png",
+        "alt": "Publisher-provided image for Google demonstrates Gemini 4 Neon applications in Blender and WebGL",
+        "credit": "blog.google",
+        "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+        "local": "img/1bb001958468294151f1.webp",
+        "width": 600,
+        "height": 335,
+        "sha256": "1bb001958468294151f19ad61727ef979c88b6822332e0b33901ea0a0f0ced97"
+      }
     },
     {
       "title": "European AI security debate intensifies after official incident confirmation",
@@ -286,7 +370,17 @@
           "label": "Source code",
           "url": "https://github.com/google/sashiko"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://storage.googleapis.com/gweb-cloudblog-publish/images/App_Dev.max-2500x2500.jpg",
+        "alt": "Publisher-provided image for Sashiko: open agent code review with independent bug verification",
+        "credit": "cloud.google.com",
+        "sourceUrl": "https://cloud.google.com/blog/products/application-development/lessons-from-building-sashiko-an-agentic-code-review-system",
+        "local": "img/e4e52822fb552034093d.webp",
+        "width": 600,
+        "height": 296,
+        "sha256": "e4e52822fb552034093da82557aafd4b2b48bdb78dcf7d2872ee14d34ca7216a"
+      }
     },
     {
       "title": "Weight-Space Playground: inspect model-weight edits through WebGPU",
@@ -308,7 +402,24 @@
           "label": "Interactive playground",
           "url": "https://tabbyml.github.io/weight-space-playground/"
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50561436",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://tabbyml.github.io/weight-space-playground/og-cover.png",
+        "alt": "Publisher-provided image for Weight-Space Playground: inspect model-weight edits through WebGPU",
+        "credit": "tabbyml.github.io",
+        "sourceUrl": "https://tabbyml.github.io/weight-space-playground/",
+        "local": "img/6f1a57551d6dbda39fe2.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "6f1a57551d6dbda39fe25fd5fa5e6f879da9cdcdbc27a77d58964ece83c8a5f9"
+      }
     },
     {
       "title": "Starbright: private browser-based speech transcription",
@@ -352,7 +463,24 @@
           "label": "Author's walkthrough",
           "url": "https://blog.platypush.tech/article/Rewriting-my-voice-assistant-pipeline"
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50566261",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://s3.platypush.tech/static/images/voice-assistant-pipeline.png",
+        "alt": "Publisher-provided image for Rebuilding a local voice assistant pipeline",
+        "credit": "blog.platypush.tech",
+        "sourceUrl": "https://blog.platypush.tech/article/Rewriting-my-voice-assistant-pipeline",
+        "local": "img/5873cfed4453a5684a71.webp",
+        "width": 600,
+        "height": 303,
+        "sha256": "5873cfed4453a5684a7174dd2582a94b24dabb0b6e6c0f692ab86f130456bd07"
+      }
     }
   ],
   "marketPulse": "Anthropic's first Nasdaq session ended above its $83 IPO price, but the broader technology market fell. The record financing increases scrutiny of frontier AI revenue quality, inference margins and committed compute spending rather than establishing sustainable profitability.\n\nNo new representative November 19 dataset was verified showing a material change in senior or Staff+ software-engineering hiring or compensation. The Sashiko case study provides useful evidence of agent-assisted code review in production, but should not be interpreted as an employment forecast.",
