@@ -279,6 +279,12 @@
       "reason": "publisher policy (apnews.com)",
       "status": "skipped"
     },
+    "https://dims.apnews.com/dims4/default/49a7d80/2147483647/strip/true/crop/3000x2000+0+0/resize/1200x800!/quality/90/?url=https%3A%2F%2Fstorage.googleapis.com%2Fafs-prod%2Fmedia%2F66a90e6332094b23bc328ec2199b7005%2F3000.jpeg": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-20T11:50:09Z",
+      "reason": "publisher policy (apnews.com)",
+      "status": "skipped"
+    },
     "https://forum.torproject.org/uploads/default/original/2X/d/d3424bed34f4ec18b2e99178c2801ba6dfb655d6.png": {
       "attempts": 1,
       "lastAttempt": "2026-11-17T04:09:37Z",
@@ -984,9 +990,10 @@
     },
     "https://apnews.com/article/50fee2693c22f597fa6ca51a97ef2cda": {
       "attempts": 1,
-      "lastAttempt": "2026-11-17T04:12:25Z",
-      "reason": "HTTP 403 from https://apnews.com/article/50fee2693c22f597fa6ca51a97ef2cda",
-      "status": "failed"
+      "image": "https://dims.apnews.com/dims4/default/49a7d80/2147483647/strip/true/crop/3000x2000+0+0/resize/1200x800!/quality/90/?url=https%3A%2F%2Fstorage.googleapis.com%2Fafs-prod%2Fmedia%2F66a90e6332094b23bc328ec2199b7005%2F3000.jpeg",
+      "lastAttempt": "2026-11-20T11:50:09Z",
+      "noimageindex": false,
+      "status": "ok"
     },
     "https://apnews.com/article/60f868d3bb430b85a8657b27d421096e": {
       "attempts": 1,
@@ -1784,8 +1791,8 @@
       "status": "failed"
     },
     "https://www.reuters.com/legal/transactional/downdetector-reports-outages-major-us-banks-2026-11-16/": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-17T04:09:37Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-20T11:50:09Z",
       "reason": "HTTP 401 from https://www.reuters.com/legal/transactional/downdetector-reports-outages-major-us-banks-2026-11-16/",
       "status": "failed"
     },
@@ -1820,8 +1827,8 @@
       "status": "failed"
     },
     "https://www.reuters.com/world/us/united-airlines-says-technology-issue-affecting-departing-flights-2026-11-16/": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-17T04:12:25Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-20T11:50:09Z",
       "reason": "HTTP 401 from https://www.reuters.com/world/us/united-airlines-says-technology-issue-affecting-departing-flights-2026-11-16/",
       "status": "failed"
     },
