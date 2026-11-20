@@ -1,0 +1,57 @@
+{
+  "id": "vmware-vcenter-auth-bypass-2026-11",
+  "title": "VMware vCenter Directory Service authentication bypass CVE-2026-123890",
+  "provider": "Broadcom / VMware",
+  "category": "Security",
+  "summary": "Broadcom issued VMSA-2026-0009 on November 19 for a critical 9.8-rated authentication bypass in VMware vCenter Directory Service. It provides fixed versions for supported releases and no workaround. Separate Google/Mandiant reporting describes suspected exploitation before disclosure; organizations must patch exposed vCenter management systems.",
+  "status": "monitoring",
+  "discoveredDate": "2026-11-19",
+  "fixDate": "2026-11-19",
+  "fix": "Broadcom published fixed versions including vCenter 8.0 U3m, 9.0.2.0200 and 9.1.1.0200; follow the response matrix for each product. No workaround for CVE-2026-123890.",
+  "rootCause": {
+    "status": "confirmed",
+    "summary": "Authentication bypass in VMware Directory Service permitting network-reachable attackers to bypass vCenter authentication.",
+    "sources": [
+      {
+        "label": "Broadcom VMSA-2026-0009",
+        "url": "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "Broadcom security advisory",
+      "url": "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495"
+    },
+    {
+      "label": "VMware supplemental FAQ",
+      "url": "https://github.com/vmware/vcf-security-and-compliance-guidelines/blob/main/security-advisories/vmsa-2026-0009/README.md"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-19",
+      "kind": "discovery",
+      "status": "identified",
+      "summary": "Broadcom disclosed five VMware vulnerabilities including the critical vCenter authentication bypass CVE-2026-123890, rated 9.8. A network-reachable attacker may obtain unauthorized access.",
+      "sources": [
+        {
+          "label": "Broadcom advisory",
+          "url": "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-19",
+      "kind": "fix",
+      "status": "monitoring",
+      "summary": "Broadcom published supported product fixes and reported no workaround for the vCenter authentication bypass. Patch deployment and full incident scope are not established.",
+      "sources": [
+        {
+          "label": "Broadcom advisory",
+          "url": "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495"
+        }
+      ]
+    }
+  ]
+}
