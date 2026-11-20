@@ -1092,8 +1092,8 @@
       "status": "ok"
     },
     "https://github.blog/changelog/label/security/": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-16T21:33:10Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-20T01:00:36Z",
       "reason": "HTTP 404 from https://github.blog/changelog/label/security/",
       "status": "failed"
     },
@@ -1426,8 +1426,8 @@
       "status": "ok"
     },
     "https://www.appliedmaterials.com/us/en/newsroom/press-releases/111226-applied-materials-announces-fourth-qtr-fiscal-year-end-2026-results.html": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-16T21:33:10Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-20T01:00:36Z",
       "reason": "HTTP 403 from https://www.appliedmaterials.com/us/en/newsroom/press-releases/111226-applied-materials-announces-fourth-qtr-fiscal-year-end-2026-results.html",
       "status": "failed"
     },
@@ -1501,8 +1501,8 @@
       "status": "ok"
     },
     "https://www.industry.gov.au/policies-and-initiatives/ai": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-16T21:33:10Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-20T01:00:36Z",
       "reason": "TimeoutError: The read operation timed out",
       "status": "failed"
     },
@@ -1528,8 +1528,8 @@
       "status": "ok"
     },
     "https://www.nasdaq.com/press-release/psiquantum-and-amd-collaborate-build-computing-foundation-utility-scale-quantum": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-16T21:33:10Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-20T01:00:36Z",
       "reason": "TimeoutError: The read operation timed out",
       "status": "failed"
     },
@@ -1541,32 +1541,32 @@
       "status": "ok"
     },
     "https://www.reuters.com/business/amd-invest-psiquantum-advance-quantum-computing-infrastructure-2026-11-12/": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-16T21:33:10Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-20T01:00:36Z",
       "reason": "HTTP 401 from https://www.reuters.com/business/amd-invest-psiquantum-advance-quantum-computing-infrastructure-2026-11-12/",
       "status": "failed"
     },
     "https://www.reuters.com/business/finance/ai-rockets-top-worries-about-financial-system-latest-fed-survey-2026-11-13/": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-16T21:33:10Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-20T01:00:36Z",
       "reason": "HTTP 401 from https://www.reuters.com/business/finance/ai-rockets-top-worries-about-financial-system-latest-fed-survey-2026-11-13/",
       "status": "failed"
     },
     "https://www.reuters.com/business/media-telecom/amazons-plan-own-worlds-product-data-fight-ai-shopping-agents-2026-11-13/": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-16T21:33:10Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-20T01:00:36Z",
       "reason": "HTTP 401 from https://www.reuters.com/business/media-telecom/amazons-plan-own-worlds-product-data-fight-ai-shopping-agents-2026-11-13/",
       "status": "failed"
     },
     "https://www.reuters.com/business/openai-google-anthropic-hit-with-lawsuit-seeking-halt-frontier-ai-development-2026-11-12/": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-16T21:33:10Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-20T01:00:36Z",
       "reason": "HTTP 401 from https://www.reuters.com/business/openai-google-anthropic-hit-with-lawsuit-seeking-halt-frontier-ai-development-2026-11-12/",
       "status": "failed"
     },
     "https://www.reuters.com/business/retail-consumer/alibaba-unveils-new-flagship-ai-model-with-safety-upgrades-2026-11-16/": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-16T21:33:10Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-20T01:00:36Z",
       "reason": "HTTP 401 from https://www.reuters.com/business/retail-consumer/alibaba-unveils-new-flagship-ai-model-with-safety-upgrades-2026-11-16/",
       "status": "failed"
     },
@@ -1577,8 +1577,8 @@
       "status": "failed"
     },
     "https://www.reuters.com/commentary/reuters-open-interest/metals-age-ai-game-changer-or-hyperscale-hype-2026-11-14/": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-16T21:33:10Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-20T01:00:36Z",
       "reason": "HTTP 401 from https://www.reuters.com/commentary/reuters-open-interest/metals-age-ai-game-changer-or-hyperscale-hype-2026-11-14/",
       "status": "failed"
     },
@@ -1589,8 +1589,8 @@
       "status": "failed"
     },
     "https://www.reuters.com/legal/litigation/us-issues-rule-protect-advanced-ai-chips-being-accessed-remotely-2026-11-16/": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-16T21:33:10Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-20T01:00:36Z",
       "reason": "HTTP 401 from https://www.reuters.com/legal/litigation/us-issues-rule-protect-advanced-ai-chips-being-accessed-remotely-2026-11-16/",
       "status": "failed"
     },
@@ -1644,9 +1644,10 @@
     },
     "https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/exhibit991q42026earningsre.htm": {
       "attempts": 1,
-      "lastAttempt": "2026-11-16T21:33:10Z",
-      "reason": "HTTP 403 from https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/exhibit991q42026earningsre.htm",
-      "status": "failed"
+      "image": null,
+      "lastAttempt": "2026-11-20T01:00:36Z",
+      "noimageindex": false,
+      "status": "ok"
     },
     "https://www.securityweek.com/attacker-targets-60000-github-repositories-in-credential-theft-campaign//": {
       "attempts": 1,
@@ -1697,8 +1698,8 @@
       "status": "failed"
     },
     "https://www.wsj.com/tech/ai/trump-administration-to-name-nvidia-among-ai-national-champions-c9284344": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-16T21:33:10Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-20T01:00:36Z",
       "reason": "HTTP 401 from https://www.wsj.com/tech/ai/trump-administration-to-name-nvidia-among-ai-national-champions-c9284344",
       "status": "failed"
     },
