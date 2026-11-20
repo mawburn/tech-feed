@@ -1,0 +1,38 @@
+{
+  "id": "eu-commission-ai-assisted-cyberattack-2026-11",
+  "title": "European Commission AI-assisted cyberattack on internal applications",
+  "provider": "European Commission",
+  "category": "Security",
+  "summary": "The European Commission confirmed November 19 that an AI-assisted cyber campaign detected October 22 led it to take several internal applications offline. Most have been restored, but some remain unavailable and the investigation is ongoing. The Commission says it has no evidence of a staff-wide breach, while reports of sensitive personal-data exposure remain unverified.",
+  "status": "investigating",
+  "discoveredDate": "2026-11-19",
+  "occurredDate": "2026-10-22",
+  "rootCause": {
+    "status": "unknown",
+    "summary": "The Commission confirms misuse of AI tools but has not identified the attacker, entry point, or precise technical compromise."
+  },
+  "sources": [
+    {
+      "label": "Reuters reporting of Commission statement",
+      "url": "https://www.reuters.com/legal/litigation/eu-commission-targeted-cyberattack-politico-reports-2026-11-19/"
+    },
+    {
+      "label": "Associated Press",
+      "url": "https://apnews.com/article/79705095e8141cd650196dbff1cf3c70"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-19",
+      "kind": "discovery",
+      "status": "investigating",
+      "summary": "Commission spokesperson confirmed on November 19 that a campaign detected October 22 used AI tools. Several applications were taken offline as a precaution, most subsequently restored; the investigation continues, with no evidence of a breach affecting all staff.",
+      "sources": [
+        {
+          "label": "Reuters",
+          "url": "https://www.reuters.com/legal/litigation/eu-commission-targeted-cyberattack-politico-reports-2026-11-19/"
+        }
+      ]
+    }
+  ]
+}
