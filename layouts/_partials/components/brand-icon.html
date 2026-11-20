@@ -1,0 +1,22 @@
+{{- /* Brand logo (Simple Icons, inlined) for a link or provider; falls back to a newspaper
+  (news), building (gov) or globe icon. Decorative: the link text names the source.
+  Context: {url?, name?, fallback? (default true; false renders nothing for unknown brands)} */ -}}
+{{- $brand := partial "data/brand.html" (dict "url" .url "name" .name) -}}
+{{- $fallback := cond (eq .fallback false) false true -}}
+{{- $path := "" -}}
+{{- with and $brand $brand.icon -}}
+  {{- with resources.Get (printf "brand-icons/%s.svg" .) -}}
+    {{- with findRESubmatch `<path d="([^"]+)"` .Content 1 }}{{ $path = index (index . 0) 1 }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- if $path -}}
+<svg class="icon icon--fill icon--brand" viewBox="0 0 24 24" aria-hidden="true" focusable="false"{{ with $brand.color }} style="color:{{ . | safeCSS }}"{{ end }}><path d="{{ $path }}"/></svg>
+{{- else if and $brand (eq $brand.kind "news") -}}
+<span class="icon-wrap icon-wrap--kind">{{ partial "components/icon.html" "newspaper" }}</span>
+{{- else if and $brand (eq $brand.kind "gov") -}}
+<span class="icon-wrap icon-wrap--kind">{{ partial "components/icon.html" "landmark" }}</span>
+{{- else if $brand -}}
+<span class="brand-mark" aria-hidden="true">{{ substr $brand.name 0 1 }}</span>
+{{- else if $fallback -}}
+<span class="icon-wrap icon-wrap--kind">{{ partial "components/icon.html" "globe" }}</span>
+{{- end -}}

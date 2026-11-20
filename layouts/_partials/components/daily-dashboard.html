@@ -60,7 +60,7 @@
           {{- with site.GetPage (printf "/incidents/%s" $inc.id) }}
           <li><a class="inc inc--{{ $inc.status }}" href="{{ .RelPermalink }}">
             <span class="inc__title">{{ $inc.title }}</span>
-            <span class="inc__sub">{{ if eq $inc.status "identified" }}<span class="inc__state">Cause identified</span> · {{ end }}{{ with $inc.provider }}<span class="inc__provider">{{ . }}</span> · {{ end }}Updated <time datetime="{{ $inc.lastUpdate }}">{{ time.AsTime $inc.lastUpdate | time.Format "Jan 2" }}</time></span>
+            <span class="inc__sub">{{ if eq $inc.status "identified" }}<span class="inc__state">Cause identified</span> · {{ end }}{{ with $inc.provider }}<span class="inc__provider">{{ partial "components/brand-icon.html" (dict "name" . "fallback" false) }}{{ . }}</span> · {{ end }}Updated <time datetime="{{ $inc.lastUpdate }}">{{ time.AsTime $inc.lastUpdate | time.Format "Jan 2" }}</time></span>
           </a></li>
           {{- end }}
           {{- end }}
@@ -76,7 +76,7 @@
         <ul class="inc-mini inc-mini--monitoring">
           {{- range $inc := first 4 . }}
           {{- with site.GetPage (printf "/incidents/%s" $inc.id) }}
-          <li><a href="{{ .RelPermalink }}"><span class="inc-mini__title">{{ $inc.title }}</span>{{ with $inc.fixDate }}<span class="inc-mini__date">Fix {{ time.AsTime . | time.Format "Jan 2" }}</span>{{ end }}</a></li>
+          <li><a href="{{ .RelPermalink }}"><span class="inc-mini__title">{{ with $inc.provider }}{{ partial "components/brand-icon.html" (dict "name" . "fallback" false) }}{{ end }}{{ $inc.title }}</span>{{ with $inc.fixDate }}<span class="inc-mini__date">Fix {{ time.AsTime . | time.Format "Jan 2" }}</span>{{ end }}</a></li>
           {{- end }}
           {{- end }}
           {{- with after 4 . }}<li><a class="inc-mini__more" href="{{ $incidentsPage.RelPermalink }}#incidents-monitoring">+{{ len . }} more monitoring</a></li>{{ end }}
@@ -90,7 +90,7 @@
         <ul class="inc-mini inc-mini--resolved">
           {{- range $inc := first 4 . }}
           {{- with site.GetPage (printf "/incidents/%s" $inc.id) }}
-          <li><a href="{{ .RelPermalink }}"><span class="inc-mini__title">{{ $inc.title }}</span><span class="inc-mini__date">Resolved {{ time.AsTime $inc.resolvedDate | time.Format "Jan 2" }}</span></a></li>
+          <li><a href="{{ .RelPermalink }}"><span class="inc-mini__title">{{ with $inc.provider }}{{ partial "components/brand-icon.html" (dict "name" . "fallback" false) }}{{ end }}{{ $inc.title }}</span><span class="inc-mini__date">Resolved {{ time.AsTime $inc.resolvedDate | time.Format "Jan 2" }}</span></a></li>
           {{- end }}
           {{- end }}
           {{- with after 4 . }}<li><a class="inc-mini__more" href="{{ $incidentsPage.RelPermalink }}#incidents-resolved">+{{ len . }} more resolved</a></li>{{ end }}
@@ -118,20 +118,16 @@
     {{- end }}
 
     <section class="dash__panel dash__headlines" aria-labelledby="{{ $date }}-headlines">
-      <h2 class="dash__label" id="{{ $date }}-headlines">Headlines</h2>
+      <h2 class="dash__label" id="{{ $date }}-headlines">Headlines{{ if gt (len $topics) 1 }} <span class="dash__hint">· tap a category to filter</span>{{ end }}</h2>
       {{- if gt (len $topics) 1 }}
-      <fieldset class="catchart">
-        <legend class="catchart__legend">Stories by category <span>· tap to filter</span></legend>
-        <div class="catchart__row">
-          <input class="visually-hidden" type="radio" name="{{ $f }}" id="{{ $f }}-all" value="all" checked>
-          <label for="{{ $f }}-all"><span class="catchart__name">All stories</span><span class="catchart__track"></span><span class="catchart__n">{{ len $stories }}</span></label>
-        </div>
+      <fieldset class="catpills">
+        <legend class="visually-hidden">Filter headlines and stories by category</legend>
+        <input class="visually-hidden" type="radio" name="{{ $f }}" id="{{ $f }}-all" value="all" checked>
+        <label class="catpill catpill--all" for="{{ $f }}-all">{{ partial "components/icon.html" "layers" }}<span class="catpill__name">All</span><span class="catpill__n">{{ len $stories }}</span></label>
         {{- range $topics }}
         {{- $style := partial "data/topic-style.html" .name }}
-        <div class="catchart__row">
-          <input class="visually-hidden" type="radio" name="{{ $f }}" id="{{ $f }}-{{ .slug }}" value="{{ .slug }}">
-          <label for="{{ $f }}-{{ .slug }}" class="topic topic--{{ $style.key }}"><span class="catchart__name"><span class="dot" aria-hidden="true"></span>{{ .name }}</span><span class="catchart__track"><span class="catchart__bar" style="width:{{ printf "%.1f" (mul (div (float .count) (float $max)) 100) }}%"></span></span><span class="catchart__n">{{ .count }}</span></label>
-        </div>
+        <input class="visually-hidden" type="radio" name="{{ $f }}" id="{{ $f }}-{{ .slug }}" value="{{ .slug }}">
+        <label class="catpill topic topic--{{ $style.key }}" for="{{ $f }}-{{ .slug }}" style="--share:{{ printf "%.0f" (mul (div (float .count) (float $max)) 100) }}%" title="{{ .count }} of {{ len $stories }} stories">{{ partial "components/icon.html" (cond (eq $style.icon "dot") "dot" $style.icon) }}<span class="catpill__name">{{ .name }}</span><span class="catpill__n">{{ .count }}</span><span class="catpill__bar" aria-hidden="true"></span></label>
         {{- end }}
       </fieldset>
       {{- end }}

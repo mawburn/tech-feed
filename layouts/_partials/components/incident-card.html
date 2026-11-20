@@ -6,7 +6,7 @@
 <article class="incident-card topic topic--{{ $style.key }}">
   <div class="incident-card__top">
     {{ partial "components/incident-status.html" $i.status }}
-    <span class="incident-card__provider">{{ $i.provider }}</span>
+    <span class="incident-card__provider">{{ partial "components/brand-icon.html" (dict "name" $i.provider "fallback" false) }}{{ $i.provider }}</span>
     <span class="incident-card__updated">Updated <time datetime="{{ $i.lastUpdate }}">{{ time.AsTime $i.lastUpdate | time.Format "Jan 2, 2006" }}</time></span>
   </div>
   <h3 class="incident-card__title"><a href="{{ .RelPermalink }}">{{ $i.title }}</a></h3>

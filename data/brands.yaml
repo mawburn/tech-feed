@@ -1,0 +1,142 @@
+# Brand icons for links and incident providers.
+#
+# Each entry: name (display), hosts (domain suffixes; the longest matching suffix wins, so
+# qwenlm.github.io beats github.io), optional icon (a Simple Icons slug: the file
+# node_modules/simple-icons/icons/<slug>.svg, mounted at assets/brand-icons/), optional color
+# (only for brand colours that stay readable on the dark surfaces; otherwise the icon uses the
+# surrounding text colour), optional aliases (incident provider names that should match),
+# optional kind (news | gov) used for the fallback icon when there is no brand logo.
+#
+# Brands Simple Icons does not carry (Microsoft, AWS, OpenAI, most newspapers) are listed
+# without an icon so they still get the right fallback. Unlisted hosts get a globe.
+
+# --- code hosting & developer platforms
+github: { name: GitHub, icon: github, hosts: [github.com, github.blog, githubassets.com, githubusercontent.com, githubstatus.com] }
+githubpages: { name: GitHub Pages, icon: github, hosts: [github.io] }  # the githubpages logo is a wordmark, unreadable at 14px
+gitlab: { name: GitLab, icon: gitlab, color: "#FC6D26", hosts: [gitlab.com] }
+huggingface: { name: Hugging Face, icon: huggingface, color: "#FFD21E", hosts: [huggingface.co, hf.co] }
+hackernews: { name: Hacker News, icon: ycombinator, color: "#FF6600", hosts: [news.ycombinator.com, hn.algolia.com, ycombinator.com] }
+reddit: { name: Reddit, icon: reddit, color: "#FF4500", hosts: [reddit.com, redd.it] }
+stackoverflow: { name: Stack Overflow, icon: stackoverflow, color: "#F58025", hosts: [stackoverflow.com] }
+npm: { name: npm, icon: npm, color: "#E5484D", hosts: [npmjs.com] }
+pypi: { name: PyPI, icon: pypi, color: "#6CA0DC", hosts: [pypi.org], aliases: [PyPI, Python Package Index] }
+docker: { name: Docker, icon: docker, color: "#4AA8F0", hosts: [docker.com] }
+kubernetes: { name: Kubernetes, icon: kubernetes, color: "#6C9BEF", hosts: [kubernetes.io] }
+vercel: { name: Vercel, icon: vercel, hosts: [vercel.com] }
+netlify: { name: Netlify, icon: netlify, color: "#32C3BF", hosts: [netlify.com] }
+supabase: { name: Supabase, icon: supabase, color: "#3ECF8E", hosts: [supabase.com] }
+cloudflare: { name: Cloudflare, icon: cloudflare, color: "#F38020", hosts: [cloudflare.com], aliases: [Cloudflare] }
+jetbrains: { name: JetBrains, icon: jetbrains, hosts: [jetbrains.com] }
+cursor: { name: Cursor, icon: cursor, hosts: [cursor.com, cursor.sh] }
+zed: { name: Zed, icon: zedindustries, hosts: [zed.dev] }
+replit: { name: Replit, icon: replit, color: "#F26207", hosts: [replit.com] }
+opencode: { name: OpenCode, icon: opencode, hosts: [opencode.ai] }
+langchain: { name: LangChain, icon: langchain, hosts: [langchain.com] }
+mcp: { name: Model Context Protocol, icon: modelcontextprotocol, hosts: [modelcontextprotocol.io] }
+chainguard: { name: Chainguard, icon: chainguard, hosts: [chainguard.dev] }
+ghost: { name: Ghost, icon: ghost, hosts: [ghost.io] }
+substack: { name: Substack, icon: substack, color: "#FF6719", hosts: [substack.com] }
+medium: { name: Medium, icon: medium, hosts: [medium.com] }
+devto: { name: DEV, icon: devdotto, hosts: [dev.to] }
+youtube: { name: YouTube, icon: youtube, color: "#FF3B3B", hosts: [youtube.com, youtu.be] }
+x: { name: X, icon: x, hosts: [x.com, twitter.com] }
+bluesky: { name: Bluesky, icon: bluesky, color: "#4F9BFF", hosts: [bsky.app] }
+mastodon: { name: Mastodon, icon: mastodon, color: "#8C8DFF", hosts: [mastodon.social] }
+wikipedia: { name: Wikipedia, icon: wikipedia, hosts: [wikipedia.org] }
+arxiv: { name: arXiv, icon: arxiv, hosts: [arxiv.org] }
+
+# --- languages, runtimes, databases
+postgresql: { name: PostgreSQL, icon: postgresql, color: "#7CA6E8", hosts: [postgresql.org], aliases: [PostgreSQL] }
+mysql: { name: MySQL, icon: mysql, color: "#4E9AC4", hosts: [mysql.com] }
+sqlite: { name: SQLite, icon: sqlite, color: "#5AA6E0", hosts: [sqlite.org] }
+redis: { name: Redis, icon: redis, color: "#FF6B5B", hosts: [redis.io] }
+mongodb: { name: MongoDB, icon: mongodb, color: "#47A248", hosts: [mongodb.com] }
+rust: { name: Rust, icon: rust, hosts: [rust-lang.org, crates.io] }
+python: { name: Python, icon: python, color: "#6CA0DC", hosts: [python.org] }
+nodejs: { name: Node.js, icon: nodedotjs, color: "#5FA04E", hosts: [nodejs.org], aliases: [Node.js] }
+deno: { name: Deno, icon: deno, hosts: [deno.com, deno.land] }
+bun: { name: Bun, icon: bun, hosts: [bun.sh, bun.com] }
+typescript: { name: TypeScript, icon: typescript, color: "#5B9BE6", hosts: [typescriptlang.org] }
+go: { name: Go, icon: go, color: "#00ADD8", hosts: [go.dev, golang.org] }
+dart: { name: Dart, icon: dart, color: "#4FC3F7", hosts: [dart.dev] }
+kotlin: { name: Kotlin, icon: kotlin, color: "#9F7CFF", hosts: [kotlinlang.org] }
+swift: { name: Swift, icon: swift, color: "#F05138", hosts: [swift.org] }
+solid: { name: SolidJS, icon: solid, color: "#6FA0DA", hosts: [solidjs.com] }
+openjdk: { name: OpenJDK, icon: openjdk, hosts: [openjdk.org], aliases: [OpenJDK, Java] }
+nginx: { name: NGINX, icon: nginx, color: "#2EBE6A", hosts: [nginx.org, nginx.com], aliases: [NGINX, F5 NGINX] }
+linux: { name: Linux, icon: linux, hosts: [kernel.org], aliases: [Linux] }
+pytorch: { name: PyTorch, icon: pytorch, color: "#EE4C2C", hosts: [pytorch.org] }
+tensorflow: { name: TensorFlow, icon: tensorflow, color: "#FF8F00", hosts: [tensorflow.org] }
+mozilla: { name: Mozilla, icon: mozilla, hosts: [mozilla.org] }
+
+# --- AI labs and models
+anthropic: { name: Anthropic, icon: anthropic, color: "#D4A27F", hosts: [anthropic.com], aliases: [Anthropic] }
+claude: { name: Claude, icon: claude, color: "#D97757", hosts: [claude.com, claude.ai] }
+googledeepmind: { name: Google DeepMind, icon: google, color: "#8AB4F8", hosts: [deepmind.google, deepmind.com] }
+deepseek: { name: DeepSeek, icon: deepseek, color: "#6B86FE", hosts: [deepseek.com], aliases: [DeepSeek] }
+qwen: { name: Qwen, icon: qwen, color: "#8C7CF7", hosts: [qwenlm.github.io, qwencloud.com, qwen.ai] }
+mistral: { name: Mistral AI, icon: mistralai, color: "#FA520F", hosts: [mistral.ai] }
+ollama: { name: Ollama, icon: ollama, hosts: [ollama.com] }
+perplexity: { name: Perplexity, icon: perplexity, color: "#20B8CD", hosts: [perplexity.ai] }
+meta: { name: Meta, icon: meta, color: "#4A90F2", hosts: [meta.com, ai.meta.com, about.fb.com], aliases: [Meta] }
+openai: { name: OpenAI, hosts: [openai.com], aliases: [OpenAI] }
+microsoftai: { name: Microsoft AI, hosts: [microsoft.ai] }
+
+# --- big tech & hardware
+google: { name: Google, icon: google, color: "#8AB4F8", hosts: [google.com, blog.google, googleapis.com, googleusercontent.com, googleblog.com], aliases: [Google] }
+googlecloud: { name: Google Cloud, icon: googlecloud, color: "#8AB4F8", hosts: [cloud.google.com], aliases: [Google Cloud] }
+apple: { name: Apple, icon: apple, hosts: [apple.com], aliases: [Apple] }
+microsoft: { name: Microsoft, hosts: [microsoft.com, azure.com, msrc.microsoft.com], aliases: [Microsoft] }
+aws: { name: AWS, hosts: [aws.amazon.com, amazonaws.com, cloudfront.net], aliases: [AWS, Amazon Web Services] }
+amazon: { name: Amazon, hosts: [amazon.com, aboutamazon.com], aliases: [Amazon] }
+nvidia: { name: NVIDIA, icon: nvidia, color: "#76B900", hosts: [nvidia.com], aliases: [NVIDIA, Nvidia] }
+amd: { name: AMD, icon: amd, hosts: [amd.com], aliases: [AMD] }
+intel: { name: Intel, icon: intel, color: "#3D9BE9", hosts: [intel.com], aliases: [Intel] }
+arm: { name: Arm, icon: arm, color: "#21C5E5", hosts: [arm.com] }
+qualcomm: { name: Qualcomm, icon: qualcomm, color: "#5B8DEF", hosts: [qualcomm.com] }
+samsung: { name: Samsung, icon: samsung, color: "#5B8DEF", hosts: [samsung.com] }
+broadcom: { name: Broadcom, icon: broadcom, hosts: [broadcom.com], aliases: [Broadcom] }
+vmware: { name: VMware, icon: vmware, hosts: [vmware.com], aliases: [VMware, Broadcom VMware] }
+cisco: { name: Cisco, icon: cisco, color: "#2EAEE0", hosts: [cisco.com], aliases: [Cisco] }
+tesla: { name: Tesla, icon: tesla, color: "#E82127", hosts: [tesla.com] }
+spacex: { name: SpaceX, icon: spacex, hosts: [spacex.com] }
+nasa: { name: NASA, icon: nasa, color: "#5B8DEF", hosts: [nasa.gov] }
+indeed: { name: Indeed, icon: indeed, color: "#6E9CFF", hosts: [indeed.com] }
+notion: { name: Notion, icon: notion, hosts: [notion.com, notion.so] }
+figma: { name: Figma, icon: figma, hosts: [figma.com] }
+discord: { name: Discord, icon: discord, color: "#7983F5", hosts: [discord.com] }
+datadog: { name: Datadog, icon: datadog, color: "#9C6CF0", hosts: [datadoghq.com] }
+sentry: { name: Sentry, icon: sentry, hosts: [sentry.io] }
+grafana: { name: Grafana, icon: grafana, color: "#F46800", hosts: [grafana.com] }
+raspberrypi: { name: Raspberry Pi, icon: raspberrypi, color: "#E04E7A", hosts: [raspberrypi.com, raspberrypi.org] }
+eu: { name: European Commission, icon: europeanunion, color: "#FFCC00", hosts: [europa.eu], aliases: [European Commission, European Union, EU] }
+
+# --- news (no logos in Simple Icons for most; kind: news shows a newspaper icon)
+techcrunch: { name: TechCrunch, icon: techcrunch, color: "#0A9E01", hosts: [techcrunch.com], kind: news }
+arstechnica: { name: Ars Technica, icon: arstechnica, color: "#FF4E00", hosts: [arstechnica.com], kind: news }
+hackernoon: { name: HackerNoon, icon: hackernoon, hosts: [hackernoon.com], kind: news }
+washingtonpost: { name: The Washington Post, icon: thewashingtonpost, hosts: [washingtonpost.com], kind: news }
+reuters: { name: Reuters, hosts: [reuters.com], kind: news }
+ap: { name: Associated Press, hosts: [apnews.com], kind: news }
+ft: { name: Financial Times, hosts: [ft.com], kind: news }
+wsj: { name: The Wall Street Journal, hosts: [wsj.com], kind: news }
+bloomberg: { name: Bloomberg, hosts: [bloomberg.com], kind: news }
+businessinsider: { name: Business Insider, hosts: [businessinsider.com, insider.com], kind: news }
+wired: { name: WIRED, hosts: [wired.com], kind: news }
+theverge: { name: The Verge, hosts: [theverge.com], kind: news }
+cnbc: { name: CNBC, hosts: [cnbc.com], kind: news }
+bleepingcomputer: { name: BleepingComputer, hosts: [bleepingcomputer.com], kind: news }
+securityweek: { name: SecurityWeek, hosts: [securityweek.com], kind: news }
+theregister: { name: The Register, hosts: [theregister.com], kind: news }
+virtualizationreview: { name: Virtualization Review, hosts: [virtualizationreview.com], kind: news }
+nasdaq: { name: Nasdaq, hosts: [nasdaq.com], kind: news }
+
+# --- government & regulators (kind: gov shows a building icon)
+sec: { name: SEC, hosts: [sec.gov], kind: gov }
+federalreserve: { name: Federal Reserve, hosts: [federalreserve.gov], kind: gov }
+faa: { name: FAA, hosts: [faa.gov], kind: gov }
+census: { name: U.S. Census Bureau, hosts: [census.gov], kind: gov }
+bis: { name: BIS, hosts: [bis.gov], kind: gov }
+cisa: { name: CISA, hosts: [cisa.gov], kind: gov, aliases: [CISA] }
+nist: { name: NIST, hosts: [nist.gov], kind: gov }
+govau: { name: Australian Government, hosts: [gov.au], kind: gov }

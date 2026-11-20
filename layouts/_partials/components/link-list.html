@@ -9,7 +9,7 @@
     {{- range $links }}
     {{- $text := .label | default "Source" -}}
     {{- if .platform }}{{ $text = cond (and .label (ne .label .platform)) (printf "%s · %s" .platform .label) .platform }}{{ end }}
-    <li><a href="{{ .url }}" rel="noopener">{{ $text }}</a></li>
+    <li><a class="brand-link" href="{{ .url }}" rel="noopener">{{ partial "components/brand-icon.html" (dict "url" .url) }}<span>{{ $text }}</span></a></li>
     {{- end }}
   </ul>
 </div>

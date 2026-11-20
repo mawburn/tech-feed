@@ -32,6 +32,15 @@ removePathAccents = true
 [module.hugoVersion]
   min = "0.170.0"
 
+# Declaring any assets mount replaces the default, so assets/ is listed again.
+# Brand logos come from the simple-icons npm package (pnpm install runs before the build).
+[[module.mounts]]
+  source = "assets"
+  target = "assets"
+[[module.mounts]]
+  source = "node_modules/simple-icons/icons"
+  target = "assets/brand-icons"
+
 [caches.images]
   dir = ":cacheDir/images"
   maxAge = -1

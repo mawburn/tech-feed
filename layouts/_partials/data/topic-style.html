@@ -9,4 +9,5 @@
 {{- else if findRE `cloud|infra|software|hardware|chip` $c }}{{ $key = "infra" }}{{ $icon = "server" }}
 {{- else if findRE `\bai\b|model|agent|research` $c }}{{ $key = "ai" }}{{ $icon = "sparkle" }}
 {{- end -}}
+{{- if findRE `database|\bsql|storage` $c }}{{ $icon = "database" }}{{ end -}}
 {{- return dict "key" $key "icon" $icon -}}
