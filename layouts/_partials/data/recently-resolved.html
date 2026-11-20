@@ -1,0 +1,11 @@
+{{- /* Resolved incidents whose resolvedDate falls within the last N days (Pacific today),
+  newest first. Context: N (int). */ -}}
+{{- $today := partialCached "data/today.html" "today" -}}
+{{- $since := (time.AsTime $today).AddDate 0 0 (sub 0 (int .)) | time.Format "2006-01-02" -}}
+{{- $out := slice -}}
+{{- range partialCached "data/incidents.html" "incidents" -}}
+  {{- if and (eq .status "resolved") .resolvedDate (ge (string .resolvedDate) $since) (le (string .resolvedDate) $today) -}}
+    {{- $out = $out | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- return sort $out "resolvedDate" "desc" -}}

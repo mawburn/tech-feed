@@ -1,19 +1,31 @@
 {{- define "main" -}}
 {{- $incidents := partialCached "data/incidents.html" "incidents" -}}
-{{- $active := slice }}{{ $resolved := slice -}}
-{{- range $incidents }}{{ if eq .status "resolved" }}{{ $resolved = $resolved | append . }}{{ else }}{{ $active = $active | append . }}{{ end }}{{ end -}}
-{{ partial "components/page-header.html" (dict "kicker" "Tracker" "title" "Incidents" "intro" (printf "%d tracked, %d still open. Each incident is followed from discovery through resolution, permanent fix and postmortem, so its status is updated in one place instead of repeated across reports." (len $incidents) (len $active))) }}
-{{- with $active }}
-<section class="archive__group" aria-labelledby="incidents-open">
-  <h2 id="incidents-open">Open incidents <span class="count">{{ len . }}</span></h2>
+{{- $open := partialCached "data/open-incidents.html" "open" -}}
+{{- $ongoing := where $open "status" "in" (slice "investigating" "identified") -}}
+{{- $monitoring := where $open "status" "monitoring" -}}
+{{- $resolved := sort (where $incidents "status" "resolved") "resolvedDate" "desc" -}}
+{{ partial "components/page-header.html" (dict "kicker" "Tracker" "title" "Incidents" "intro" (printf "%d tracked: %d ongoing, %d monitoring, %d resolved. Each incident is followed from discovery through resolution, permanent fix and postmortem, so its status is updated in one place instead of repeated across reports." (len $incidents) (len $ongoing) (len $monitoring) (len $resolved))) }}
+{{- if $incidents }}
+<ul class="inc-summary inc-summary--page" aria-label="Jump to">
+  <li><a href="#incidents-ongoing" class="inc-summary__item inc-summary__item--ongoing"><span class="inc-summary__n">{{ len $ongoing }}</span><span>Ongoing</span></a></li>
+  <li><a href="#incidents-monitoring" class="inc-summary__item inc-summary__item--monitoring"><span class="inc-summary__n">{{ len $monitoring }}</span><span>Monitoring</span></a></li>
+  <li><a href="#incidents-resolved" class="inc-summary__item inc-summary__item--resolved"><span class="inc-summary__n">{{ len $resolved }}</span><span>Resolved</span></a></li>
+</ul>
+{{- range $g := slice
+  (dict "id" "ongoing" "title" "Ongoing" "note" "Cause, scope or fix still open" "items" $ongoing "empty" "Nothing is under active investigation.")
+  (dict "id" "monitoring" "title" "Monitoring" "note" "Patched or mitigated, still being watched" "items" $monitoring "empty" "Nothing is being monitored.")
+  (dict "id" "resolved" "title" "Resolved" "note" "Service restored or threat ended" "items" $resolved "empty" "No incidents have been resolved yet.") }}
+<section class="archive__group incident-group" id="incidents-{{ $g.id }}" aria-labelledby="incidents-{{ $g.id }}-title">
+  <h2 id="incidents-{{ $g.id }}-title">{{ $g.title }} <span class="count">{{ len $g.items }}</span></h2>
+  <p class="incident-group__note">{{ $g.note }}</p>
+  {{- with $g.items }}
   <div class="incident-list">{{ range . }}{{ partial "components/incident-card.html" . }}{{ end }}</div>
+  {{- else }}
+  <p class="empty-state">{{ $g.empty }}</p>
+  {{- end }}
 </section>
 {{- end }}
-{{- with $resolved }}
-<section class="archive__group" aria-labelledby="incidents-resolved">
-  <h2 id="incidents-resolved">Resolved <span class="count">{{ len . }}</span></h2>
-  <div class="incident-list">{{ range . }}{{ partial "components/incident-card.html" . }}{{ end }}</div>
-</section>
+{{- else }}
+{{ partial "components/empty-state.html" "No incidents are being tracked yet." }}
 {{- end }}
-{{- if not $incidents }}{{ partial "components/empty-state.html" "No incidents are being tracked yet." }}{{ end }}
 {{- end -}}

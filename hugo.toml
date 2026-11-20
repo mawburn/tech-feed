@@ -24,6 +24,8 @@ removePathAccents = true
   weeklyWindow = 52
   # Summaries longer than this many characters are collapsed in a <details>.
   summaryCollapseChars = 600
+  # Resolved incidents stay in the dashboard's "Resolved" group for this many days.
+  resolvedIncidentDays = 14
   # Responsive widths Hugo generates from each stored image (max 960px) for srcset.
   imageWidths = [320, 480]
 
