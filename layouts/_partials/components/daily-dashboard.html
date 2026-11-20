@@ -1,12 +1,13 @@
-{{- /* Daily edition dashboard: at-a-hl stats, topics, rundown, headline index and open incidents.
-  The detailed stories render below it (components/edition.html). Context: issue. */ -}}
+{{- /* Daily edition dashboard: section tiles, current major incidents, rundown, and the headline
+  index with a category chart that doubles as a no-JS filter (radio inputs + :has(), scoped to the
+  .daily wrapper in daily-view.html). The detailed stories render below it. Context: issue. */ -}}
 {{- $issue := . -}}
 {{- $date := $issue.date -}}
 {{- $when := time.AsTime $date -}}
 {{- $n := 0 -}}
 {{- range partialCached "data/published-daily.html" "published" }}{{ if le .date $date }}{{ $n = add $n 1 }}{{ end }}{{ end -}}
 {{- $stories := partial "data/stories.html" (slice $issue) -}}
-{{- $chars := add (len ($issue.overview | default "")) (len ($issue.marketPulse | default "")) -}}
+{{- $chars := add (len ($issue.overview | default "")) (len (partial "data/pulse-text.html" $issue.marketPulse)) -}}
 {{- range $stories }}
   {{- $chars = add $chars (len (.summary | default "")) (len (.whyItMatters | default "")) (len (.limitations | default "")) }}
   {{- range .briefing }}{{ $chars = add $chars (len .body) }}{{ end }}
@@ -15,47 +16,66 @@
 {{- $sections := partialCached "data/sections.html" "sections" -}}
 {{- $short := dict "topStories" "Top stories" "alsoWorthKnowing" "Quick hits" "newTools" "Hands-on" -}}
 {{- $open := partialCached "data/open-incidents.html" "open" -}}
+{{- $active := where $open "status" "in" (slice "investigating" "identified") -}}
+{{- $watching := where $open "status" "monitoring" -}}
 {{- $topics := partial "data/topic-counts.html" (slice $issue) -}}
+{{- $max := 1 }}{{ range $topics }}{{ if gt .count $max }}{{ $max = .count }}{{ end }}{{ end -}}
 {{- $incidentsPage := site.GetPage "/incidents" -}}
 {{- $rundown := partial "data/chunk-paragraphs.html" (partial "data/split-text.html" ($issue.overview | default "")).paragraphs -}}
-<section class="dash" aria-labelledby="dash-{{ $date }}">
+{{- $f := printf "f-%s" $date -}}
+<section class="dash" id="dash-{{ $date }}" aria-labelledby="dash-{{ $date }}-title">
   <header class="dash__head">
     <p class="dash__kicker"><span class="dot" aria-hidden="true"></span><span>Issue {{ $n }}</span><span aria-hidden="true">·</span><span>{{ len $stories }} stories</span><span aria-hidden="true">·</span><span>~{{ $mins }} min read</span></p>
-    <h1 class="dash__title" id="dash-{{ $date }}"><time datetime="{{ $date }}">{{ $when | time.Format "Monday, January 2" }}</time></h1>
+    <h1 class="dash__title" id="dash-{{ $date }}-title"><time datetime="{{ $date }}">{{ $when | time.Format "Monday, January 2" }}</time></h1>
   </header>
 
-  <ul class="dash__stats" aria-label="In this edition">
-    {{- range $sections }}
-    {{- $items := index $issue .key }}
-    {{- if $items }}
-    <li><a class="stat stat--{{ .key }}" href="#{{ $date }}-{{ .key }}"><span class="stat__num">{{ len $items }}</span><span class="stat__label">{{ index $short .key }}</span></a></li>
+  <ul class="dash__stats" aria-label="Sections in this edition">
+    {{- range $sec := $sections }}
+    {{- with index $issue $sec.key }}
+    <li><a class="stat stat--{{ $sec.key }}" href="#{{ $date }}-{{ $sec.key }}"><span class="stat__num">{{ len . }}</span><span class="stat__label">{{ index $short $sec.key }}</span></a></li>
     {{- end }}
-    {{- end }}
-    {{- with $incidentsPage }}
-    <li><a class="stat stat--incidents{{ if $open }} is-alert{{ end }}" href="{{ .RelPermalink }}"><span class="stat__num">{{ len $open }}</span><span class="stat__label">Open incidents</span></a></li>
     {{- end }}
   </ul>
 
-  {{- with $topics }}
-  {{- $total := 0 }}{{ range . }}{{ $total = add $total .count }}{{ end }}
-  <nav class="dash__topics" aria-label="Topics in this edition">
-    <div class="topicbar" aria-hidden="true">
-      {{- range . }}<span class="topicbar__seg topic topic--{{ (partial "data/topic-style.html" .name).key }}" style="flex-grow:{{ .count }}"></span>{{ end -}}
-    </div>
-    <ul class="topic-pills">
-      {{- range . }}
-      {{- $style := partial "data/topic-style.html" .name }}
-      {{- $page := site.GetPage (printf "/daily/%s/topics/%s" $date .slug) }}
-      <li>{{ with $page }}<a class="topic-pill topic topic--{{ $style.key }}" href="{{ .RelPermalink }}">{{ else }}<span class="topic-pill topic topic--{{ $style.key }}">{{ end }}<span class="dot" aria-hidden="true"></span><span class="topic-pill__name">{{ .name }}</span><span class="topic-pill__n">{{ .count }}</span>{{ if $page }}</a>{{ else }}</span>{{ end }}</li>
-      {{- end }}
-    </ul>
-  </nav>
-  {{- end }}
-
   <div class="dash__grid">
+    {{- if and $open $incidentsPage }}
+    <section class="dash__panel dash__incidents" aria-labelledby="{{ $date }}-incidents">
+      <div class="dash__panel-head">
+        <h2 class="dash__label" id="{{ $date }}-incidents">Current major incidents</h2>
+        <a class="dash__more" href="{{ $incidentsPage.RelPermalink }}"><span>All</span>{{ partial "components/icon.html" "arrow-right" }}</a>
+      </div>
+      {{- with $active }}
+      <ul class="inc-list">
+        {{- range $inc := . }}
+        {{- with site.GetPage (printf "/incidents/%s" $inc.id) }}
+        <li><a class="inc inc--{{ $inc.status }}" href="{{ .RelPermalink }}">
+          <span class="inc__meta">{{ partial "components/incident-status.html" $inc.status }}</span>
+          <span class="inc__title">{{ $inc.title }}</span>
+          <span class="inc__sub">{{ with $inc.provider }}<span class="inc__provider">{{ . }}</span> · {{ end }}Updated <time datetime="{{ $inc.lastUpdate }}">{{ time.AsTime $inc.lastUpdate | time.Format "Jan 2" }}</time></span>
+        </a></li>
+        {{- end }}
+        {{- end }}
+      </ul>
+      {{- else }}
+      <p class="inc-none">No incidents are under active investigation.</p>
+      {{- end }}
+      {{- with $watching }}
+      <p class="inc-sub"><span class="status status--monitoring"><span class="dot" aria-hidden="true"></span>Monitoring</span><span class="count">{{ len . }}</span><span class="inc-sub__note">patched or mitigated, still watched</span></p>
+      <ul class="inc-watch">
+        {{- range $inc := first 4 . }}
+        {{- with site.GetPage (printf "/incidents/%s" $inc.id) }}
+        <li><a href="{{ .RelPermalink }}">{{ $inc.title }}</a></li>
+        {{- end }}
+        {{- end }}
+        {{- with after 4 . }}<li><a class="inc-watch__more" href="{{ $incidentsPage.RelPermalink }}">+{{ len . }} more</a></li>{{ end }}
+      </ul>
+      {{- end }}
+    </section>
+    {{- end }}
+
     {{- with $rundown }}
-    <div class="dash__panel dash__rundown">
-      <h2 class="dash__label">The rundown</h2>
+    <section class="dash__panel dash__rundown" aria-labelledby="{{ $date }}-rundown">
+      <h2 class="dash__label" id="{{ $date }}-rundown">The rundown</h2>
       <div class="prose">
         <p>{{ index . 0 }}</p>
         {{- with after 1 . }}
@@ -65,42 +85,65 @@
         </details>
         {{- end }}
       </div>
-    </div>
+    </section>
     {{- end }}
 
-    <nav class="dash__panel dash__headlines" aria-label="Headlines">
-      <h2 class="dash__label">Headlines</h2>
-      {{- range $sections }}
-      {{- $key := .key }}
+    <section class="dash__panel dash__headlines" aria-labelledby="{{ $date }}-headlines">
+      <h2 class="dash__label" id="{{ $date }}-headlines">Headlines</h2>
+      {{- if gt (len $topics) 1 }}
+      <fieldset class="catchart">
+        <legend class="catchart__legend">Stories by category <span>· tap to filter</span></legend>
+        <div class="catchart__row">
+          <input class="visually-hidden" type="radio" name="{{ $f }}" id="{{ $f }}-all" value="all" checked>
+          <label for="{{ $f }}-all"><span class="catchart__name">All stories</span><span class="catchart__track"></span><span class="catchart__n">{{ len $stories }}</span></label>
+        </div>
+        {{- range $topics }}
+        {{- $style := partial "data/topic-style.html" .name }}
+        <div class="catchart__row">
+          <input class="visually-hidden" type="radio" name="{{ $f }}" id="{{ $f }}-{{ .slug }}" value="{{ .slug }}">
+          <label for="{{ $f }}-{{ .slug }}" class="topic topic--{{ $style.key }}"><span class="catchart__name"><span class="dot" aria-hidden="true"></span>{{ .name }}</span><span class="catchart__track"><span class="catchart__bar" style="width:{{ printf "%.1f" (mul (div (float .count) (float $max)) 100) }}%"></span></span><span class="catchart__n">{{ .count }}</span></label>
+        </div>
+        {{- end }}
+      </fieldset>
+      {{- end }}
+      {{- range $sec := $sections }}
+      {{- $key := $sec.key }}
       {{- with index $issue $key }}
-      <div class="hl">
+      {{- $cats := slice }}{{ range . }}{{ $cats = $cats | append (partial "data/slug.html" (partial "data/category.html" .)) }}{{ end }}
+      <div class="hl" data-cats="{{ delimit ($cats | uniq) " " }}">
         <p class="hl__group"><a href="#{{ $date }}-{{ $key }}">{{ index $short $key }}</a></p>
         <ol class="hl__list">
           {{- range $i, $s := . }}
-          {{- $style := partial "data/topic-style.html" (partial "data/category.html" $s) }}
-          <li><a class="hl__item topic topic--{{ $style.key }}" href="#{{ $date }}-{{ $key }}-{{ add $i 1 }}"><span class="dot" aria-hidden="true"></span><span class="hl__title">{{ $s.title }}</span>{{ with $s.incidentId }}{{ with partial "data/find-incident.html" . }}<span class="hl__status status--{{ .status }}" title="Incident: {{ .status }}"><span class="dot" aria-hidden="true"></span></span>{{ end }}{{ end }}</a></li>
+          {{- $cat := partial "data/category.html" $s }}
+          {{- $slug := partial "data/slug.html" $cat }}
+          {{- $style := partial "data/topic-style.html" $cat }}
+          <li class="hl__row topic topic--{{ $style.key }}" data-cat="{{ $slug }}">
+            <span class="dot" aria-hidden="true"></span>
+            <div class="hl__body">
+              <a class="hl__title" href="#{{ $date }}-{{ $key }}-{{ add $i 1 }}">{{ $s.title }}</a>
+              <span class="hl__meta">{{ if gt (len $topics) 1 }}<label class="hl__cat" for="{{ $f }}-{{ $slug }}">{{ $cat }}</label>{{ else }}<span class="hl__cat">{{ $cat }}</span>{{ end }}{{ with $s.incidentId }}{{ with partial "data/find-incident.html" . }}{{ partial "components/incident-status.html" .status }}{{ end }}{{ end }}</span>
+            </div>
+          </li>
           {{- end }}
         </ol>
       </div>
       {{- end }}
       {{- end }}
       {{- if $issue.marketPulse }}
-      <div class="hl"><p class="hl__group"><a href="#{{ $date }}-market-pulse">Job market &amp; business pulse</a></p></div>
+      <div class="hl" data-cats=""><p class="hl__group"><a href="#{{ $date }}-market-pulse">Job market &amp; business pulse</a></p></div>
       {{- end }}
-    </nav>
-
-    {{- if and $open $incidentsPage }}
-    <div class="dash__panel dash__incidents">
-      <h2 class="dash__label">Open incidents <span class="count">{{ len $open }}</span></h2>
-      <ul class="mini-incidents">
-        {{- range $inc := first 4 $open }}
-        {{- with site.GetPage (printf "/incidents/%s" $inc.id) }}
-        <li><a href="{{ .RelPermalink }}">{{ partial "components/incident-status.html" $inc.status }}<span class="mini-incidents__title">{{ $inc.title }}</span></a></li>
-        {{- end }}
-        {{- end }}
-      </ul>
-      <a class="dash__more" href="{{ $incidentsPage.RelPermalink }}"><span>All incidents</span>{{ partial "components/icon.html" "arrow-right" }}</a>
-    </div>
-    {{- end }}
+    </section>
   </div>
 </section>
+{{- if gt (len $topics) 1 }}
+{{- /* One rule per category present today: hide headlines, stories and sections outside it. */ -}}
+{{- $css := slice }}
+{{- range $topics }}
+{{- $on := printf ".daily:has(#%s-%s:checked)" $f .slug }}
+{{- $css = $css | append (printf `%s [data-cat]:not([data-cat="%s"]),%s [data-cats]:not([data-cats~="%s"]){display:none}%s .filter-note[data-for="%s"]{display:flex}` $on .slug $on .slug $on .slug) }}
+{{- end }}
+<style>{{ delimit $css "" | safeCSS }}</style>
+{{- range $topics }}
+<p class="filter-note" data-for="{{ .slug }}"><span>Showing <strong>{{ .name }}</strong> only · {{ .count }} {{ cond (eq .count 1) "story" "stories" }}</span><label for="{{ $f }}-all">Show all</label></p>
+{{- end }}
+{{- end }}

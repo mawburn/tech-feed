@@ -1,7 +1,10 @@
-{{- /* A single daily edition page body. Context: {issue, page, allHref?, topicPage?} */ -}}
+{{- /* A single daily edition page body. Context: {issue, page, allHref?, topicPage?}
+  .daily scopes the dashboard's category filter (see daily-dashboard.html). */ -}}
 {{- $issue := .issue -}}
+<div class="daily">
 {{ partial "components/daily-dashboard.html" $issue }}
 {{ partial "components/edition.html" (dict "issue" $issue "level" 2 "headed" false) }}
+</div>
 {{ partial "components/edition-pager.html" $issue.date }}
 <div class="browse">
   {{ partial "components/topic-nav.html" (dict "issues" (slice $issue) "date" $issue.date "label" "Topics in this edition" "allHref" .allHref) }}
