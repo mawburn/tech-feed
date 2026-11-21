@@ -30,7 +30,17 @@
       "rank": 1,
       "isUpdate": false,
       "incidentId": "nginx-http2-rce-2026-11",
-      "whyItMatters": "Critical internet-facing server vulnerabilities with available fixes."
+      "whyItMatters": "Critical internet-facing server vulnerabilities with available fixes.",
+      "image": {
+        "url": "https://www.datocms-assets.com/75231/1794936719-img_7875.png?fm=webp",
+        "alt": "Publisher-provided image for Critical NGINX HTTP/2 RCE flaws patched",
+        "credit": "wiz.io",
+        "sourceUrl": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities",
+        "local": "img/828bfac2e8e707e751a7.webp",
+        "width": 600,
+        "height": 334,
+        "sha256": "828bfac2e8e707e751a74997af4e59b4e8172faff3460f7dc11be506830464ad"
+      }
     },
     {
       "title": "Microsoft agent-framework PyPI packages contained credential stealer",
@@ -63,7 +73,17 @@
       "rank": 2,
       "isUpdate": false,
       "incidentId": "microsoft-agent-framework-pypi-malware-2026-11",
-      "whyItMatters": "A short-lived supply-chain compromise can silently expose long-lived cloud identities."
+      "whyItMatters": "A short-lived supply-chain compromise can silently expose long-lived cloud identities.",
+      "image": {
+        "url": "https://www.datocms-assets.com/75231/1794951224-threat-update-purple-wireframe_custom.jpeg?fm=webp",
+        "alt": "Publisher-provided image for Microsoft agent-framework PyPI packages contained credential stealer",
+        "credit": "wiz.io",
+        "sourceUrl": "https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi",
+        "local": "img/62c12a49ee9a753813f5.webp",
+        "width": 600,
+        "height": 338,
+        "sha256": "62c12a49ee9a753813f527b760f7e7b195a47213d8c0d36011dfa51afb461f54"
+      }
     },
     {
       "title": "Anthropic prices landmark IPO at $83 per share",
@@ -125,7 +145,17 @@
       ],
       "rank": 4,
       "isUpdate": false,
-      "whyItMatters": "Another frontier coding model broadens developer choices."
+      "whyItMatters": "Another frontier coding model broadens developer choices.",
+      "image": {
+        "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-neon__blog-header__sm.width-1300.png",
+        "alt": "Publisher-provided image for Google releases Gemini 4 Neon",
+        "credit": "blog.google",
+        "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+        "local": "img/1bb001958468294151f1.webp",
+        "width": 600,
+        "height": 335,
+        "sha256": "1bb001958468294151f19ad61727ef979c88b6822332e0b33901ea0a0f0ced97"
+      }
     },
     {
       "title": "Java4Shell prompts international government patch warnings",
@@ -158,7 +188,17 @@
       "rank": 5,
       "isUpdate": true,
       "incidentId": "java4shell-openjdk-base64-2026-11",
-      "whyItMatters": "A shared runtime vulnerability affects multiple enterprise products."
+      "whyItMatters": "A shared runtime vulnerability affects multiple enterprise products.",
+      "image": {
+        "url": "https://calif.io/java4shell/poster.jpg",
+        "alt": "Publisher-provided image for Java4Shell prompts international government patch warnings",
+        "credit": "calif.io",
+        "sourceUrl": "https://calif.io/java4shell/",
+        "local": "img/729ad118434546c0d964.webp",
+        "width": 403,
+        "height": 600,
+        "sha256": "729ad118434546c0d9645c7cce41d5bd114c0f42215ae9d5b7e4e8bfeb7e9282"
+      }
     }
   ],
   "alsoWorthKnowing": [
@@ -182,7 +222,17 @@
           "url": "https://microsoft.ai/news/microsoft-ignite-2026/"
         }
       ],
-      "isUpdate": true
+      "isUpdate": true,
+      "image": {
+        "url": "https://microsoft.ai/wp-content/uploads/2026/11/All-Up-Blog.jpg",
+        "alt": "Publisher-provided image for Microsoft broadens specialized MAI model portfolio",
+        "credit": "microsoft.ai",
+        "sourceUrl": "https://microsoft.ai/news/microsoft-ignite-2026/",
+        "local": "img/3f3012140f78ab4a3027.webp",
+        "width": 600,
+        "height": 338,
+        "sha256": "3f3012140f78ab4a30271578dac0e68397add902d8a8772307655d5696bca05c"
+      }
     },
     {
       "title": "Orange releases open-weight Wolof AI models",
@@ -203,7 +253,17 @@
           "label": "techafricanews.com",
           "url": "https://techafricanews.com/2026/11/18/orange-releases-five-open-weight-ai-models-for-wolof-language/"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://techafricanews.com/wp-content/uploads/2025/07/orange.png",
+        "alt": "Publisher-provided image for Orange releases open-weight Wolof AI models",
+        "credit": "techafricanews.com",
+        "sourceUrl": "https://techafricanews.com/2026/11/18/orange-releases-five-open-weight-ai-models-for-wolof-language/",
+        "local": "img/264612916fa8e705029b.webp",
+        "width": 600,
+        "height": 405,
+        "sha256": "264612916fa8e705029b9ecbab614952f422b54b0064fdce292db691adae0401"
+      }
     },
     {
       "title": "Optimizely compromise remains under monitoring",
@@ -226,7 +286,17 @@
         }
       ],
       "isUpdate": true,
-      "incidentId": "optimizely-web-snippet-malware-2026-11"
+      "incidentId": "optimizely-web-snippet-malware-2026-11",
+      "image": {
+        "url": "https://storage.ghost.io/c/2d/aa/2daa4f7f-a71b-47d2-a54c-06b8c60222ef/content/images/size/w1200/2026/11/Cybersecurity-Alert_-Malicious-Code-Injection.png",
+        "alt": "Publisher-provided image for Optimizely compromise remains under monitoring",
+        "credit": "report-uri.ghost.io",
+        "sourceUrl": "https://report-uri.ghost.io/worlds-largest-brands-infected-with-malware-via-optimizely/",
+        "local": "img/3464c3db74247a757505.webp",
+        "width": 600,
+        "height": 307,
+        "sha256": "3464c3db74247a757505a76b4649bd16763d306712f3aaf24fb0fe8ef938e1fa"
+      }
     },
     {
       "title": "Equinor corporate IT attack awaits verified closure",
@@ -296,7 +366,17 @@
           "url": "https://springcraft-ai.github.io/springrep/"
         }
       ],
-      "format": "Source code"
+      "format": "Source code",
+      "image": {
+        "url": "https://cdn.springcraft.ai/springrep/springrep-preview-mwmpm0jd.png",
+        "alt": "Publisher-provided image for springrep: exact CAD geometry with Rust",
+        "credit": "springcraft-ai.github.io",
+        "sourceUrl": "https://springcraft-ai.github.io/springrep/",
+        "local": "img/edb76445a8cceef52854.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "edb76445a8cceef52854c8f01dcc71bb41d4db6c5a4239f195bf80dfddd40739"
+      }
     },
     {
       "title": "Voyager interactive spacecraft teardown",
@@ -318,7 +398,17 @@
           "url": "https://rshekhar.com/voyager/"
         }
       ],
-      "format": "Interactive demo"
+      "format": "Interactive demo",
+      "image": {
+        "url": "https://rshekhar.com/voyager/og.jpg",
+        "alt": "Publisher-provided image for Voyager interactive spacecraft teardown",
+        "credit": "rshekhar.com",
+        "sourceUrl": "https://rshekhar.com/voyager/",
+        "local": "img/d7b4f461e46ed9b10b08.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "d7b4f461e46ed9b10b089ed6d65536a7ae88ac43791076968bd83e1470dfbaab"
+      }
     },
     {
       "title": "Mastra Factory agent software-factory workflow",
