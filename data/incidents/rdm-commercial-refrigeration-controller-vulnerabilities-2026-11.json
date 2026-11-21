@@ -1,0 +1,37 @@
+{
+  "id": "rdm-commercial-refrigeration-controller-vulnerabilities-2026-11",
+  "title": "Commercial refrigeration controller vulnerabilities and UK coordinated remediation",
+  "provider": "Resource Data Management",
+  "category": "Security",
+  "status": "monitoring",
+  "discoveredDate": "2026-11-20",
+  "summary": "UK authorities and researchers disclosed vulnerabilities in RDM commercial refrigeration controllers. RDM says initial patches and customer guidance have been issued; thousands of internet-exposed controllers may remain vulnerable, according to researchers. Actual UK compromise has not been established.",
+  "rootCause": {
+    "status": "suspected",
+    "summary": "Researchers identified remotely reachable security weaknesses in commercial refrigeration management equipment. Exact technical exploit details and comprehensive remediation verification are not public."
+  },
+  "sources": [
+    {
+      "label": "Reuters November 20 report",
+      "url": "https://www.reuters.com/world/uk/uk-finds-fix-fridge-freezer-vulnerability-after-european-hacks-2026-11-20/"
+    },
+    {
+      "label": "Guardian November 20 investigation",
+      "url": "https://www.theguardian.com/technology/2026/nov/20/cybersecurity-operation-thwarts-attack-on-uk-supermarket-fridges-and-freezers"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-20",
+      "kind": "discovery",
+      "status": "monitoring",
+      "summary": "The UK NCSC and researchers disclosed a confidential coordinated response to weaknesses in RDM commercial refrigeration management equipment. RDM reported initial software patches and customer mitigation advice. Some equipment may remain internet-exposed; the UK was not confirmed to have suffered the European attacks.",
+      "sources": [
+        {
+          "label": "Reuters",
+          "url": "https://www.reuters.com/world/uk/uk-finds-fix-fridge-freezer-vulnerability-after-european-hacks-2026-11-20/"
+        }
+      ]
+    }
+  ]
+}
