@@ -27,6 +27,26 @@ For all credible candidates, compare:
 
 A single numerical score is optional; use explicit comparisons. Pure engagement metrics (HN votes, comments, Reddit rank) are **candidate discovery** signals only. Company prestige and dollar values alone do not confer a #1 rank. Corporate announcements, funding and vendor benchmarks require scrutiny.
 
+## Separate axis: landmark significance (`significance`, `thread`)
+
+Rank measures **urgency**: what a reader should act on or know first today. It deliberately puts active incidents and exploited vulnerabilities ahead of strategic news. That leaves a gap: a landmark event can sit at #3–#5, or in *Also worth knowing*, day after day, and a reader skimming the top can miss it entirely. Significance closes that gap. It is judged **independently of rank**, and it does not change the ranking rules above.
+
+Ask: *would a well-informed technology reader be surprised or embarrassed to learn about this a week later?* If yes, set `"significance": "major"` on the story. The site then shows it as the **Big story** banner at the top of the dashboard, badges it in the executive summary and headlines, and keeps it in **This week's big stories** for seven days.
+
+Typical `major` events (verified, not rumoured):
+
+- IPOs, direct listings, acquisitions or mergers of the most prominent technology or AI companies, or any deal that reshapes a market.
+- Frontier model or platform launches that change what developers can do, from the major labs and platforms.
+- Leadership changes at the top of major technology companies (CEO, founder departures), or collapses and shutdowns of widely used companies or products.
+- Landmark regulation, court rulings or government actions that change how technology is built, sold or used.
+- Exceptional outages or security events whose scale makes them general news, not only operational news. These usually also lead the ranking.
+
+Use `"significance": "notable"` for important stories that fall short of landmark (badge only). Leave it out for everything else. Expect **zero to two** `major` stories on a normal day. If everything is major, nothing is. Company prestige or a dollar figure alone is not enough. The event must be real, confirmed and consequential.
+
+A `major` story should also appear in `executiveSummary`, usually first or second, even when its rank is lower.
+
+**Developing stories.** When an event unfolds over several days (roadshow → pricing → first trade; announcement → rollout → backlash; lawsuit → ruling → appeal), give every story about it the same `"thread"` ID: lowercase kebab-case, stable for the life of the event, e.g. `"anthropic-ipo-2026"`. Reuse the existing ID on each new day. Before choosing one, check recent editions for a thread already in use. The site links the entries into a dated timeline on each story and shows "Developing since …" on the banner. Mark the decisive milestones `major` (pricing, first trade, closing, ruling), not every incremental update. Outages and security incidents use `incidentId` instead (see `editorial/INCIDENTS.md`).
+
 ## Editorial quality checks
 
 Before publishing:
@@ -40,6 +60,7 @@ Before publishing:
 - Do not invent community consensus, vendor capabilities, source URLs, dates, cause/effect claims or adoption.
 - Keep summaries specific: what happened, what it affects, why it matters, limitations and useful primary/independent links.
 - If the evidence is thin, de-rank or omit the claim instead of making it sound established.
+- Ask the landmark question for every story, separately from rank. Set `significance: "major"` where it applies, and continue an existing `thread` ID for developing events.
 
 For the Sunday review, rank themes by the week's cumulative importance, not Monday's ranking or an average of headline attention. Revisit outages that span multiple days, investigate resolution and root-cause updates, and do not attribute unrelated contemporaneous failures to a shared cause.
 

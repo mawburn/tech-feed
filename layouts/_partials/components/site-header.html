@@ -7,14 +7,12 @@
     <nav class="site-nav" aria-label="Main">
       <ul>
         {{- range $item := slice
-          (dict "label" "Daily Brief" "short" "Daily" "path" "/" "section" "")
-          (dict "label" "Last 7 Days" "short" "7 Days" "path" "/all" "section" "")
-          (dict "label" "Weekly Review" "short" "Weekly" "path" "/weekly-latest" "section" "weekly")
-          (dict "label" "Topics" "path" "/topics" "section" "topics")
+          (dict "label" "Today" "path" "/" "section" "")
+          (dict "label" "Weekly" "path" "/weekly-latest" "section" "weekly")
           (dict "label" "Incidents" "path" "/incidents" "section" "incidents")
           (dict "label" "Archive" "path" "/daily" "section" "daily") }}
           {{- with site.GetPage $item.path }}
-        <li><a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $current }} aria-current="page"{{ else if and $item.section (eq $section $item.section) }} class="is-active"{{ end }}>{{ with $item.short }}<span class="nav-short">{{ . }}</span><span class="nav-long">{{ $item.label }}</span>{{ else }}{{ $item.label }}{{ end }}</a></li>
+        <li><a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $current }} aria-current="page"{{ else if and $item.section (eq $section $item.section) }} class="is-active"{{ end }}>{{ $item.label }}</a></li>
           {{- end }}
         {{- end }}
       </ul>

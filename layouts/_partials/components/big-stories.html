@@ -1,0 +1,46 @@
+{{- /* Dashboard "Big story" banner(s) for this edition's major stories, then a strip of other
+  major stories from the past seven days (one per thread, skipping threads already in a banner).
+  Context: issue. */ -}}
+{{- $issue := . -}}
+{{- $date := $issue.date -}}
+{{- $leads := slice -}}
+{{- range partialCached "data/sections.html" "sections" -}}
+  {{- $key := .key -}}
+  {{- range $i, $s := index $issue $key -}}
+    {{- if eq ($s.significance | default "") "major" }}{{ $leads = $leads | append (dict "key" $key "pos" (add $i 1) "story" $s) }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- $bannerThreads := dict -}}
+{{- range $leads }}{{ with .story.thread }}{{ $bannerThreads = merge $bannerThreads (dict . true) }}{{ end }}{{ end -}}
+{{- $recent := slice -}}
+{{- range partial "data/big-stories.html" $date -}}
+  {{- if and (ne .date $date) (not (index $bannerThreads .thread)) }}{{ $recent = $recent | append . }}{{ end -}}
+{{- end -}}
+{{- range $leads -}}
+{{- $s := .story -}}
+{{- $category := partial "data/category.html" $s -}}
+{{- $style := partial "data/topic-style.html" $category -}}
+{{- $lede := "" }}{{ with (partial "data/split-text.html" ($s.summary | default "")).paragraphs }}{{ $lede = index . 0 }}{{ end -}}
+{{- with findRESubmatch `^(.+?[a-z0-9)%"'][.!?])\s+[A-Z]` $lede 1 }}{{ $lede = index (index . 0) 1 }}{{ end -}}
+{{- $entries := slice }}{{ with $s.thread }}{{ $entries = partialCached "data/thread.html" . . }}{{ end -}}
+<section class="bigstory topic topic--{{ $style.key }}" aria-label="Big story">
+  <p class="bigstory__kicker">{{ partial "components/icon.html" "star" }}<span>Big story</span><span class="bigstory__cat">{{ $category }}</span></p>
+  <h2 class="bigstory__title"><a href="#{{ $date }}-{{ .key }}-{{ .pos }}">{{ $s.title }}</a></h2>
+  {{- with $lede }}<p class="bigstory__lede">{{ . }}</p>{{ end }}
+  <p class="bigstory__foot">
+    <a class="bigstory__cta" href="#{{ $date }}-{{ .key }}-{{ .pos }}"><span>Read the story</span>{{ partial "components/icon.html" "arrow-right" }}</a>
+    {{- if gt (len $entries) 1 }}<span class="bigstory__thread">{{ partial "components/icon.html" "layers" }}Developing since {{ time.AsTime (index $entries 0).date | time.Format "Jan 2" }} · {{ len $entries }} updates</span>{{ end }}
+  </p>
+</section>
+{{- end -}}
+{{- with $recent }}
+<section class="bigweek" aria-labelledby="{{ $date }}-bigweek">
+  <h2 class="bigweek__label" id="{{ $date }}-bigweek">{{ partial "components/icon.html" "star" }}This week's big stories</h2>
+  <ul class="bigweek__list">
+    {{- range . }}
+    {{- $style := partial "data/topic-style.html" (partial "data/category.html" .story) }}
+    <li><a class="bigweek__item topic topic--{{ $style.key }}" href="{{ .href }}"><time datetime="{{ .date }}">{{ time.AsTime .date | time.Format "Mon Jan 2" }}</time><span class="bigweek__title">{{ .story.title }}</span></a></li>
+    {{- end }}
+  </ul>
+</section>
+{{- end -}}

@@ -1,0 +1,6 @@
+{{- /* "Big story" / "Notable" badge. Context: significance string (major|notable|""). */ -}}
+{{- if eq . "major" -}}
+<span class="sig sig--major">{{ partial "components/icon.html" "star" }}<span>Big story</span></span>
+{{- else if eq . "notable" -}}
+<span class="sig sig--notable">Notable</span>
+{{- end -}}

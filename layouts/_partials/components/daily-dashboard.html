@@ -1,0 +1,182 @@
+{{- /* Daily edition dashboard: section tiles, current major incidents, rundown, and the headline
+  index with a category chart that doubles as a no-JS filter (radio inputs + :has(), scoped to the
+  .daily wrapper in daily-view.html). The detailed stories render below it. Context: issue. */ -}}
+{{- $issue := . -}}
+{{- $date := $issue.date -}}
+{{- $when := time.AsTime $date -}}
+{{- $n := 0 -}}
+{{- range partialCached "data/published-daily.html" "published" }}{{ if le .date $date }}{{ $n = add $n 1 }}{{ end }}{{ end -}}
+{{- $stories := partial "data/stories.html" (slice $issue) -}}
+{{- $chars := add (len ($issue.overview | default "")) (len (partial "data/pulse-text.html" $issue.marketPulse)) -}}
+{{- range $stories }}
+  {{- $chars = add $chars (len (.summary | default "")) (len (.whyItMatters | default "")) (len (.limitations | default "")) }}
+  {{- range .briefing }}{{ $chars = add $chars (len .body) }}{{ end }}
+{{- end -}}
+{{- $mins := int (math.Max 1 (math.Ceil (div (float $chars) 1100))) -}}
+{{- $sections := partialCached "data/sections.html" "sections" -}}
+{{- $short := dict "topStories" "Top stories" "alsoWorthKnowing" "Quick hits" "newTools" "Hands-on" -}}
+{{- $open := partialCached "data/open-incidents.html" "open" -}}
+{{- $active := where $open "status" "in" (slice "investigating" "identified") -}}
+{{- $watching := where $open "status" "monitoring" -}}
+{{- $resolvedDays := site.Params.resolvedIncidentDays | default 14 -}}
+{{- $resolved := partialCached "data/recently-resolved.html" $resolvedDays $resolvedDays -}}
+{{- $topics := partial "data/topic-counts.html" (slice $issue) -}}
+{{- $max := 1 }}{{ range $topics }}{{ if gt .count $max }}{{ $max = .count }}{{ end }}{{ end -}}
+{{- $incidentsPage := site.GetPage "/incidents" -}}
+{{- $rundown := partial "data/chunk-paragraphs.html" (partial "data/split-text.html" ($issue.overview | default "")).paragraphs -}}
+{{- $f := printf "f-%s" $date -}}
+<section class="dash" id="dash-{{ $date }}" aria-labelledby="dash-{{ $date }}-title">
+  <header class="dash__head">
+    <p class="dash__kicker"><span class="dot" aria-hidden="true"></span><span>Issue {{ $n }}</span><span aria-hidden="true">·</span><span>{{ len $stories }} stories</span><span aria-hidden="true">·</span><span>~{{ $mins }} min read</span></p>
+    <h1 class="dash__title" id="dash-{{ $date }}-title"><time datetime="{{ $date }}">{{ $when | time.Format "Monday, January 2" }}</time></h1>
+  </header>
+
+  {{ partial "components/big-stories.html" $issue }}
+
+  <ul class="dash__stats" aria-label="Sections in this edition">
+    {{- range $sec := $sections }}
+    {{- with index $issue $sec.key }}
+    <li><a class="stat stat--{{ $sec.key }}" href="#{{ $date }}-{{ $sec.key }}"><span class="stat__num">{{ len . }}</span><span class="stat__label">{{ index $short $sec.key }}</span></a></li>
+    {{- end }}
+    {{- end }}
+  </ul>
+
+  <div class="dash__grid">
+    {{- if $incidentsPage }}
+    {{- $ip := $incidentsPage.RelPermalink }}
+    <section class="dash__panel dash__incidents{{ if $active }} has-ongoing{{ end }}" aria-labelledby="{{ $date }}-incidents">
+      <div class="dash__panel-head">
+        <h2 class="dash__label" id="{{ $date }}-incidents">Incidents</h2>
+        <a class="dash__more" href="{{ $ip }}"><span>Tracker</span>{{ partial "components/icon.html" "arrow-right" }}</a>
+      </div>
+      <ul class="inc-strip" aria-label="Incident counts">
+        <li><a href="{{ $ip }}#incidents-ongoing" class="inc-strip__item inc-strip__item--ongoing"><span class="dot" aria-hidden="true"></span><strong>{{ len $active }}</strong> ongoing</a></li>
+        <li><a href="{{ $ip }}#incidents-monitoring" class="inc-strip__item inc-strip__item--monitoring"><span class="dot" aria-hidden="true"></span><strong>{{ len $watching }}</strong> monitoring</a></li>
+        <li><a href="{{ $ip }}#incidents-resolved" class="inc-strip__item inc-strip__item--resolved" title="Resolved in the last {{ $resolvedDays }} days"><span class="dot" aria-hidden="true"></span><strong>{{ len $resolved }}</strong> resolved</a></li>
+      </ul>
+      {{- with $active }}
+      <ul class="inc-rows">
+        {{- range $inc := . }}
+        {{- with site.GetPage (printf "/incidents/%s" $inc.id) }}
+        <li><a class="inc-row inc-row--{{ $inc.status }}" href="{{ .RelPermalink }}">
+          {{- $logo := "" }}{{ with $inc.provider }}{{ $logo = trim (partial "components/brand-icon.html" (dict "name" . "fallback" false)) " \n" }}{{ end }}
+          <span class="inc-row__icon">{{ with $logo }}{{ . | safeHTML }}{{ else }}<span class="dot" aria-hidden="true"></span>{{ end }}</span>
+          <span class="inc-row__title">{{ $inc.title }}</span>
+          <time class="inc-row__date" datetime="{{ $inc.lastUpdate }}">{{ time.AsTime $inc.lastUpdate | time.Format "Jan 2" }}</time>
+        </a></li>
+        {{- end }}
+        {{- end }}
+      </ul>
+      {{- else }}
+      <p class="inc-none">Nothing under active investigation.</p>
+      {{- end }}
+    </section>
+    {{- end }}
+
+    {{- /* Executive summary: authored bullets (issue.executiveSummary) or, for older editions,
+      one bullet per top story. Each bullet links to its story below; extra links follow the text. */ -}}
+    {{- $bullets := slice }}
+    {{- with $issue.executiveSummary }}
+      {{- range . }}{{ if reflect.IsMap . }}{{ $bullets = $bullets | append . }}{{ end }}{{ end }}
+    {{- else }}
+      {{- range $i, $s := $issue.topStories }}
+        {{- $first := "" }}{{ with (partial "data/split-text.html" ($s.summary | default "")).paragraphs }}{{ $first = index . 0 }}{{ end }}
+        {{- with findRESubmatch `^(.+?[a-z0-9)%"'][.!?])\s+[A-Z]` $first 1 }}{{ $first = index (index . 0) 1 }}{{ end }}
+        {{- $links := slice }}{{ range first 1 ($s.sources | default slice) }}{{ if reflect.IsMap . }}{{ $links = $links | append . }}{{ end }}{{ end }}
+        {{- $bullets = $bullets | append (dict "headline" $s.title "text" $first "story" (printf "topStories/%d" (add $i 1)) "links" $links) }}
+      {{- end }}
+    {{- end }}
+    {{- if or $bullets $rundown }}
+    <section class="dash__panel dash__summary" aria-labelledby="{{ $date }}-summary">
+      <h2 class="dash__label" id="{{ $date }}-summary">Executive summary</h2>
+      {{- with $bullets }}
+      <ul class="exec">
+        {{- range $b := . }}
+        {{- $story := false }}{{ $anchor := "" }}
+        {{- with $b.story }}
+          {{- with findRESubmatch `^(topStories|alsoWorthKnowing|newTools)/([1-9][0-9]*)$` . 1 }}
+            {{- $key := index (index . 0) 1 }}{{ $pos := int (index (index . 0) 2) }}
+            {{- with index $issue $key }}{{ if le $pos (len .) }}{{ $story = index . (sub $pos 1) }}{{ $anchor = printf "#%s-%s-%d" $date $key $pos }}{{ end }}{{ end }}
+          {{- end }}
+        {{- end }}
+        {{- $style := dict "key" "neutral" }}{{ with $story }}{{ $style = partial "data/topic-style.html" (partial "data/category.html" .) }}{{ end }}
+        {{- $links := slice }}
+        {{- range $b.links }}{{ if and (reflect.IsMap .) (partial "data/is-http.html" .url) }}{{ $links = $links | append (dict "label" (.label | default "Source") "url" .url "external" true) }}{{ end }}{{ end }}
+        {{- with $story }}{{ with .incidentId }}{{ with site.GetPage (printf "/incidents/%s" .) }}{{ $links = $links | append (dict "label" "Incident timeline" "url" .RelPermalink "external" false) }}{{ end }}{{ end }}{{ end }}
+        {{- $sig := "" }}{{ with $story }}{{ $sig = .significance | default "" }}{{ end }}
+        <li class="exec__item topic topic--{{ $style.key }}{{ if $anchor }} has-story{{ end }}{{ if eq $sig "major" }} is-major{{ end }}">
+          <span class="dot" aria-hidden="true"></span>
+          <p class="exec__body">
+            {{- if eq $sig "major" }}{{ partial "components/significance-badge.html" $sig }} {{ end }}
+            {{- if $anchor }}<a class="exec__headline" href="{{ $anchor }}">{{ $b.headline }}</a>{{ else }}<strong class="exec__headline">{{ $b.headline }}</strong>{{ end }}
+            {{- with $b.text }} <span class="exec__text">{{ . }}</span>{{ end }}
+            {{- with $links }} <span class="exec__links">{{ range $i, $l := . }}{{ if $i }}<span class="exec__sep" aria-hidden="true"> · </span>{{ end }}<a href="{{ $l.url }}"{{ if $l.external }} rel="noopener"{{ end }}>{{ if $l.external }}{{ partial "components/brand-icon.html" (dict "url" $l.url) }}{{ else }}{{ partial "components/icon.html" "clock" }}{{ end }}<span>{{ $l.label }}</span></a>{{ end }}</span>{{ end }}
+          </p>
+        </li>
+        {{- end }}
+      </ul>
+      {{- end }}
+      {{- with $rundown }}
+      <details class="rundown-more">
+        <summary><span class="rundown-more__closed">Read the full overview</span><span class="rundown-more__open">Hide the overview</span>{{ partial "components/icon.html" "chevron" }}</summary>
+        {{- range . }}<p>{{ . }}</p>{{ end }}
+      </details>
+      {{- end }}
+    </section>
+    {{- end }}
+
+    <section class="dash__panel dash__headlines" aria-labelledby="{{ $date }}-headlines">
+      <h2 class="dash__label" id="{{ $date }}-headlines">Headlines{{ if gt (len $topics) 1 }} <span class="dash__hint">· tap a category to filter</span>{{ end }}</h2>
+      {{- if gt (len $topics) 1 }}
+      <fieldset class="catpills">
+        <legend class="visually-hidden">Filter headlines and stories by category</legend>
+        <input class="visually-hidden" type="radio" name="{{ $f }}" id="{{ $f }}-all" value="all" checked>
+        <label class="catpill catpill--all" for="{{ $f }}-all">{{ partial "components/icon.html" "layers" }}<span class="catpill__name">All</span><span class="catpill__n">{{ len $stories }}</span></label>
+        {{- range $topics }}
+        {{- $style := partial "data/topic-style.html" .name }}
+        <input class="visually-hidden" type="radio" name="{{ $f }}" id="{{ $f }}-{{ .slug }}" value="{{ .slug }}">
+        <label class="catpill topic topic--{{ $style.key }}" for="{{ $f }}-{{ .slug }}" style="--share:{{ printf "%.0f" (mul (div (float .count) (float $max)) 100) }}%" title="{{ .count }} of {{ len $stories }} stories">{{ partial "components/icon.html" (cond (eq $style.icon "dot") "dot" $style.icon) }}<span class="catpill__name">{{ .name }}</span><span class="catpill__n">{{ .count }}</span><span class="catpill__bar" aria-hidden="true"></span></label>
+        {{- end }}
+      </fieldset>
+      {{- end }}
+      {{- range $sec := $sections }}
+      {{- $key := $sec.key }}
+      {{- with index $issue $key }}
+      {{- $cats := slice }}{{ range . }}{{ $cats = $cats | append (partial "data/slug.html" (partial "data/category.html" .)) }}{{ end }}
+      <div class="hl" data-cats="{{ delimit ($cats | uniq) " " }}">
+        <p class="hl__group"><a href="#{{ $date }}-{{ $key }}">{{ index $short $key }}</a></p>
+        <ol class="hl__list">
+          {{- range $i, $s := . }}
+          {{- $cat := partial "data/category.html" $s }}
+          {{- $slug := partial "data/slug.html" $cat }}
+          {{- $style := partial "data/topic-style.html" $cat }}
+          <li class="hl__row topic topic--{{ $style.key }}{{ if eq ($s.significance | default "") "major" }} is-major{{ end }}" data-cat="{{ $slug }}">
+            <span class="dot" aria-hidden="true"></span>
+            <div class="hl__body">
+              <a class="hl__title" href="#{{ $date }}-{{ $key }}-{{ add $i 1 }}">{{ $s.title }}</a>
+              <span class="hl__meta">{{ partial "components/significance-badge.html" ($s.significance | default "") }}{{ if gt (len $topics) 1 }}<label class="hl__cat" for="{{ $f }}-{{ $slug }}">{{ $cat }}</label>{{ else }}<span class="hl__cat">{{ $cat }}</span>{{ end }}{{ with $s.incidentId }}{{ with partial "data/find-incident.html" . }}{{ partial "components/incident-status.html" .status }}{{ end }}{{ end }}</span>
+            </div>
+          </li>
+          {{- end }}
+        </ol>
+      </div>
+      {{- end }}
+      {{- end }}
+      {{- if $issue.marketPulse }}
+      <div class="hl" data-cats=""><p class="hl__group"><a href="#{{ $date }}-market-pulse">Job market &amp; business pulse</a></p></div>
+      {{- end }}
+    </section>
+  </div>
+</section>
+{{- if gt (len $topics) 1 }}
+{{- /* One rule per category present today: hide headlines, stories and sections outside it. */ -}}
+{{- $css := slice }}
+{{- range $topics }}
+{{- $on := printf ".daily:has(#%s-%s:checked)" $f .slug }}
+{{- $css = $css | append (printf `%s [data-cat]:not([data-cat="%s"]),%s [data-cats]:not([data-cats~="%s"]){display:none}%s .filter-note[data-for="%s"]{display:flex}` $on .slug $on .slug $on .slug) }}
+{{- end }}
+<style>{{ delimit $css "" | safeCSS }}</style>
+{{- range $topics }}
+<p class="filter-note" data-for="{{ .slug }}"><span>Showing <strong>{{ .name }}</strong> only · {{ .count }} {{ cond (eq .count 1) "story" "stories" }}</span><label for="{{ $f }}-all">Show all</label></p>
+{{- end }}
+{{- end }}

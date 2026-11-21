@@ -265,3 +265,20 @@ test("incidents are in navigation, sitemap and llms.txt", () => {
   for (const incident of incidents) assert.ok(sitemap.includes(`${BASE_URL}incidents/${incident.id}/`), `sitemap ${incident.id}`);
   assert.ok(read("llms.txt").includes(`${BASE_URL}incidents/`), "llms.txt");
 });
+
+test("major stories get the Big story banner and developing stories link their timeline", () => {
+  for (const issue of published) {
+    const html = decode(read(`daily/${issue.date}/index.html`));
+    const majors = SECTIONS.flatMap(k => (issue[k] || []).filter(s => s.significance === "major"));
+    const banners = (html.match(/<section class="?bigstory[ ">]/g) || []).length;
+    assert.equal(banners, majors.length, `${issue.date}: expected ${majors.length} Big story banner(s), found ${banners}`);
+    for (const s of majors) {
+      const linked = html.split(/class="?bigstory__title"?>/).slice(1).some(part => /^<a href="?#[^>]*>/.test(part) && part.includes(`>${s.title}</a>`));
+      assert.ok(linked, `${issue.date}: banner title link missing for "${s.title}"`);
+    }
+    for (const s of stories(issue).filter(s => s.thread)) {
+      const entries = published.flatMap(i => stories(i).filter(x => x.thread === s.thread).map(() => i.date));
+      if (entries.length > 1) assert.match(html, /Developing story · /, `${issue.date}: thread ${s.thread} has no timeline`);
+    }
+  }
+});

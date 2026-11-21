@@ -1,0 +1,21 @@
+{{- /* Developing-story timeline on a story card. Context: {story, date, key, pos}.
+  Renders only when the story's thread has more than one published entry. */ -}}
+{{- with .story.thread -}}
+{{- $entries := partialCached "data/thread.html" . . -}}
+{{- if gt (len $entries) 1 -}}
+{{- $self := printf "%s|%s|%d" $.date $.key (int $.pos) -}}
+{{- $n := 0 }}{{ range $i, $e := $entries }}{{ if eq (printf "%s|%s|%d" $e.date $e.key (int $e.pos)) $self }}{{ $n = add $i 1 }}{{ end }}{{ end -}}
+<details class="thread">
+  <summary>{{ partial "components/icon.html" "layers" }}<span>Developing story · {{ if $n }}update {{ $n }} of {{ len $entries }}{{ else }}{{ len $entries }} updates{{ end }}</span>{{ partial "components/icon.html" "chevron" }}</summary>
+  <ol class="thread__list">
+    {{- range $entries }}
+    {{- $current := eq (printf "%s|%s|%d" .date .key (int .pos)) $self }}
+    <li class="thread__item{{ if $current }} is-current{{ end }}{{ if eq (.story.significance | default "") "major" }} is-major{{ end }}">
+      <time datetime="{{ .date }}">{{ time.AsTime .date | time.Format "Jan 2" }}</time>
+      {{ if $current }}<span class="thread__title">{{ .story.title }} <em>(this report)</em></span>{{ else if .href }}<a class="thread__title" href="{{ .href }}">{{ .story.title }}</a>{{ else }}<span class="thread__title">{{ .story.title }}</span>{{ end }}
+    </li>
+    {{- end }}
+  </ol>
+</details>
+{{- end -}}
+{{- end -}}

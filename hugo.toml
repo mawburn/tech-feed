@@ -24,11 +24,22 @@ removePathAccents = true
   weeklyWindow = 52
   # Summaries longer than this many characters are collapsed in a <details>.
   summaryCollapseChars = 600
+  # Resolved incidents stay in the dashboard's "Resolved" group for this many days.
+  resolvedIncidentDays = 14
   # Responsive widths Hugo generates from each stored image (max 960px) for srcset.
   imageWidths = [320, 480]
 
 [module.hugoVersion]
   min = "0.170.0"
+
+# Declaring any assets mount replaces the default, so assets/ is listed again.
+# Brand logos come from the simple-icons npm package (pnpm install runs before the build).
+[[module.mounts]]
+  source = "assets"
+  target = "assets"
+[[module.mounts]]
+  source = "node_modules/simple-icons/icons"
+  target = "assets/brand-icons"
 
 [caches.images]
   dir = ":cacheDir/images"

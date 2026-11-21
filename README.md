@@ -49,9 +49,20 @@ ChatGPT scheduler ──commits──▶ data/daily/YYYY-MM-DD.json / data/weekl
 The schemas describe the scheduler's existing output. They allow unknown properties, so new fields don't break the build. The fields stories use:
 
 - **Required:** `title`, `category`, `summary`, `sources[]` (`{label,url}`).
-- **Optional:** `rank`, `whyItMatters`, `limitations`, `isUpdate`, `discoveredVia[]`, `discussions[]`, `briefing[]`, `format` and `image`.
+- **Optional:** `rank`, `whyItMatters`, `limitations`, `isUpdate`, `discoveredVia[]`, `discussions[]`, `briefing[]`, `format`, `image`, `incidentId`, `significance` and `thread`.
+- **`significance`** (`"major"` | `"notable"`) is how big a story is, independent of `rank` (urgency). `major` stories get the dashboard's **Big story** banner, a badge in the executive summary, headlines and story card, and stay in **This week's big stories** for seven days. `notable` gets a badge only. See the landmark section of [`editorial/RANKING.md`](editorial/RANKING.md).
+- **`thread`** is a developing-story ID (lowercase kebab-case) shared by every story about the same multi-day event across editions, for example `"anthropic-ipo-2026"`. The site links the entries into a dated timeline on each story card.
 
 The third daily section is published as **AI & tooling in practice** (hands-on workflows, tutorials, demos and experiments). Its JSON keys stay `newTools` (daily) and `toolsToWatch` (weekly) for compatibility. Neither section has an item cap: any number of entries, including none, renders correctly. An optional `format` string (for example "Video tutorial", "Workflow", "Experiment", "Case study") labels an entry; direct YouTube, GitHub and demo links use the normal `sources[]`/`links[]` structure. A `briefing` may have 2–6 sections.
+
+A daily edition may also carry `executiveSummary[]`, the bullets at the top of the dashboard, in reading order. `headline` is required; `text` follows it; `story` points at the story the bullet opens, as `"<section>/<1-based position>"`; `links[]` (`{label,url}`) are short source links shown after the text. An "Incident timeline" link is added automatically when that story has an `incidentId`. Without the field, the dashboard builds one bullet per top story (its title and first sentence), and `overview` stays available under **Read the full overview**.
+
+```json
+"executiveSummary": [
+  {"headline": "PostgreSQL 19 ships.", "text": "Teams can reclaim space from bloated tables while writes continue.",
+   "story": "topStories/3", "links": [{"label": "Release announcement", "url": "https://www.postgresql.org/about/news/postgresql-19-released-3449/"}]}
+]
+```
 
 Weekly reviews carry `themes[]`, `toolsToWatch[]`, `sourceDays[]` and optional summary fields. Each theme, and optionally each weekly tool, may also contain `briefing[]`.
 
@@ -147,7 +158,7 @@ tests/                      site, validator and image-pipeline tests
 - **Tokens and CSS:** `assets/css/tokens.css` holds the palette, type, spacing and the six topic accents. The files are concatenated in `head/assets.html`. There is no JavaScript. The "Read briefing" expander is a native `<details>`.
 - **Incidents:** `incident-status.html` is the status pill (colours are `--st-*` tokens in `tokens.css`), `incident-lifecycle.html` the discovered / resolved / fixed / postmortem track, and `incident-ref.html` the "Track this incident" chip shown on stories and weekly themes that carry an `incidentId`.
 - **Topic accents:** `_partials/data/topic-style.html` maps any category name to an accent and icon by keyword (security, jobs, business, developer tools, infrastructure, AI, else neutral). Templates only emit `topic--{key}`.
-- **Components:** `story.html` has `lead`, `brief` and `tool` variants (`tool` renders "AI & tooling in practice" entries in a responsive auto-fill grid). `edition-hero`, `section-index`, `coverage-bars` and `weekly-edition` build the page bodies, and `icon.html` holds the inline SVG icons. Keep `class="story__title"` on story headings and `thread-pill` on discussion links, because the site tests match them.
+- **Components:** `story.html` has `lead`, `brief` and `tool` variants (`tool` renders "AI & tooling in practice" entries in a responsive auto-fill grid). `daily-dashboard` (stats, topic pills, rundown, headline index, open incidents) and `weekly-edition` build the page bodies; `data/chunk-paragraphs.html` splits long summary paragraphs at sentence boundaries for display, `icon.html` holds the inline SVG icons, and `brand-icon.html` inlines brand logos from the [Simple Icons](https://simpleicons.org) npm package (mounted at `assets/brand-icons/` in `hugo.toml`) for links and incident providers, using the host and name map in `data/brands.yaml`. Add a brand there; brands without a Simple Icons logo fall back to a newspaper, building or globe icon. Keep `class="story__title"` on story headings and `thread-pill` on discussion links, because the site tests match them.
 - **Brand:** the logo SVGs in `static/img/` were generated from the outlined artwork (wordmark, full lockup, mountain mark). The favicon uses the same crescent and mountain.
 - **Fonts:** Inter variable (latin, SIL OFL) is self-hosted in `static/fonts/`. Mono text uses the system monospace stack.
 - **Images:** the image partial (`components/story-image.html`) renders `srcset`, `sizes`, `width`/`height`, lazy loading and attribution (as an overlay credit), and handles SVGs. It renders nothing when a story has no local image. Adjust `sizes` there and `params.imageWidths` in `hugo.toml` to match a layout change. General long-form text can still collapse at `params.summaryCollapseChars`, but story and weekly-theme summaries are shown fully. Structured `briefing[]` sections use their own native `<details>` element.

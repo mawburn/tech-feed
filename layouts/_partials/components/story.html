@@ -10,19 +10,26 @@
 {{- $style := partial "data/topic-style.html" $category -}}
 {{- $chip := partial "components/topic-chip.html" (dict "category" $category "href" $href) -}}
 {{- $variant := .variant | default "lead" -}}
+{{- $sig := $s.significance | default "" -}}
+{{- $major := cond (eq $sig "major") " story--major" "" -}}
+{{- $pos := 0 }}{{ with .id }}{{ with findRESubmatch `-(\d+)$` . 1 }}{{ $pos = int (index (index . 0) 1) }}{{ end }}{{ end -}}
+{{- $key := "" }}{{ with .id }}{{ with findRESubmatch `^\d{4}-\d{2}-\d{2}-([A-Za-z]+)-\d+$` . 1 }}{{ $key = index (index . 0) 1 }}{{ end }}{{ end -}}
+{{- $thread := partial "components/thread-timeline.html" (dict "story" $s "date" .date "key" $key "pos" $pos) -}}
 {{- $level := .level -}}
+{{- $id := cond (ne (.id | default "") "") (printf ` id="%s"` .id) "" | safeHTMLAttr -}}
 {{- /* first valid source, for the host tag and call to action */ -}}
 {{- $first := false -}}
 {{- range $s.sources }}{{ if and (not $first) (reflect.IsMap .) (partial "data/is-http.html" .url) }}{{ $first = . }}{{ end }}{{ end -}}
 {{- $host := "" -}}
 {{- with $first }}{{ $u := urls.Parse .url }}{{ $host = strings.TrimPrefix "www." $u.Host }}{{ if and (eq $variant "tool") (eq $host "github.com") }}{{ $seg := index (split (strings.Trim $u.Path "/") "/") 0 }}{{ with $seg }}{{ $host = printf "%s/%s" $host . }}{{ end }}{{ end }}{{ end -}}
 {{- if eq $variant "lead" -}}
-<article class="story story--lead topic topic--{{ $style.key }}">
+<article class="story story--lead{{ $major }} topic topic--{{ $style.key }}"{{ $id }} data-cat="{{ $slug }}">
   <div class="story__grid">
     <div class="story__head">
       <p class="story__meta">
         {{- $chip -}}
         {{- with .rank }}<span>Story {{ printf "%02d" (int .) }}{{ with $.total }} of {{ printf "%02d" (int .) }}{{ end }}</span>{{ end -}}
+        {{- partial "components/significance-badge.html" $sig -}}
         {{- if $s.isUpdate }}<span class="story__badge">Updated</span>{{ end -}}
       </p>
       {{ partial "components/heading.html" (dict "level" $level "text" $s.title "class" "story__title") }}
@@ -31,10 +38,11 @@
     </div>
     {{- partial "components/story-image.html" (dict "image" $s.image "alt" $s.title) }}
     <div class="story__rest">
-      {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary" "full" true) }}
+      {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary" "full" true "split" true) }}
       {{- with $s.whyItMatters }}
       <div class="story__note"><span class="story__note-label">Why it matters</span><p>{{ . }}</p></div>
       {{- end }}
+      {{- $thread | safeHTML }}
       <div class="story__foot">
         {{- partial "components/story-sources.html" (dict "sources" $s.sources "limit" 2) }}
         {{- partial "components/expanded-briefing.html" (dict "sections" $s.briefing "level" $level "caveat" $s.limitations "sources" $s.sources "discoveredVia" $s.discoveredVia "showLinks" true) }}
@@ -43,15 +51,16 @@
   </div>
 </article>
 {{- else if eq $variant "brief" -}}
-<article class="story story--brief topic topic--{{ $style.key }}">
-  <div class="story__top">{{ $chip }}{{ with $host }}<span class="story__host">{{ . }}</span>{{ end }}</div>
+<article class="story story--brief{{ $major }} topic topic--{{ $style.key }}"{{ $id }} data-cat="{{ $slug }}">
+  <div class="story__top">{{ $chip }}{{ partial "components/significance-badge.html" $sig }}{{ with $host }}<span class="story__host">{{ partial "components/brand-icon.html" (dict "url" $first.url) }}<span>{{ . }}</span></span>{{ end }}</div>
   {{ partial "components/heading.html" (dict "level" $level "text" $s.title "class" "story__title") }}
-  {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary" "full" true) }}
+  {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary" "full" true "split" true) }}
   {{- with $s.whyItMatters }}
   <div class="story__note"><span class="story__note-label">Why it matters</span><p>{{ . }}</p></div>
   {{- end }}
   {{- partial "components/discussion-badges.html" (dict "discussions" $s.discussions) }}
   {{- partial "components/incident-ref.html" $s.incidentId }}
+  {{- $thread | safeHTML }}
   <div class="story__foot">
     {{- partial "components/story-sources.html" (dict "sources" $s.sources) }}
     {{- partial "components/link-list.html" (dict "label" "Found via" "links" $s.discoveredVia "kind" "community") }}
@@ -59,22 +68,22 @@
   </div>
 </article>
 {{- else -}}
-<article class="story story--tool topic topic--{{ $style.key }}">
-  <div class="story__top">{{ $chip }}{{ with $s.format }}<span class="format-badge">{{ . }}</span>{{ end }}{{ with $host }}<span class="story__host">{{ . }}</span>{{ end }}</div>
+<article class="story story--tool{{ $major }} topic topic--{{ $style.key }}"{{ $id }} data-cat="{{ $slug }}">
+  <div class="story__top">{{ $chip }}{{ partial "components/significance-badge.html" $sig }}{{ with $s.format }}<span class="format-badge">{{ . }}</span>{{ end }}{{ with $host }}<span class="story__host">{{ partial "components/brand-icon.html" (dict "url" $first.url) }}<span>{{ . }}</span></span>{{ end }}</div>
   <div class="story__row">
     <div class="story__text">
       {{ partial "components/heading.html" (dict "level" $level "text" $s.title "class" "story__title") }}
-      {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary" "full" true) }}
     </div>
-    {{- partial "components/story-image.html" (dict "image" $s.image "alt" $s.title "sizes" "5rem") }}
+    {{- partial "components/story-image.html" (dict "image" $s.image "alt" $s.title "sizes" "4rem") }}
   </div>
+  {{- partial "components/text.html" (dict "text" $s.summary "class" "story__summary" "full" true "split" true) }}
   {{- with $s.whyItMatters }}
   <div class="story__note"><span class="story__note-label">Why it's interesting</span><p>{{ . }}</p></div>
   {{- end }}
   {{- partial "components/discussion-badges.html" (dict "discussions" $s.discussions) }}
   {{- partial "components/incident-ref.html" $s.incidentId }}
   <div class="story__foot">
-    {{- with $first }}<a class="story__cta" href="{{ .url }}" rel="noopener"><span>{{ .label | default "Open source" }}</span>{{ partial "components/icon.html" "arrow-right" }}</a>{{ end }}
+    {{- with $first }}<a class="story__cta" href="{{ .url }}" rel="noopener"><span class="brand-link">{{ partial "components/brand-icon.html" (dict "url" .url) }}<span>{{ .label | default "Open source" }}</span></span>{{ partial "components/icon.html" "arrow-right" }}</a>{{ end }}
     {{- partial "components/story-sources.html" (dict "sources" (after 1 $s.sources) "prefix" "also") }}
     {{- partial "components/link-list.html" (dict "label" "Found via" "links" $s.discoveredVia "kind" "community") }}
     {{- partial "components/expanded-briefing.html" (dict "sections" $s.briefing "level" $level "caveat" $s.limitations) }}

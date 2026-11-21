@@ -1,0 +1,27 @@
+{{- /* Major stories (significance: major) from the seven days ending on the given edition date,
+  newest first, one per developing-story thread (the newest entry wins).
+  Context: edition date (YYYY-MM-DD). Returns [{date, key, pos, story, href}]. */ -}}
+{{- $date := . -}}
+{{- $start := ((time.AsTime $date).AddDate 0 0 -6).Format "2006-01-02" -}}
+{{- $out := slice -}}
+{{- $seen := dict -}}
+{{- range partialCached "data/published-daily.html" "published" -}}
+  {{- $issue := . -}}
+  {{- if and (le $issue.date $date) (ge $issue.date $start) -}}
+    {{- $page := site.GetPage (printf "/daily/%s" $issue.date) -}}
+    {{- range partialCached "data/sections.html" "sections" -}}
+      {{- $key := .key -}}
+      {{- range $i, $s := index $issue $key -}}
+        {{- if eq ($s.significance | default "") "major" -}}
+          {{- $thread := $s.thread | default (printf "%s-%s-%d" $issue.date $key $i) -}}
+          {{- if not (index $seen $thread) -}}
+            {{- $seen = merge $seen (dict $thread true) -}}
+            {{- $href := "" }}{{ with $page }}{{ $href = printf "%s#%s-%s-%d" .RelPermalink $issue.date $key (add $i 1) }}{{ end -}}
+            {{- $out = $out | append (dict "date" $issue.date "key" $key "pos" (add $i 1) "story" $s "href" $href "thread" $thread) -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $out -}}

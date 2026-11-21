@@ -13,45 +13,6 @@
 .topic-chip .icon { width: 14px; height: 14px; color: var(--topic); }
 a.topic-chip:hover { background: var(--surface-high); color: var(--on-surface); }
 
-/* ---------- Edition hero ---------- */
-.hero__generated { display: flex; align-items: center; gap: .5rem; margin-bottom: var(--sp-sm); font: 12px/16px var(--mono); color: var(--outline); }
-.hero__generated .icon { color: var(--tertiary); width: 14px; height: 14px; }
-.hero__card { margin-bottom: var(--sp-xl); background: var(--surface-low); border-radius: var(--r-lg); padding: var(--sp-xl); }
-.hero__meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .25rem 1rem; margin-bottom: var(--sp-md); color: var(--on-variant); font-size: 11px; line-height: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
-.hero__issue { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem; }
-.hero__issue .dot { width: 8px; height: 8px; background: var(--tertiary); }
-.hero__issue strong { color: var(--on-surface); font-weight: 600; }
-.hero__sep { color: var(--outline); }
-.hero__read { display: inline-flex; align-items: center; gap: .5rem; font-size: 12px; letter-spacing: .04em; text-transform: lowercase; color: var(--outline); font-weight: 500; }
-.hero__read .icon { width: 14px; height: 14px; }
-.hero__body { max-width: 48rem; }
-.hero__title { font-size: 32px; line-height: 40px; font-weight: 600; letter-spacing: -.025em; margin-bottom: var(--sp-md); }
-.hero__lede { font-size: 17px; line-height: 28px; letter-spacing: -.005em; color: var(--on-surface); }
-@media (max-width: 47.99rem) {
-  .hero__card { margin-bottom: 1.5rem; padding: 1rem; }
-  .hero__title { font-size: 18px; line-height: 26px; letter-spacing: -.01em; margin-bottom: .6rem; }
-  .hero__lede { font-size: 13px; line-height: 20px; color: var(--on-variant); }
-  .hero__meta { font-size: 11px; }
-}
-
-/* section index */
-.section-index { display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: var(--surface-container); border-radius: var(--r-lg); padding: .5rem 1rem; margin-bottom: var(--sp-xl); color: var(--on-variant); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: .04em; }
-.section-index__list { display: flex; align-items: center; gap: 1.5rem; overflow-x: auto; padding-block: .25rem; scrollbar-width: none; }
-.section-index__label { color: var(--outline); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; flex: none; }
-.section-index a { display: inline-flex; align-items: center; gap: .375rem; white-space: nowrap; }
-.section-index a:hover { color: var(--on-surface); }
-.section-index__tag { display: inline-flex; align-items: center; gap: .5rem; color: var(--outline); flex: none; }
-.section-index__tag .icon { width: 16px; height: 16px; }
-.section-index .dot--top { background: var(--secondary); }
-.section-index .dot--also { background: var(--outline); }
-.section-index .dot--tools { background: var(--tertiary); }
-.section-index .dot--pulse { background: #e0e0ff; }
-@media (max-width: 47.99rem) {
-  .section-index { background: none; padding: 0; margin-bottom: 1.5rem; border-radius: 0; }
-  .section-index__label, .section-index__tag { display: none; }
-  .section-index a { background: var(--surface-container); border-radius: 9999px; padding: .5rem .75rem; min-height: 36px; font-size: 12px; color: var(--on-surface); }
-}
-
 /* ---------- Edition + sections ---------- */
 .edition + .edition { margin-top: var(--sp-2xl); }
 .edition__header { margin-bottom: var(--sp-lg); padding: var(--sp-lg); background: var(--surface-low); border-radius: var(--r-lg); }
@@ -187,17 +148,7 @@ a.topic-chip:hover { background: var(--surface-high); color: var(--on-surface); 
 .pulse { background: var(--surface-low); border-radius: var(--r-lg); padding: var(--sp-xl); display: grid; gap: var(--sp-xl); grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
 .pulse__text { display: grid; gap: var(--sp-md); align-content: start; color: var(--on-variant); font-size: 15px; }
 .pulse__text p { color: var(--on-variant); }
-.pulse__box { background: var(--surface-container); border-radius: var(--r-lg); padding: var(--sp-md); align-self: start; }
-.pulse__box-head { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; margin-bottom: .25rem; }
-.pulse__box-note { font-size: 12px; line-height: 18px; color: var(--outline); margin-bottom: var(--sp-md); }
-.bars { display: grid; gap: .75rem; font: 11px/16px var(--mono); }
-.bars__row { display: block; }
-.bars__head { display: flex; justify-content: space-between; gap: .5rem; color: var(--on-variant); margin-bottom: .25rem; }
-.bars__count { color: var(--topic); }
-.bars__track { height: 8px; background: var(--surface-high); border-radius: var(--r-md); overflow: hidden; }
-.bars__fill { display: block; height: 100%; background: var(--topic); border-radius: var(--r-md); }
-a.bars__row:hover .bars__head { color: var(--on-surface); }
-@media (max-width: 63.99rem) { .pulse { grid-template-columns: 1fr; } }
+a@media (max-width: 63.99rem) { .pulse { grid-template-columns: 1fr; } }
 @media (max-width: 47.99rem) { .pulse { padding: 1rem; gap: 1rem; } .pulse__text { font-size: 13px; line-height: 20px; } }
 
 /* ---------- Navigation blocks (browse, pager, lists) ---------- */
@@ -252,8 +203,8 @@ a.bars__row:hover .bars__head { color: var(--on-surface); }
 
 /* tablet + small phone type tiers */
 @media (min-width: 48rem) and (max-width: 63.99rem) {
-  .hero__title, .page-header__title { font-size: 26px; line-height: 34px; letter-spacing: -.02em; }
-  .hero__lede, .page-header__intro { font-size: 15px; line-height: 25px; }
+  .page-header__title { font-size: 26px; line-height: 34px; letter-spacing: -.02em; }
+  .page-header__intro { font-size: 15px; line-height: 25px; }
   .section-heading__title, .edition__title { font-size: 20px; line-height: 28px; }
 }
 @media (max-width: 39.99rem) {
@@ -261,7 +212,6 @@ a.bars__row:hover .bars__head { color: var(--on-surface); }
   .page-header__intro { font-size: 14px; line-height: 22px; }
   .edition__title, .section-heading__title { font-size: 17px; line-height: 24px; }
   .edition__header { padding: 1rem; }
-  .hero__title { font-size: 17px; line-height: 25px; }
   .story--lead .story__title { font-size: 17px; line-height: 24px; }
 }
 

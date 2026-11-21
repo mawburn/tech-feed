@@ -1,0 +1,23 @@
+{{- /* Find the brand for a link or a provider name. Context: {url?, name?}.
+  URL: the host minus "www.", then each parent domain, so the longest listed suffix wins.
+  Name: exact (case-insensitive) match on a brand name or alias. Returns the brand map
+  ({key, name, icon?, color?, kind?}) or false. */ -}}
+{{- $idx := partialCached "data/brand-index.html" "brands" -}}
+{{- $found := false -}}
+{{- with .url -}}
+  {{- $host := lower (strings.TrimPrefix "www." (urls.Parse .).Hostname) -}}
+  {{- $parts := split $host "." -}}
+  {{- range $i, $_ := $parts -}}
+    {{- if not $found -}}
+      {{- $suffix := delimit (after $i $parts) "." -}}
+      {{- with index $idx.hosts $suffix }}{{ $found = . }}{{ end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if and (not $found) .name -}}
+  {{- /* "Broadcom / VMware", "NGINX / F5": try the whole name, then each part in order */ -}}
+  {{- range (slice .name) | append (split .name "/") -}}
+    {{- if not $found }}{{ with index $idx.names (lower (trim . " ")) }}{{ $found = . }}{{ end }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $found -}}

@@ -8,7 +8,8 @@
 {{- $scope := .topicScope | default "daily" -}}
 {{- $when := time.AsTime $issue.date -}}
 {{- $variants := dict "topStories" "lead" "alsoWorthKnowing" "brief" "newTools" "tool" -}}
-{{- $kickers := dict "topStories" "Primary intelligence" "alsoWorthKnowing" "Rapid scan briefs" "newTools" "Hands-on applications" -}}
+{{- $kickers := dict "topStories" "" "alsoWorthKnowing" "" "newTools" "" -}}
+{{- $pulse := partial "data/pulse-text.html" $issue.marketPulse -}}
 {{- $groups := slice -}}
 {{- range partialCached "data/sections.html" "sections" -}}
   {{- $items := slice -}}
@@ -28,7 +29,7 @@
     {{ printf "<h%d class=\"edition__title\" id=\"edition-%s-title\"><time datetime=\"%s\">%s</time></h%d>" (int $level) $issue.date $issue.date ($when | time.Format "Monday, January 2, 2006") (int $level) | safeHTML }}
     {{- end }}
     {{- if and (not $filter) $issue.overview }}
-    {{ partial "components/text.html" (dict "text" $issue.overview "class" "edition__overview" "full" true) }}
+    {{ partial "components/text.html" (dict "text" $issue.overview "class" "edition__overview" "full" true "split" true) }}
     {{- end }}
   </header>
   {{- end }}
@@ -38,22 +39,22 @@
   {{- $key := .section.key }}
   {{- $total := len .items }}
   {{- $primary := .section.primary }}
-  <section class="edition__section edition__section--{{ $key }}" id="{{ $issue.date }}-{{ $key }}">
-    {{ partial "components/section-heading.html" (dict "level" $sectionLevel "num" $num "text" .section.label "kicker" (index $kickers $key)) }}
+  {{- $cats := slice }}{{ range .items }}{{ $cats = $cats | append (partial "data/slug.html" (partial "data/category.html" .)) }}{{ end }}
+  <section class="edition__section edition__section--{{ $key }}" id="{{ $issue.date }}-{{ $key }}" data-cats="{{ delimit ($cats | uniq) " " }}">
+    {{ partial "components/section-heading.html" (dict "level" $sectionLevel "num" $num "text" .section.label "kicker" (index $kickers $key) "back" (cond (or $.headed $filter) "" (printf "#dash-%s" $issue.date))) }}
     <div class="stories stories--{{ $key }}">
       {{- range $i, $story := .items }}
-      {{ partial "components/story.html" (dict "story" $story "level" (add $sectionLevel 1) "variant" (index $variants $key) "rank" (cond $primary ($story.rank | default (add $i 1)) false) "total" $total "date" $issue.date "topicScope" $scope) }}
+      {{ partial "components/story.html" (dict "story" $story "level" (add $sectionLevel 1) "variant" (index $variants $key) "rank" (cond $primary ($story.rank | default (add $i 1)) false) "total" $total "date" $issue.date "topicScope" $scope "id" (printf "%s-%s-%d" $issue.date $key (add $i 1))) }}
       {{- end }}
     </div>
   </section>
   {{- end }}
-  {{- if and (not $filter) $issue.marketPulse }}
+  {{- if and (not $filter) $pulse }}
   {{- $num = add $num 1 }}
-  <section class="edition__section edition__section--market" id="{{ $issue.date }}-market-pulse">
-    {{ partial "components/section-heading.html" (dict "level" $sectionLevel "num" $num "text" "Job market & business pulse" "kicker" "Macro observations") }}
+  <section class="edition__section edition__section--market" id="{{ $issue.date }}-market-pulse" data-cats="">
+    {{ partial "components/section-heading.html" (dict "level" $sectionLevel "num" $num "text" "Job market & business pulse" "back" (cond (or $.headed $filter) "" (printf "#dash-%s" $issue.date))) }}
     <div class="pulse">
-      <div class="pulse__text">{{ partial "components/text.html" (dict "text" $issue.marketPulse "class" "edition__pulse") }}</div>
-      {{ partial "components/coverage-bars.html" (dict "issue" $issue "scope" $scope) }}
+      <div class="pulse__text">{{ partial "components/text.html" (dict "text" $pulse "class" "edition__pulse" "full" true "split" true) }}</div>
     </div>
   </section>
   {{- end }}

@@ -26,7 +26,7 @@ Category: {{ partial "data/category.html" . }}
 {{ end }}{{ end }}{{ end }}
 ### Job market and business pulse
 
-{{ $issue.marketPulse }}
+{{ partial "data/pulse-text.html" $issue.marketPulse }}
 
 ---
 {{ end }}

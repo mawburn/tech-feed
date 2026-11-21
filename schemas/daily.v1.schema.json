@@ -23,7 +23,75 @@
       "$ref": "common.v1.schema.json#/$defs/nonEmptyText"
     },
     "marketPulse": {
-      "type": "string"
+      "description": "Plain text, or an object whose summary and optional business/jobs/watch strings are rendered as paragraphs.",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "required": [
+            "summary"
+          ],
+          "properties": {
+            "summary": {
+              "type": "string"
+            },
+            "business": {
+              "type": "string"
+            },
+            "jobs": {
+              "type": "string"
+            },
+            "watch": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "executiveSummary": {
+      "description": "Dashboard bullets, in reading order. Each bullet links to its story via story (\"<section>/<1-based position>\", e.g. \"topStories/5\"); links are short source links shown after the text. An \"Incident timeline\" link is added automatically when the story has an incidentId. When absent, the dashboard builds bullets from the top stories.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "headline"
+        ],
+        "properties": {
+          "headline": {
+            "type": "string",
+            "minLength": 1
+          },
+          "text": {
+            "type": "string"
+          },
+          "story": {
+            "type": "string",
+            "pattern": "^(topStories|alsoWorthKnowing|newTools)/[1-9][0-9]*$"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "label",
+                "url"
+              ],
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "url": {
+                  "type": "string",
+                  "pattern": "^https?://"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "discoveryAudit": {
       "$ref": "common.v1.schema.json#/$defs/discoveryAudit"
@@ -105,6 +173,18 @@
         "incidentId": {
           "$ref": "common.v1.schema.json#/$defs/incidentId",
           "description": "Optional link to data/incidents/<incidentId>.json. The incident record is the single source of truth for status, timeline and fixes."
+        },
+        "significance": {
+          "description": "How big the story is, independent of rank (urgency). major: a landmark event a technology reader should not miss (gets the dashboard's Big story banner and stays in This week's big stories for 7 days). notable: significant but not landmark (badge only). Omit for ordinary stories.",
+          "enum": [
+            "major",
+            "notable"
+          ]
+        },
+        "thread": {
+          "description": "Optional developing-story ID (lowercase kebab-case) shared by every story about the same multi-day event, across editions, e.g. \"anthropic-ipo-2026\". The site links the entries into a timeline. Use incidentId instead for outages and security incidents.",
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
         }
       }
     }

@@ -4,7 +4,7 @@
 <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
 <link rel="preload" href="{{ "fonts/inter-latin-wght.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 {{- $parts := slice }}
-{{- range slice "tokens" "base" "layout" "components" "pages" }}
+{{- range slice "tokens" "base" "layout" "components" "pages" "dashboard" }}
   {{- with resources.Get (printf "css/%s.css" .) }}{{ $parts = $parts | append . }}{{ end }}
 {{- end }}
 {{- with $parts }}

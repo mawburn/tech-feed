@@ -1,0 +1,10 @@
+{{- /* {host: brand, name: brand} lookup tables built once from data/brands.yaml.
+  Each brand map gains its key. Names and aliases are matched lower-case. */ -}}
+{{- $hosts := dict -}}
+{{- $names := dict -}}
+{{- range $key, $b := hugo.Data.brands -}}
+  {{- $brand := merge $b (dict "key" $key) -}}
+  {{- range $b.hosts }}{{ $hosts = merge $hosts (dict (lower .) $brand) }}{{ end -}}
+  {{- range (slice $b.name) | append ($b.aliases | default slice) }}{{ $names = merge $names (dict (lower .) $brand) }}{{ end -}}
+{{- end -}}
+{{- return dict "hosts" $hosts "names" $names -}}
