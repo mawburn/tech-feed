@@ -1,0 +1,142 @@
+{
+  "weekStart": "2026-11-16",
+  "weekEnding": "2026-11-22",
+  "coverageDays": 7,
+  "partial": false,
+  "sourceDays": [
+    "2026-11-16",
+    "2026-11-17",
+    "2026-11-18",
+    "2026-11-19",
+    "2026-11-20",
+    "2026-11-21",
+    "2026-11-22"
+  ],
+  "title": "States the week's main story, e.g. \"Anthropic goes public as a run of critical server flaws keeps operators patching\"",
+  "overview": "130–220 words explaining the arc of the week, not a list of headlines.\n\nParagraph one: what this covers, in 2–4 sentences.\n\nParagraph two: the next point, in 2–4 sentences.",
+  "themes": [
+    {
+      "title": "A developing story with a decisive milestone this week",
+      "category": "Business & Markets",
+      "summary": "85–145 words: what happened across the week, the concrete specifics, the evidence, and why it matters. Self-contained; a reader shouldn't need to open anything.\n\nA second short paragraph when the summary needs one.",
+      "briefing": [
+        {
+          "heading": "How the week unfolded",
+          "body": "Dated chronology across the week, citing which day each development happened."
+        },
+        {
+          "heading": "What changes, technically and commercially",
+          "body": "Paragraph one: what this covers, in 2–4 sentences.\n\nParagraph two: the next point, in 2–4 sentences."
+        },
+        {
+          "heading": "Evidence and what is still unknown",
+          "body": "What is confirmed, what is vendor-reported, what independent checks exist, and the open questions."
+        }
+      ],
+      "impact": "One or two sentences on why it matters, distinct from the summary.",
+      "caveat": "One or two sentences of qualifications and uncertainty.",
+      "sourceDays": [
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "links": [
+        {
+          "label": "Primary announcement",
+          "url": "https://example.com/announcement"
+        },
+        {
+          "label": "Independent analysis",
+          "url": "https://example.com/analysis"
+        }
+      ]
+    },
+    {
+      "title": "A security incident that ran across several days",
+      "category": "Security",
+      "summary": "85–145 words: what happened across the week, the concrete specifics, the evidence, and why it matters. Self-contained; a reader shouldn't need to open anything.\n\nA second short paragraph when the summary needs one.",
+      "briefing": [
+        {
+          "heading": "How the week unfolded",
+          "body": "Dated chronology across the week, citing which day each development happened."
+        },
+        {
+          "heading": "What changes, technically and commercially",
+          "body": "Paragraph one: what this covers, in 2–4 sentences.\n\nParagraph two: the next point, in 2–4 sentences."
+        },
+        {
+          "heading": "Evidence and what is still unknown",
+          "body": "What is confirmed, what is vendor-reported, what independent checks exist, and the open questions."
+        }
+      ],
+      "impact": "One or two sentences on why it matters, distinct from the summary.",
+      "caveat": "One or two sentences of qualifications and uncertainty.",
+      "sourceDays": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "links": [
+        {
+          "label": "Primary announcement",
+          "url": "https://example.com/announcement"
+        },
+        {
+          "label": "Independent analysis",
+          "url": "https://example.com/analysis"
+        }
+      ]
+    }
+  ],
+  "toolsToWatch": [
+    {
+      "title": "Specific use case: what was built and with what",
+      "summary": "60–120 words on what was built or shown, the technique, and the evidence.",
+      "format": "Video tutorial",
+      "links": [
+        {
+          "label": "YouTube tutorial",
+          "url": "https://www.youtube.com/watch?v=EXAMPLE"
+        },
+        {
+          "label": "Source code",
+          "url": "https://github.com/example/project"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "What was done",
+          "body": "The setup and the outcome."
+        },
+        {
+          "heading": "How to reproduce it",
+          "body": "Tools, versions, steps, prerequisites and cost."
+        }
+      ]
+    }
+  ],
+  "marketPulse": "Jobs, hiring and business signals from the week with dates, figures and caveats, or a plain statement that there was no material update.",
+  "nextWeekWatch": "Known dates and expected milestones of open threads and incidents, plus unresolved questions.",
+  "discoveryAudit": {
+    "checkedAt": "2026-11-22T17:30:00-08:00",
+    "windowStart": "2026-11-16T00:00:00-08:00",
+    "windowEnd": "2026-11-22T17:30:00-08:00",
+    "sources": [
+      {
+        "name": "Daily editions Nov 16–22",
+        "status": "checked",
+        "candidateCount": 7
+      },
+      {
+        "name": "HN Best and front page for the week",
+        "status": "partial",
+        "notes": "Best list reviewed; Algolia unavailable"
+      },
+      {
+        "name": "Incident records and provider status histories",
+        "status": "checked"
+      }
+    ],
+    "majorIncidentsConsidered": [],
+    "rankingNotes": "Why the top theme leads, which threads and incidents were covered or left out, and why."
+  }
+}

@@ -7,16 +7,15 @@ Daily and weekly AI and technology briefings, built with [Hugo](https://gohugo.i
 
 ## Editorial discovery and ranking
 
-The ChatGPT daily and Sunday scheduled tasks read the version-controlled editorial playbooks **before** selecting stories:
+The ChatGPT daily (17:00 Pacific) and Sunday scheduled tasks write every edition. Their prompts are short and permanent ([`agent/prompts/`](agent/prompts/)); all instructions live in [`agent/`](agent/):
 
-- [Discovery protocol](editorial/DISCOVERY.md): rolling 24-hour Hacker News scan, cross-category breaking-incident sweep, source checks and research audit.
-- [Ranking rules](editorial/RANKING.md): operational-impact priority and final missing-story check.
-- [Incident tracking](editorial/INCIDENTS.md): when to open an incident record, how to update its status, timeline, fix and postmortems, and how stories and weekly themes link to it with `incidentId`.
-- [Source guide](editorial/SOURCES.md): concrete discovery venues (YouTube, Show HN, GitHub, Hugging Face, niche technical communities), rotating searches, primary sources and verification rules. This is where to update the watchlist and places to look.
-- [AI & tooling in practice](editorial/APPLICATIONS.md): discovery, selection, verification and writing standards for hands-on applications, tutorials, demos and experiments (daily `newTools`, weekly `toolsToWatch`).
-- [Writing standards](editorial/WRITING.md): substantive visible summaries and source-grounded expandable explanations for daily stories and weekly themes.
+- [`agent/DAILY.md`](agent/DAILY.md) and [`agent/WEEKLY.md`](agent/WEEKLY.md): entry points. Order of work, what the agent may write, the output contract, a self-check and the chat report format.
+- [`agent/playbooks/`](agent/playbooks/): discovery, ranking (including `significance` and `thread`), writing, incidents, AI & tooling in practice, and sources.
+- [`agent/catalog/`](agent/catalog/): the engineering-blog and maker-venue catalog, one file per weekday; the daily run reads only today's.
+- [`agent/calibration.md`](agent/calibration.md): real past calls, right and wrong. Add a case here when the agent gets something wrong.
+- [`agent/examples/`](agent/examples/): complete valid daily and weekly files, checked by `tests/validate.test.mjs`.
 
-New daily and weekly JSON files may include an optional root `discoveryAudit` field recording which sources were checked, actual candidate counts where known, material incidents considered and editorial decisions. It is research metadata; it does not replace `sources`, `discoveredVia`, or `discussions`. These instructions are used by the scheduled research task, not executed as a GitHub Actions collector.
+To change how the agent researches, ranks or writes, edit these files; the prompts don't change. Files in `editorial/` are pointers kept for runs still on the old prompts.
 
 ## How it fits together
 
@@ -42,7 +41,7 @@ ChatGPT scheduler ──commits──▶ data/daily/YYYY-MM-DD.json / data/weekl
 
 | File | Written by | Schema |
 | --- | --- | --- |
-| `data/daily/YYYY-MM-DD.json` | Morning scheduler (Pacific date) | [`schemas/daily.v1.schema.json`](schemas/daily.v1.schema.json) |
+| `data/daily/YYYY-MM-DD.json` | Daily scheduler, 17:00 Pacific (Pacific date) | [`schemas/daily.v1.schema.json`](schemas/daily.v1.schema.json) |
 | `data/weekly/YYYY-MM-DD.json` | Sunday scheduler (week-ending Sunday) | [`schemas/weekly.v1.schema.json`](schemas/weekly.v1.schema.json) |
 | `data/incidents/<id>.json` | Either scheduler, whenever an incident is opened or changes | [`schemas/incident.v1.schema.json`](schemas/incident.v1.schema.json) |
 
@@ -50,7 +49,7 @@ The schemas describe the scheduler's existing output. They allow unknown propert
 
 - **Required:** `title`, `category`, `summary`, `sources[]` (`{label,url}`).
 - **Optional:** `rank`, `whyItMatters`, `limitations`, `isUpdate`, `discoveredVia[]`, `discussions[]`, `briefing[]`, `format`, `image`, `incidentId`, `significance` and `thread`.
-- **`significance`** (`"major"` | `"notable"`) is how big a story is, independent of `rank` (urgency). `major` stories get the dashboard's **Big story** banner, a badge in the executive summary, headlines and story card, and stay in **This week's big stories** for seven days. `notable` gets a badge only. See the landmark section of [`editorial/RANKING.md`](editorial/RANKING.md).
+- **`significance`** (`"major"` | `"notable"`) is how big a story is, independent of `rank` (urgency). `major` stories get the dashboard's **Big story** banner, a badge in the executive summary, headlines and story card, and stay in **This week's big stories** for seven days. `notable` gets a badge only. See [`agent/playbooks/ranking.md`](agent/playbooks/ranking.md).
 - **`thread`** is a developing-story ID (lowercase kebab-case) shared by every story about the same multi-day event across editions, for example `"anthropic-ipo-2026"`. The site links the entries into a dated timeline on each story card.
 
 The third daily section is published as **AI & tooling in practice** (hands-on workflows, tutorials, demos and experiments). Its JSON keys stay `newTools` (daily) and `toolsToWatch` (weekly) for compatibility. Neither section has an item cap: any number of entries, including none, renders correctly. An optional `format` string (for example "Video tutorial", "Workflow", "Experiment", "Case study") labels an entry; direct YouTube, GitHub and demo links use the normal `sources[]`/`links[]` structure. A `briefing` may have 2–6 sections.
@@ -111,7 +110,7 @@ An incident is stored **once**, in `data/incidents/<id>.json`, and followed from
 - **Optional:** `summary` (current state), `category`, `occurredDate`, `resolvedDate`, `fixDate`, `fix`, `rootCause` (`{status: unknown|suspected|confirmed, summary, sources?}`) and `postmortems[]` (`{label, url, publishedDate?, summary?}`).
 - **Extra rules the validator enforces:** `id` equals the file name; `resolved` requires `resolvedDate`, and `resolvedDate` is forbidden on an open incident; `occurredDate` ≤ `discoveredDate` ≤ `resolvedDate`/`fixDate`; `history` is chronological; the last status set in `history` equals `status`; every `incidentId` in a daily or weekly file points at an existing, valid incident. If an incident file fails validation in the CI build, it and the reports that reference it are quarantined together.
 - **Publishing:** an incident appears once its `discoveredDate` is today (Pacific) or earlier; later `history` entries are hidden until their date.
-- **Reports are not rewritten.** A story keeps the account it had on its day and shows a **Track this incident** link with the incident's *current* status. Status, timeline, fix and postmortems live only in the incident record. See [`editorial/INCIDENTS.md`](editorial/INCIDENTS.md) for the editorial rules.
+- **Reports are not rewritten.** A story keeps the account it had on its day and shows a **Track this incident** link with the incident's *current* status. Status, timeline, fix and postmortems live only in the incident record. See [`agent/playbooks/incidents.md`](agent/playbooks/incidents.md) for the editorial rules.
 
 ## Routes
 
@@ -136,7 +135,8 @@ An incident is stored **once**, in `data/incidents/<id>.json`, and followed from
 ## Project layout
 
 ```
-editorial/                  source discovery, ranking and verification playbooks
+agent/                      agent instructions: entry points, playbooks, calibration, examples, prompts
+editorial/                  pointers to agent/playbooks/ (for runs on the old prompts)
 hugo.toml                   site config: base URL, output formats (JSON/Markdown/llms.txt), windows
 content/                    section stubs + content adapters (daily, weekly, topics, incidents)
 layouts/
@@ -280,15 +280,3 @@ To run a backfill locally:
 ```bash
 .venv/bin/python scripts/sync_publisher_images.py --backfill --max-images 150
 ```
-
-## Changes from the Eleventy site
-
-- **Permanent pages.** Dated daily and weekly pages now exist for the full history. Eleventy built only the 7-day and 52-week windows, so old URLs disappeared. The JSON feeds keep their windows.
-- **New archive pages:** `/daily/`, `/weekly/` and `/topics/`. Global `/topics/SLUG/` pages persist after a topic leaves the seven-day window.
-- **Homepage fallback.** The homepage shows the latest published edition even when it is more than seven days old. Previously it showed an empty state.
-- **Local images only.** Images come only from local optimized copies, with no hotlinking. A story has no image until the pipeline has stored one.
-- **Single deploy.** Each publication deploys once, after enrichment, instead of once on push and again after enrichment.
-- **Feed format.** In `data/briefings.json` and `data/weekly.json`, object keys are now alphabetical (a side effect of Hugo's JSON encoding), and stored images gain an absolute `image.localUrl`.
-- **Validation.** It now uses versioned JSON Schemas. Invalid files are quarantined from the build instead of failing the whole deploy.
-- **Tooling.** pnpm replaces npm. Eleventy and the old client-side scripts (`assets/app.js`, `assets/weekly.js`, the root `index.html`/`weekly.html`) are gone.
-- **Design.** The site uses the mawburn dispatch redesign (see Project layout).
