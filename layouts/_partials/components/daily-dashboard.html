@@ -31,6 +31,8 @@
     <h1 class="dash__title" id="dash-{{ $date }}-title"><time datetime="{{ $date }}">{{ $when | time.Format "Monday, January 2" }}</time></h1>
   </header>
 
+  {{ partial "components/big-stories.html" $issue }}
+
   <ul class="dash__stats" aria-label="Sections in this edition">
     {{- range $sec := $sections }}
     {{- with index $issue $sec.key }}
@@ -101,9 +103,11 @@
         {{- $links := slice }}
         {{- range $b.links }}{{ if and (reflect.IsMap .) (partial "data/is-http.html" .url) }}{{ $links = $links | append (dict "label" (.label | default "Source") "url" .url "external" true) }}{{ end }}{{ end }}
         {{- with $story }}{{ with .incidentId }}{{ with site.GetPage (printf "/incidents/%s" .) }}{{ $links = $links | append (dict "label" "Incident timeline" "url" .RelPermalink "external" false) }}{{ end }}{{ end }}{{ end }}
-        <li class="exec__item topic topic--{{ $style.key }}{{ if $anchor }} has-story{{ end }}">
+        {{- $sig := "" }}{{ with $story }}{{ $sig = .significance | default "" }}{{ end }}
+        <li class="exec__item topic topic--{{ $style.key }}{{ if $anchor }} has-story{{ end }}{{ if eq $sig "major" }} is-major{{ end }}">
           <span class="dot" aria-hidden="true"></span>
           <p class="exec__body">
+            {{- if eq $sig "major" }}{{ partial "components/significance-badge.html" $sig }} {{ end }}
             {{- if $anchor }}<a class="exec__headline" href="{{ $anchor }}">{{ $b.headline }}</a>{{ else }}<strong class="exec__headline">{{ $b.headline }}</strong>{{ end }}
             {{- with $b.text }} <span class="exec__text">{{ . }}</span>{{ end }}
             {{- with $links }} <span class="exec__links">{{ range $i, $l := . }}{{ if $i }}<span class="exec__sep" aria-hidden="true"> · </span>{{ end }}<a href="{{ $l.url }}"{{ if $l.external }} rel="noopener"{{ end }}>{{ if $l.external }}{{ partial "components/brand-icon.html" (dict "url" $l.url) }}{{ else }}{{ partial "components/icon.html" "clock" }}{{ end }}<span>{{ $l.label }}</span></a>{{ end }}</span>{{ end }}
@@ -146,11 +150,11 @@
           {{- $cat := partial "data/category.html" $s }}
           {{- $slug := partial "data/slug.html" $cat }}
           {{- $style := partial "data/topic-style.html" $cat }}
-          <li class="hl__row topic topic--{{ $style.key }}" data-cat="{{ $slug }}">
+          <li class="hl__row topic topic--{{ $style.key }}{{ if eq ($s.significance | default "") "major" }} is-major{{ end }}" data-cat="{{ $slug }}">
             <span class="dot" aria-hidden="true"></span>
             <div class="hl__body">
               <a class="hl__title" href="#{{ $date }}-{{ $key }}-{{ add $i 1 }}">{{ $s.title }}</a>
-              <span class="hl__meta">{{ if gt (len $topics) 1 }}<label class="hl__cat" for="{{ $f }}-{{ $slug }}">{{ $cat }}</label>{{ else }}<span class="hl__cat">{{ $cat }}</span>{{ end }}{{ with $s.incidentId }}{{ with partial "data/find-incident.html" . }}{{ partial "components/incident-status.html" .status }}{{ end }}{{ end }}</span>
+              <span class="hl__meta">{{ partial "components/significance-badge.html" ($s.significance | default "") }}{{ if gt (len $topics) 1 }}<label class="hl__cat" for="{{ $f }}-{{ $slug }}">{{ $cat }}</label>{{ else }}<span class="hl__cat">{{ $cat }}</span>{{ end }}{{ with $s.incidentId }}{{ with partial "data/find-incident.html" . }}{{ partial "components/incident-status.html" .status }}{{ end }}{{ end }}</span>
             </div>
           </li>
           {{- end }}

@@ -201,3 +201,71 @@ label.hl__cat:hover { border-color: var(--topic); color: var(--on-surface); }
   .dash__headlines .hl + .hl { margin-top: 0; padding-top: 0; border-top: 0; }
   .dash__headlines .hl[data-cats=""] { grid-column: 1 / -1; margin-top: .75rem; padding-top: .75rem; border-top: 1px solid var(--hairline); }
 }
+
+/* ---------- Significance: big stories, badges, developing-story threads ---------- */
+:root { --major: #f5c451; --major-wash: rgba(245,196,81,.10); --major-line: rgba(245,196,81,.45); }
+.sig { display: inline-flex; align-items: center; gap: .25rem; padding: .05rem .45rem; border-radius: 999px; font-size: 10px; line-height: 16px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; vertical-align: 1px; }
+.sig .icon { width: 11px; height: 11px; }
+.sig--major { background: var(--major); color: #2a1e00; }
+.sig--notable { border: 1px solid var(--outline-variant); color: var(--on-variant); }
+
+/* banner */
+.bigstory { position: relative; display: grid; gap: .5rem; padding: 1.1rem 1.25rem 1rem; border-radius: var(--r-lg); background: linear-gradient(135deg, var(--major-wash), rgba(245,196,81,.02) 60%), var(--surface-low); border: 1px solid var(--major-line); border-left: 4px solid var(--major); }
+.bigstory__kicker { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; font-size: 11px; line-height: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--major); }
+.bigstory__kicker .icon { width: 14px; height: 14px; }
+.bigstory__cat { padding-left: .5rem; margin-left: .1rem; border-left: 1px solid var(--outline-variant); color: var(--on-variant); font-weight: 600; }
+.bigstory__title { font-size: 24px; line-height: 30px; font-weight: 700; letter-spacing: -.02em; }
+.bigstory__title a { color: var(--on-surface); }
+.bigstory__title a:hover { color: var(--primary-fixed); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--major-line); }
+.bigstory__lede { font-size: 15px; line-height: 24px; color: var(--on-variant); max-width: 70ch; }
+.bigstory__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .4rem 1rem; margin-top: .15rem; }
+.bigstory__cta { display: inline-flex; align-items: center; gap: .35rem; min-height: 36px; padding: .3rem .8rem; border-radius: var(--r-md); background: var(--major); color: #2a1e00; font-size: 13px; font-weight: 700; }
+.bigstory__cta:hover { color: #2a1e00; filter: brightness(1.08); }
+.bigstory__cta .icon { width: 16px; height: 16px; }
+.bigstory__thread { display: inline-flex; align-items: center; gap: .35rem; font-size: 12px; color: var(--on-variant); }
+.bigstory__thread .icon { width: 14px; height: 14px; color: var(--major); }
+@media (max-width: 47.99rem) {
+  .bigstory { padding: .9rem 1rem; }
+  .bigstory__title { font-size: 19px; line-height: 25px; }
+  .bigstory__lede { font-size: 14px; line-height: 22px; }
+}
+
+/* this week's big stories */
+.bigweek { padding: .75rem 1rem; border-radius: var(--r-lg); background: var(--surface-low); border: 1px solid rgba(245,196,81,.25); }
+.bigweek__label { display: flex; align-items: center; gap: .4rem; margin-bottom: .35rem; font-size: 11px; line-height: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--major); }
+.bigweek__label .icon { width: 13px; height: 13px; }
+.bigweek__list { display: grid; }
+.bigweek__item { display: flex; align-items: baseline; gap: .75rem; padding: .35rem 0; font-size: 14px; line-height: 20px; color: var(--on-surface); }
+.bigweek__item time { flex: none; width: 5.5rem; font-size: 12px; color: var(--outline); }
+.bigweek__item:hover .bigweek__title { text-decoration: underline; text-underline-offset: 3px; }
+
+/* badges in lists */
+.hl__row.is-major .hl__title { font-weight: 600; }
+.hl__row.is-major > .dot { background: var(--major); box-shadow: 0 0 0 3px var(--major-wash); }
+.exec__item.is-major { background: var(--major-wash); box-shadow: inset 3px 0 0 var(--major); }
+.exec__item.is-major > .dot { background: var(--major); }
+.exec__item.is-major .sig { margin-right: .1rem; }
+
+/* story cards */
+.story--major { box-shadow: inset 0 0 0 1px var(--major-line), inset 4px 0 0 var(--major); }
+.story--lead.story--major .story__title { font-size: 22px; line-height: 29px; }
+@media (max-width: 47.99rem) { .story--lead.story--major .story__title { font-size: 18px; line-height: 24px; } }
+
+/* developing-story timeline */
+.thread { border-radius: var(--r-lg); background: var(--surface-container); }
+.thread summary { display: flex; align-items: center; gap: .45rem; min-height: 40px; padding: .4rem .8rem; cursor: pointer; list-style: none; font-size: 13px; font-weight: 600; color: var(--on-surface); }
+.thread summary::-webkit-details-marker { display: none; }
+.thread summary > .icon:first-child { width: 15px; height: 15px; color: var(--major); }
+.thread summary > .icon:last-child { width: 16px; height: 16px; margin-left: auto; color: var(--outline); transition: transform .2s; }
+.thread[open] summary > .icon:last-child { transform: rotate(180deg); }
+.thread__list { position: relative; display: grid; gap: .55rem; padding: .2rem .8rem .8rem 1.75rem; }
+.thread__list::before { content: ""; position: absolute; left: 1.05rem; top: .5rem; bottom: 1.1rem; width: 2px; background: var(--hairline); }
+.thread__item { position: relative; display: grid; gap: .05rem; font-size: 13px; line-height: 19px; }
+.thread__item::before { content: ""; position: absolute; left: calc(-.7rem - 4px); top: .35rem; width: 8px; height: 8px; border-radius: 50%; background: var(--outline-variant); box-shadow: 0 0 0 3px var(--surface-container); }
+.thread__item.is-major::before { background: var(--major); }
+.thread__item.is-current::before { outline: 2px solid var(--on-surface); outline-offset: 1px; }
+.thread__item time { font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--outline); }
+.thread__title { color: var(--on-variant); }
+a.thread__title { color: var(--on-surface); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--outline-variant); }
+a.thread__title:hover { text-decoration-color: currentColor; }
+.thread__title em { font-style: normal; color: var(--outline); }

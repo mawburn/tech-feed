@@ -25,15 +25,27 @@
     "marketPulse": {
       "description": "Plain text, or an object whose summary and optional business/jobs/watch strings are rendered as paragraphs.",
       "anyOf": [
-        { "type": "string" },
+        {
+          "type": "string"
+        },
         {
           "type": "object",
-          "required": ["summary"],
+          "required": [
+            "summary"
+          ],
           "properties": {
-            "summary": { "type": "string" },
-            "business": { "type": "string" },
-            "jobs": { "type": "string" },
-            "watch": { "type": "string" }
+            "summary": {
+              "type": "string"
+            },
+            "business": {
+              "type": "string"
+            },
+            "jobs": {
+              "type": "string"
+            },
+            "watch": {
+              "type": "string"
+            }
           }
         }
       ]
@@ -43,19 +55,38 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["headline"],
+        "required": [
+          "headline"
+        ],
         "properties": {
-          "headline": { "type": "string", "minLength": 1 },
-          "text": { "type": "string" },
-          "story": { "type": "string", "pattern": "^(topStories|alsoWorthKnowing|newTools)/[1-9][0-9]*$" },
+          "headline": {
+            "type": "string",
+            "minLength": 1
+          },
+          "text": {
+            "type": "string"
+          },
+          "story": {
+            "type": "string",
+            "pattern": "^(topStories|alsoWorthKnowing|newTools)/[1-9][0-9]*$"
+          },
           "links": {
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["label", "url"],
+              "required": [
+                "label",
+                "url"
+              ],
               "properties": {
-                "label": { "type": "string", "minLength": 1 },
-                "url": { "type": "string", "pattern": "^https?://" }
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "url": {
+                  "type": "string",
+                  "pattern": "^https?://"
+                }
               }
             }
           }
@@ -142,6 +173,18 @@
         "incidentId": {
           "$ref": "common.v1.schema.json#/$defs/incidentId",
           "description": "Optional link to data/incidents/<incidentId>.json. The incident record is the single source of truth for status, timeline and fixes."
+        },
+        "significance": {
+          "description": "How big the story is, independent of rank (urgency). major: a landmark event a technology reader should not miss (gets the dashboard's Big story banner and stays in This week's big stories for 7 days). notable: significant but not landmark (badge only). Omit for ordinary stories.",
+          "enum": [
+            "major",
+            "notable"
+          ]
+        },
+        "thread": {
+          "description": "Optional developing-story ID (lowercase kebab-case) shared by every story about the same multi-day event, across editions, e.g. \"anthropic-ipo-2026\". The site links the entries into a timeline. Use incidentId instead for outages and security incidents.",
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
         }
       }
     }

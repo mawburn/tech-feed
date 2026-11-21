@@ -186,6 +186,8 @@
     {
       "title": "Anthropic begins public trading after record $81 billion IPO",
       "category": "AI & Business",
+      "significance": "major",
+      "thread": "anthropic-ipo-2026",
       "isUpdate": true,
       "whyItMatters": "Public-market reporting exposes frontier-model economics and financing assumptions to broader scrutiny.",
       "limitations": "First-day share movement is not evidence of durable AI profitability.",

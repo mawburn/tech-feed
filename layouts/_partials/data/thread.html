@@ -1,0 +1,19 @@
+{{- /* Every published story sharing a developing-story thread ID, oldest first.
+  Context: thread ID. Returns [{date, key, pos, story, href}]; href points at the story
+  on its dated edition page (#<date>-<section>-<position>). */ -}}
+{{- $id := . -}}
+{{- $out := slice -}}
+{{- range partialCached "data/published-daily.html" "published" -}}
+  {{- $issue := . -}}
+  {{- $page := site.GetPage (printf "/daily/%s" $issue.date) -}}
+  {{- range partialCached "data/sections.html" "sections" -}}
+    {{- $key := .key -}}
+    {{- range $i, $s := index $issue $key -}}
+      {{- if eq ($s.thread | default "") $id -}}
+        {{- $href := "" }}{{ with $page }}{{ $href = printf "%s#%s-%s-%d" .RelPermalink $issue.date $key (add $i 1) }}{{ end -}}
+        {{- $out = $out | append (dict "date" $issue.date "key" $key "pos" (add $i 1) "story" $s "href" $href "order" (printf "%s|%s|%03d" $issue.date $key (add $i 1))) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return sort $out "order" -}}

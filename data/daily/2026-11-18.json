@@ -68,6 +68,8 @@
     {
       "title": "Anthropic prices landmark IPO at $83 per share",
       "category": "AI & Business",
+      "significance": "major",
+      "thread": "anthropic-ipo-2026",
       "summary": "Anthropic priced its IPO at $83 per share November 18, above its expected $70–$78 range. Reporting describes an expanded offering of roughly 980 million shares raising about $81 billion, valuing the Claude developer near $1.5 trillion. Nasdaq trading under ANT is expected November 19.\n\nDemand reflects rapid enterprise and Claude Code growth, but large operating losses and enormous compute commitments complicate long-term economics. IPO pricing is not proof of sustainable profitability.",
       "briefing": [
         {

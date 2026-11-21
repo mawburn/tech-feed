@@ -49,7 +49,9 @@ ChatGPT scheduler ──commits──▶ data/daily/YYYY-MM-DD.json / data/weekl
 The schemas describe the scheduler's existing output. They allow unknown properties, so new fields don't break the build. The fields stories use:
 
 - **Required:** `title`, `category`, `summary`, `sources[]` (`{label,url}`).
-- **Optional:** `rank`, `whyItMatters`, `limitations`, `isUpdate`, `discoveredVia[]`, `discussions[]`, `briefing[]`, `format` and `image`.
+- **Optional:** `rank`, `whyItMatters`, `limitations`, `isUpdate`, `discoveredVia[]`, `discussions[]`, `briefing[]`, `format`, `image`, `incidentId`, `significance` and `thread`.
+- **`significance`** (`"major"` | `"notable"`) is how big a story is, independent of `rank` (urgency). `major` stories get the dashboard's **Big story** banner, a badge in the executive summary, headlines and story card, and stay in **This week's big stories** for seven days. `notable` gets a badge only. See the landmark section of [`editorial/RANKING.md`](editorial/RANKING.md).
+- **`thread`** is a developing-story ID (lowercase kebab-case) shared by every story about the same multi-day event across editions, for example `"anthropic-ipo-2026"`. The site links the entries into a dated timeline on each story card.
 
 The third daily section is published as **AI & tooling in practice** (hands-on workflows, tutorials, demos and experiments). Its JSON keys stay `newTools` (daily) and `toolsToWatch` (weekly) for compatibility. Neither section has an item cap: any number of entries, including none, renders correctly. An optional `format` string (for example "Video tutorial", "Workflow", "Experiment", "Case study") labels an entry; direct YouTube, GitHub and demo links use the normal `sources[]`/`links[]` structure. A `briefing` may have 2–6 sections.
 
