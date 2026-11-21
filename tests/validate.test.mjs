@@ -290,3 +290,23 @@ test("quarantining an invalid incident also quarantines reports that reference i
   assert.ok(!existsSync(dpath));
   rmSync(dir, { recursive: true });
 });
+
+test("agent examples are valid publications", () => {
+  const dir = sandbox();
+  const daily = JSON.parse(readFileSync(join(root, "agent", "examples", "daily.json"), "utf8"));
+  const weekly = JSON.parse(readFileSync(join(root, "agent", "examples", "weekly.json"), "utf8"));
+  // The daily example links real incident records; copy them into the sandbox.
+  const linked = [...["topStories", "alsoWorthKnowing", "newTools"].flatMap(k => daily[k]), ...(daily.discoveryAudit?.majorIncidentsConsidered ?? [])];
+  const ids = [...new Set(linked.map(s => s.incidentId).filter(Boolean))];
+  for (const id of ids) put(dir, "incidents", `${id}.json`, readFileSync(join(root, "data", "incidents", `${id}.json`), "utf8"));
+  assert.deepEqual(check(dir, put(dir, "daily", `${daily.date}.json`, daily)), []);
+  assert.deepEqual(check(dir, put(dir, "weekly", `${weekly.weekEnding}.json`, weekly)), []);
+  for (const story of ["topStories", "alsoWorthKnowing", "newTools"].flatMap(k => daily[k])) {
+    assert.ok(Array.isArray(story.briefing) && story.briefing.length >= 2, `${story.title}: briefing`);
+    assert.ok(!story.image?.local, `${story.title}: examples must not carry CI image fields`);
+  }
+  for (const bullet of daily.executiveSummary) {
+    const [key, pos] = bullet.story.split("/");
+    assert.ok(daily[key]?.[Number(pos) - 1], `executiveSummary ${bullet.story} points at a story`);
+  }
+});
