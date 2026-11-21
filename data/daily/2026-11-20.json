@@ -348,6 +348,27 @@
         "height": 315,
         "sha256": "b8ad12e1b41b889752378129da1066e99223e7719c61b7ec39812800b5a0a437"
       }
+    },
+    {
+      "title": "GitHub explains two-week browser session-renewal regression",
+      "category": "Cloud & Infrastructure",
+      "summary": "GitHub published a technical explanation of unexpected browser sign-outs affecting sessions from November 5 through November 19. An authentication change caused some web requests to bypass activity tracking and cookie renewal, so users were logged out when the original session lifetime expired despite continued activity.\n\nGitHub says it deployed a fix on November 19 and plans additional monitoring for unexpected declines in session renewals. The issue was a session-management regression, not evidence of an account compromise.",
+      "briefing": [
+        {
+          "heading": "Failure mechanism and duration",
+          "body": "GitHub's incident history identifies a session-renewal bug introduced by an authentication change. Requests that should have refreshed active-session expiration and browser cookies instead bypassed the renewal logic. Consequently, some active users were unexpectedly asked to authenticate again when their original sessions expired. GitHub places the affected interval between November 5 at 18:02 UTC and November 19 at 18:05 UTC."
+        },
+        {
+          "heading": "Mitigation and prevention",
+          "body": "GitHub deployed a fix intended to restore renewal of active browser sessions and cookies, then reported the incident resolved. It also said it was adding monitoring for unexpected drops in session-renewal activity. The published explanation does not quantify how many users were affected or establish that every older session was preserved; users could still encounter a sign-out for an already expired session."
+        }
+      ],
+      "sources": [
+        {
+          "label": "GitHub official incident history and explanation",
+          "url": "https://www.githubstatus.com/history"
+        }
+      ]
     }
   ],
   "newTools": [
@@ -471,9 +492,9 @@
   ],
   "marketPulse": "No new representative November 20 evidence was verified establishing a material shift in US senior or Staff+ engineering hiring or compensation. Anthropic's new public listing and wider technology-market volatility highlight AI infrastructure economics but do not directly measure engineering employment.\n\nToday's model releases underscore a split between locally runnable efficient architectures and very large multi-GPU open-weight systems. Vendor benchmark and efficiency claims require independent validation.",
   "discoveryAudit": {
-    "checkedAt": "2026-11-20T16:56:25-08:00",
-    "windowStart": "2026-11-19T16:56:25-08:00",
-    "windowEnd": "2026-11-20T16:56:25-08:00",
+    "checkedAt": "2026-11-20T20:36:00-08:00",
+    "windowStart": "2026-11-19T20:36:00-08:00",
+    "windowEnd": "2026-11-20T20:36:00-08:00",
     "sources": [
       {
         "name": "Operational and security sweep",
@@ -517,6 +538,17 @@
         "name": "Labor market",
         "status": "partial",
         "notes": "No new representative Staff+ hiring or compensation dataset verified."
+      },
+      {
+        "name": "November 20 evening GitHub status follow-up",
+        "status": "checked",
+        "url": "https://www.githubstatus.com/history",
+        "notes": "Read GitHub's official incident explanation of browser-session renewal regression and incorporated a distinct update."
+      },
+      {
+        "name": "Friday engineering catalog",
+        "status": "unavailable",
+        "notes": "Expected catalog filename could not be resolved through available repository read operations; prior edition's reporting retained."
       }
     ],
     "majorIncidentsConsidered": [
@@ -543,6 +575,6 @@
         "sourceUrl": "https://github.com/openssl/openssl/pull/33652"
       }
     ],
-    "rankingNotes": "Industrial controller exposure leads for potential physical impact. HN Algolia unavailable; 50 titles screened, not 50 deeply reviewed. Mathematical proof claims explicitly unverified. No jQuery coverage."
+    "rankingNotes": "Industrial controller exposure leads for potential physical impact. HN Algolia unavailable; 50 titles screened, not 50 deeply reviewed. Mathematical proof claims explicitly unverified. No jQuery coverage. Evening follow-up: added GitHub's first-party session-renewal RCA to also-worth-knowing; other stories retained without claiming a complete repeat discovery sweep."
   }
 }
