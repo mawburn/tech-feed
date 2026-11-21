@@ -31,7 +31,17 @@
       "whyItMatters": "Industrial software failures can produce physical disruption and major downstream costs.",
       "limitations": "No verified widespread UK exploitation or comprehensive patch-adoption figures.",
       "isUpdate": false,
-      "rank": 1
+      "rank": 1,
+      "image": {
+        "url": "https://i.guim.co.uk/img/media/3ba762c70e9c188fc6533e353ffe9c2e077e95c6/0_0_4183_3347/master/4183.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=aaae14f3a77e62be35ecbe1933ad1fae",
+        "alt": "Publisher-provided image for UK refrigeration security operation exposes risks in industrial controllers",
+        "credit": "theguardian.com",
+        "sourceUrl": "https://www.theguardian.com/technology/2026/nov/20/cybersecurity-operation-thwarts-attack-on-uk-supermarket-fridges-and-freezers",
+        "local": "img/214d908a93cde1ad578a.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "214d908a93cde1ad578adafb007b914658bcdccf215c20b7e1c1858bd7238819"
+      }
     },
     {
       "title": "Inkling 2 Mini uses looping transformer layers for local agent work",
@@ -56,7 +66,24 @@
       "whyItMatters": "Looping offers an alternative local-model efficiency tradeoff and raises concrete oversight questions.",
       "limitations": "Vendor-selected benchmarks and demos need independent replication.",
       "isUpdate": false,
-      "rank": 2
+      "rank": 2,
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50581260",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://thinkingmachines.ai/news/inkling-2-mini/images/cover-social.png",
+        "alt": "Publisher-provided image for Inkling 2 Mini uses looping transformer layers for local agent work",
+        "credit": "thinkingmachines.ai",
+        "sourceUrl": "https://thinkingmachines.ai/news/inkling-2-mini/",
+        "local": "img/ea748d765799c4ca8da4.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "ea748d765799c4ca8da4a0c3795db882185bfc0d195c125aa1cbb09522829d16"
+      }
     },
     {
       "title": "Two proposed Riemann-hypothesis proofs draw intense scrutiny",
@@ -81,7 +108,17 @@
       "whyItMatters": "An accepted proof would be historic, but premature certainty would be misleading.",
       "limitations": "No independent consensus or accepted proof verified.",
       "isUpdate": false,
-      "rank": 3
+      "rank": 3,
+      "image": {
+        "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/gettyimages-2305894185.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+        "alt": "Publisher-provided image for Two proposed Riemann-hypothesis proofs draw intense scrutiny",
+        "credit": "theverge.com",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/1010051/anthropic-riemann-hypothesis-millennium-prize-problem",
+        "local": "img/43656c021893be20d120.webp",
+        "width": 600,
+        "height": 312,
+        "sha256": "43656c021893be20d120b334f9da9a97ee0c9d2a1d8d0f5810a2efa012307c2f"
+      }
     },
     {
       "title": "Tencent releases downloadable Hy4 weights with commercial restrictions",
@@ -110,7 +147,17 @@
       "whyItMatters": "A substantial downloadable multimodal model expands deployment choices but introduces major licensing and infrastructure considerations.",
       "limitations": "Vendor evaluations and advertised context capacity do not guarantee production results.",
       "isUpdate": false,
-      "rank": 4
+      "rank": 4,
+      "image": {
+        "url": "https://opengraph.githubassets.com/0e2e9543b79e55a00376d59ec387b4bb2109c7b4d41acdbdfed771cade4f3168/Tencent-Hunyuan/Hy4",
+        "alt": "Publisher-provided image for Tencent releases downloadable Hy4 weights with commercial restrictions",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/Tencent-Hunyuan/Hy4",
+        "local": "img/4b5e5a3275cfbc8d155f.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "4b5e5a3275cfbc8d155f0e8c3a82bae8d5e9d31455ed0814802eccd4a435c64a"
+      }
     },
     {
       "title": "Frostbite explores AI-led CPU and compiler co-design",
@@ -135,7 +182,24 @@
       "whyItMatters": "AI-driven exploration of compiler and hardware design spaces could change chip-development workflows.",
       "limitations": "No independent physical-silicon validation established.",
       "isUpdate": false,
-      "rank": 5
+      "rank": 5,
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50572503",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://main--gleeful-begonia-6bb5f3.netlify.app/_next/static/media/frostbite-cover.3n9ytugnquhlr.jpg",
+        "alt": "Publisher-provided image for Frostbite explores AI-led CPU and compiler co-design",
+        "credit": "architectlabs.com",
+        "sourceUrl": "https://architectlabs.com/blog/frostbite",
+        "local": "img/c752bc48ad4ea3c3c102.webp",
+        "width": 600,
+        "height": 338,
+        "sha256": "c752bc48ad4ea3c3c10231025a3282b875249c0772e414de82b1f017d452ae5a"
+      }
     }
   ],
   "alsoWorthKnowing": [
@@ -158,7 +222,17 @@
           "label": "Microsoft engineering announcement",
           "url": "https://blogs.windows.com/msedgedev/2026/11/19/hybrid-intelligence-on-the-web-introducing-aion-instruct-and-prompt-api-in-microsoft-edge/"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://winblogs.thesourcemediaassets.com/sites/33/2021/06/Edge-social.jpg",
+        "alt": "Publisher-provided image for Microsoft Edge ships local Aion Instruct and Prompt API trial",
+        "credit": "blogs.windows.com",
+        "sourceUrl": "https://blogs.windows.com/msedgedev/2026/11/19/hybrid-intelligence-on-the-web-introducing-aion-instruct-and-prompt-api-in-microsoft-edge/",
+        "local": "img/134551bea97fa9ebf0a9.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "134551bea97fa9ebf0a9f9ad0232e7941f2f2973edb620570b83e4f971adc933"
+      }
     },
     {
       "title": "NSA classified network reportedly restored after extended outage",
@@ -183,7 +257,13 @@
           "label": "Restoration report",
           "url": "https://nypost.com/2026/11/20/us-news/nsas-top-secret-communications-network-restored-after-nearly-4-day-outage/"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://dims.apnews.com/dims4/default/a2ef926/2147483647/strip/true/crop/4848x3180+0+0/resize/1200x787!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F84%2F17%2F5786adcca75bcaa4f235a51ded1f%2Fdb06513fcb644753b5e939b19450c74d",
+        "alt": "Publisher-provided image for NSA classified network reportedly restored after extended outage",
+        "credit": "apnews.com",
+        "sourceUrl": "https://apnews.com/article/22dc6be1bf1d1f5f86a7167f016e9526"
+      }
     },
     {
       "title": "OpenSSL overflow score disputed while patch remains in review",
@@ -208,7 +288,24 @@
           "label": "Advisory index",
           "url": "https://www.openssl-library.org/news/secadv/"
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50569226",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/fc5f6abce147771084ff310af8d23093e51ad824ffc079ab8ee6c901d70e597c/openssl/openssl/pull/33652",
+        "alt": "Publisher-provided image for OpenSSL overflow score disputed while patch remains in review",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/openssl/openssl/pull/33652",
+        "local": "img/e7cb015014f2ba456dcf.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "e7cb015014f2ba456dcfb27cd46f055074e99937a87106ea5490ee5968bf9295"
+      }
     },
     {
       "title": "PostgreSQL 19 hands-on walkthrough makes new SQL features testable",
@@ -233,7 +330,24 @@
           "label": "Official release",
           "url": "https://www.postgresql.org/about/news/postgresql-19-released-3449/"
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50560357",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://certuvia.com/opengraph-image",
+        "alt": "Publisher-provided image for PostgreSQL 19 hands-on walkthrough makes new SQL features testable",
+        "credit": "certuvia.com",
+        "sourceUrl": "https://certuvia.com/blog/postgres-19",
+        "local": "img/b8ad12e1b41b88975237.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "b8ad12e1b41b889752378129da1066e99223e7719c61b7ec39812800b5a0a437"
+      }
     }
   ],
   "newTools": [
@@ -257,7 +371,24 @@
           "label": "Writeup and code",
           "url": "https://kobi.music/research/dettato"
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50526023",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://kobi.music/og.png",
+        "alt": "Publisher-provided image for Dettato: compact audio-to-MIDI transcription",
+        "credit": "kobi.music",
+        "sourceUrl": "https://kobi.music/research/dettato",
+        "local": "img/f038789317ca00e93c3f.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "f038789317ca00e93c3f5940b8e92679bda640f1074c0294844713ec9cc42eb1"
+      }
     },
     {
       "title": "OpenComputer: open-source coding agent workspace",
@@ -279,7 +410,24 @@
           "label": "GitHub source",
           "url": "https://github.com/diggerhq/opencomputer"
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50581403",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/651da675ca48311f92a9999d27be637fb6c0b9863157a13d2ea405e294a2ec75/diggerhq/opencomputer",
+        "alt": "Publisher-provided image for OpenComputer: open-source coding agent workspace",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/diggerhq/opencomputer",
+        "local": "img/d2d1d01bb7bdfa901bd9.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "d2d1d01bb7bdfa901bd946ac0ac2fffeae4b522a5656a486e18917dda09d203b"
+      }
     },
     {
       "title": "Runnable PostgreSQL 19 browser exercises",
@@ -301,7 +449,24 @@
           "label": "Interactive tutorial",
           "url": "https://certuvia.com/blog/postgres-19"
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50578117",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://certuvia.com/opengraph-image",
+        "alt": "Publisher-provided image for Runnable PostgreSQL 19 browser exercises",
+        "credit": "certuvia.com",
+        "sourceUrl": "https://certuvia.com/blog/postgres-19",
+        "local": "img/b8ad12e1b41b88975237.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "b8ad12e1b41b889752378129da1066e99223e7719c61b7ec39812800b5a0a437"
+      }
     }
   ],
   "marketPulse": "No new representative November 20 evidence was verified establishing a material shift in US senior or Staff+ engineering hiring or compensation. Anthropic's new public listing and wider technology-market volatility highlight AI infrastructure economics but do not directly measure engineering employment.\n\nToday's model releases underscore a split between locally runnable efficient architectures and very large multi-GPU open-weight systems. Vendor benchmark and efficiency claims require independent validation.",

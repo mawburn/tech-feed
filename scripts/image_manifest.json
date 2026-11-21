@@ -221,6 +221,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://certuvia.com/opengraph-image": {
+      "attempts": 1,
+      "bytes": 10182,
+      "encoding": "q90",
+      "file": "img/b8ad12e1b41b88975237.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "sha256": "b8ad12e1b41b889752378129da1066e99223e7719c61b7ec39812800b5a0a437",
+      "sourceBytes": 49585,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/11/11/Header-A-dark-gradient-1-1260x630.png": {
       "attempts": 1,
       "bytes": 9708,
@@ -282,6 +295,12 @@
     "https://dims.apnews.com/dims4/default/49a7d80/2147483647/strip/true/crop/3000x2000+0+0/resize/1200x800!/quality/90/?url=https%3A%2F%2Fstorage.googleapis.com%2Fafs-prod%2Fmedia%2F66a90e6332094b23bc328ec2199b7005%2F3000.jpeg": {
       "attempts": 1,
       "lastAttempt": "2026-11-20T11:50:09Z",
+      "reason": "publisher policy (apnews.com)",
+      "status": "skipped"
+    },
+    "https://dims.apnews.com/dims4/default/a2ef926/2147483647/strip/true/crop/4848x3180+0+0/resize/1200x787!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F84%2F17%2F5786adcca75bcaa4f235a51ded1f%2Fdb06513fcb644753b5e939b19450c74d": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-21T00:58:55Z",
       "reason": "publisher policy (apnews.com)",
       "status": "skipped"
     },
@@ -382,6 +401,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://i.guim.co.uk/img/media/3ba762c70e9c188fc6533e353ffe9c2e077e95c6/0_0_4183_3347/master/4183.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=aaae14f3a77e62be35ecbe1933ad1fae": {
+      "attempts": 1,
+      "bytes": 31318,
+      "encoding": "q80",
+      "file": "img/214d908a93cde1ad578a.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "sha256": "214d908a93cde1ad578adafb007b914658bcdccf215c20b7e1c1858bd7238819",
+      "sourceBytes": 108288,
+      "sourceFormat": "WEBP",
+      "status": "ok",
+      "width": 600
+    },
     "https://i.insider.com/6af77f050cc3ffba8779d016?width=1200&format=jpeg": {
       "attempts": 1,
       "bytes": 11000,
@@ -433,6 +465,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://kobi.music/og.png": {
+      "attempts": 1,
+      "bytes": 5458,
+      "encoding": "q60",
+      "file": "img/f038789317ca00e93c3f.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "sha256": "f038789317ca00e93c3f5940b8e92679bda640f1074c0294844713ec9cc42eb1",
+      "sourceBytes": 37620,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://lh3.googleusercontent.com/ufe__EokQeN6itypUE9XmN6-HX9kqi1cNllSWZ688h8dXXOh8lDS_Ltc8c-hdbJSp86GcKcpbHmsXharkzaEaFzhOFLsbx7zFcoi20GqnwTREcto=w1200-h630-n-nu-rw": {
       "attempts": 1,
       "bytes": 6982,
@@ -443,6 +488,19 @@
       "sha256": "ce239b6be935dde0d3ae05562e6ed1458c3ae61e51cc3730ff76a9e14fbdd40f",
       "sourceBytes": 416760,
       "sourceFormat": "WEBP",
+      "status": "ok",
+      "width": 600
+    },
+    "https://main--gleeful-begonia-6bb5f3.netlify.app/_next/static/media/frostbite-cover.3n9ytugnquhlr.jpg": {
+      "attempts": 1,
+      "bytes": 24272,
+      "encoding": "q80",
+      "file": "img/c752bc48ad4ea3c3c102.webp",
+      "height": 338,
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "sha256": "c752bc48ad4ea3c3c10231025a3282b875249c0772e414de82b1f017d452ae5a",
+      "sourceBytes": 821265,
+      "sourceFormat": "JPEG",
       "status": "ok",
       "width": 600
     },
@@ -537,6 +595,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://opengraph.githubassets.com/0e2e9543b79e55a00376d59ec387b4bb2109c7b4d41acdbdfed771cade4f3168/Tencent-Hunyuan/Hy4": {
+      "attempts": 1,
+      "bytes": 7690,
+      "encoding": "q85",
+      "file": "img/4b5e5a3275cfbc8d155f.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "sha256": "4b5e5a3275cfbc8d155f0e8c3a82bae8d5e9d31455ed0814802eccd4a435c64a",
+      "sourceBytes": 40450,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://opengraph.githubassets.com/5f1ce159986c391b4e50625977dde84db7b3f9d095f401c93455484a1b23810e/BurntSushi/jiff": {
       "attempts": 1,
       "bytes": 12388,
@@ -546,6 +617,19 @@
       "lastAttempt": "2026-11-17T04:09:37Z",
       "sha256": "ad343428ad33f629eb3c9e506bdefd4af10b3a5305443f6acd24d03d388ed581",
       "sourceBytes": 119591,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://opengraph.githubassets.com/651da675ca48311f92a9999d27be637fb6c0b9863157a13d2ea405e294a2ec75/diggerhq/opencomputer": {
+      "attempts": 1,
+      "bytes": 10702,
+      "encoding": "q85",
+      "file": "img/d2d1d01bb7bdfa901bd9.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "sha256": "d2d1d01bb7bdfa901bd946ac0ac2fffeae4b522a5656a486e18917dda09d203b",
+      "sourceBytes": 50881,
       "sourceFormat": "PNG",
       "status": "ok",
       "width": 600
@@ -602,6 +686,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://opengraph.githubassets.com/fc5f6abce147771084ff310af8d23093e51ad824ffc079ab8ee6c901d70e597c/openssl/openssl/pull/33652": {
+      "attempts": 1,
+      "bytes": 11240,
+      "encoding": "q80",
+      "file": "img/e7cb015014f2ba456dcf.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "sha256": "e7cb015014f2ba456dcfb27cd46f055074e99937a87106ea5490ee5968bf9295",
+      "sourceBytes": 50824,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://platform.claude.com/web-api/og/docs/en/release-notes/overview?design-rev=5": {
       "attempts": 1,
       "bytes": 7020,
@@ -612,6 +709,19 @@
       "sha256": "c32098164cae419081da4cb496e396c4910cd2e0597d92e1bae28d588a61d22a",
       "sourceBytes": 14794,
       "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/gettyimages-2305894185.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200": {
+      "attempts": 1,
+      "bytes": 27440,
+      "encoding": "q80",
+      "file": "img/43656c021893be20d120.webp",
+      "height": 312,
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "sha256": "43656c021893be20d120b334f9da9a97ee0c9d2a1d8d0f5810a2efa012307c2f",
+      "sourceBytes": 79016,
+      "sourceFormat": "WEBP",
       "status": "ok",
       "width": 600
     },
@@ -803,6 +913,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://thinkingmachines.ai/news/inkling-2-mini/images/cover-social.png": {
+      "attempts": 1,
+      "bytes": 1486,
+      "encoding": "q60",
+      "file": "img/ea748d765799c4ca8da4.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "sha256": "ea748d765799c4ca8da4a0c3795db882185bfc0d195c125aa1cbb09522829d16",
+      "sourceBytes": 10815,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://virtualizationreview.com/-/media/ECG/VirtualizationReview/Images/introimages2014/AI_Cybersecurity.jpg": {
       "attempts": 1,
       "bytes": 46234,
@@ -812,6 +935,19 @@
       "lastAttempt": "2026-11-20T01:02:28Z",
       "sha256": "cb05298ebca2a0d96335adb0ca2f2cc2f86d62b068e4b45081d64ea3d41e3ed8",
       "sourceBytes": 686576,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://winblogs.thesourcemediaassets.com/sites/33/2021/06/Edge-social.jpg": {
+      "attempts": 1,
+      "bytes": 11464,
+      "encoding": "q80",
+      "file": "img/134551bea97fa9ebf0a9.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "sha256": "134551bea97fa9ebf0a9f9ad0232e7941f2f2973edb620570b83e4f971adc933",
+      "sourceBytes": 170556,
       "sourceFormat": "JPEG",
       "status": "ok",
       "width": 600
@@ -988,6 +1124,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://apnews.com/article/22dc6be1bf1d1f5f86a7167f016e9526": {
+      "attempts": 1,
+      "image": "https://dims.apnews.com/dims4/default/a2ef926/2147483647/strip/true/crop/4848x3180+0+0/resize/1200x787!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F84%2F17%2F5786adcca75bcaa4f235a51ded1f%2Fdb06513fcb644753b5e939b19450c74d",
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://apnews.com/article/50fee2693c22f597fa6ca51a97ef2cda": {
       "attempts": 1,
       "image": "https://dims.apnews.com/dims4/default/49a7d80/2147483647/strip/true/crop/3000x2000+0+0/resize/1200x800!/quality/90/?url=https%3A%2F%2Fstorage.googleapis.com%2Fafs-prod%2Fmedia%2F66a90e6332094b23bc328ec2199b7005%2F3000.jpeg",
@@ -1011,6 +1154,13 @@
       "attempts": 1,
       "image": "https://dims.apnews.com/dims4/default/0411f9b/2147483647/strip/true/crop/7722x5148+0+0/resize/1200x800!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fc8%2F6f%2F8493c812848915b8f042edbea0e0%2Fd6fd50b157cd44cc81b77ac306a0ae9a",
       "lastAttempt": "2026-11-20T01:02:28Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://architectlabs.com/blog/frostbite": {
+      "attempts": 1,
+      "image": "https://main--gleeful-begonia-6bb5f3.netlify.app/_next/static/media/frostbite-cover.3n9ytugnquhlr.jpg",
+      "lastAttempt": "2026-11-21T00:58:55Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1105,6 +1255,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://blogs.windows.com/msedgedev/2026/11/19/hybrid-intelligence-on-the-web-introducing-aion-instruct-and-prompt-api-in-microsoft-edge/": {
+      "attempts": 1,
+      "image": "https://winblogs.thesourcemediaassets.com/sites/33/2021/06/Edge-social.jpg",
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://bruceroettgers.eu/blog/protomaps/": {
       "attempts": 1,
       "image": null,
@@ -1123,6 +1280,13 @@
       "attempts": 1,
       "image": "https://calif.io/java4shell/poster.jpg",
       "lastAttempt": "2026-11-18T01:07:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://certuvia.com/blog/postgres-19": {
+      "attempts": 1,
+      "image": "https://certuvia.com/opengraph-image",
+      "lastAttempt": "2026-11-21T00:58:55Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1230,6 +1394,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://github.com/Tencent-Hunyuan/Hy4": {
+      "attempts": 1,
+      "image": "https://opengraph.githubassets.com/0e2e9543b79e55a00376d59ec387b4bb2109c7b4d41acdbdfed771cade4f3168/Tencent-Hunyuan/Hy4",
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://github.com/antoniomika/lend": {
       "attempts": 1,
       "image": "https://opengraph.githubassets.com/bcb8f20384225ac30557c3ad384ff0455572aa28f919651c06a75a36b74c196d/antoniomika/lend",
@@ -1248,6 +1419,13 @@
       "attempts": 1,
       "image": "https://opengraph.githubassets.com/ad4bb48c001af28ff04d9efd654c1bc22ae963665271e33fbc674fa5ad573682/db-branch/db-branch",
       "lastAttempt": "2026-11-17T04:09:37Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.com/diggerhq/opencomputer": {
+      "attempts": 1,
+      "image": "https://opengraph.githubassets.com/651da675ca48311f92a9999d27be637fb6c0b9863157a13d2ea405e294a2ec75/diggerhq/opencomputer",
+      "lastAttempt": "2026-11-21T00:58:55Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1275,6 +1453,13 @@
       "attempts": 1,
       "image": "https://opengraph.githubassets.com/598378a501370951bf4519d69c31b514b1565f522eb48e24dfabab2b9c2588fd/gorhill/uBlock/security/advisories/GHSA-cmqw-9r2w-6wv2",
       "lastAttempt": "2026-11-17T04:09:37Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.com/openssl/openssl/pull/33652": {
+      "attempts": 1,
+      "image": "https://opengraph.githubassets.com/fc5f6abce147771084ff310af8d23093e51ad824ffc079ab8ee6c901d70e597c/openssl/openssl/pull/33652",
+      "lastAttempt": "2026-11-21T00:58:55Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1361,6 +1546,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://kobi.music/research/dettato": {
+      "attempts": 1,
+      "image": "https://kobi.music/og.png",
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://media.bis.gov/sites/default/files/documents/BIS%20Issues%20Rule%20Addressing%20Remote%20Access%20to%20American%20Super%20Intelligence%20Technology.pdf": {
       "attempts": 1,
       "lastAttempt": "2026-11-16T21:33:10Z",
@@ -1395,6 +1587,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://news.sulat.com/2026/11/20/tencent-hy4-open-weights/": {
+      "attempts": 1,
+      "image": "https://news.sulat.com/wp-content/uploads/2026/11/hero-tencent-hy4-open-weights.jpg",
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://news.ycombinator.com/item?id=50548660": {
       "attempts": 1,
       "image": null,
@@ -1420,6 +1619,13 @@
       "attempts": 1,
       "image": "https://nvidianews.nvidia.com/media/sites/219/images/social-image.jpg",
       "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://nypost.com/2026/11/20/us-news/nsas-top-secret-communications-network-restored-after-nearly-4-day-outage/": {
+      "attempts": 1,
+      "image": "https://nypost.com/wp-content/uploads/sites/2/2026/11/nsa-comp.jpg?quality=75&strip=all&w=1200",
+      "lastAttempt": "2026-11-21T00:58:55Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1539,6 +1745,13 @@
       "attempts": 1,
       "image": "https://thingstudio.net/og.png",
       "lastAttempt": "2026-11-17T07:01:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://thinkingmachines.ai/news/inkling-2-mini/": {
+      "attempts": 1,
+      "image": "https://thinkingmachines.ai/news/inkling-2-mini/images/cover-social.png",
+      "lastAttempt": "2026-11-21T00:58:55Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1705,6 +1918,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://www.openssl-library.org/news/secadv/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://www.postgresql.org/about/news/postgresql-19-released-3449/": {
       "attempts": 1,
       "image": "https://www.postgresql.org/media/img/about/press/elephant.png",
@@ -1826,6 +2046,12 @@
       "reason": "HTTP 401 from https://www.reuters.com/world/south-korea-holds-emergency-meeting-possible-flaws-java-programming-language-2026-11-18/",
       "status": "failed"
     },
+    "https://www.reuters.com/world/uk/uk-finds-fix-fridge-freezer-vulnerability-after-european-hacks-2026-11-20/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "reason": "HTTP 401 from https://www.reuters.com/world/uk/uk-finds-fix-fridge-freezer-vulnerability-after-european-hacks-2026-11-20/",
+      "status": "failed"
+    },
     "https://www.reuters.com/world/us/united-airlines-says-technology-issue-affecting-departing-flights-2026-11-16/": {
       "attempts": 2,
       "lastAttempt": "2026-11-20T11:50:09Z",
@@ -1853,10 +2079,24 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://www.theguardian.com/technology/2026/nov/20/cybersecurity-operation-thwarts-attack-on-uk-supermarket-fridges-and-freezers": {
+      "attempts": 1,
+      "image": "https://i.guim.co.uk/img/media/3ba762c70e9c188fc6533e353ffe9c2e077e95c6/0_0_4183_3347/master/4183.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=aaae14f3a77e62be35ecbe1933ad1fae",
+      "lastAttempt": "2026-11-21T00:58:55Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://www.theregister.com/": {
       "attempts": 1,
       "image": null,
       "lastAttempt": "2026-11-17T04:09:37Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.theverge.com/ai-artificial-intelligence/1010051/anthropic-riemann-hypothesis-millennium-prize-problem": {
+      "attempts": 1,
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/gettyimages-2305894185.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+      "lastAttempt": "2026-11-21T00:58:55Z",
       "noimageindex": false,
       "status": "ok"
     },
