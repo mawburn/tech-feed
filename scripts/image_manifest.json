@@ -452,6 +452,19 @@
       "reason": "too small (80x80)",
       "status": "skipped"
     },
+    "https://img.helpnetsecurity.com/wp-content/uploads/2024/01/18110318/vmware-1400-monitor.jpg": {
+      "attempts": 1,
+      "bytes": 27562,
+      "encoding": "q80",
+      "file": "img/512fa48a9518d0c8bb33.webp",
+      "height": 345,
+      "lastAttempt": "2026-11-22T01:01:39Z",
+      "sha256": "512fa48a9518d0c8bb33a6d19855b1e618c25b3250de4413dd8182346cb9d1f3",
+      "sourceBytes": 283323,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    },
     "https://iter.ca//ubo-epicker.png": {
       "attempts": 1,
       "bytes": 15938,
@@ -465,6 +478,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://jespino.github.io/gopgext/img/social.png": {
+      "attempts": 1,
+      "bytes": 23436,
+      "encoding": "q85",
+      "file": "img/73021501cd9ff84a6dec.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-22T01:01:39Z",
+      "sha256": "73021501cd9ff84a6dec0250608fd654b29ee25e848633a5feaccc64a44496e5",
+      "sourceBytes": 318845,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://kobi.music/og.png": {
       "attempts": 1,
       "bytes": 5458,
@@ -474,6 +500,19 @@
       "lastAttempt": "2026-11-21T00:58:55Z",
       "sha256": "f038789317ca00e93c3f5940b8e92679bda640f1074c0294844713ec9cc42eb1",
       "sourceBytes": 37620,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://leanprover-community.github.io/blog/meta-twitter.png": {
+      "attempts": 1,
+      "bytes": 4852,
+      "encoding": "q60",
+      "file": "img/7dc01a9ecad97b51f16a.webp",
+      "height": 600,
+      "lastAttempt": "2026-11-22T01:01:39Z",
+      "sha256": "7dc01a9ecad97b51f16a8e0727d02c06fd5dfc20fba844059e07ea97adbe3dea",
+      "sourceBytes": 31057,
       "sourceFormat": "PNG",
       "status": "ok",
       "width": 600
@@ -582,6 +621,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://onurgumus.github.io/zero-csharp/img/social.png?v=2": {
+      "attempts": 1,
+      "bytes": 17410,
+      "encoding": "q85",
+      "file": "img/0e888a652f6b8664e1b0.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-22T01:01:39Z",
+      "sha256": "0e888a652f6b8664e1b06ef072e9426720a2edf1fd7eda5a93987341d434c52a",
+      "sourceBytes": 88247,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://opencode.ai/files/site/og/home-98637499f6.png": {
       "attempts": 1,
       "bytes": 3988,
@@ -604,6 +656,19 @@
       "lastAttempt": "2026-11-21T00:58:55Z",
       "sha256": "4b5e5a3275cfbc8d155f0e8c3a82bae8d5e9d31455ed0814802eccd4a435c64a",
       "sourceBytes": 40450,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://opengraph.githubassets.com/19dd6d0bb97b552e60665e801c1a8b1bbc4e7353e2f98f0bc56531bd25f81372/natsu0529/agent-mcts": {
+      "attempts": 1,
+      "bytes": 13780,
+      "encoding": "q85",
+      "file": "img/19d497344bd6cc2d76b0.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-22T01:01:39Z",
+      "sha256": "19d497344bd6cc2d76b0eea282e81f3cfed17bc58b242f50336e5eb2babc3d17",
+      "sourceBytes": 68241,
       "sourceFormat": "PNG",
       "status": "ok",
       "width": 600
@@ -669,6 +734,19 @@
       "lastAttempt": "2026-11-17T04:09:37Z",
       "sha256": "2f59111d86dd1eab7c35dd5a0b80d0d9c14d9a9a8a7b89284e01ea7c8842e9f2",
       "sourceBytes": 51204,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://opengraph.githubassets.com/d2b1e49fb89ea78d244d7a1ed1921b5fa6fa470b01e213448de1676555576f16/sebaandrada-cell/PcapAnalyzer": {
+      "attempts": 1,
+      "bytes": 12390,
+      "encoding": "q85",
+      "file": "img/077dede5fe6279033e26.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-22T01:01:39Z",
+      "sha256": "077dede5fe6279033e26e37fe30cd46ab973e6e840f9fef8441acc36857f003c",
+      "sourceBytes": 113736,
       "sourceFormat": "PNG",
       "status": "ok",
       "width": 600
@@ -792,6 +870,19 @@
       "lastAttempt": "2026-11-20T01:02:28Z",
       "sha256": "5873cfed4453a5684a7174dd2582a94b24dabb0b6e6c0f692ab86f130456bd07",
       "sourceBytes": 664963,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://signal.org/blog/images/protecting-your-privacy-opengraph.png": {
+      "attempts": 1,
+      "bytes": 10886,
+      "encoding": "q90",
+      "file": "img/6a97185b43f990c16a48.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-22T01:01:39Z",
+      "sha256": "6a97185b43f990c16a485a46d81923edf3e6d9153fafacec663e11b4454a9180",
+      "sourceBytes": 39815,
       "sourceFormat": "PNG",
       "status": "ok",
       "width": 600
@@ -1456,6 +1547,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://github.com/natsu0529/agent-mcts": {
+      "attempts": 1,
+      "image": "https://opengraph.githubassets.com/19dd6d0bb97b552e60665e801c1a8b1bbc4e7353e2f98f0bc56531bd25f81372/natsu0529/agent-mcts",
+      "lastAttempt": "2026-11-22T01:01:39Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://github.com/openssl/openssl/pull/33652": {
       "attempts": 1,
       "image": "https://opengraph.githubassets.com/fc5f6abce147771084ff310af8d23093e51ad824ffc079ab8ee6c901d70e597c/openssl/openssl/pull/33652",
@@ -1467,6 +1565,13 @@
       "attempts": 1,
       "image": "https://github.githubassets.com/assets/github-mark-57519b92ca4e.png",
       "lastAttempt": "2026-11-16T21:33:10Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.com/sebaandrada-cell/PcapAnalyzer": {
+      "attempts": 1,
+      "image": "https://opengraph.githubassets.com/d2b1e49fb89ea78d244d7a1ed1921b5fa6fa470b01e213448de1676555576f16/sebaandrada-cell/PcapAnalyzer",
+      "lastAttempt": "2026-11-22T01:01:39Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1546,10 +1651,31 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://jespino.github.io/gopgext/": {
+      "attempts": 1,
+      "image": "https://jespino.github.io/gopgext/img/social.png",
+      "lastAttempt": "2026-11-22T01:01:39Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://kobi.music/research/dettato": {
       "attempts": 1,
       "image": "https://kobi.music/og.png",
       "lastAttempt": "2026-11-21T00:58:55Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/": {
+      "attempts": 1,
+      "image": "https://leanprover-community.github.io/blog/meta-twitter.png",
+      "lastAttempt": "2026-11-22T01:01:39Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://math.mit.edu/~drew/grh/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-22T01:01:39Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1629,6 +1755,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://onurgumus.github.io/zero-csharp/index.html": {
+      "attempts": 1,
+      "image": "https://onurgumus.github.io/zero-csharp/img/social.png?v=2",
+      "lastAttempt": "2026-11-22T01:01:39Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://openai.com/index/introducing-gpt-6-2-astra-sol/": {
       "attempts": 1,
       "image": "https://cdn.openai.com/mdx-assets/e193aefe-5e58-431c-8cd2-adadac0c1496/44573edd-9653-49b3-ba07-7b3643545ef9.d3072be3.png",
@@ -1689,6 +1822,13 @@
       "attempts": 1,
       "image": "https://d3phaj0sisr2ct.cloudfront.net/site/images/sanity/2026/11/frame-8-bddb7fbc-4647-44e5-bf65-1fbb7e559b24-af3f1b60-26e7-4a91-afda-ee27b0a4674b.webp",
       "lastAttempt": "2026-11-16T22:16:07Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://signal.org/blog/protecting-your-privacy/": {
+      "attempts": 1,
+      "image": "https://signal.org/blog/images/protecting-your-privacy-opengraph.png",
+      "lastAttempt": "2026-11-22T01:01:39Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1831,6 +1971,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://www.cloudflarestatus.com/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-22T01:01:39Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://www.faa.gov/newsroom": {
       "attempts": 1,
       "image": "https://www.faa.gov/themes/custom/dot_cms/images/seal_dot.png",
@@ -1871,6 +2018,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://www.githubstatus.com/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-22T01:01:39Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://www.githubstatus.com/history": {
       "attempts": 1,
       "image": null,
@@ -1878,10 +2032,23 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2026/novembro/receita-federal-publica-primeiro-codigo-fonte-aberto-no-github-e-amplia-transparencia-da-reforma-tributaria": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-22T01:01:39Z",
+      "reason": "TimeoutError: _ssl.c:1018: The handshake operation timed out",
+      "status": "failed"
+    },
     "https://www.harmonic.fun/news/aristotle-rust-verification/": {
       "attempts": 1,
       "image": "https://www.harmonic.fun/images/share/news-aristotle-rust-verification-fedcd5adc7.jpg",
       "lastAttempt": "2026-11-17T04:09:37Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.helpnetsecurity.com/2026/11/20/vmware-vcenter-zero-day-cve-2026-123890-exploited/": {
+      "attempts": 1,
+      "image": "https://img.helpnetsecurity.com/wp-content/uploads/2024/01/18110318/vmware-1400-monitor.jpg",
+      "lastAttempt": "2026-11-22T01:01:39Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -2057,6 +2224,12 @@
       "attempts": 1,
       "lastAttempt": "2026-11-21T00:58:55Z",
       "reason": "HTTP 401 from https://www.reuters.com/world/uk/uk-finds-fix-fridge-freezer-vulnerability-after-european-hacks-2026-11-20/",
+      "status": "failed"
+    },
+    "https://www.reuters.com/world/us/fbis-criminal-information-database-hacked-cnn-reports-2026-11-21/": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-22T01:01:39Z",
+      "reason": "HTTP 401 from https://www.reuters.com/world/us/fbis-criminal-information-database-hacked-cnn-reports-2026-11-21/",
       "status": "failed"
     },
     "https://www.reuters.com/world/us/united-airlines-says-technology-issue-affecting-departing-flights-2026-11-16/": {
