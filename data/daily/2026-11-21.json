@@ -66,7 +66,24 @@
       "thread": "riemann-hypothesis-proofs-2026",
       "isUpdate": true,
       "whyItMatters": "A landmark mathematical conjecture has passed substantial independent formal proof verification.",
-      "limitations": "Scope is limited to the stated RH and Dirichlet L-function theorems; mathematical exposition remains."
+      "limitations": "Scope is limited to the stated RH and Dirichlet L-function theorems; mathematical exposition remains.",
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50589618",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://leanprover-community.github.io/blog/meta-twitter.png",
+        "alt": "Publisher-provided image for Lean community certifies Alpöge's formal Riemann Hypothesis proof",
+        "credit": "leanprover-community.github.io",
+        "sourceUrl": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+        "local": "img/7dc01a9ecad97b51f16a.webp",
+        "width": 600,
+        "height": 600,
+        "sha256": "7dc01a9ecad97b51f16a8e0727d02c06fd5dfc20fba844059e07ea97adbe3dea"
+      }
     },
     {
       "title": "FBI investigates reported intrusion into criminal-information database",
@@ -130,7 +147,17 @@
       "isUpdate": true,
       "incidentId": "vmware-vcenter-auth-bypass-2026-11",
       "whyItMatters": "Exploitation of a central virtualization control plane predates the patch by months.",
-      "limitations": "Full victim scope remains unknown."
+      "limitations": "Full victim scope remains unknown.",
+      "image": {
+        "url": "https://img.helpnetsecurity.com/wp-content/uploads/2024/01/18110318/vmware-1400-monitor.jpg",
+        "alt": "Publisher-provided image for Google details pre-patch exploitation of VMware vCenter zero-day",
+        "credit": "helpnetsecurity.com",
+        "sourceUrl": "https://www.helpnetsecurity.com/2026/11/20/vmware-vcenter-zero-day-cve-2026-123890-exploited/",
+        "local": "img/512fa48a9518d0c8bb33.webp",
+        "width": 600,
+        "height": 345,
+        "sha256": "512fa48a9518d0c8bb33a6d19855b1e618c25b3250de4413dd8182346cb9d1f3"
+      }
     },
     {
       "title": "Signal addresses AI-agent capture of private messages",
@@ -159,7 +186,24 @@
       "rank": 4,
       "isUpdate": false,
       "whyItMatters": "OS-level AI agents create plaintext disclosure risks beyond end-to-end encryption.",
-      "limitations": "Platform-specific effectiveness not independently tested."
+      "limitations": "Platform-specific effectiveness not independently tested.",
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50572348",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://signal.org/blog/images/protecting-your-privacy-opengraph.png",
+        "alt": "Publisher-provided image for Signal addresses AI-agent capture of private messages",
+        "credit": "signal.org",
+        "sourceUrl": "https://signal.org/blog/protecting-your-privacy/",
+        "local": "img/6a97185b43f990c16a48.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "6a97185b43f990c16a485a46d81923edf3e6d9153fafacec663e11b4454a9180"
+      }
     },
     {
       "title": "Brazil publishes government tax-calculation source under MIT license",
@@ -188,7 +232,14 @@
       "rank": 5,
       "isUpdate": false,
       "whyItMatters": "A government publishes inspectable calculation logic for enterprise integration.",
-      "limitations": "Original announcement was November 16; production integrations not independently tested."
+      "limitations": "Original announcement was November 16; production integrations not independently tested.",
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50532613",
+          "label": "HN discussion"
+        }
+      ]
     }
   ],
   "alsoWorthKnowing": [
@@ -232,6 +283,13 @@
         {
           "label": "MIT verification record",
           "url": "https://math.mit.edu/~drew/grh/"
+        }
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50590441",
+          "label": "HN discussion"
         }
       ]
     },
@@ -290,7 +348,24 @@
           "url": "https://onurgumus.github.io/zero-csharp/index.html"
         }
       ],
-      "format": "Show HN"
+      "format": "Show HN",
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50590279",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://onurgumus.github.io/zero-csharp/img/social.png?v=2",
+        "alt": "Publisher-provided image for Zero C# compiles restricted C# without the standard runtime",
+        "credit": "onurgumus.github.io",
+        "sourceUrl": "https://onurgumus.github.io/zero-csharp/index.html",
+        "local": "img/0e888a652f6b8664e1b0.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "0e888a652f6b8664e1b06ef072e9426720a2edf1fd7eda5a93987341d434c52a"
+      }
     },
     {
       "title": "gopgext experiments with PostgreSQL extensions in Go",
@@ -316,7 +391,17 @@
           "url": "https://jespino.github.io/gopgext/"
         }
       ],
-      "format": "Show HN"
+      "format": "Show HN",
+      "image": {
+        "url": "https://jespino.github.io/gopgext/img/social.png",
+        "alt": "Publisher-provided image for gopgext experiments with PostgreSQL extensions in Go",
+        "credit": "jespino.github.io",
+        "sourceUrl": "https://jespino.github.io/gopgext/",
+        "local": "img/73021501cd9ff84a6dec.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "73021501cd9ff84a6dec0250608fd654b29ee25e848633a5feaccc64a44496e5"
+      }
     },
     {
       "title": "PcapAnalyzer offers self-hosted packet capture diagnostics",
@@ -342,7 +427,24 @@
           "url": "https://github.com/sebaandrada-cell/PcapAnalyzer"
         }
       ],
-      "format": "Show HN"
+      "format": "Show HN",
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50594132",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/d2b1e49fb89ea78d244d7a1ed1921b5fa6fa470b01e213448de1676555576f16/sebaandrada-cell/PcapAnalyzer",
+        "alt": "Publisher-provided image for PcapAnalyzer offers self-hosted packet capture diagnostics",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/sebaandrada-cell/PcapAnalyzer",
+        "local": "img/077dede5fe6279033e26.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "077dede5fe6279033e26e37fe30cd46ab973e6e840f9fef8441acc36857f003c"
+      }
     },
     {
       "title": "agent-mcts explores multiple coding-agent solutions with tree search",
@@ -368,7 +470,24 @@
           "url": "https://github.com/natsu0529/agent-mcts"
         }
       ],
-      "format": "Show HN"
+      "format": "Show HN",
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50589235",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/19dd6d0bb97b552e60665e801c1a8b1bbc4e7353e2f98f0bc56531bd25f81372/natsu0529/agent-mcts",
+        "alt": "Publisher-provided image for agent-mcts explores multiple coding-agent solutions with tree search",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/natsu0529/agent-mcts",
+        "local": "img/19d497344bd6cc2d76b0.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "19d497344bd6cc2d76b0eea282e81f3cfed17bc58b242f50336e5eb2babc3d17"
+      }
     }
   ],
   "marketPulse": {

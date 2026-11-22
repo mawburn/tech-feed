@@ -1236,9 +1236,9 @@
       "status": "failed"
     },
     "https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-19T01:06:33Z",
-      "reason": "HTTP 403 from https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c",
+      "attempts": 2,
+      "lastAttempt": "2026-11-22T04:10:53Z",
+      "reason": "HTTP 403 from https://apnews.com/article/anthropic-ipo-pricing-70b660ddf900d90bbf484ecdf1fb441c",
       "status": "failed"
     },
     "https://apnews.com/article/79705095e8141cd650196dbff1cf3c70": {
@@ -2173,8 +2173,8 @@
       "status": "failed"
     },
     "https://www.reuters.com/legal/transactional/anthropic-prices-blockbuster-ipo-83-share-source-says-2026-11-18/": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-19T01:06:33Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-22T04:10:53Z",
       "reason": "HTTP 401 from https://www.reuters.com/legal/transactional/anthropic-prices-blockbuster-ipo-83-share-source-says-2026-11-18/",
       "status": "failed"
     },
