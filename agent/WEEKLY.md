@@ -19,7 +19,7 @@ A missing daily: carry on, set `partial: true`, and list the dates you used in `
 
 1. **Map the week:** group the dailies' stories into events by `thread`, `incidentId` and subject. Note what changed on which day, corrections, and repeats.
 2. **Threads and incidents:** plan a theme for every thread with a decisive milestone this week, or note why not. Check each active incident against status pages, patches and postmortems.
-3. **Your own research:** the week's significant HN and community discussions, GitHub, security, business and labour news, and the full blog catalog. Look for what the dailies missed and criticism that surfaced after launches.
+3. **Your own research:** the week's index moves, worst-day and worst-week records and named causes (`sources.md`); the week's significant HN and community discussions, GitHub, security, business and labour news, and the full blog catalog. Look for what the dailies missed and criticism that surfaced after launches.
 4. **AI & tooling in practice:** the week's best hands-on material.
 5. **Rank themes** by cumulative consequence (`ranking.md`), write, self-check, publish.
 

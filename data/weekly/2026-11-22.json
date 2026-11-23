@@ -12,9 +12,48 @@
     "2026-11-21",
     "2026-11-22"
   ],
-  "title": "AI privacy failures and a landmark IPO collide with critical patches and a verified mathematics breakthrough",
-  "overview": "The week brought two different tests of the AI boom. Anthropic completed a reported $81 billion public offering and began Nasdaq trading, turning infrastructure spending and inference economics into a public-market question. At the same time, security researchers and providers exposed gaps between advertised zero-data-retention settings and the actual handling of prompts across AI inference networks. OpenRouter's removal of three providers and 125 privacy-eligible endpoints made that trust problem concrete.\n\nFor engineers, the urgent work was more operational: critical NGINX, Java and VMware vulnerabilities, compromised Python packages, and an Optimizely client-side supply-chain attack required targeted remediation. PostgreSQL 19 delivered substantive database-maintenance and replication features, while Google's Sashiko provided a working example of agent-assisted code review. A Lean/Mathlib-certified Riemann Hypothesis proof marked an extraordinary research development, although human mathematical exposition remains unfinished. Across these events, the consistent lesson is that deployment and verification boundaries matter at least as much as raw model capability.",
+  "title": "An AI-led market rout, a landmark IPO and AI privacy failures define a volatile week",
+  "overview": "The week's largest market event was an AI-led selloff: the S&P 500 fell 8.6% and the Nasdaq about 10%, its worst week since March 2020, with chip stocks down about 20% or more and Nvidia 23%. It followed Anthropic's reported $81 billion IPO and Nasdaq debut, which failed to revive AI enthusiasm; analysts cite several causes and none is established.\n\nThe week brought two different tests of the AI boom. Anthropic completed a reported $81 billion public offering and began Nasdaq trading, turning infrastructure spending and inference economics into a public-market question. At the same time, security researchers and providers exposed gaps between advertised zero-data-retention settings and the actual handling of prompts across AI inference networks. OpenRouter's removal of three providers and 125 privacy-eligible endpoints made that trust problem concrete.\n\nFor engineers, the urgent work was more operational: critical NGINX, Java and VMware vulnerabilities, compromised Python packages, and an Optimizely client-side supply-chain attack required targeted remediation. PostgreSQL 19 delivered substantive database-maintenance and replication features, while Google's Sashiko provided a working example of agent-assisted code review. A Lean/Mathlib-certified Riemann Hypothesis proof marked an extraordinary research development, although human mathematical exposition remains unfinished. Across these events, the consistent lesson is that deployment and verification boundaries matter at least as much as raw model capability.",
   "themes": [
+    {
+      "title": "An AI-led selloff erases the Nasdaq's 2026 gains in its worst week since March 2020",
+      "category": "Business & Markets",
+      "summary": "The week's largest market event was a broad selloff led by chip and AI infrastructure stocks. Per CNBC and Yahoo Finance, the S&P 500 fell 8.6%, the Dow 8% and the Nasdaq about 10% for the week, with the S&P 500 and Dow in correction territory and the Nasdaq negative for the year by Friday's close. Nvidia fell 23%, AMD 20.5% and Taiwan Semiconductor 20%. The selloff followed Anthropic's IPO, which Reuters said failed to revive AI enthusiasm; commentators offered several causes, and none is established.",
+      "briefing": [
+        {
+          "heading": "Chronology",
+          "body": "On Thursday, November 19 the Dow fell 2.19%, the S&P 500 2.02% and the Nasdaq Composite 2.25%, per Reuters, as Anthropic's first-day gains faded. On Friday, November 20 CNBC reported the Nasdaq fell 5.28% to 22,617.73, the S&P 500 3.7% to 6,910.39 and the Dow 1.93% to 48,147.33. Yahoo Finance reported the week's declines were the worst since March 2020 for the Dow and Nasdaq."
+        },
+        {
+          "heading": "Named causes, and what is not established",
+          "body": "CNBC cited signs of moderation in AI capital spending, Democratic wins in the midterms and Jensen Huang's ouster at Nvidia; Reuters reported an SEC inquiry into possible accounting issues at Nvidia and a short position against AMD by a Hunterbrook-affiliated fund; analysts also pointed to hawkish Federal Reserve comments and liquidity pulled toward the Anthropic offering. No source shows the IPO caused the decline, and the SEC inquiry is not a finding of wrongdoing."
+        },
+        {
+          "heading": "What carries into next week",
+          "body": "Whether chip and AI infrastructure selling continues, how Nvidia responds to the reported inquiry, whether Anthropic's shares hold above the $83 offer price, and the December Federal Reserve decision, which Yahoo Finance said the CME FedWatch tool priced at 91.8% odds of a quarter-point increase."
+        }
+      ],
+      "impact": "A market-wide repricing of AI financing and infrastructure plans, with consequences for funding, hardware supply and technology employers' budgets.",
+      "caveat": "Closing figures for Friday come from CNBC and Thursday's from Reuters; sources round some figures differently, and causes are attributed to named commentators rather than confirmed.",
+      "sourceDays": [
+        "2026-11-19",
+        "2026-11-20"
+      ],
+      "links": [
+        {
+          "label": "CNBC live updates, November 20 close",
+          "url": "https://www.cnbc.com/2026/11/19/stock-market-today-live-updates.html"
+        },
+        {
+          "label": "Reuters via Yahoo Finance: Thursday close",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/wall-street-ends-sharply-lower-213427908.html"
+        },
+        {
+          "label": "Yahoo Finance live coverage: weekly totals",
+          "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-19-dow-sp-500-nasdaq-anthropic-nvidia-141644188.html"
+        }
+      ]
+    },
     {
       "title": "AI inference privacy assurances fail across providers",
       "category": "Security",
@@ -68,6 +107,10 @@
           "body": "A public listing supplies financing and recurring market scrutiny for a company whose economics depend heavily on compute procurement and inference demand. Competitors and infrastructure suppliers gain a new valuation benchmark."
         },
         {
+          "heading": "First two sessions",
+          "body": "Reuters reported shares opened at $111.50 on November 19 and closed up 17.1% from the $83 offer price. CNBC reported they fell 8.5% on November 20. The listing coincided with the market selloff covered separately; no source shows it caused the decline."
+        },
+        {
           "heading": "What is not established",
           "body": "An oversubscribed IPO and an above-offer trading price do not demonstrate durable profitability or establish a trend in software engineering hiring. The weekly review does not extrapolate future share prices."
         }
@@ -76,7 +119,8 @@
       "caveat": "The reported offering figures are based on financial reporting; valuation is not equivalent to realized cash flow.",
       "sourceDays": [
         "2026-11-18",
-        "2026-11-19"
+        "2026-11-19",
+        "2026-11-20"
       ],
       "links": [
         {
@@ -86,6 +130,10 @@
         {
           "label": "Reuters trading report",
           "url": "https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/"
+        },
+        {
+          "label": "CNBC live updates, November 20 close",
+          "url": "https://www.cnbc.com/2026/11/19/stock-market-today-live-updates.html"
         }
       ]
     },
@@ -401,7 +449,7 @@
       ]
     }
   ],
-  "marketPulse": "Anthropic's November 18 pricing and November 19 Nasdaq debut were the week's largest verified financing milestones, putting AI revenue, compute costs and capital commitments under public-market scrutiny. AMD's November 16 World Labs acquisition and model announcements from Google, Microsoft and OpenAI reinforced investment in AI capability and infrastructure. The OpenRouter provider removals show that weak security and data-handling assurances can also impose immediate commercial costs.\n\nThe seven daily editions did not establish a new representative change in senior or Staff-level software-engineering hiring, wages or vacancy trends. Isolated employer anecdotes and security incidents are not reliable labor-market statistics. For business planning, distinguish a landmark IPO and individual acquisitions from a broad hiring recovery.",
+  "marketPulse": "The S&P 500 fell 8.6%, the Dow 8% and the Nasdaq about 10% for the week, with the S&P 500 and Dow in correction territory and the Nasdaq negative for 2026 at Friday's close (CNBC; Yahoo Finance). Nvidia fell 23%, AMD 20.5% and Taiwan Semiconductor 20%. Anthropic's November 18 pricing and November 19 Nasdaq debut were the week's largest verified financing milestones, putting AI revenue, compute costs and capital commitments under public-market scrutiny. AMD's November 16 World Labs acquisition and model announcements from Google, Microsoft and OpenAI reinforced investment in AI capability and infrastructure. The OpenRouter provider removals show that weak security and data-handling assurances can also impose immediate commercial costs.\n\nThe seven daily editions did not establish a new representative change in senior or Staff-level software-engineering hiring, wages or vacancy trends. Isolated employer anecdotes and security incidents are not reliable labor-market statistics. For business planning, distinguish a landmark IPO and individual acquisitions from a broad hiring recovery.",
   "nextWeekWatch": "Track OpenRouter's named provider notices, customer exposure findings and ZDR revalidation; Together AI's forensic results and customer notifications; GL.iNet's stable firmware and confirmed cleanup; patch adoption and any exploitation updates for VMware, NGINX, Java and GPGME; and final findings from the Equinor and European Commission investigations. Watch for a Microsoft agent-framework package-publishing postmortem, Optimizely visitor-impact assessment and Apple outage closure. Monitor independent mathematical exposition of the Riemann Hypothesis proof and its continued formal checks, Anthropic's early public-company disclosures, and C++26 approval after the November contracts ballot dispute. GitHub's selected Copilot model retirements remain scheduled for December 14.",
   "discoveryAudit": {
     "checkedAt": "2026-11-22T17:16:24-08:00",
@@ -451,6 +499,12 @@
         "name": "Sunday maker catalog and six other engineering blog catalogs",
         "status": "partial",
         "notes": "Catalog instructions reviewed; only selected original posts were opened. Full catalog freshness sweep, YouTube viewing and live incident-status checks were not completed."
+      },
+      {
+        "name": "US market coverage (CNBC, Reuters via Yahoo Finance)",
+        "status": "checked",
+        "url": "https://www.cnbc.com/2026/11/19/stock-market-today-live-updates.html",
+        "notes": "Closing levels and weekly totals read from CNBC, Reuters via Yahoo Finance and Yahoo Finance live coverage. Added in a later correction: the original review omitted the selloff."
       }
     ],
     "majorIncidentsConsidered": [
@@ -479,6 +533,6 @@
         "sourceUrl": "https://www.reuters.com/legal/litigation/eu-commission-targeted-cyberattack-politico-reports-2026-11-19/"
       }
     ],
-    "rankingNotes": "The inference privacy failure leads because the new November 22 provider actions alter production trust assumptions. The Anthropic IPO is a landmark and receives a standalone second theme. Urgent patch disclosures are consolidated without asserting a shared cause. The Riemann Hypothesis certification and PostgreSQL 19 receive independent themes for their decisive November 21 and November 19 milestones. The continuing anthropic-ipo-2026 and riemann-hypothesis-proofs-2026 threads are both covered. Smaller model releases, C++26 ballot developments, GPGME, GL.iNet and refrigeration issues are covered through synthesis or next-week watch rather than standalone themes; jQuery is excluded. No incident records changed because no independently verified status transition beyond the existing records was established. Community and catalog scans were partial, not represented as exhaustive."
+    "rankingNotes": "The market-wide selloff leads by cumulative consequence: the largest weekly index declines since March 2020 for the Dow and Nasdaq. The inference privacy failure leads because the new November 22 provider actions alter production trust assumptions. The Anthropic IPO is a landmark and receives a standalone second theme. Urgent patch disclosures are consolidated without asserting a shared cause. The Riemann Hypothesis certification and PostgreSQL 19 receive independent themes for their decisive November 21 and November 19 milestones. The continuing anthropic-ipo-2026 and riemann-hypothesis-proofs-2026 threads are both covered. Smaller model releases, C++26 ballot developments, GPGME, GL.iNet and refrigeration issues are covered through synthesis or next-week watch rather than standalone themes; jQuery is excluded. No incident records changed because no independently verified status transition beyond the existing records was established. Community and catalog scans were partial, not represented as exhaustive."
   }
 }

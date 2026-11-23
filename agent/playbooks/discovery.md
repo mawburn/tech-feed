@@ -23,6 +23,7 @@ Read the front page (two pages), Best, Show and New, skipping items older than t
 - Reddit, GitHub (releases, advisories, issues), Lobsters, changelogs, model and research repositories, credible journalism in any language.
 - Today's engineering-blog rotation (`sources.md`).
 - Security, operations, labour-market and business sources searched separately, so AI news doesn't crowd them out.
+- **Markets, every run** (`sources.md`): index closes, big AI and chip movers, weekly totals. A market-wide move gets the same weight as an incident (`ranking.md`).
 - A separate hands-on pass for AI & tooling in practice (`in-practice.md`).
 
 ## 4. Shortlist

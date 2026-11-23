@@ -19,7 +19,7 @@ If something can't be read, say so in the chat report and the audit, and carry o
 
 1. Incidents: re-check open records, then sweep for new ones.
 2. Open threads: check each `thread` still unfolding for material developments.
-3. Hacker News, then other discovery, then the separate AI & tooling pass.
+3. Markets: where the US indexes closed and what moved them (`sources.md`). Then Hacker News, other discovery, and the separate AI & tooling pass.
 4. Shortlist, verify, and check against recent editions for repeats and updates.
 5. Rank and judge significance; re-check incidents and the strongest HN finds before locking the order.
 6. Write, run the self-check, publish.
@@ -54,7 +54,7 @@ You can't run the validator. Any of these failing gets the edition left off the 
 - [ ] `rank` matches the order; `thread` is lowercase kebab-case; `significance` is `major` or `notable`.
 - [ ] `discoveryAudit` has `checkedAt`, `windowStart`, `windowEnd` with offsets (`2026-11-21T16:40:00-08:00`) and at least one source.
 
-Editorial checks: every `major` story first or second in the summary; nothing in two sections; no repeats without `isUpdate`; no jQuery.
+Editorial checks: index moves checked and a market-wide move not left out or buried; every `major` story first or second in the summary; nothing in two sections; no repeats without `isUpdate`; no jQuery.
 
 ## Chat report
 
