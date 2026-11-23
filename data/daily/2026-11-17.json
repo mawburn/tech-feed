@@ -599,28 +599,24 @@
         "title": "Java4Shell",
         "decision": "top-story",
         "reason": "Critical patchable vulnerability with researcher-demonstrated RCE chains.",
-        "status": "active",
         "sourceUrl": "https://calif.io/java4shell/"
       },
       {
         "title": "Equinor IT cyberattack",
         "decision": "top-story",
         "reason": "Ongoing attack against major energy supplier, production reportedly unaffected.",
-        "status": "active",
         "sourceUrl": "https://www.reuters.com/technology/equinor-detects-ongoing-cyberattack-output-unaffected-2026-11-17/"
       },
       {
         "title": "Apple iCloud and Apple Pay outage",
         "decision": "top-story",
         "reason": "Confirmed customer impact, restoration still underway in latest reviewed report.",
-        "status": "uncertain",
         "sourceUrl": "https://www.reuters.com/business/retail-consumer/apple-works-restore-services-after-outage-caused-by-internal-update-2026-11-17/"
       },
       {
         "title": "NSA internal network degradation",
         "decision": "also-worth",
         "reason": "Temporary maintenance-related internal degradation with mission-critical operations unaffected.",
-        "status": "resolved",
         "sourceUrl": "https://www.reuters.com/technology/highly-classified-us-national-security-communications-network-is-down-cnn-2026-11-17/"
       },
       {
@@ -628,7 +624,6 @@
         "incidentId": "optimizely-web-snippet-malware-2026-11",
         "decision": "also-worth",
         "reason": "Material first-party confirmation of vulnerability fix and independently observed malicious-script cleanup; monitoring and residual visitor exposure remain open.",
-        "status": "active",
         "sourceUrl": "https://status.optimizely.com/"
       }
     ],

@@ -606,7 +606,6 @@
         "incidentId": "vmware-vcenter-auth-bypass-2026-11",
         "decision": "top-story",
         "reason": "Critical 9.8 authentication bypass with no workaround and vendor patches; reported prior exploitation.",
-        "status": "active",
         "sourceUrl": "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495"
       },
       {
@@ -614,7 +613,6 @@
         "incidentId": "eu-commission-ai-assisted-cyberattack-2026-11",
         "decision": "top-story",
         "reason": "Confirmed public-institution disruption and ongoing investigation with incomplete restoration.",
-        "status": "active",
         "sourceUrl": "https://www.reuters.com/legal/litigation/eu-commission-targeted-cyberattack-politico-reports-2026-11-19/"
       },
       {
@@ -622,7 +620,6 @@
         "incidentId": "nginx-http2-rce-2026-11",
         "decision": "excluded",
         "reason": "Already covered November 18; no independently verified material November 19 update.",
-        "status": "uncertain",
         "sourceUrl": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities"
       },
       {
@@ -630,7 +627,6 @@
         "incidentId": "microsoft-agent-framework-pypi-malware-2026-11",
         "decision": "excluded",
         "reason": "Already covered November 18; no new independently verified remediation or root-cause report.",
-        "status": "uncertain",
         "sourceUrl": "https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi"
       }
     ],

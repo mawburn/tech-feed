@@ -64,7 +64,6 @@ test("daily and weekly discovery audits accept verified checks and reject invali
       title: "Verified service interruption",
       decision: "top-story",
       reason: "Documented widespread operational impact",
-      status: "resolved",
       sourceUrl: "https://example.org/incident-report",
     }],
     rankingNotes: "Critical operational impact considered before ordinary releases.",

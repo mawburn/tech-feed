@@ -178,13 +178,6 @@
               "reason": {
                 "$ref": "#/$defs/nonEmptyText"
               },
-              "status": {
-                "enum": [
-                  "active",
-                  "resolved",
-                  "uncertain"
-                ]
-              },
               "sourceUrl": {
                 "$ref": "#/$defs/httpUrl"
               },

@@ -557,21 +557,18 @@
         "decision": "top-story",
         "incidentId": "rdm-commercial-refrigeration-controller-vulnerabilities-2026-11",
         "reason": "Potential physical consequences, coordinated national response and residual exposure.",
-        "status": "active",
         "sourceUrl": "https://www.reuters.com/world/uk/uk-finds-fix-fridge-freezer-vulnerability-after-european-hacks-2026-11-20/"
       },
       {
         "title": "NSA network outage",
         "decision": "also-worth",
         "reason": "Reported restoration; first-party technical RCA unavailable.",
-        "status": "uncertain",
         "sourceUrl": "https://apnews.com/article/22dc6be1bf1d1f5f86a7167f016e9526"
       },
       {
         "title": "OpenSSL EVP_EncodeBlock overflow",
         "decision": "also-worth",
         "reason": "Severity disputed and patch not shipped; normal OpenSSL paths unlikely to reach conditions.",
-        "status": "uncertain",
         "sourceUrl": "https://github.com/openssl/openssl/pull/33652"
       }
     ],
