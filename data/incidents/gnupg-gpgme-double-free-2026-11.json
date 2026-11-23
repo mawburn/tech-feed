@@ -1,0 +1,53 @@
+{
+  "id": "gnupg-gpgme-double-free-2026-11",
+  "title": "GPGME double-free vulnerability CVE-2026-129975",
+  "provider": "GnuPG",
+  "category": "Security",
+  "status": "monitoring",
+  "discoveredDate": "2026-11-20",
+  "summary": "GnuPG disclosed a critical double-free bug triggered by crafted OpenPGP user IDs, with data exfiltration possible and remote code execution not excluded. GPGME 2.3.1 and updated Gpg4win packages were released; deployment across dependent applications remains unverified.",
+  "fix": "GPGME 2.3.1 released; updated Gpg4win 5.1.2 and backport patch available.",
+  "fixDate": "2026-11-20",
+  "rootCause": {
+    "status": "confirmed",
+    "summary": "Buffer reallocation left a stale pointer in the context when status-line or key-listing reads returned early, resulting in a second free on context destruction.",
+    "sources": [
+      {
+        "label": "GnuPG security advisory",
+        "url": "https://lists.gnupg.org/pipermail/gnupg-announce/2026q4/000517.html"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "GnuPG November 20 advisory",
+      "url": "https://lists.gnupg.org/pipermail/gnupg-announce/2026q4/000517.html"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-20",
+      "kind": "discovery",
+      "status": "identified",
+      "summary": "GnuPG disclosed CVE-2026-129975, a crafted long OpenPGP user ID double-free in GPGME, and warned of potential exfiltration and possible code execution.",
+      "sources": [
+        {
+          "label": "Advisory",
+          "url": "https://lists.gnupg.org/pipermail/gnupg-announce/2026q4/000517.html"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-20",
+      "kind": "fix",
+      "status": "monitoring",
+      "summary": "GPGME 2.3.1, Gpg4win 5.1.2 and a backport patch were published. Installations still need to apply the fix.",
+      "sources": [
+        {
+          "label": "Advisory and download links",
+          "url": "https://lists.gnupg.org/pipermail/gnupg-announce/2026q4/000517.html"
+        }
+      ]
+    }
+  ]
+}
