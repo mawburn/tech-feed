@@ -1,0 +1,506 @@
+{
+  "date": "2026-11-22",
+  "label": "Sunday, November 22, 2026",
+  "overview": "Security and data-handling failures dominate Sunday's briefing. OpenRouter says it removed three inference providers and stripped Zero Data Retention eligibility from 125 endpoints after independent canary-token research found compromised providers and unexpected prompt access. Together AI separately confirmed that a coding agent exposed a repository credential used to steal stored prompt samples. These findings make downstream AI processing and secret handling urgent engineering concerns.\n\nGL.iNet disclosed malware installation on some routers and KVM devices through a compromised cloud management service. GnuPG shipped a fix for a critical GPGME double-free that may expose data through dependent applications. Both require operators to distinguish a released patch from fully remediated systems.\n\nOutside incidents, OpenAI's chief scientist proposed common perplexity-based safety thresholds, and the C++ committee completed another C++26 technical approval cycle. Hands-on discoveries include model quantization, memory-efficient local inference, an AI-managed game and deterministic controls for agents.",
+  "executiveSummary": [
+    {
+      "headline": "Inference gateways remove providers after prompt-leak findings.",
+      "text": "OpenRouter removed three providers and 125 endpoints from ZDR eligibility.",
+      "story": "topStories/1"
+    },
+    {
+      "headline": "A coding-agent credential leak enabled theft of customer prompts.",
+      "text": "Together AI confirms historical exposure and ongoing forensic review.",
+      "story": "topStories/2"
+    },
+    {
+      "headline": "GL.iNet managed hardware needs malware checks and cleanup.",
+      "story": "topStories/3"
+    },
+    {
+      "headline": "GnuPG fixes a double-free in widely embedded GPGME.",
+      "story": "topStories/4"
+    },
+    {
+      "headline": "OpenAI proposes common pretraining-loss safety thresholds.",
+      "story": "topStories/5"
+    },
+    {
+      "headline": "A quantization compiler explores better local model trade-offs.",
+      "story": "newTools/1"
+    }
+  ],
+  "topStories": [
+    {
+      "title": "OpenRouter removes three providers and 125 ZDR endpoints after prompt-leak findings",
+      "category": "Security",
+      "summary": "OpenRouter announced November 22 that it removed three inference providers and revoked Zero Data Retention eligibility for 125 endpoints after an independent Dragos investigation found compromised providers, exposed prompts and failures to honor privacy controls.\n\nThe platform says it notified potentially affected customers and is introducing ongoing technical verification of data paths. The investigation did not establish a breach of OpenRouter's own infrastructure. The customer-level scope and long-term effectiveness of the measures remain unknown.",
+      "briefing": [
+        {
+          "heading": "How exposure was detected",
+          "body": "Dragos submitted approximately two million prompts containing unique canary URLs and credentials between July and November. Subsequent attempts to access these controlled assets demonstrated that prompt contents had reached unauthorized parties. Some sellers could read prompts through ordinary marketplace logging, without exploiting software vulnerabilities."
+        },
+        {
+          "heading": "Actions taken",
+          "body": "OpenRouter off-boarded three providers, removed 125 endpoints from Zero Data Retention eligibility and contacted potentially affected customers. It plans recurring canary-based tests, network-path verification and additional validation before restoring endpoints to ZDR eligibility."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "Every inference provider or reseller on a request path may see confidential source code, secrets or customer data. A ZDR setting is not end-to-end encryption, and it cannot prevent theft from a compromised provider. Teams should audit downstream processors and rotate potentially exposed credentials."
+        }
+      ],
+      "sources": [
+        {
+          "label": "OpenRouter statement",
+          "url": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/"
+        },
+        {
+          "label": "Dragos technical investigation",
+          "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens"
+        }
+      ],
+      "rank": 1,
+      "significance": "major",
+      "incidentId": "openrouter-inference-provider-data-retention-2026-11",
+      "isUpdate": false,
+      "whyItMatters": "Confirmed data-handling failures and provider removals affect sensitive AI inference workflows.",
+      "limitations": "Not all affected providers and customers are publicly identified."
+    },
+    {
+      "title": "Together AI confirms prompt theft after coding agent exposed a repository secret",
+      "category": "Security",
+      "summary": "Together AI disclosed November 21 that a coding agent committed a credential for a private Hugging Face repository into public source code. An unauthorized party used the credential to download stored samples of customer inference prompts from June and July 2026.\n\nTogether says the attacker searched for usable credentials, including five canary keys seeded by security researchers. The company is investigating which customers and data were affected, and says it has strengthened credential controls and coding-agent procedures. The original requests predate the disclosure by months.",
+      "briefing": [
+        {
+          "heading": "Failure sequence",
+          "body": "Together stored authorized prompt samples for internal testing. During development of its public xorl repository, an AI coding agent included a secret in a commit. Automated scanning detected the secret and the commit was reverted, but an unauthorized party had already obtained the credential and downloaded the private prompt samples."
+        },
+        {
+          "heading": "Affected requests",
+          "body": "The company identifies selected MiniMax M3, GLM-5.2 and Kimi K2.6 requests, primarily on June 24 and July 4, 8 and 14. External forensic investigators and law enforcement are involved. The full contents and customer exposure are still being assessed."
+        },
+        {
+          "heading": "Response and lesson",
+          "body": "Together reports scoped and short-lived credentials, additional pull-request secret checks, ZDR defaults for new accounts and revised AI-agent development practices. These controls are company-reported, not independently audited."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Together AI disclosure",
+          "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026"
+        }
+      ],
+      "rank": 2,
+      "incidentId": "together-ai-prompt-sample-exposure-2026-11",
+      "isUpdate": false,
+      "whyItMatters": "A credential leaked through an agent-assisted workflow enabled confirmed theft of historical prompts.",
+      "limitations": "Affected-customer and personal-data scope remain under investigation."
+    },
+    {
+      "title": "GL.iNet says attackers installed malware on some routers and KVM devices",
+      "category": "Security",
+      "summary": "GL.iNet confirmed that attackers exploited a vulnerability in its cloud remote-management system to install malware on some routers and remote KVM devices. The company says the cloud attack path has been blocked, but infected equipment requires separate inspection and cleanup.\n\nIts advisory includes a process indicator, KVM beta security firmware and instructions for factory resets. Stable security firmware was scheduled for November 22, but availability for all models was not independently verified. The number of affected devices and possible impact on connected computers remain unknown.",
+      "briefing": [
+        {
+          "heading": "Scope and mechanism",
+          "body": "The vendor reports unauthorized exploitation of its cloud management service. Blocking the cloud vulnerability prevents new infections through that specific path, but it does not remove malware from devices compromised earlier."
+        },
+        {
+          "heading": "How operators can respond",
+          "body": "The advisory instructs users to inspect processes for 'crond -i /tmp/.log'. If present, treat the device as infected and follow the vendor's firmware or factory-reset guidance. The notice also advises inspecting computers connected to affected KVMs for unexpected activity."
+        },
+        {
+          "heading": "Open questions",
+          "body": "GL.iNet planned stable security firmware for November 22 and is notifying identified customers. This review did not verify that every model received its stable release. Full incident scope and a final postmortem are outstanding."
+        }
+      ],
+      "sources": [
+        {
+          "label": "GL.iNet security advisory",
+          "url": "https://www.gl-inet.com/en-us/blogs/blog/glinet-security-notice-2026-11-20"
+        }
+      ],
+      "rank": 3,
+      "incidentId": "glinet-router-kvm-cloud-compromise-2026-11",
+      "isUpdate": false,
+      "whyItMatters": "A cloud management compromise can persist as malware on physical network equipment.",
+      "limitations": "Complete affected-device count and firmware rollout not verified."
+    },
+    {
+      "title": "GnuPG fixes critical GPGME double-free vulnerability",
+      "category": "Security",
+      "summary": "GnuPG announced GPGME 2.3.1 to fix CVE-2026-129975, a double-free triggered by a crafted OpenPGP key containing an unusually long user ID. The maintainer warns that data exfiltration may be possible and remote code execution cannot be excluded.\n\nGPGME is used by desktop encryption utilities and some mail and messaging clients. Updated Gpg4win packages and a backportable patch are available. The advisory does not establish widespread exploitation, and downstream applications may still require updates or rebuilding.",
+      "briefing": [
+        {
+          "heading": "Root cause",
+          "body": "While reading status lines or key listings, GPGME reallocates a buffer. An early return can leave a stale pointer in the context, causing a second free during cleanup. Intermediate allocations can make the error harder for allocator protections to catch."
+        },
+        {
+          "heading": "Fix and dependency implications",
+          "body": "GPGME 2.3.1 and Gpg4win 5.1.2 include the fix. Statically linked applications need rebuilding; a patch is available for older releases. The advisory says GPGMEPP and GPGMEQT do not require separate updates."
+        },
+        {
+          "heading": "What is unconfirmed",
+          "body": "The maintainer considers exploitation serious, but did not establish an active broad campaign. Users should track their package distributor and applications rather than assuming the library release alone protects every installation."
+        }
+      ],
+      "sources": [
+        {
+          "label": "GnuPG advisory",
+          "url": "https://lists.gnupg.org/pipermail/gnupg-announce/2026q4/000517.html"
+        }
+      ],
+      "rank": 4,
+      "incidentId": "gnupg-gpgme-double-free-2026-11",
+      "isUpdate": false,
+      "whyItMatters": "A vulnerable cryptographic integration library can affect many applications.",
+      "limitations": "Actual exploitation and patch deployment are not established."
+    },
+    {
+      "title": "OpenAI chief scientist proposes shared perplexity-based safety limits",
+      "category": "AI & Models",
+      "summary": "OpenAI chief scientist Jakub Pachocki published a November 22 essay proposing that frontier AI developers disclose comparable pretraining-loss measurements and agree on safety-related limits before crossing future capability thresholds.\n\nHe argues that held-out token-prediction loss can provide a relatively stable measure across generations of models, and publishes selected OpenAI internal results. The proposal is not an industry agreement. Pachocki acknowledges that different datasets, post-training improvements and unknown irreducible loss make cross-lab comparisons difficult.",
+      "briefing": [
+        {
+          "heading": "What is proposed",
+          "body": "The essay uses log-perplexity, or cross-entropy loss, to measure next-token prediction on a held-out dataset. Pachocki argues this captures an important source of model capabilities even when downstream benchmarks change."
+        },
+        {
+          "heading": "Safety motivation",
+          "body": "The proposal asks labs to agree on transparency standards, evaluation methods and limits not to cross until monitoring and safety evidence reach concrete milestones. It is an argument for coordination rather than an implemented policy."
+        },
+        {
+          "heading": "Important limitations",
+          "body": "OpenAI's disclosed evaluations use an internal code snapshot. Different training mixtures and evaluation corpora complicate comparisons. Perplexity also does not capture all capabilities gained from reasoning or post-training, and proposed future thresholds remain speculative."
+        }
+      ],
+      "sources": [
+        {
+          "label": "OpenAI research essay",
+          "url": "https://openai.com/index/perplexity-and-intelligence/"
+        }
+      ],
+      "rank": 5,
+      "significance": "notable",
+      "isUpdate": false,
+      "whyItMatters": "Proposes a common quantitative language for frontier-model safety coordination.",
+      "limitations": "Cross-lab standardization and predictive reliability are unresolved."
+    },
+    {
+      "title": "C++ committee recompletes C++26 technical work after contracts ballot objections",
+      "category": "Developer Tools",
+      "summary": "Herb Sutter reported November 21 that the ISO C++ committee completed C++26 technical work for a second time after an international draft ballot failed to pass. Most objections concerned contracts: preconditions, postconditions and assertions.\n\nThe committee adopted an always-enforced contract label, reaffirmed its decision to retain contracts and voted to resend the draft for approval. This is not final ISO publication or universal compiler support. The meeting also advanced C++29 proposals involving labeled loop control and ranges.",
+      "briefing": [
+        {
+          "heading": "Why the standard returned",
+          "body": "The committee finished the technical draft in March, but national-body objections prevented approval in the subsequent ISO ballot. The November Búzios meeting revisited the concerns and voted 111 in favor, nine opposed and eight abstaining to resend an amended document."
+        },
+        {
+          "heading": "Contracts change",
+          "body": "The new label allows selected contracts to remain enforced regardless of how other contract checks are configured. The committee also adjusted reflection and library-related proposals."
+        },
+        {
+          "heading": "Next steps",
+          "body": "A second international approval ballot and editorial processing remain. Compiler implementation timelines will vary, and developers should not treat the standards committee vote as immediate toolchain availability."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Herb Sutter meeting report",
+          "url": "https://herbsutter.com/2026/11/21/c26-is-done-again-trip-report-november-2026-iso-c-standards-meeting-buzios-brazil/"
+        }
+      ],
+      "rank": 6,
+      "isUpdate": false,
+      "whyItMatters": "Resolves a major procedural obstacle to C++26 and clarifies contract enforcement.",
+      "limitations": "Final ISO approval and compiler implementation remain pending."
+    }
+  ],
+  "alsoWorthKnowing": [
+    {
+      "title": "AWS November 15 identity outage receives a retrospective",
+      "category": "Cloud & Infrastructure",
+      "summary": "A November 21 engineering commentary revisits an AWS IAM Identity Center disruption from November 15. It explains why authentication problems affecting operators can be less visible than consumer application outages, especially when workloads remain online.\n\nThis is a retrospective, not a newly observed AWS outage or an official AWS root-cause report.",
+      "briefing": [
+        {
+          "heading": "Operational visibility",
+          "body": "Identity and control-plane failures can prevent engineers from signing in or managing resources while application traffic continues. End-user outage aggregators may therefore understate engineering impact."
+        },
+        {
+          "heading": "Evidence limit",
+          "body": "The Register column offers interpretation, not a first-party incident postmortem. No fresh outage was established in this review."
+        }
+      ],
+      "sources": [
+        {
+          "label": "The Register analysis",
+          "url": "https://www.theregister.com/columnists/2026/11/21/aws-got-hit-by-an-outage-too-heres-why-you-didnt-hear-about-it/5311511"
+        }
+      ]
+    },
+    {
+      "title": "Independent study questions future fossil-fuel share of AI data-center power",
+      "category": "Business & Markets",
+      "summary": "An advocacy analysis circulating on Hacker News projects substantial gas and coal contributions to electricity used by future Anthropic-related infrastructure. Its headline percentages are forecasts, not measured consumption.\n\nThe debate illustrates the difficulty of attributing marginal grid generation, dedicated facilities and energy contracts to individual AI workloads. The precise projected fuel mix was not independently reproduced in this review.",
+      "briefing": [
+        {
+          "heading": "The accounting problem",
+          "body": "A facility's grid electricity, dedicated generation and contracted renewable purchases are not interchangeable measures. Future commissioning and grid mix can alter projections."
+        },
+        {
+          "heading": "Evidence boundary",
+          "body": "The study is an independent advocacy analysis rather than audited Anthropic operating data. Its numbers should be treated as claims requiring methodological review."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Independent analysis",
+          "url": "https://betterdatacenterproject.com/"
+        }
+      ]
+    },
+    {
+      "title": "Backblaze policy changes draw scrutiny without verified backup-data breach",
+      "category": "Policy & Regulation",
+      "summary": "A Backblaze privacy-policy update prompted user questions about sharing personal information. The discussion does not establish that encrypted backup contents were sold or that customer backup data was compromised.\n\nThe relevant distinction is between account and website analytics data, vendor sharing, and stored backup payloads. The first-party policy is the appropriate starting point for evaluating specific rights and disclosures.",
+      "briefing": [
+        {
+          "heading": "Questions to ask",
+          "body": "Identify the categories of information collected and shared, applicable privacy rights and whether backup content is covered by separate product commitments."
+        },
+        {
+          "heading": "What remains unknown",
+          "body": "This review did not independently substantiate claims of backup-file sale, decryption or a new security breach. Community concerns should not be reported as confirmed misconduct."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Backblaze privacy policy",
+          "url": "https://www.backblaze.com/company/privacy"
+        }
+      ]
+    },
+    {
+      "title": "Linebender essay examines future Rust GUI architecture",
+      "category": "Developer Tools",
+      "summary": "A Linebender ecosystem essay discusses lessons for building Rust GUI systems, including state updates, rendering, accessibility and composability. It is a technical argument rather than a product release.\n\nIts value is in identifying design trade-offs that framework authors and application engineers can compare against existing systems. It does not provide a universally accepted solution or independent performance benchmark.",
+      "briefing": [
+        {
+          "heading": "Design tensions",
+          "body": "GUI systems must coordinate event handling, incremental updates, layout, text rendering and platform integration. Improvements in one area can complicate others."
+        },
+        {
+          "heading": "Practical interpretation",
+          "body": "Treat the essay as an architectural perspective to test against real applications and assistive technology requirements, not as proof of a single best framework."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Linebender engineering writing",
+          "url": "https://linebender.org/"
+        }
+      ]
+    }
+  ],
+  "newTools": [
+    {
+      "title": "LookAtMyQuant compresses models with error-aware bit allocation",
+      "category": "AI & Developer Tools",
+      "summary": "LookAtMyQuant is an MIT-licensed quantization compiler with published code, model files and evaluations. It measures how different weights affect output quality when compressed and allocates precision under a memory budget.\n\nThe author provides Qwen and Inkling 2 Mini examples, including a 5.38 GB Inkling build. The reported quality varies substantially by benchmark and quantization level, and the results were not independently reproduced.",
+      "briefing": [
+        {
+          "heading": "Technique",
+          "body": "The code combines calibration, trellis codes, sensitivity-based bit allocation and distillation. It includes CUDA and MLX runtime components."
+        },
+        {
+          "heading": "Reproduction",
+          "body": "The repository provides scripts and model downloads. Its Inkling 5.38 GB build reportedly solved 117 of 164 strict HumanEval problems versus 152 for the uncompressed teacher, demonstrating a real trade-off."
+        },
+        {
+          "heading": "Limitations",
+          "body": "Results depend on calibration data, hardware and evaluation tasks. Claims of superiority to other quantizations require independent comparison."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Source code",
+          "url": "https://github.com/ShinMegamiBoson/lookatmyquant"
+        }
+      ],
+      "format": "Experiment"
+    },
+    {
+      "title": "Gall runs local Inkling inference on Apple silicon with idle unloading",
+      "category": "AI & Developer Tools",
+      "summary": "Gall is a Rust and Metal inference implementation for Inkling 2 Mini with a macOS menu-bar app. It saves conversation state and releases model memory between prompts, then reloads when needed.\n\nThe author reports roughly 20.5 tokens per second at short context on a 24 GB M2 MacBook Air. The source includes build scripts and performance notes; the measurements were not independently reproduced.",
+      "briefing": [
+        {
+          "heading": "Implementation",
+          "body": "The project contains a custom inference engine, model loading, tests and a menu-bar controller. Instant unload is the default idle policy."
+        },
+        {
+          "heading": "Requirements",
+          "body": "The documented setup needs Apple silicon, macOS 15 or later, at least 24 GB RAM and 14 GB disk space. Rust and Apple command-line tools are needed to build."
+        },
+        {
+          "heading": "Caveats",
+          "body": "The longest measured generation context was around 30,000 tokens, despite a larger configurable maximum. Active memory budget differs from resident RAM."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Source and measurements",
+          "url": "https://github.com/ltrgoddard/gall"
+        }
+      ],
+      "format": "Show HN"
+    },
+    {
+      "title": "Worker 755 lets humans play the subagent of an AI manager",
+      "category": "Developer Tools",
+      "summary": "Worker 755 is an MIT-licensed browser game where a real language model delegates timed terminal tasks to the player as though the human were another software agent. The model reviews the work, requests corrections and produces a performance assessment.\n\nThe TypeScript repository includes server and web components and local setup instructions. It is a creative demonstration of orchestration and delegation, not a benchmark of production agent reliability.",
+      "briefing": [
+        {
+          "heading": "Game mechanism",
+          "body": "An AI manager has a task queue and a tool for spawning a subagent. The human receives instructions and a time limit, then returns command transcripts and results for the manager to evaluate."
+        },
+        {
+          "heading": "How to try it",
+          "body": "The source documents Node 24 setup and local execution. Players can bring an API key or use limited hosted credits where offered."
+        },
+        {
+          "heading": "Limits",
+          "body": "Model behavior and cost vary; API credentials require careful handling. The game environment is not a secure production sandbox by default."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Source code",
+          "url": "https://github.com/gulivan/worker755"
+        },
+        {
+          "label": "Live demo",
+          "url": "https://worker755.com"
+        }
+      ],
+      "format": "Show HN"
+    },
+    {
+      "title": "aaf-gate adds a deterministic kill switch and audit trail to AI agents",
+      "category": "AI & Developer Tools",
+      "summary": "aaf-gate is an Apache-licensed Python standard-library project that mediates tool calls for existing agent runtimes. It provides read/draft/write policies, call limits, a kill switch and hash-chained SQLite audit records.\n\nThe first integration targets Hermes Agent. The author calls it a release candidate and explicitly says it is not production-ready or independently device-accepted.",
+      "briefing": [
+        {
+          "heading": "Design",
+          "body": "A policy gate and Unix socket adapter intercept tool calls. The pilot permits email reading and drafting but not sending or unattended writes."
+        },
+        {
+          "heading": "Trying it",
+          "body": "The repository provides Python unit-test and CLI commands, operations documentation and example profiles. The author reports 719 local tests."
+        },
+        {
+          "heading": "Limitations",
+          "body": "The target Mac mini acceptance test and Gmail preview access remain outstanding. Policy enforcement depends on calls actually passing through the adapter."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Source code",
+          "url": "https://github.com/buberlo/aaf-gate"
+        }
+      ],
+      "format": "Show HN"
+    }
+  ],
+  "marketPulse": {
+    "summary": "No representative new senior/Staff+ hiring or compensation dataset was verified November 22. The security incidents point to operational needs for stronger credential handling and privacy assurance, but do not establish new hiring demand.\n\nAI infrastructure power forecasts generated discussion but were not independently validated. Inference-provider removals demonstrate direct business costs when third-party data handling fails.",
+    "jobs": "No material verified change in senior/Staff+ hiring or compensation.",
+    "business": "AI inference privacy and provider trust now carry direct platform costs. Future data-center power mix estimates remain uncertain.",
+    "watch": "Follow provider customer notifications, GL.iNet stable firmware availability and device cleanup, downstream GPGME patching, and C++26 approval."
+  },
+  "discoveryAudit": {
+    "checkedAt": "2026-11-22T17:03:25-08:00",
+    "windowStart": "2026-11-21T17:03:25-08:00",
+    "windowEnd": "2026-11-22T17:03:25-08:00",
+    "sources": [
+      {
+        "name": "Incident registry",
+        "status": "partial",
+        "notes": "Read prior edition and three known open incident records; full directory enumeration unavailable."
+      },
+      {
+        "name": "Major outages and provider status",
+        "status": "partial",
+        "notes": "Reviewed GitHub, Cloudflare and general outage reporting; no confirmed new widespread active outage."
+      },
+      {
+        "name": "HN front page, Best, Show, New",
+        "status": "checked",
+        "candidateCount": 60,
+        "url": "https://news.ycombinator.com/",
+        "notes": "Screened 60 front-page titles and additional Best/Show/New candidates; opened selected originals. Screened titles not equivalent to full article reviews."
+      },
+      {
+        "name": "HN Algolia 24-hour API",
+        "status": "unavailable",
+        "url": "https://hn.algolia.com/api/v1/search",
+        "notes": "Timestamp-filtered API request inaccessible."
+      },
+      {
+        "name": "Primary security disclosures",
+        "status": "checked",
+        "notes": "Read Dragos, OpenRouter, Together, GL.iNet and GnuPG disclosures."
+      },
+      {
+        "name": "Engineering and research",
+        "status": "checked",
+        "notes": "Read OpenAI research essay and C++ committee report."
+      },
+      {
+        "name": "Sunday maker catalog and Show HN",
+        "status": "partial",
+        "notes": "Read catalog and project documentation, source inventories and selected evaluations; no verified YouTube walkthrough."
+      },
+      {
+        "name": "Reddit, Lobsters and jobs datasets",
+        "status": "unavailable",
+        "notes": "No specific current threads or new representative hiring dataset verified."
+      }
+    ],
+    "majorIncidentsConsidered": [
+      {
+        "title": "OpenRouter removes three providers and 125 ZDR endpoints after prompt-leak findings",
+        "incidentId": "openrouter-inference-provider-data-retention-2026-11",
+        "decision": "top-story",
+        "reason": "Confirmed data-handling failures and provider removals affect sensitive AI inference workflows.",
+        "status": "monitoring",
+        "sourceUrl": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/"
+      },
+      {
+        "title": "Together AI confirms prompt theft after coding agent exposed a repository secret",
+        "incidentId": "together-ai-prompt-sample-exposure-2026-11",
+        "decision": "top-story",
+        "reason": "A credential leaked through an agent-assisted workflow enabled confirmed theft of historical prompts.",
+        "status": "investigating",
+        "sourceUrl": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026"
+      },
+      {
+        "title": "GL.iNet says attackers installed malware on some routers and KVM devices",
+        "incidentId": "glinet-router-kvm-cloud-compromise-2026-11",
+        "decision": "top-story",
+        "reason": "A cloud management compromise can persist as malware on physical network equipment.",
+        "status": "monitoring",
+        "sourceUrl": "https://www.gl-inet.com/en-us/blogs/blog/glinet-security-notice-2026-11-20"
+      },
+      {
+        "title": "GnuPG fixes critical GPGME double-free vulnerability",
+        "incidentId": "gnupg-gpgme-double-free-2026-11",
+        "decision": "top-story",
+        "reason": "A vulnerable cryptographic integration library can affect many applications.",
+        "status": "monitoring",
+        "sourceUrl": "https://lists.gnupg.org/pipermail/gnupg-announce/2026q4/000517.html"
+      }
+    ],
+    "rankingNotes": "Confirmed inference prompt exposure and provider removals lead; Together credential theft, GL.iNet hardware compromise and GPGME patch follow. OpenAI proposes rather than implements safety limits. C++26 is not yet ISO-published. Yesterday's RH certification is not repeated without a material new development. HN Algolia unavailable, no verified YouTube demonstrations and no jQuery coverage."
+  }
+}
