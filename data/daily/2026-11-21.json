@@ -544,7 +544,7 @@
         "title": "Possible FBI NCIC intrusion",
         "decision": "top-story",
         "reason": "Potential critical-system impact but unconfirmed.",
-        "status": "uncertain",
+        "status": "investigating",
         "sourceUrl": "https://www.reuters.com/world/us/fbis-criminal-information-database-hacked-cnn-reports-2026-11-21/"
       },
       {
@@ -552,7 +552,7 @@
         "incidentId": "vmware-vcenter-auth-bypass-2026-11",
         "decision": "top-story",
         "reason": "Pre-patch exploitation evidence.",
-        "status": "active",
+        "status": "monitoring",
         "sourceUrl": "https://www.helpnetsecurity.com/2026/11/20/vmware-vcenter-zero-day-cve-2026-123890-exploited/"
       }
     ],

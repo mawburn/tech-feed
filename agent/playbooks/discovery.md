@@ -41,7 +41,7 @@ Deduplicate by underlying event. For each candidate note: event time, where foun
     {"name": "HN Algolia 24h", "status": "unavailable", "notes": "Request failed"}
   ],
   "majorIncidentsConsidered": [
-    {"title": "…", "decision": "top-story", "reason": "…", "status": "active", "sourceUrl": "https://…", "incidentId": "…"}
+    {"title": "…", "decision": "top-story", "reason": "…", "status": "monitoring", "sourceUrl": "https://…", "incidentId": "…"}
   ],
   "rankingNotes": "Why the lead leads, what was left out and why, significance and thread decisions."
 }
@@ -51,4 +51,4 @@ Values are illustrative. Rules:
 
 - Name only sources you actually consulted or attempted. `status` is `checked`, `partial` or `unavailable`.
 - `candidateCount` is what you really screened; omit it when unknown. Titles seen on a list are "screened", not "examined".
-- `majorIncidentsConsidered` lists real, corroborated incidents, including ones you left out (`decision`: `top-story`, `also-worth` or `excluded`); use `[]` when there were none.
+- `majorIncidentsConsidered` lists real, corroborated incidents, including ones you left out (`decision`: `top-story`, `also-worth` or `excluded`); use `[]` when there were none. `status` (optional) is the incident's state when you considered it, using the same four values as incident records (`investigating`, `identified`, `monitoring`, `resolved`); copy the record's `status` when one exists.
