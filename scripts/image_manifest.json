@@ -440,6 +440,12 @@
       "status": "ok",
       "width": 600
     },
+    "https://images.ft.com/v3/image/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F586d957a-5fc6-4f20-a10a-a5f274847fe3.jpg?source=next-barrier-page&fit=scale-down&quality=highest&width=700&dpr=1": {
+      "attempts": 1,
+      "lastAttempt": "2026-11-23T01:04:43Z",
+      "reason": "publisher policy (ft.com)",
+      "status": "skipped"
+    },
     "https://images.ft.com/v3/image/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F6613ccdf-6f45-453d-b4c2-5ca8c027ae84.jpg?source=next-barrier-page&fit=scale-down&quality=highest&width=700&dpr=1": {
       "attempts": 1,
       "lastAttempt": "2026-11-16T21:33:10Z",
@@ -2007,9 +2013,10 @@
     },
     "https://www.ft.com/content/cf875eb6-34a2-413e-b89d-bc609367a19e": {
       "attempts": 1,
-      "lastAttempt": "2026-11-20T01:02:28Z",
-      "reason": "HTTP 403 from https://www.ft.com/content/cf875eb6-34a2-413e-b89d-bc609367a19e",
-      "status": "failed"
+      "image": "https://images.ft.com/v3/image/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F586d957a-5fc6-4f20-a10a-a5f274847fe3.jpg?source=next-barrier-page&fit=scale-down&quality=highest&width=700&dpr=1",
+      "lastAttempt": "2026-11-23T01:04:43Z",
+      "noimageindex": false,
+      "status": "ok"
     },
     "https://www.ft.com/content/f999a0c2-af52-499f-8008-accbdfd45a25": {
       "attempts": 1,
@@ -2119,8 +2126,8 @@
       "status": "failed"
     },
     "https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-20T01:02:28Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-23T01:04:43Z",
       "reason": "HTTP 401 from https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/",
       "status": "failed"
     },
@@ -2137,8 +2144,8 @@
       "status": "failed"
     },
     "https://www.reuters.com/business/retail-consumer/alibaba-unveils-new-flagship-ai-model-with-safety-upgrades-2026-11-16/": {
-      "attempts": 2,
-      "lastAttempt": "2026-11-20T01:00:36Z",
+      "attempts": 3,
+      "lastAttempt": "2026-11-23T01:04:43Z",
       "reason": "HTTP 401 from https://www.reuters.com/business/retail-consumer/alibaba-unveils-new-flagship-ai-model-with-safety-upgrades-2026-11-16/",
       "status": "failed"
     },
@@ -2155,8 +2162,8 @@
       "status": "failed"
     },
     "https://www.reuters.com/legal/litigation/eu-commission-targeted-cyberattack-politico-reports-2026-11-19/": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-20T01:02:28Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-23T01:04:43Z",
       "reason": "HTTP 401 from https://www.reuters.com/legal/litigation/eu-commission-targeted-cyberattack-politico-reports-2026-11-19/",
       "status": "failed"
     },
@@ -2167,8 +2174,8 @@
       "status": "failed"
     },
     "https://www.reuters.com/legal/litigation/us-issues-rule-protect-advanced-ai-chips-being-accessed-remotely-2026-11-16/": {
-      "attempts": 2,
-      "lastAttempt": "2026-11-20T01:00:36Z",
+      "attempts": 3,
+      "lastAttempt": "2026-11-23T01:04:43Z",
       "reason": "HTTP 401 from https://www.reuters.com/legal/litigation/us-issues-rule-protect-advanced-ai-chips-being-accessed-remotely-2026-11-16/",
       "status": "failed"
     },
@@ -2179,8 +2186,8 @@
       "status": "failed"
     },
     "https://www.reuters.com/legal/transactional/anthropics-15-trillion-debut-rewrites-venture-capitals-playbook-2026-11-19/": {
-      "attempts": 1,
-      "lastAttempt": "2026-11-20T01:02:28Z",
+      "attempts": 2,
+      "lastAttempt": "2026-11-23T01:04:43Z",
       "reason": "HTTP 401 from https://www.reuters.com/legal/transactional/anthropics-15-trillion-debut-rewrites-venture-capitals-playbook-2026-11-19/",
       "status": "failed"
     },
@@ -2308,8 +2315,8 @@
       "status": "failed"
     },
     "https://www.wsj.com/tech/ai/trump-administration-to-name-nvidia-among-ai-national-champions-c9284344": {
-      "attempts": 2,
-      "lastAttempt": "2026-11-20T01:00:36Z",
+      "attempts": 3,
+      "lastAttempt": "2026-11-23T01:04:43Z",
       "reason": "HTTP 401 from https://www.wsj.com/tech/ai/trump-administration-to-name-nvidia-among-ai-national-champions-c9284344",
       "status": "failed"
     },

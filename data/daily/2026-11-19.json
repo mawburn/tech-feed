@@ -400,7 +400,13 @@
           "label": "Commission confirmation via Reuters",
           "url": "https://www.reuters.com/legal/litigation/eu-commission-targeted-cyberattack-politico-reports-2026-11-19/"
         }
-      ]
+      ],
+      "image": {
+        "url": "https://images.ft.com/v3/image/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F586d957a-5fc6-4f20-a10a-a5f274847fe3.jpg?source=next-barrier-page&fit=scale-down&quality=highest&width=700&dpr=1",
+        "alt": "Publisher-provided image for European AI security debate intensifies after official incident confirmation",
+        "credit": "ft.com",
+        "sourceUrl": "https://www.ft.com/content/cf875eb6-34a2-413e-b89d-bc609367a19e"
+      }
     }
   ],
   "newTools": [
