@@ -208,6 +208,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://cdn.prod.website-files.com/69654e88dce9154b5f12070c/6b022ac06b3b148585570c47_OG-image_20261121-security-event-prompt-leakage2.png": {
+      "attempts": 1,
+      "bytes": 4162,
+      "encoding": "q60",
+      "file": "img/e5362b0e3879679cc154.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "sha256": "e5362b0e3879679cc1542139d7ad8ca1e0929f72751043b74754061f9b923f1c",
+      "sourceBytes": 271413,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://cdn.springcraft.ai/springrep/springrep-preview-mwmpm0jd.png": {
       "attempts": 1,
       "bytes": 12728,
@@ -427,6 +440,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://image.theregister.com/5311515.jpg?imageId=5311515&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683": {
+      "attempts": 1,
+      "bytes": 28148,
+      "encoding": "q80",
+      "file": "img/8d1368b23983a76ba5af.webp",
+      "height": 342,
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "sha256": "8d1368b23983a76ba5afcaa2149c4967ef348089ddf3dd0a3b53f3d9acef4f8c",
+      "sourceBytes": 194479,
+      "sourceFormat": "JPEG",
+      "status": "ok",
+      "width": 600
+    },
     "https://images.ctfassets.net/kftzwdyauwt9/4AvTdfi4XgE0hchiQH8UhY/6c9c5278cafc000de19c0892beecbf8c/strengthening-nato-and-allied-cyber-defences-with-ai-seo.png?w=1600&h=900&fit=fill": {
       "attempts": 1,
       "bytes": 16402,
@@ -436,6 +462,19 @@
       "lastAttempt": "2026-11-18T01:07:42Z",
       "sha256": "db17285ae1f4b4fe4344f4fd2844ee42164cd55278f1a04183db8775124e4ab1",
       "sourceBytes": 1443798,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://images.ctfassets.net/kftzwdyauwt9/6rIIhCRSKrhIfe385Onmcz/aca2d190553c62fd5d49efb5d5ce1eb6/perplexity-and-intelligence-social.png?w=1600&h=900&fit=fill": {
+      "attempts": 1,
+      "bytes": 12516,
+      "encoding": "q90",
+      "file": "img/2cfb3de7936b20ce97b0.webp",
+      "height": 338,
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "sha256": "2cfb3de7936b20ce97b0d6caa1bd0a9106ee370508ae8d5fcd409c013dba0fcc",
+      "sourceBytes": 1573181,
       "sourceFormat": "PNG",
       "status": "ok",
       "width": 600
@@ -653,6 +692,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://opengraph.githubassets.com/047c86efcf503f5a5b86116e0c5fe8f6ef112d8efa51cdc352b507b303bd531a/ShinMegamiBoson/lookatmyquant": {
+      "attempts": 1,
+      "bytes": 11388,
+      "encoding": "q85",
+      "file": "img/f078c70e13208417bb27.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "sha256": "f078c70e13208417bb274336f5264f20074ea1212ebcc8ab2d9e7779b3d26a7a",
+      "sourceBytes": 49922,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://opengraph.githubassets.com/0e2e9543b79e55a00376d59ec387b4bb2109c7b4d41acdbdfed771cade4f3168/Tencent-Hunyuan/Hy4": {
       "attempts": 1,
       "bytes": 7690,
@@ -666,6 +718,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://opengraph.githubassets.com/0f87ba86a5803dabbd3f0590c9233f614725cf4aacccb67a2a2dc59284cf758f/ltrgoddard/gall": {
+      "attempts": 1,
+      "bytes": 10162,
+      "encoding": "q80",
+      "file": "img/8d1702315dce34bdb4ad.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "sha256": "8d1702315dce34bdb4adb89d1350816afe0f203270672ab7bff679ae7045a1ac",
+      "sourceBytes": 109611,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
     "https://opengraph.githubassets.com/19dd6d0bb97b552e60665e801c1a8b1bbc4e7353e2f98f0bc56531bd25f81372/natsu0529/agent-mcts": {
       "attempts": 1,
       "bytes": 13780,
@@ -675,6 +740,19 @@
       "lastAttempt": "2026-11-22T01:01:39Z",
       "sha256": "19d497344bd6cc2d76b0eea282e81f3cfed17bc58b242f50336e5eb2babc3d17",
       "sourceBytes": 68241,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://opengraph.githubassets.com/3b68db53deaa1e1732e50599818deb0b0e79dd49c20a4f0ed5a2e521d2f5801d/buberlo/aaf-gate": {
+      "attempts": 1,
+      "bytes": 13232,
+      "encoding": "q85",
+      "file": "img/2b746f32b7566112a827.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "sha256": "2b746f32b7566112a827fb6f0e25d75d3e918c960fc4945d9bb17748f488bca8",
+      "sourceBytes": 90960,
       "sourceFormat": "PNG",
       "status": "ok",
       "width": 600
@@ -701,6 +779,19 @@
       "lastAttempt": "2026-11-21T00:58:55Z",
       "sha256": "d2d1d01bb7bdfa901bd946ac0ac2fffeae4b522a5656a486e18917dda09d203b",
       "sourceBytes": 50881,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://opengraph.githubassets.com/8217d6007c48ce9700767a4757ba11e92ed61c9b4cf4c3f79d9162602a6c3d63/gulivan/worker755": {
+      "attempts": 1,
+      "bytes": 11134,
+      "encoding": "q85",
+      "file": "img/976a6d0c6744fece497c.webp",
+      "height": 300,
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "sha256": "976a6d0c6744fece497cf0645563da7f83b94530ca041480a1ccde04608512ee",
+      "sourceBytes": 70055,
       "sourceFormat": "PNG",
       "status": "ok",
       "width": 600
@@ -779,6 +870,19 @@
       "lastAttempt": "2026-11-21T00:58:55Z",
       "sha256": "e7cb015014f2ba456dcfb27cd46f055074e99937a87106ea5490ee5968bf9295",
       "sourceBytes": 50824,
+      "sourceFormat": "PNG",
+      "status": "ok",
+      "width": 600
+    },
+    "https://openrouter.ai/og.png": {
+      "attempts": 1,
+      "bytes": 3544,
+      "encoding": "q60",
+      "file": "img/595719a176174d86a254.webp",
+      "height": 315,
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "sha256": "595719a176174d86a2544cb1c659cc108ef5f5d63352a2d3edef22426a2e087b",
+      "sourceBytes": 21532,
       "sourceFormat": "PNG",
       "status": "ok",
       "width": 600
@@ -1127,6 +1231,19 @@
       "status": "ok",
       "width": 600
     },
+    "https://www.gl-inet.com/cdn/shop/articles/20261121-145609_1200x675.jpg?v=1795244669": {
+      "attempts": 1,
+      "bytes": 12982,
+      "encoding": "q80",
+      "file": "img/17dde1209b5e378d0376.webp",
+      "height": 338,
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "sha256": "17dde1209b5e378d037647bbf0461907db9a48b1960eb2bf70804d57f779372e",
+      "sourceBytes": 47198,
+      "sourceFormat": "WEBP",
+      "status": "ok",
+      "width": 600
+    },
     "https://www.harmonic.fun/images/share/news-aristotle-rust-verification-fedcd5adc7.jpg": {
       "attempts": 1,
       "bytes": 10012,
@@ -1279,6 +1396,13 @@
       "attempts": 1,
       "image": "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/11/11/Header-A-dark-gradient-1-1260x630.png",
       "lastAttempt": "2026-11-16T22:16:07Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://betterdatacenterproject.com/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-23T01:07:19Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1491,6 +1615,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://github.com/ShinMegamiBoson/lookatmyquant": {
+      "attempts": 1,
+      "image": "https://opengraph.githubassets.com/047c86efcf503f5a5b86116e0c5fe8f6ef112d8efa51cdc352b507b303bd531a/ShinMegamiBoson/lookatmyquant",
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://github.com/Tencent-Hunyuan/Hy4": {
       "attempts": 1,
       "image": "https://opengraph.githubassets.com/0e2e9543b79e55a00376d59ec387b4bb2109c7b4d41acdbdfed771cade4f3168/Tencent-Hunyuan/Hy4",
@@ -1509,6 +1640,13 @@
       "attempts": 1,
       "image": "https://repository-images.githubusercontent.com/1453712334/2654889e-5808-485c-a426-4ec795152ca2",
       "lastAttempt": "2026-11-17T07:01:42Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.com/buberlo/aaf-gate": {
+      "attempts": 1,
+      "image": "https://opengraph.githubassets.com/3b68db53deaa1e1732e50599818deb0b0e79dd49c20a4f0ed5a2e521d2f5801d/buberlo/aaf-gate",
+      "lastAttempt": "2026-11-23T01:07:19Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1553,6 +1691,20 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://github.com/gulivan/worker755": {
+      "attempts": 1,
+      "image": "https://opengraph.githubassets.com/8217d6007c48ce9700767a4757ba11e92ed61c9b4cf4c3f79d9162602a6c3d63/gulivan/worker755",
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://github.com/ltrgoddard/gall": {
+      "attempts": 1,
+      "image": "https://opengraph.githubassets.com/0f87ba86a5803dabbd3f0590c9233f614725cf4aacccb67a2a2dc59284cf758f/ltrgoddard/gall",
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://github.com/natsu0529/agent-mcts": {
       "attempts": 1,
       "image": "https://opengraph.githubassets.com/19dd6d0bb97b552e60665e801c1a8b1bbc4e7353e2f98f0bc56531bd25f81372/natsu0529/agent-mcts",
@@ -1593,6 +1745,13 @@
       "lastAttempt": "2026-11-20T01:02:28Z",
       "reason": "not an HTML article URL",
       "status": "skipped"
+    },
+    "https://herbsutter.com/2026/11/21/c26-is-done-again-trip-report-november-2026-iso-c-standards-meeting-buzios-brazil/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "noimageindex": false,
+      "status": "ok"
     },
     "https://hiringlab.indeed.com/2026/11/12/2026-q3-us-tech-labor-market-update/": {
       "attempts": 1,
@@ -1675,6 +1834,20 @@
       "attempts": 1,
       "image": "https://leanprover-community.github.io/blog/meta-twitter.png",
       "lastAttempt": "2026-11-22T01:01:39Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://linebender.org/": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://lists.gnupg.org/pipermail/gnupg-announce/2026q4/000517.html": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-23T01:07:19Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1775,6 +1948,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://openai.com/index/perplexity-and-intelligence/": {
+      "attempts": 1,
+      "image": "https://images.ctfassets.net/kftzwdyauwt9/6rIIhCRSKrhIfe385Onmcz/aca2d190553c62fd5d49efb5d5ce1eb6/perplexity-and-intelligence-social.png?w=1600&h=900&fit=fill",
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai/": {
       "attempts": 1,
       "image": "https://images.ctfassets.net/kftzwdyauwt9/4AvTdfi4XgE0hchiQH8UhY/6c9c5278cafc000de19c0892beecbf8c/strengthening-nato-and-allied-cyber-defences-with-ai-seo.png?w=1600&h=900&fit=fill",
@@ -1786,6 +1966,13 @@
       "attempts": 1,
       "image": "https://opencode.ai/files/site/og/home-98637499f6.png",
       "lastAttempt": "2026-11-17T04:12:25Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/": {
+      "attempts": 1,
+      "image": "https://openrouter.ai/og.png",
+      "lastAttempt": "2026-11-23T01:07:19Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -1908,6 +2095,13 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://worker755.com": {
+      "attempts": 1,
+      "image": "https://worker755.com/og.png",
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://worldlabs.ai/blog": {
       "attempts": 1,
       "image": "https://worldlabs.ai/opengraph-image.png?4b39e0cc40ca8b21",
@@ -1949,6 +2143,13 @@
       "reason": "HTTP 403 from https://www.appliedmaterials.com/us/en/newsroom/press-releases/111226-applied-materials-announces-fourth-qtr-fiscal-year-end-2026-results.html",
       "status": "failed"
     },
+    "https://www.backblaze.com/company/privacy": {
+      "attempts": 1,
+      "image": null,
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware/": {
       "attempts": 1,
       "image": "https://www.bleepstatic.com/content/posts/2026/11/16/supply-chain-attack.jpg",
@@ -1981,6 +2182,13 @@
       "attempts": 1,
       "image": null,
       "lastAttempt": "2026-11-22T01:01:39Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens": {
+      "attempts": 1,
+      "image": "https://dragos.brightspotcdn.com/dims4/default/41c5c4a/2147483647/strip/true/crop/1307x735+309+0/resize/1440x810!/format/webp/quality/90/?url=https%3A%2F%2Fdragos-production-dragos.s3.us-west-2.amazonaws.com%2Fbrightspot%2Fd4%2Fb6%2Fb4dbcbe348a8b3506fb99c5419e7%2Fxot-hero.webp",
+      "lastAttempt": "2026-11-23T01:07:19Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -2036,6 +2244,13 @@
       "attempts": 1,
       "image": null,
       "lastAttempt": "2026-11-21T04:37:11Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.gl-inet.com/en-us/blogs/blog/glinet-security-notice-2026-11-20": {
+      "attempts": 1,
+      "image": "https://www.gl-inet.com/cdn/shop/articles/20261121-145609_1200x675.jpg?v=1795244669",
+      "lastAttempt": "2026-11-23T01:07:19Z",
       "noimageindex": false,
       "status": "ok"
     },
@@ -2280,10 +2495,24 @@
       "noimageindex": false,
       "status": "ok"
     },
+    "https://www.theregister.com/columnists/2026/11/21/aws-got-hit-by-an-outage-too-heres-why-you-didnt-hear-about-it/5311511": {
+      "attempts": 1,
+      "image": "https://image.theregister.com/5311515.jpg?imageId=5311515&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+      "lastAttempt": "2026-11-23T01:07:19Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
     "https://www.theverge.com/ai-artificial-intelligence/1010051/anthropic-riemann-hypothesis-millennium-prize-problem": {
       "attempts": 1,
       "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/gettyimages-2305894185.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
       "lastAttempt": "2026-11-21T00:58:55Z",
+      "noimageindex": false,
+      "status": "ok"
+    },
+    "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026": {
+      "attempts": 1,
+      "image": "https://cdn.prod.website-files.com/69654e88dce9154b5f12070c/6b022ac06b3b148585570c47_OG-image_20261121-security-event-prompt-leakage2.png",
+      "lastAttempt": "2026-11-23T01:07:19Z",
       "noimageindex": false,
       "status": "ok"
     },
