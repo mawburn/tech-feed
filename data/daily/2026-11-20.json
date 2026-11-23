@@ -1,8 +1,51 @@
 {
   "date": "2026-11-20",
   "label": "Friday, November 20, 2026",
-  "overview": "The UK coordinated a security response to weaknesses in commercial refrigeration controllers, a reminder that internet-exposed industrial equipment can turn software defects into physical disruption. Initial patches are available, but residual exposure remains uncertain. Separately, reports indicate the NSA's classified internal network recovered after a prolonged outage, while OpenSSL maintainers are debating a publicly reported overflow whose headline severity may overstate practical risk.\n\nAI developments are unusually substantive. Thinking Machines released Inkling 2 Mini, a local open-weight model that repeatedly processes middle transformer layers to improve reasoning efficiency. Tencent published enormous downloadable Hy4 checkpoints under a custom license. Two proposed proofs of the generalized Riemann hypothesis, including one assisted by Claude, are attracting attention but remain unaccepted pending independent scrutiny.\n\nArchitect Labs also published an AI-guided CPU design experiment, while hands-on projects demonstrate compact audio-to-MIDI transcription, an inspectable coding-agent workspace and runnable PostgreSQL 19 exercises.",
+  "overview": "The AI-led selloff turned into the Nasdaq's worst week since March 2020 as the Nasdaq fell 5.28% on Friday, with chip stocks and Anthropic's new shares hit hard. The UK also coordinated a security response to weaknesses in commercial refrigeration controllers, a reminder that internet-exposed industrial equipment can turn software defects into physical disruption.",
   "topStories": [
+    {
+      "title": "AI-led selloff drives the Nasdaq down 10% in its worst week since March 2020",
+      "category": "Business & Markets",
+      "summary": "US stocks ended the week sharply lower after a second heavy session of selling. On Friday, November 20, CNBC reported the Nasdaq Composite fell 5.28% to 22,617.73, the S&P 500 dropped 3.7% to 6,910.39 and the Dow fell 1.93% to 48,147.33. Yahoo Finance reported the S&P 500 and Dow both closed in correction territory, more than 10% below their peaks, and that the Nasdaq closed negative for the year. For the week the S&P 500 fell 8.6%, the Dow 8% and the Nasdaq about 10%; Yahoo Finance described the Dow and Nasdaq declines as their worst weeks since March 2020.\n\nChip and AI infrastructure stocks led the decline. Yahoo Finance's weekly figures showed Nvidia down 23%, AMD down 20.5% and Taiwan Semiconductor down 20%. Anthropic's shares, which closed up 17.1% on their first day of trading on Thursday, fell 8.5% on Friday according to CNBC. Reporters and analysts offer several explanations, and none is established as the cause.",
+      "briefing": [
+        {
+          "heading": "Two sessions, two heavy losses",
+          "body": "Reuters reported that on Thursday, November 19, the Dow fell 2.19% to 49,097.06, the S&P 500 lost 2.02% to 7,175.83 and the Nasdaq Composite lost 2.25% to 23,879.20, after Anthropic's IPO \"failed to revitalize faded enthusiasm over artificial intelligence, as an early spike in its share price ebbed.\" Friday's losses were larger: CNBC reported the Nasdaq fell 5.28%, the S&P 500 3.7% and the Dow 1.93%. Yahoo Finance reported the S&P 500 had fallen every day of the week, a pattern it attributed to Bespoke Investment Group as having happened only in 1962, 1974, 1978, the week after the September 11 attacks and October 2008."
+        },
+        {
+          "heading": "Chips and AI infrastructure",
+          "body": "Yahoo Finance's weekly figures: Nvidia down 23%, its worst week since October 2008; AMD down 20.5%; Taiwan Semiconductor down 20%; the Russell 2000 down 7.5%. Reuters reported AMD fell 7.7% on Thursday after investigative outlet Hunterbrook said its affiliated fund had taken a short position, and that Nvidia fell for a sixth straight session despite an upbeat revenue forecast. CNBC reported Nvidia's selling increased on Friday after Reuters reported the US Securities and Exchange Commission is exploring possible accounting issues at the company. Neither report is a finding of wrongdoing."
+        },
+        {
+          "heading": "Causes named, none established",
+          "body": "CNBC wrote that the IPO \"caused investors to take profits on the artificial intelligence-led rally rather than revive it\" and cited signs of moderation in AI capital spending, Democratic wins in the 2026 midterms and Jensen Huang's ouster at Nvidia as raising questions about the AI buildout. Richard Saperstein of Treasury Partners called it \"an AI repricing\" reflecting slowing data-center buildouts and reduced funding sources for AI projects. Massimo Santicchia of Procyon said it was \"not just a valuation-driven correction. It's becoming broader.\" Yahoo Finance quoted Dan Ives listing a \"perfect storm\" that included the Anthropic IPO \"marginally reducing liquidity from other tech names\" and hawkish Federal Reserve comments. These are analysts' views; no source shows the IPO caused the selloff."
+        },
+        {
+          "heading": "What to watch",
+          "body": "Whether the AI-chip selling continues into the following week, how Nvidia responds to the reported SEC inquiry, and whether Anthropic's shares hold above the $83 offer price. Yahoo Finance reported odds of a December rate increase of 91.8% on the CME FedWatch tool, so rate expectations remain part of the backdrop."
+        }
+      ],
+      "sources": [
+        {
+          "label": "CNBC live updates, November 20 close",
+          "url": "https://www.cnbc.com/2026/11/19/stock-market-today-live-updates.html"
+        },
+        {
+          "label": "Reuters via Yahoo Finance: Thursday close",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/wall-street-ends-sharply-lower-213427908.html"
+        },
+        {
+          "label": "Yahoo Finance live coverage: weekly totals",
+          "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-19-dow-sp-500-nasdaq-anthropic-nvidia-141644188.html"
+        }
+      ],
+      "rank": 1,
+      "significance": "major",
+      "thread": "ai-market-selloff-2026-11",
+      "isUpdate": false,
+      "whyItMatters": "A market-wide repricing of AI financing and infrastructure plans can change funding, hardware supply and hiring budgets across the technology industry.",
+      "limitations": "Closing figures for Friday come from CNBC alone and Thursday's from Reuters; sources round some figures differently. Causes are attributed to named commentators and none is confirmed. Anthropic's Friday closing price in dollars was not stated in the sources reviewed."
+    },
     {
       "title": "UK refrigeration security operation exposes risks in industrial controllers",
       "category": "Security",
@@ -31,7 +74,7 @@
       "whyItMatters": "Industrial software failures can produce physical disruption and major downstream costs.",
       "limitations": "No verified widespread UK exploitation or comprehensive patch-adoption figures.",
       "isUpdate": false,
-      "rank": 1,
+      "rank": 2,
       "image": {
         "url": "https://i.guim.co.uk/img/media/3ba762c70e9c188fc6533e353ffe9c2e077e95c6/0_0_4183_3347/master/4183.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=aaae14f3a77e62be35ecbe1933ad1fae",
         "alt": "Publisher-provided image for UK refrigeration security operation exposes risks in industrial controllers",
@@ -66,7 +109,7 @@
       "whyItMatters": "Looping offers an alternative local-model efficiency tradeoff and raises concrete oversight questions.",
       "limitations": "Vendor-selected benchmarks and demos need independent replication.",
       "isUpdate": false,
-      "rank": 2,
+      "rank": 3,
       "discussions": [
         {
           "platform": "Hacker News",
@@ -108,7 +151,7 @@
       "whyItMatters": "An accepted proof would be historic, but premature certainty would be misleading.",
       "limitations": "No independent consensus or accepted proof verified.",
       "isUpdate": false,
-      "rank": 3,
+      "rank": 4,
       "image": {
         "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/gettyimages-2305894185.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
         "alt": "Publisher-provided image for Two proposed Riemann-hypothesis proofs draw intense scrutiny",
@@ -147,7 +190,7 @@
       "whyItMatters": "A substantial downloadable multimodal model expands deployment choices but introduces major licensing and infrastructure considerations.",
       "limitations": "Vendor evaluations and advertised context capacity do not guarantee production results.",
       "isUpdate": false,
-      "rank": 4,
+      "rank": 5,
       "image": {
         "url": "https://opengraph.githubassets.com/0e2e9543b79e55a00376d59ec387b4bb2109c7b4d41acdbdfed771cade4f3168/Tencent-Hunyuan/Hy4",
         "alt": "Publisher-provided image for Tencent releases downloadable Hy4 weights with commercial restrictions",
@@ -182,7 +225,7 @@
       "whyItMatters": "AI-driven exploration of compiler and hardware design spaces could change chip-development workflows.",
       "limitations": "No independent physical-silicon validation established.",
       "isUpdate": false,
-      "rank": 5,
+      "rank": 6,
       "discussions": [
         {
           "platform": "Hacker News",
@@ -490,7 +533,7 @@
       }
     }
   ],
-  "marketPulse": "No new representative November 20 evidence was verified establishing a material shift in US senior or Staff+ engineering hiring or compensation. Anthropic's new public listing and wider technology-market volatility highlight AI infrastructure economics but do not directly measure engineering employment.\n\nToday's model releases underscore a split between locally runnable efficient architectures and very large multi-GPU open-weight systems. Vendor benchmark and efficiency claims require independent validation.",
+  "marketPulse": "The S&P 500 and Dow closed Friday in correction territory and the Nasdaq turned negative for the year, ending a week in which the Nasdaq fell about 10% and Nvidia 23% (CNBC; Yahoo Finance). Anthropic's shares, up 17.1% on their first day, fell 8.5% on Friday. Commentators cite fading AI enthusiasm, slowing AI capital spending and rate expectations, and none is established as the cause.\n\nNo new representative November 20 evidence was verified establishing a material shift in US senior or Staff+ engineering hiring or compensation. Anthropic's new public listing and wider technology-market volatility highlight AI infrastructure economics but do not directly measure engineering employment.\n\nToday's model releases underscore a split between locally runnable efficient architectures and very large multi-GPU open-weight systems. Vendor benchmark and efficiency claims require independent validation.",
   "discoveryAudit": {
     "checkedAt": "2026-11-20T20:36:00-08:00",
     "windowStart": "2026-11-19T20:36:00-08:00",
@@ -549,6 +592,12 @@
         "name": "Friday engineering catalog",
         "status": "unavailable",
         "notes": "Expected catalog filename could not be resolved through available repository read operations; prior edition's reporting retained."
+      },
+      {
+        "name": "US market coverage (CNBC, Reuters via Yahoo Finance)",
+        "status": "checked",
+        "url": "https://www.cnbc.com/2026/11/19/stock-market-today-live-updates.html",
+        "notes": "Closing levels and weekly totals read from CNBC, Reuters via Yahoo Finance and Yahoo Finance live coverage. Added in a later correction: the original edition under-covered the selloff."
       }
     ],
     "majorIncidentsConsidered": [
@@ -575,6 +624,6 @@
         "sourceUrl": "https://github.com/openssl/openssl/pull/33652"
       }
     ],
-    "rankingNotes": "Industrial controller exposure leads for potential physical impact. HN Algolia unavailable; 50 titles screened, not 50 deeply reviewed. Mathematical proof claims explicitly unverified. No jQuery coverage. Evening follow-up: added GitHub's first-party session-renewal RCA to also-worth-knowing; other stories retained without claiming a complete repeat discovery sweep."
+    "rankingNotes": "The market-wide selloff leads as the week's largest verified consequence for the technology industry; the refrigeration-controller response follows as the leading incident. Industrial controller exposure leads for potential physical impact. HN Algolia unavailable; 50 titles screened, not 50 deeply reviewed. Mathematical proof claims explicitly unverified. No jQuery coverage. Evening follow-up: added GitHub's first-party session-renewal RCA to also-worth-knowing; other stories retained without claiming a complete repeat discovery sweep."
   }
 }

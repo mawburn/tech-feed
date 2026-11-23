@@ -11,13 +11,15 @@ A landmark doesn't need #1 to be seen first, and an urgent incident doesn't need
 
 **Incidents first.** Critical (usually leads): active or newly confirmed widespread disruption to critical infrastructure, a major platform, payments, communications or transport; large confirmed security emergencies. High (normally a top story): contained but significant failures, major resolved outages with real effects or a published root cause, widely exploitable flaws. Don't inflate: weigh confirmation, population, severity, duration and whether it's ongoing.
 
+**Markets.** A market-wide move tied to AI or technology is a top story and usually `major`: a major index (S&P 500, Nasdaq Composite, Dow) falling about 2% or more in a session or entering correction territory, a record or multi-year-worst weekly loss, or a sharp repricing of a large AI or chip company. It can lead over an incident that isn't critical. Give index moves as the source states them, with closing levels and the session they belong to. Attribute causes to named sources and say where they disagree; a selloff coinciding with an event (an IPO, an earnings report) is not shown to be caused by it. Don't treat one stock's move as a market story.
+
 **Then compare all candidates on:** consequence (disruption, security, money, jobs, urgent action); technical significance and novelty; breadth and durability; evidence quality; practical relevance (extra weight for AI and software engineering, but the whole industry counts); and substantive community discussion. Points, prestige and dollar figures alone never earn rank. Vendor benchmarks and funding need scrutiny. A deep engineering investigation can beat a routine model launch.
 
 **Sizes:** about 5–8 top stories and 5–10 also worth knowing; AI & tooling in practice has no fixed number. Fewer on quiet days; never pad.
 
 ## Significance
 
-For every story ask: *would a well-informed technology reader be embarrassed to learn about this a week later?* If yes, `"significance": "major"`. Typical: IPOs and major acquisitions of prominent technology or AI companies; frontier model or platform launches that change what developers can do; leadership changes at the top of major companies; collapses or shutdowns of widely used products; landmark rulings, regulation or government action; outages big enough to be general news.
+For every story ask: *would a well-informed technology reader be embarrassed to learn about this a week later?* If yes, `"significance": "major"`. Typical: IPOs and major acquisitions of prominent technology or AI companies; frontier model or platform launches that change what developers can do; leadership changes at the top of major companies; collapses or shutdowns of widely used products; market-wide selloffs or rallies tied to AI or technology, and record weekly index moves; landmark rulings, regulation or government action; outages big enough to be general news.
 
 `"notable"` for important stories short of landmark; otherwise leave it out. Expect zero to two `major` stories a day.
 
@@ -46,7 +48,7 @@ If an operational emergency ranks below an ordinary launch or deal, say why in `
 
 ## Weekly
 
-Rank themes by cumulative verified consequence, not daily positions or votes. Every thread with a decisive milestone that week gets a theme or a reason in `rankingNotes`.
+Rank themes by cumulative verified consequence, not daily positions or votes. Market moves count: a week's index declines, worst-day or worst-week records and their named causes get a theme or a reason in `rankingNotes`. Every thread with a decisive milestone that week gets a theme or a reason in `rankingNotes`.
 
 ## jQuery exclusion
 

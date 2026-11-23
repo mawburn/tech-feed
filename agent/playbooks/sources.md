@@ -10,6 +10,10 @@ Front page (pages 1–2), [Best](https://news.ycombinator.com/best), [Show](http
 
 [AWS Health](https://health.aws.amazon.com/health/status), [Google Cloud](https://status.cloud.google.com/), [Cloudflare](https://www.cloudflarestatus.com/), [GitHub](https://www.githubstatus.com/), plus the affected vendor's own status page, regulators and emergency notices. Status pages can be late or incomplete; corroborate with reputable reporting. Outage aggregators show anomalies but never prove scope, cause or provider.
 
+## Markets
+
+Check every run, whatever the weekday: where the major US indexes closed (S&P 500, Nasdaq Composite, Dow), the biggest movers among AI, chip and cloud names, and any weekly or record totals. Start with [CNBC markets](https://www.cnbc.com/markets/) and live blogs, [Reuters markets](https://www.reuters.com/markets/) and Yahoo Finance live coverage. Get closing figures from a report written after the close; intraday figures are not closes. Prefer two outlets for index levels and say when they differ. Many news sites refuse automated fetches or time out (CNN, The Hill and NPR have): try another outlet rather than relying on a snippet. Causes come from named analysts, company filings or reporters, never from your own inference; an event that coincided with a move is not its cause.
+
 ## Engineering blogs: the daily rotation
 
 Each day, open the one catalog file for today's Pacific weekday in `agent/catalog/` (`monday-cloud.md` … `sunday-maker-venues.md`) and check a few of its blogs for new posts. Also check the engineering blog, incident history and issue tracker of any provider behind a tracked incident, listed or not. The weekly review reads all seven files.
