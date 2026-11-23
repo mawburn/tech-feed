@@ -1,0 +1,40 @@
+{
+  "id": "together-ai-prompt-sample-exposure-2026-11",
+  "title": "Together AI serverless prompt samples exposed through repository credential",
+  "provider": "Together AI",
+  "category": "Security",
+  "status": "investigating",
+  "discoveredDate": "2026-11-21",
+  "occurredDate": "2026-06-24",
+  "summary": "Together AI confirmed on November 21 that an exposed credential committed by an AI coding agent to a public repository enabled an unauthorized party to download prompt samples from a private Hugging Face repository. The samples came from selected June and July 2026 inference requests; scope and personal data exposure remain under investigation.",
+  "rootCause": {
+    "status": "confirmed",
+    "summary": "An AI coding agent committed a private Hugging Face repository credential to a public code repository, enabling unauthorized download of stored prompt samples.",
+    "sources": [
+      {
+        "label": "Together AI incident disclosure",
+        "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "Together AI first-party disclosure",
+      "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-21",
+      "kind": "discovery",
+      "status": "investigating",
+      "summary": "Together AI disclosed historical prompt sample theft affecting selected June and July requests and ongoing forensic review. It reports tightened credential controls, pull-request scanning and ZDR defaults for new accounts.",
+      "sources": [
+        {
+          "label": "Together AI disclosure",
+          "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026"
+        }
+      ]
+    }
+  ]
+}
