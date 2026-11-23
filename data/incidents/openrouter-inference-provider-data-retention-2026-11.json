@@ -1,0 +1,37 @@
+{
+  "id": "openrouter-inference-provider-data-retention-2026-11",
+  "title": "OpenRouter inference-provider prompt handling and ZDR eligibility failures",
+  "provider": "OpenRouter",
+  "category": "Security",
+  "status": "monitoring",
+  "discoveredDate": "2026-11-22",
+  "summary": "Following Dragos canary-token findings, OpenRouter said on November 22 it off-boarded three inference providers, removed 125 endpoints from Zero Data Retention eligibility and notified potentially affected customers. Some provider investigations remain open; no breach of OpenRouter itself was reported.",
+  "rootCause": {
+    "status": "suspected",
+    "summary": "Provider compromise, unapproved data retention and marketplace routing/logging practices identified by researchers; causes vary across providers."
+  },
+  "sources": [
+    {
+      "label": "OpenRouter November 22 response",
+      "url": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/"
+    },
+    {
+      "label": "Dragos canary-token investigation",
+      "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-22",
+      "kind": "discovery",
+      "status": "monitoring",
+      "summary": "OpenRouter disclosed removal of three providers and ZDR eligibility for 125 endpoints following independent evidence of prompt leaks and data-policy failures. Investigations and provider assurances remain ongoing.",
+      "sources": [
+        {
+          "label": "OpenRouter response",
+          "url": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/"
+        }
+      ]
+    }
+  ]
+}
