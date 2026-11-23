@@ -1,0 +1,484 @@
+{
+  "weekStart": "2026-11-16",
+  "weekEnding": "2026-11-22",
+  "coverageDays": 7,
+  "partial": false,
+  "sourceDays": [
+    "2026-11-16",
+    "2026-11-17",
+    "2026-11-18",
+    "2026-11-19",
+    "2026-11-20",
+    "2026-11-21",
+    "2026-11-22"
+  ],
+  "title": "AI privacy failures and a landmark IPO collide with critical patches and a verified mathematics breakthrough",
+  "overview": "The week brought two different tests of the AI boom. Anthropic completed a reported $81 billion public offering and began Nasdaq trading, turning infrastructure spending and inference economics into a public-market question. At the same time, security researchers and providers exposed gaps between advertised zero-data-retention settings and the actual handling of prompts across AI inference networks. OpenRouter's removal of three providers and 125 privacy-eligible endpoints made that trust problem concrete.\n\nFor engineers, the urgent work was more operational: critical NGINX, Java and VMware vulnerabilities, compromised Python packages, and an Optimizely client-side supply-chain attack required targeted remediation. PostgreSQL 19 delivered substantive database-maintenance and replication features, while Google's Sashiko provided a working example of agent-assisted code review. A Lean/Mathlib-certified Riemann Hypothesis proof marked an extraordinary research development, although human mathematical exposition remains unfinished. Across these events, the consistent lesson is that deployment and verification boundaries matter at least as much as raw model capability.",
+  "themes": [
+    {
+      "title": "AI inference privacy assurances fail across providers",
+      "category": "Security",
+      "summary": "On November 22, OpenRouter said it had removed three inference providers, withdrawn Zero Data Retention eligibility from 125 endpoints and notified potentially affected customers after Dragos researchers detected prompt leaks and retention-policy failures. Together AI separately disclosed that an AI coding agent had committed a credential to public source, allowing unauthorized download of stored customer prompt samples. These events expose a trust boundary between a routing gateway, the model host and any onward processing provider. OpenRouter said its own infrastructure was not breached; the number of affected customers and requests remains undisclosed.",
+      "briefing": [
+        {
+          "heading": "What changed",
+          "body": "Dragos's November 19 canary-token research preceded provider notices and OpenRouter's November 22 response. OpenRouter removed three providers and 125 ZDR eligibility flags, including precautionary removals. Together AI's November 21 notice traced one leak to an exposed repository credential."
+        },
+        {
+          "heading": "Engineering consequences",
+          "body": "A no-retention setting is not proof of end-to-end handling across provider hops. Teams should identify the exact serving provider, review customer notifications, avoid placing reusable credentials in prompts, and rotate exposed secrets where the documented affected routes overlap their logs."
+        },
+        {
+          "heading": "Evidence gaps",
+          "body": "OpenRouter does not name the three removed providers or quantify affected traffic. Together AI says its forensic review continues. Neither disclosure proves that every endpoint formerly marked ZDR leaked data."
+        }
+      ],
+      "impact": "Directly affects enterprise AI procurement, agent credential hygiene and claims about prompt confidentiality.",
+      "caveat": "The research and vendor statements support different scopes; provider-wide breach counts and full customer impact remain unverified.",
+      "sourceDays": [
+        "2026-11-22"
+      ],
+      "links": [
+        {
+          "label": "OpenRouter response",
+          "url": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/"
+        },
+        {
+          "label": "Dragos investigation",
+          "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens"
+        },
+        {
+          "label": "Together AI disclosure",
+          "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026"
+        }
+      ],
+      "incidentId": "openrouter-inference-provider-data-retention-2026-11"
+    },
+    {
+      "title": "Anthropic's $81 billion IPO puts AI economics in public view",
+      "category": "Business & Markets",
+      "summary": "Anthropic priced its offering at $83 per share on November 18, above the reported range, and began trading on Nasdaq under ANT on November 19. Reuters described proceeds of approximately $81 billion, making the listing a major public-market test of the frontier-model business. The company's access to capital expands its ability to finance compute and research, but public shareholders will now be able to examine revenue quality, losses, infrastructure commitments and margins against its valuation. The event is distinct from the prior week's roadshow and was the decisive milestone for the continuing IPO thread.",
+      "briefing": [
+        {
+          "heading": "Chronology",
+          "body": "November 18 brought the final $83 offering price and reported offering size. November 19 brought the first Nasdaq trading session. Earlier daily coverage had tracked the planned offering; the public listing completed that sequence."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "A public listing supplies financing and recurring market scrutiny for a company whose economics depend heavily on compute procurement and inference demand. Competitors and infrastructure suppliers gain a new valuation benchmark."
+        },
+        {
+          "heading": "What is not established",
+          "body": "An oversubscribed IPO and an above-offer trading price do not demonstrate durable profitability or establish a trend in software engineering hiring. The weekly review does not extrapolate future share prices."
+        }
+      ],
+      "impact": "A landmark financing and disclosure event for the AI sector, with consequences for capital allocation and vendor competition.",
+      "caveat": "The reported offering figures are based on financial reporting; valuation is not equivalent to realized cash flow.",
+      "sourceDays": [
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "links": [
+        {
+          "label": "Reuters pricing report",
+          "url": "https://www.reuters.com/legal/transactional/anthropic-prices-blockbuster-ipo-83-share-source-says-2026-11-18/"
+        },
+        {
+          "label": "Reuters trading report",
+          "url": "https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/"
+        }
+      ]
+    },
+    {
+      "title": "A week of critical infrastructure and software-supply-chain patching",
+      "category": "Security",
+      "summary": "Operators faced several distinct urgent security disclosures rather than one common campaign. A Java Base64 decoder memory-corruption flaw was reported November 17, followed by critical NGINX HTTP/2 remote-code-execution fixes November 18 and a patched VMware vCenter authentication bypass November 19. Malicious Microsoft agent-framework packages on PyPI and compromised Optimizely web snippets demonstrated supply-chain exposure beyond server vulnerabilities. The operational lesson is to prioritize exposure inventories, exact affected versions, package provenance and credential rotation rather than treating every CVE as equally exploitable.",
+      "briefing": [
+        {
+          "heading": "Timeline and exposure",
+          "body": "November 16–17: Optimizely's injected snippets were identified and vendor mitigation confirmed. November 17: Java4Shell was disclosed and malicious agent-framework PyPI versions briefly appeared. November 18: NGINX released fixes. November 19: Broadcom patched vCenter; later investigation described pre-patch exploitation."
+        },
+        {
+          "heading": "Patches and response",
+          "body": "Affected NGINX deployments should use vendor-fixed releases; VMware vCenter needs supported patched builds and has no workaround for the bypass. Java runtime risk depends on architecture and affected builds. Anyone who installed the malicious PyPI versions needs credential rotation and incident review."
+        },
+        {
+          "heading": "Limits",
+          "body": "Laboratory exploit demonstrations do not establish widespread exploitation. The Microsoft package-publishing root cause remains suspected, and patch adoption across affected installations is not measured."
+        }
+      ],
+      "impact": "The cumulative exposure crosses web servers, identity infrastructure, developer dependencies and client-side code delivery.",
+      "caveat": "These are separate incidents; no common attacker or causal connection has been established.",
+      "sourceDays": [
+        "2026-11-16",
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19",
+        "2026-11-21"
+      ],
+      "links": [
+        {
+          "label": "NGINX technical disclosure",
+          "url": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities"
+        },
+        {
+          "label": "Broadcom advisory",
+          "url": "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495"
+        },
+        {
+          "label": "Java4Shell research",
+          "url": "https://calif.io/java4shell/"
+        },
+        {
+          "label": "Microsoft PyPI compromise analysis",
+          "url": "https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi"
+        },
+        {
+          "label": "Optimizely investigation",
+          "url": "https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/"
+        }
+      ],
+      "incidentId": "nginx-http2-rce-2026-11"
+    },
+    {
+      "title": "Lean community certifies a Riemann Hypothesis proof",
+      "category": "Research",
+      "summary": "Levent Alpöge released a roughly 17-million-line Lean formalization of a claimed proof of the Riemann Hypothesis on November 20. On November 21, the Lean and Mathlib communities issued a joint statement certifying that the theorem matches the established formal statement and that multiple proof checkers accepted the exported proof. The significance extends beyond one mathematical result: independent kernel checking offers a stronger validation pathway than an AI-generated prose argument. Mathematical exposition, wider expert comprehension and any prize recognition are separate questions still to unfold.",
+      "briefing": [
+        {
+          "heading": "From claim to verification",
+          "body": "November 20: the formal library was published. November 21: Lean and Mathlib endorsed it, reporting checks of the exact theorem statement, reproducible compilation and independent proof verification."
+        },
+        {
+          "heading": "Why the validation matters",
+          "body": "The community compared the proved theorem with the established Mathlib Riemann Hypothesis statement and checked the proof export with multiple tools. That addresses common concerns about hidden assumptions or a theorem mismatch."
+        },
+        {
+          "heading": "What remains",
+          "body": "A formal certificate does not itself provide a concise human-readable mathematical explanation. Independent mathematical interpretation and institutional recognition may take longer."
+        }
+      ],
+      "impact": "If sustained under further scrutiny, this is a major mathematical milestone and a high-profile demonstration of formal methods used with AI-assisted research.",
+      "caveat": "The certification is strong evidence for formal correctness, but it is not the same as universal human understanding or completion of prize procedures.",
+      "sourceDays": [
+        "2026-11-20",
+        "2026-11-21"
+      ],
+      "links": [
+        {
+          "label": "Lean/Mathlib joint statement",
+          "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/"
+        },
+        {
+          "label": "MIT independent verification logs",
+          "url": "https://math.mit.edu/~drew/grh/"
+        },
+        {
+          "label": "Technical discussion",
+          "url": "https://news.ycombinator.com/item?id=50589618"
+        }
+      ]
+    },
+    {
+      "title": "PostgreSQL 19 changes maintenance and replica consistency",
+      "category": "Developer Tools",
+      "summary": "PostgreSQL 19 shipped November 19 with improvements that address long-standing production operational tradeoffs. The release adds concurrent table repacking, plan-advice extensions and a way for standby reads to wait until a particular write-ahead-log position has been replayed. These features reduce the need to choose between disruptive maintenance and accumulated bloat, while making read-after-write behavior on replicas more explicit. Independent runnable walkthroughs appeared November 20, giving engineers a practical route to evaluate the release before planning upgrades.",
+      "briefing": [
+        {
+          "heading": "Release milestone",
+          "body": "The PostgreSQL Global Development Group published PostgreSQL 19 on November 19. The release includes REPACK (CONCURRENTLY), pg_plan_advice and WAIT FOR LSN, alongside autovacuum, replication and observability improvements."
+        },
+        {
+          "heading": "Practical implications",
+          "body": "Concurrent repacking can reclaim bloat without blocking ordinary reads and writes. Plan advice helps stabilize problematic query plans. WAIT FOR LSN enables application-controlled read-your-writes consistency on replicas."
+        },
+        {
+          "heading": "Migration caution",
+          "body": "New commands do not remove the need for workload-specific benchmarks, extension compatibility checks, backup validation and staged rollout. A browser tutorial is a learning aid, not a production compatibility test."
+        }
+      ],
+      "impact": "Material to database reliability and performance teams, especially those with large tables or read replicas.",
+      "caveat": "Performance gains and operational behavior depend on configuration and workload; no production benchmarks were independently reproduced for this review.",
+      "sourceDays": [
+        "2026-11-19",
+        "2026-11-20"
+      ],
+      "links": [
+        {
+          "label": "PostgreSQL release announcement",
+          "url": "https://www.postgresql.org/about/news/postgresql-19-released-3449/"
+        },
+        {
+          "label": "Runnable tutorial",
+          "url": "https://certuvia.com/blog/postgres-19"
+        }
+      ]
+    },
+    {
+      "title": "AI coding tools expand, but review and isolation matter more",
+      "category": "AI & Tooling",
+      "summary": "OpenAI and Microsoft announced coding-oriented models November 17, and Google introduced Gemini 4 Neon on November 18. The more actionable engineering evidence came from Google's Sashiko report, which describes an open-source agentic code-review service working on Linux kernel patches, and from hands-on remote-agent isolation workflows. These projects address a practical bottleneck: faster code generation can increase review burden and credential exposure. The same week, Together AI disclosed a credential leak caused by a coding agent, sharpening the case for bounded permissions and independent verification.",
+      "briefing": [
+        {
+          "heading": "Model announcements versus measured practice",
+          "body": "The week's model releases broaden available coding systems, but vendor benchmarks are not equivalent to independent production performance. Sashiko's November 18 engineering article details actual code-review architecture and reported results."
+        },
+        {
+          "heading": "Techniques worth adopting",
+          "body": "Sashiko separates concerns such as locking and resource lifetimes into focused reviews. Remote-agent workflows such as lend keep privileged local credentials out of remote virtual machines and require approval for sensitive actions."
+        },
+        {
+          "heading": "Limitations",
+          "body": "Sashiko's results are reported by its developers and do not guarantee low false-positive rates in other repositories. The remote-agent examples are inspectable but were not independently executed in this review."
+        }
+      ],
+      "impact": "Changes the engineering conversation from model selection alone to review throughput, sandboxing, provenance and trust boundaries.",
+      "caveat": "The examples are evidence of implementations, not proof that autonomous coding is safe by default.",
+      "sourceDays": [
+        "2026-11-16",
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "links": [
+        {
+          "label": "Sashiko engineering report",
+          "url": "https://cloud.google.com/blog/products/application-development/lessons-from-building-sashiko-an-agentic-code-review-system"
+        },
+        {
+          "label": "Sashiko source",
+          "url": "https://github.com/google/sashiko"
+        },
+        {
+          "label": "Remote-agent workflow",
+          "url": "https://blog.antonio.cx/running-agents-with-lend"
+        },
+        {
+          "label": "Together AI incident",
+          "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026"
+        }
+      ]
+    },
+    {
+      "title": "Critical operational incidents expose control-plane fragility",
+      "category": "Cloud & Infrastructure",
+      "summary": "A November 17 internal update disrupted Apple services including iCloud and Apple Pay; Equinor disclosed a separate corporate IT cyberattack while reporting production unaffected. The European Commission confirmed November 19 that an earlier detected AI-assisted cyber campaign had forced some internal applications offline. On November 20, UK authorities and researchers described vulnerabilities in commercial refrigeration management equipment, while GL.iNet disclosed cloud-management compromise affecting some routers and KVM devices. These incidents illustrate how privileged control planes and operational dependencies can create consequences far beyond an individual application.",
+      "briefing": [
+        {
+          "heading": "Distinct incident timelines",
+          "body": "Apple's outage and Equinor's disclosure occurred November 17. The European Commission confirmed its investigation November 19, describing an attack detected in October. Refrigeration-controller and GL.iNet disclosures appeared November 20, with further device cleanup still required."
+        },
+        {
+          "heading": "Operational implications",
+          "body": "Review remote-management exposure, segment operational systems, test update rollback and credential rotation, and ensure that vendor cloud mitigation is paired with endpoint inspection when malware may already be installed."
+        },
+        {
+          "heading": "Still unresolved",
+          "body": "Equinor's initial access and full scope, the Commission's investigation, GL.iNet device remediation and a complete Apple restoration timeline lacked definitive closure in the reviewed records."
+        }
+      ],
+      "impact": "Control-plane hardening and independent recovery mechanisms remain essential for critical services and connected hardware.",
+      "caveat": "No common actor or causal link connects these incidents, and several impact assessments remain incomplete.",
+      "sourceDays": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19",
+        "2026-11-20",
+        "2026-11-22"
+      ],
+      "links": [
+        {
+          "label": "Apple outage reporting",
+          "url": "https://www.reuters.com/business/retail-consumer/apple-works-restore-services-after-outage-caused-by-internal-update-2026-11-17/"
+        },
+        {
+          "label": "Equinor reporting",
+          "url": "https://www.reuters.com/technology/equinor-detects-ongoing-cyberattack-output-unaffected-2026-11-17/"
+        },
+        {
+          "label": "European Commission reporting",
+          "url": "https://www.reuters.com/legal/litigation/eu-commission-targeted-cyberattack-politico-reports-2026-11-19/"
+        },
+        {
+          "label": "GL.iNet notice",
+          "url": "https://www.gl-inet.com/en-us/blogs/blog/glinet-security-notice-2026-11-20"
+        },
+        {
+          "label": "UK refrigeration reporting",
+          "url": "https://www.reuters.com/world/uk/uk-finds-fix-fridge-freezer-vulnerability-after-european-hacks-2026-11-20/"
+        }
+      ],
+      "incidentId": "eu-commission-ai-assisted-cyberattack-2026-11"
+    }
+  ],
+  "toolsToWatch": [
+    {
+      "title": "Sashiko: parallel Linux kernel review agents",
+      "format": "Case study",
+      "summary": "Google's engineering account explains a working Gemini-based review service for Linux patches. Focused passes look for locking, memory lifetime and other defect classes, then assemble findings for maintainers. Source code and reported review outcomes are available. Inspect the repository and article before attempting deployment; this review did not independently run the service.",
+      "links": [
+        {
+          "label": "Engineering walkthrough",
+          "url": "https://cloud.google.com/blog/products/application-development/lessons-from-building-sashiko-an-agentic-code-review-system"
+        },
+        {
+          "label": "Source code",
+          "url": "https://github.com/google/sashiko"
+        }
+      ],
+      "briefing": [
+        {
+          "heading": "What was built",
+          "body": "An open-source code review system designed to supplement, not replace, human Linux maintainers."
+        },
+        {
+          "heading": "Reproduction limits",
+          "body": "Requires appropriate model access and integration with review infrastructure; claims are vendor-reported."
+        }
+      ]
+    },
+    {
+      "title": "lend: remote agents with local credential approval",
+      "format": "Workflow",
+      "summary": "A developer documents running coding agents in remote VMs while privileged local tools and credentials remain on the user's machine. The workflow combines herdr, Ovis and lend and provides source and setup notes. The main transferable idea is an approval boundary between untrusted agent execution and authenticated local commands. The implementation was inspected in the daily research but not independently reproduced here.",
+      "links": [
+        {
+          "label": "Technical walkthrough",
+          "url": "https://blog.antonio.cx/running-agents-with-lend"
+        },
+        {
+          "label": "Source code",
+          "url": "https://github.com/antoniomika/lend"
+        }
+      ]
+    },
+    {
+      "title": "PostgreSQL 19 interactive feature exercises",
+      "format": "Tutorial",
+      "summary": "A browser-oriented walkthrough supplies concrete SQL examples for new PostgreSQL 19 features, including maintenance and consistency improvements. It is useful for evaluating syntax and learning operational tradeoffs before running a local test cluster. It should not substitute for benchmarking on production-like data, extension checks or upgrade rehearsal.",
+      "links": [
+        {
+          "label": "Hands-on walkthrough",
+          "url": "https://certuvia.com/blog/postgres-19"
+        },
+        {
+          "label": "Official release",
+          "url": "https://www.postgresql.org/about/news/postgresql-19-released-3449/"
+        }
+      ]
+    },
+    {
+      "title": "LookAtMyQuant: error-aware model compression",
+      "format": "Source code",
+      "summary": "An MIT-licensed quantization compiler experiments with assigning different precision to weights under a memory budget, using measured error sensitivity rather than uniform bit allocation. The repository contains code and evaluation artifacts. Reproducing reported quality and speed tradeoffs requires the same models, hardware and benchmark settings; these were not independently tested.",
+      "links": [
+        {
+          "label": "Source and evaluations",
+          "url": "https://github.com/ShinMegamiBoson/lookatmyquant"
+        }
+      ]
+    },
+    {
+      "title": "Gall: Apple-silicon local model with idle unloading",
+      "format": "Experiment",
+      "summary": "Gall implements Rust/Metal inference for Inkling 2 Mini with a macOS menu-bar application that saves conversation state and unloads weights while idle. The project is a useful example of trading reload latency against resident memory on local machines. Published throughput is author-reported and depends on the device and configuration.",
+      "links": [
+        {
+          "label": "Source and measurements",
+          "url": "https://github.com/ltrgoddard/gall"
+        }
+      ]
+    },
+    {
+      "title": "springrep: exact-geometry CAD in Rust",
+      "format": "Source code",
+      "summary": "The springrep project documents a Rust boundary-representation geometry kernel with an example that extrudes a plate, cuts a bore, applies a fillet and exports STEP. It offers a practical contrast with mesh-only procedural modeling. Its API and geometry correctness should be tested on more complex shapes before adoption.",
+      "links": [
+        {
+          "label": "Project and example",
+          "url": "https://springcraft-ai.github.io/springrep/"
+        }
+      ]
+    }
+  ],
+  "marketPulse": "Anthropic's November 18 pricing and November 19 Nasdaq debut were the week's largest verified financing milestones, putting AI revenue, compute costs and capital commitments under public-market scrutiny. AMD's November 16 World Labs acquisition and model announcements from Google, Microsoft and OpenAI reinforced investment in AI capability and infrastructure. The OpenRouter provider removals show that weak security and data-handling assurances can also impose immediate commercial costs.\n\nThe seven daily editions did not establish a new representative change in senior or Staff-level software-engineering hiring, wages or vacancy trends. Isolated employer anecdotes and security incidents are not reliable labor-market statistics. For business planning, distinguish a landmark IPO and individual acquisitions from a broad hiring recovery.",
+  "nextWeekWatch": "Track OpenRouter's named provider notices, customer exposure findings and ZDR revalidation; Together AI's forensic results and customer notifications; GL.iNet's stable firmware and confirmed cleanup; patch adoption and any exploitation updates for VMware, NGINX, Java and GPGME; and final findings from the Equinor and European Commission investigations. Watch for a Microsoft agent-framework package-publishing postmortem, Optimizely visitor-impact assessment and Apple outage closure. Monitor independent mathematical exposition of the Riemann Hypothesis proof and its continued formal checks, Anthropic's early public-company disclosures, and C++26 approval after the November contracts ballot dispute. GitHub's selected Copilot model retirements remain scheduled for December 14.",
+  "discoveryAudit": {
+    "checkedAt": "2026-11-22T17:16:24-08:00",
+    "windowStart": "2026-11-16T00:00:00-08:00",
+    "windowEnd": "2026-11-22T17:16:24-08:00",
+    "sources": [
+      {
+        "name": "Seven GitHub daily editions November 16–22",
+        "status": "checked",
+        "candidateCount": 7
+      },
+      {
+        "name": "Previous weekly review November 15",
+        "status": "checked"
+      },
+      {
+        "name": "13 existing incident records",
+        "status": "checked",
+        "candidateCount": 13
+      },
+      {
+        "name": "OpenRouter November 22 first-party disclosure",
+        "status": "checked"
+      },
+      {
+        "name": "Together AI November 21 first-party disclosure",
+        "status": "checked"
+      },
+      {
+        "name": "Lean and Mathlib November 21 certification",
+        "status": "checked"
+      },
+      {
+        "name": "PostgreSQL November 19 release",
+        "status": "checked"
+      },
+      {
+        "name": "Google Sashiko engineering writeup",
+        "status": "checked"
+      },
+      {
+        "name": "Broad web discovery for HN, security, business and research",
+        "status": "partial",
+        "notes": "Searched contemporary reporting and community discussion; did not complete an exhaustive HN front-page/Best/Show/New sweep or Algolia query."
+      },
+      {
+        "name": "Sunday maker catalog and six other engineering blog catalogs",
+        "status": "partial",
+        "notes": "Catalog instructions reviewed; only selected original posts were opened. Full catalog freshness sweep, YouTube viewing and live incident-status checks were not completed."
+      }
+    ],
+    "majorIncidentsConsidered": [
+      {
+        "title": "AI inference provider data-handling failures",
+        "decision": "top-story",
+        "reason": "Prompt confidentiality claims and vendor removals directly affect developers.",
+        "status": "monitoring",
+        "incidentId": "openrouter-inference-provider-data-retention-2026-11",
+        "sourceUrl": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/"
+      },
+      {
+        "title": "NGINX HTTP/2 RCE vulnerabilities",
+        "decision": "top-story",
+        "reason": "Critical patching urgency; grouped with related independent security disclosures.",
+        "status": "monitoring",
+        "incidentId": "nginx-http2-rce-2026-11",
+        "sourceUrl": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities"
+      },
+      {
+        "title": "European Commission AI-assisted cyberattack",
+        "decision": "top-story",
+        "reason": "Ongoing government application impact; grouped with control-plane incidents.",
+        "status": "investigating",
+        "incidentId": "eu-commission-ai-assisted-cyberattack-2026-11",
+        "sourceUrl": "https://www.reuters.com/legal/litigation/eu-commission-targeted-cyberattack-politico-reports-2026-11-19/"
+      }
+    ],
+    "rankingNotes": "The inference privacy failure leads because the new November 22 provider actions alter production trust assumptions. The Anthropic IPO is a landmark and receives a standalone second theme. Urgent patch disclosures are consolidated without asserting a shared cause. The Riemann Hypothesis certification and PostgreSQL 19 receive independent themes for their decisive November 21 and November 19 milestones. The continuing anthropic-ipo-2026 and riemann-hypothesis-proofs-2026 threads are both covered. Smaller model releases, C++26 ballot developments, GPGME, GL.iNet and refrigeration issues are covered through synthesis or next-week watch rather than standalone themes; jQuery is excluded. No incident records changed because no independently verified status transition beyond the existing records was established. Community and catalog scans were partial, not represented as exhaustive."
+  }
+}
