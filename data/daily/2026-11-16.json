@@ -794,7 +794,7 @@
         "title": "Optimizely malicious third-party JavaScript",
         "decision": "top-story",
         "reason": "Confirmed large cross-site malicious script distribution and uncertain full impact.",
-        "status": "uncertain",
+        "status": "investigating",
         "sourceUrl": "https://report-uri.ghost.io/worlds-largest-brands-infected-with-malware-via-optimizely/"
       },
       {

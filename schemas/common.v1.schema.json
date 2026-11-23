@@ -179,10 +179,12 @@
                 "$ref": "#/$defs/nonEmptyText"
               },
               "status": {
+                "description": "Incident state when the story was considered; same values as data/incidents/*.json.",
                 "enum": [
-                  "active",
-                  "resolved",
-                  "uncertain"
+                  "investigating",
+                  "identified",
+                  "monitoring",
+                  "resolved"
                 ]
               },
               "sourceUrl": {
