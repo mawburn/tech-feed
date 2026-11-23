@@ -458,6 +458,7 @@
         "title": "AI inference provider data-handling failures",
         "decision": "top-story",
         "reason": "Prompt confidentiality claims and vendor removals directly affect developers.",
+        "status": "monitoring",
         "incidentId": "openrouter-inference-provider-data-retention-2026-11",
         "sourceUrl": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/"
       },
@@ -465,6 +466,7 @@
         "title": "NGINX HTTP/2 RCE vulnerabilities",
         "decision": "top-story",
         "reason": "Critical patching urgency; grouped with related independent security disclosures.",
+        "status": "monitoring",
         "incidentId": "nginx-http2-rce-2026-11",
         "sourceUrl": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities"
       },
@@ -472,6 +474,7 @@
         "title": "European Commission AI-assisted cyberattack",
         "decision": "top-story",
         "reason": "Ongoing government application impact; grouped with control-plane incidents.",
+        "status": "investigating",
         "incidentId": "eu-commission-ai-assisted-cyberattack-2026-11",
         "sourceUrl": "https://www.reuters.com/legal/litigation/eu-commission-targeted-cyberattack-politico-reports-2026-11-19/"
       }

@@ -483,6 +483,7 @@
         "incidentId": "nginx-http2-rce-2026-11",
         "decision": "top-story",
         "reason": "Critical internet-facing vulnerability with urgent patch.",
+        "status": "active",
         "sourceUrl": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities"
       },
       {
@@ -490,6 +491,7 @@
         "incidentId": "microsoft-agent-framework-pypi-malware-2026-11",
         "decision": "top-story",
         "reason": "Confirmed credential-stealing package.",
+        "status": "active",
         "sourceUrl": "https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi"
       },
       {
@@ -497,6 +499,7 @@
         "incidentId": "java4shell-openjdk-base64-2026-11",
         "decision": "top-story",
         "reason": "Government warnings and exploit demonstrations.",
+        "status": "active",
         "sourceUrl": "https://calif.io/java4shell/"
       }
     ],

@@ -794,18 +794,21 @@
         "title": "Optimizely malicious third-party JavaScript",
         "decision": "top-story",
         "reason": "Confirmed large cross-site malicious script distribution and uncertain full impact.",
+        "status": "uncertain",
         "sourceUrl": "https://report-uri.ghost.io/worlds-largest-brands-infected-with-malware-via-optimizely/"
       },
       {
         "title": "JPMorgan banking transaction delays",
         "decision": "top-story",
         "reason": "Verified cross-bank payment disruption; Chase reported restoration.",
+        "status": "resolved",
         "sourceUrl": "https://www.reuters.com/legal/transactional/downdetector-reports-outages-major-us-banks-2026-11-16/"
       },
       {
         "title": "United Airlines departure outage",
         "decision": "also-worth",
         "reason": "Shorter, resolved disruption with no verified link to the FAA incident.",
+        "status": "resolved",
         "sourceUrl": "https://www.reuters.com/world/us/united-airlines-says-technology-issue-affecting-departing-flights-2026-11-16/"
       }
     ],

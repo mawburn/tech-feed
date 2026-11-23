@@ -473,6 +473,7 @@
         "incidentId": "openrouter-inference-provider-data-retention-2026-11",
         "decision": "top-story",
         "reason": "Confirmed data-handling failures and provider removals affect sensitive AI inference workflows.",
+        "status": "monitoring",
         "sourceUrl": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/"
       },
       {
@@ -480,6 +481,7 @@
         "incidentId": "together-ai-prompt-sample-exposure-2026-11",
         "decision": "top-story",
         "reason": "A credential leaked through an agent-assisted workflow enabled confirmed theft of historical prompts.",
+        "status": "investigating",
         "sourceUrl": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026"
       },
       {
@@ -487,6 +489,7 @@
         "incidentId": "glinet-router-kvm-cloud-compromise-2026-11",
         "decision": "top-story",
         "reason": "A cloud management compromise can persist as malware on physical network equipment.",
+        "status": "monitoring",
         "sourceUrl": "https://www.gl-inet.com/en-us/blogs/blog/glinet-security-notice-2026-11-20"
       },
       {
@@ -494,6 +497,7 @@
         "incidentId": "gnupg-gpgme-double-free-2026-11",
         "decision": "top-story",
         "reason": "A vulnerable cryptographic integration library can affect many applications.",
+        "status": "monitoring",
         "sourceUrl": "https://lists.gnupg.org/pipermail/gnupg-announce/2026q4/000517.html"
       }
     ],
