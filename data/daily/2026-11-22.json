@@ -64,7 +64,24 @@
       "incidentId": "openrouter-inference-provider-data-retention-2026-11",
       "isUpdate": false,
       "whyItMatters": "Confirmed data-handling failures and provider removals affect sensitive AI inference workflows.",
-      "limitations": "Not all affected providers and customers are publicly identified."
+      "limitations": "Not all affected providers and customers are publicly identified.",
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50595554",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://openrouter.ai/og.png",
+        "alt": "Publisher-provided image for OpenRouter removes three providers and 125 ZDR endpoints after prompt-leak findings",
+        "credit": "openrouter.ai",
+        "sourceUrl": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/",
+        "local": "img/595719a176174d86a254.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "595719a176174d86a2544cb1c659cc108ef5f5d63352a2d3edef22426a2e087b"
+      }
     },
     {
       "title": "Together AI confirms prompt theft after coding agent exposed a repository secret",
@@ -94,7 +111,24 @@
       "incidentId": "together-ai-prompt-sample-exposure-2026-11",
       "isUpdate": false,
       "whyItMatters": "A credential leaked through an agent-assisted workflow enabled confirmed theft of historical prompts.",
-      "limitations": "Affected-customer and personal-data scope remain under investigation."
+      "limitations": "Affected-customer and personal-data scope remain under investigation.",
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50595816",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://cdn.prod.website-files.com/69654e88dce9154b5f12070c/6b022ac06b3b148585570c47_OG-image_20261121-security-event-prompt-leakage2.png",
+        "alt": "Publisher-provided image for Together AI confirms prompt theft after coding agent exposed a repository secret",
+        "credit": "together.ai",
+        "sourceUrl": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026",
+        "local": "img/e5362b0e3879679cc154.webp",
+        "width": 600,
+        "height": 315,
+        "sha256": "e5362b0e3879679cc1542139d7ad8ca1e0929f72751043b74754061f9b923f1c"
+      }
     },
     {
       "title": "GL.iNet says attackers installed malware on some routers and KVM devices",
@@ -124,7 +158,17 @@
       "incidentId": "glinet-router-kvm-cloud-compromise-2026-11",
       "isUpdate": false,
       "whyItMatters": "A cloud management compromise can persist as malware on physical network equipment.",
-      "limitations": "Complete affected-device count and firmware rollout not verified."
+      "limitations": "Complete affected-device count and firmware rollout not verified.",
+      "image": {
+        "url": "https://www.gl-inet.com/cdn/shop/articles/20261121-145609_1200x675.jpg?v=1795244669",
+        "alt": "Publisher-provided image for GL.iNet says attackers installed malware on some routers and KVM devices",
+        "credit": "gl-inet.com",
+        "sourceUrl": "https://www.gl-inet.com/en-us/blogs/blog/glinet-security-notice-2026-11-20",
+        "local": "img/17dde1209b5e378d0376.webp",
+        "width": 600,
+        "height": 338,
+        "sha256": "17dde1209b5e378d037647bbf0461907db9a48b1960eb2bf70804d57f779372e"
+      }
     },
     {
       "title": "GnuPG fixes critical GPGME double-free vulnerability",
@@ -154,7 +198,14 @@
       "incidentId": "gnupg-gpgme-double-free-2026-11",
       "isUpdate": false,
       "whyItMatters": "A vulnerable cryptographic integration library can affect many applications.",
-      "limitations": "Actual exploitation and patch deployment are not established."
+      "limitations": "Actual exploitation and patch deployment are not established.",
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50587208",
+          "label": "HN discussion"
+        }
+      ]
     },
     {
       "title": "OpenAI chief scientist proposes shared perplexity-based safety limits",
@@ -184,7 +235,24 @@
       "significance": "notable",
       "isUpdate": false,
       "whyItMatters": "Proposes a common quantitative language for frontier-model safety coordination.",
-      "limitations": "Cross-lab standardization and predictive reliability are unresolved."
+      "limitations": "Cross-lab standardization and predictive reliability are unresolved.",
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50601525",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://images.ctfassets.net/kftzwdyauwt9/6rIIhCRSKrhIfe385Onmcz/aca2d190553c62fd5d49efb5d5ce1eb6/perplexity-and-intelligence-social.png?w=1600&h=900&fit=fill",
+        "alt": "Publisher-provided image for OpenAI chief scientist proposes shared perplexity-based safety limits",
+        "credit": "openai.com",
+        "sourceUrl": "https://openai.com/index/perplexity-and-intelligence/",
+        "local": "img/2cfb3de7936b20ce97b0.webp",
+        "width": 600,
+        "height": 338,
+        "sha256": "2cfb3de7936b20ce97b0d6caa1bd0a9106ee370508ae8d5fcd409c013dba0fcc"
+      }
     },
     {
       "title": "C++ committee recompletes C++26 technical work after contracts ballot objections",
@@ -213,7 +281,14 @@
       "rank": 6,
       "isUpdate": false,
       "whyItMatters": "Resolves a major procedural obstacle to C++26 and clarifies contract enforcement.",
-      "limitations": "Final ISO approval and compiler implementation remain pending."
+      "limitations": "Final ISO approval and compiler implementation remain pending.",
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50600838",
+          "label": "HN discussion"
+        }
+      ]
     }
   ],
   "alsoWorthKnowing": [
@@ -236,7 +311,24 @@
           "label": "The Register analysis",
           "url": "https://www.theregister.com/columnists/2026/11/21/aws-got-hit-by-an-outage-too-heres-why-you-didnt-hear-about-it/5311511"
         }
-      ]
+      ],
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50603730",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://image.theregister.com/5311515.jpg?imageId=5311515&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+        "alt": "Publisher-provided image for AWS November 15 identity outage receives a retrospective",
+        "credit": "theregister.com",
+        "sourceUrl": "https://www.theregister.com/columnists/2026/11/21/aws-got-hit-by-an-outage-too-heres-why-you-didnt-hear-about-it/5311511",
+        "local": "img/8d1368b23983a76ba5af.webp",
+        "width": 600,
+        "height": 342,
+        "sha256": "8d1368b23983a76ba5afcaa2149c4967ef348089ddf3dd0a3b53f3d9acef4f8c"
+      }
     },
     {
       "title": "Independent study questions future fossil-fuel share of AI data-center power",
@@ -327,7 +419,24 @@
           "url": "https://github.com/ShinMegamiBoson/lookatmyquant"
         }
       ],
-      "format": "Experiment"
+      "format": "Experiment",
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50591853",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/047c86efcf503f5a5b86116e0c5fe8f6ef112d8efa51cdc352b507b303bd531a/ShinMegamiBoson/lookatmyquant",
+        "alt": "Publisher-provided image for LookAtMyQuant compresses models with error-aware bit allocation",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/ShinMegamiBoson/lookatmyquant",
+        "local": "img/f078c70e13208417bb27.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "f078c70e13208417bb274336f5264f20074ea1212ebcc8ab2d9e7779b3d26a7a"
+      }
     },
     {
       "title": "Gall runs local Inkling inference on Apple silicon with idle unloading",
@@ -353,7 +462,24 @@
           "url": "https://github.com/ltrgoddard/gall"
         }
       ],
-      "format": "Show HN"
+      "format": "Show HN",
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50604195",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/0f87ba86a5803dabbd3f0590c9233f614725cf4aacccb67a2a2dc59284cf758f/ltrgoddard/gall",
+        "alt": "Publisher-provided image for Gall runs local Inkling inference on Apple silicon with idle unloading",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/ltrgoddard/gall",
+        "local": "img/8d1702315dce34bdb4ad.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "8d1702315dce34bdb4adb89d1350816afe0f203270672ab7bff679ae7045a1ac"
+      }
     },
     {
       "title": "Worker 755 lets humans play the subagent of an AI manager",
@@ -383,7 +509,24 @@
           "url": "https://worker755.com"
         }
       ],
-      "format": "Show HN"
+      "format": "Show HN",
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50599762",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/8217d6007c48ce9700767a4757ba11e92ed61c9b4cf4c3f79d9162602a6c3d63/gulivan/worker755",
+        "alt": "Publisher-provided image for Worker 755 lets humans play the subagent of an AI manager",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/gulivan/worker755",
+        "local": "img/976a6d0c6744fece497c.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "976a6d0c6744fece497cf0645563da7f83b94530ca041480a1ccde04608512ee"
+      }
     },
     {
       "title": "aaf-gate adds a deterministic kill switch and audit trail to AI agents",
@@ -409,7 +552,24 @@
           "url": "https://github.com/buberlo/aaf-gate"
         }
       ],
-      "format": "Show HN"
+      "format": "Show HN",
+      "discussions": [
+        {
+          "platform": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=50604524",
+          "label": "HN discussion"
+        }
+      ],
+      "image": {
+        "url": "https://opengraph.githubassets.com/3b68db53deaa1e1732e50599818deb0b0e79dd49c20a4f0ed5a2e521d2f5801d/buberlo/aaf-gate",
+        "alt": "Publisher-provided image for aaf-gate adds a deterministic kill switch and audit trail to AI agents",
+        "credit": "github.com",
+        "sourceUrl": "https://github.com/buberlo/aaf-gate",
+        "local": "img/2b746f32b7566112a827.webp",
+        "width": 600,
+        "height": 300,
+        "sha256": "2b746f32b7566112a827fb6f0e25d75d3e918c960fc4945d9bb17748f488bca8"
+      }
     }
   ],
   "marketPulse": {
