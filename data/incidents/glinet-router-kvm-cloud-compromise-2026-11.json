@@ -1,0 +1,40 @@
+{
+  "id": "glinet-router-kvm-cloud-compromise-2026-11",
+  "title": "GL.iNet cloud remote-management compromise of routers and KVMs",
+  "provider": "GL.iNet",
+  "category": "Security",
+  "status": "monitoring",
+  "discoveredDate": "2026-11-20",
+  "occurredDate": "2026-11-20",
+  "summary": "GL.iNet confirmed unauthorized exploitation of its cloud remote-management service to install malware on some routers and KVM devices. The cloud attack path was blocked, but previously infected devices require separate checks and remediation; stable security firmware was scheduled for November 22, with availability not independently confirmed.",
+  "rootCause": {
+    "status": "confirmed",
+    "summary": "A vulnerability in GL.iNet cloud remote management allowed unauthorized access and malware installation on some managed devices.",
+    "sources": [
+      {
+        "label": "GL.iNet security notice",
+        "url": "https://www.gl-inet.com/en-us/blogs/blog/glinet-security-notice-2026-11-20"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "GL.iNet November 20 security notice, updated November 21",
+      "url": "https://www.gl-inet.com/en-us/blogs/blog/glinet-security-notice-2026-11-20"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-20",
+      "kind": "discovery",
+      "status": "monitoring",
+      "summary": "GL.iNet disclosed active exploitation of cloud remote management and said the cloud vulnerability and attack path were blocked. It provided a malware process indicator and KVM beta firmware, while stable firmware remained scheduled.",
+      "sources": [
+        {
+          "label": "Vendor notice",
+          "url": "https://www.gl-inet.com/en-us/blogs/blog/glinet-security-notice-2026-11-20"
+        }
+      ]
+    }
+  ]
+}
