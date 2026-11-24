@@ -2392,8 +2392,8 @@
       "status": "failed"
     },
     "https://www.reuters.com/business/retail-consumer/apple-works-restore-services-after-outage-caused-by-internal-update-2026-11-17/": {
-      "attempts": 2,
-      "lastAttempt": "2026-11-21T03:17:55Z",
+      "attempts": 3,
+      "lastAttempt": "2026-11-24T13:51:39Z",
       "reason": "HTTP 401 from https://www.reuters.com/business/retail-consumer/apple-works-restore-services-after-outage-caused-by-internal-update-2026-11-17/",
       "status": "failed"
     },
@@ -2440,8 +2440,8 @@
       "status": "failed"
     },
     "https://www.reuters.com/technology/equinor-detects-ongoing-cyberattack-output-unaffected-2026-11-17/": {
-      "attempts": 2,
-      "lastAttempt": "2026-11-21T03:17:55Z",
+      "attempts": 3,
+      "lastAttempt": "2026-11-24T13:51:39Z",
       "reason": "HTTP 401 from https://www.reuters.com/technology/equinor-detects-ongoing-cyberattack-output-unaffected-2026-11-17/",
       "status": "failed"
     },
